@@ -1,0 +1,8 @@
+# SGE
+b
+
+<<<<<<< HEAD
+SISTEMA DE GESTION ESCOLAR principal
+=======
+SISTEMA DE GESTION ESCOLAR
+>>>>>>> f3da0d07518988216f8f70ece047be25f250a67f
