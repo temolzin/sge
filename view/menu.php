@@ -33,12 +33,12 @@ class Menu
       <a  href="'.constant('URL').'" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>
       <li class="nav-item">
-      <a id="escuela_consulta" name="escuela_consulta" href="'.constant('URL').'escuela_consulta" class="nav-link">
+      <a id="escuela_consulta" name="escuela_consulta" href="'.constant('URL').'escuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
       <p>
       Información Escolar 
@@ -46,7 +46,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="alumno_consulta" name="alumno_consulta" href="'.constant('URL').'alumno_consulta" class="nav-link">
+      <a id="alumno_consulta" name="alumno_consulta" href="'.constant('URL').'alumno" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
       <p>
       Información Alumno      
@@ -54,7 +54,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="incidencias_consulta" name="incidencias_consulta" href="'.constant('URL').'incidencias_consulta" class="nav-link">
+      <a id="incidencias_consulta" name="incidencias_consulta" href="'.constant('URL').'incidencia" class="nav-link">
       <i class="nav-icon fas fa-clipboard "></i>
       <p>
       Incidencias
@@ -63,7 +63,7 @@ class Menu
       </li>
       <?php } ?>
       <li class="nav-item">
-      <a id="tareaalumno_consulta" name="tareaalumno_consulta" href="'.constant('URL').'tareaalumno_consulta" class="nav-link">
+      <a id="tareaalumno_consulta" name="tareaalumno_consulta" href="'.constant('URL').'tarea" class="nav-link">
       <i class="nav-icon fas fa-edit"></i>
       <p>
       Tareas
@@ -71,7 +71,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="alumno_materia_consulta" name="alumno_materia_consulta" href="'.constant('URL').'alumno_materia_consulta" class="nav-link">
+      <a id="alumno_materia_consulta" name="alumno_materia_consulta" href="'.constant('URL').'materia" class="nav-link">
       <i class="nav-icon fas fa-book-open"></i>
       <p>
       Materias
@@ -80,7 +80,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="calificacion_tutor_consulta" name="calificacion_tutor_consulta" href="'.constant('URL').'calificacion_tutor_consulta" class="nav-link">
+      <a id="calificacion_tutor_consulta" name="calificacion_tutor_consulta" href="'.constant('URL').'calificacion" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
@@ -285,7 +285,7 @@ class Menu
       <a  href="'.constant('URL').'" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>
@@ -315,7 +315,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="escuela_consulta" name="escuela_consulta" href="'.constant('URL').'escuela_consulta" class="nav-link">
+      <a id="escuela_consulta" name="escuela_consulta" href="'.constant('URL').'escuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
       <p>
       Escuela 
@@ -323,7 +323,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="profesor_alumno_consulta" name="profesor_alumno_consulta" href="'.constant('URL').'profesor_alumno_consulta" class="nav-link">
+      <a id="profesor_alumno_consulta" name="profesor_alumno_consulta" href="'.constant('URL').'alumno" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
       <p>
       Alumnos
@@ -332,7 +332,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="materia_profesor_consulta" name="materia_profesor_consulta" href="'.constant('URL').'materia_profesor_consulta" class="nav-link">
+      <a id="materia_profesor_consulta" name="materia_profesor_consulta" href="'.constant('URL').'materia" class="nav-link">
       <i class="nav-icon fas fa-book"></i>
       <p>
       Materias
@@ -652,9 +652,11 @@ class Menu
         <script src="' . constant('URL') . 'public/plugins/jquery-validation/jquery.validate.js"></script>
         <!-- SWEETALERT2 -->
         <script src="' . constant('URL') . 'public/plugins/sweetalert2/sweetalert2.js"></script>
+        
         <!--SEPOMEX-->
         <script src="http://servicios.apiqroo.com.mx/sepomex/public/js/sepomex_js/sepomex.js"></script>
         <script src="public/plugins/select2/js/select2.full.min.js"></script>
+        
         <!--CONTRSEÑA-->
         <script src="js/jquery.min.js"></script>
         <script src="js/strength.min.js"></script>
@@ -682,6 +684,7 @@ class Menu
           $("#modulo").val(URLactual);
           $("#modulo2").val(URLactual);
         }
+        
         </script>
         </body>
         </html>';

@@ -330,7 +330,7 @@ $menu->header('Tarea');
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <form role="form" id="formEliminarTarea" name="formActualizarTarea">
+      <form role="form" id="formEliminarTarea" name="formEliminarTarea">
         <input type="text" hidden id="idEliminarTarea" name="idEliminarTarea">
         <div class="modal-body text-center text-danger">¿Realmente deseas eliminar esta Tarea?</div>
         <div class="modal-footer">
@@ -492,7 +492,7 @@ $menu->footer();
                     success: function (data) { 
 
 
-                      if (data == 'ok') {
+                      if (data != 'ok') {
                         Swal.fire(
                           "¡Éxito!",
                           "La tarea se asignó con exito",
@@ -610,7 +610,7 @@ $menu->footer();
                 processData: false,
                 data: form_data,
                 success: function (data) {
-                  if (data == 'ok') {
+                  if (data != 'ok') {
                     Swal.fire(
                       "¡Éxito!",
                       "La Tarea ha sido Actualizada de manera correcta",
@@ -701,7 +701,7 @@ $menu->footer();
         url: "<?php echo constant('URL');?>tarea/delete",
         data: datos,
         success: function (data) {
-          if (data == 'ok') {
+          if (data != 'ok') {
             Swal.fire(
               "¡Éxito!",
               "La Tarea ha sido eliminada correctamente",

@@ -213,7 +213,7 @@
             <div class="icon">
                <i class="ion ion-university"></i>
             </div>
-            <a href="http://localhost/sge/consulta_escuela" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="http://localhost/sge/escuela" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -566,7 +566,7 @@
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="/sge/alumno_incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/sge/incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
    </div>
@@ -611,7 +611,7 @@
                      </div>
                   </div>
                </div>
-               <a href="http://localhost/sge/consulta_escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
+               <a href="http://localhost/sge/escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
             </div>
          </div>
       </div>
