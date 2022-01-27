@@ -33,7 +33,7 @@ class Menu
       <a  href="'.constant('URL').'" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>
@@ -99,7 +99,7 @@ class Menu
       <a  href="'.constant('URL').'" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>
@@ -164,7 +164,7 @@ class Menu
       <a  href="'.constant('URL').'" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>  
@@ -285,7 +285,7 @@ class Menu
       <a  href="'.constant('URL').'" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>
@@ -356,10 +356,10 @@ class Menu
 
       $menu = '
       <li class="nav-item">
-      <a  href="'.constant('URL').'" class="nav-link">
+      <a  href="'.constant('URL').'" class="nav-link active">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>
@@ -507,7 +507,7 @@ class Menu
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="http://localhost/sge/" class="brand-link">
-    <center><span class="brand-text font-weight-light">Bienvenido '.$tipo.'</span></center>
+    <center><span class="brand-text font-weight-light">Bienvenid@ '.$tipo.'</span></center>
     </a>
 
     <!-- Sidebar -->
@@ -653,7 +653,7 @@ class Menu
         <!-- SWEETALERT2 -->
         <script src="' . constant('URL') . 'public/plugins/sweetalert2/sweetalert2.js"></script>
         <!--SEPOMEX-->
-        <script src="http://servicios.apiqroo.com.mx/sepomex/public/js/sepomex_js/sepomex.js"></script>
+        <script src="https://api.copomex.com/query/info_cp/09810?token=pruebas"></script>
         <script src="public/plugins/select2/js/select2.full.min.js"></script>
         <!--CONTRSEÑA-->
         <script src="js/jquery.min.js"></script>
@@ -682,6 +682,9 @@ class Menu
           $("#modulo").val(URLactual);
           $("#modulo2").val(URLactual);
         }
+
+        
+
         </script>
         </body>
         </html>';

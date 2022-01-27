@@ -69,7 +69,7 @@
             </div>
             <div class="col-md-8">
                <h4 class="font-45 weight-500 mb-10 text-capitalize" style="font-size: 30px" >
-                  Bienvenido
+                  Bienvenid@
                </h4>
                <div class="weight-600 font-30 text-blue" style="font-size: 30px">
                   <?php echo $nombre_completo; ?> 

@@ -858,7 +858,7 @@ const rutaImagen = () => {
         });
     }
 
-    function findCp(id_estado) {
+   /* function findCp(id_estado) {
         var selectEstado = document.getElementById('selectEstado');
         var selectMunicipio = document.getElementById('selectMunicipio');
         var selectColonia = document.getElementById('selectColonia');
@@ -900,7 +900,9 @@ const rutaImagen = () => {
                 console.log(response);
               }
               )
-    }
+    }*/
+
+    
 
             function findCpActualizar(id_estado){
             console.log(id_estado);
@@ -1599,6 +1601,14 @@ const rutaImagen = () => {
 
     });
 }
+function leerCodigoPostal(codigoPostal){
+          $.get( "<?php echo constant('URL'); ?> 'public/js/sepomex_abril-2016.json", function( data ) {
+            let data = JSON.parse(rawdata);
+            console.log(data);
+            let busqueda = data.filter(codigo => codigo.cp == codigoPostal);
+            res.json(busqueda);
+          });
+        }
 
 </script>
 <script >
@@ -1618,4 +1628,8 @@ const rutaImagen = () => {
       return false;
     }
   } 
+  function findCp(codigoPostal){
+        leerCodigoPostal(codigoPostal.value);
+
+    }
 </script>
