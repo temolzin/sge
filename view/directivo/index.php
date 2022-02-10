@@ -211,7 +211,7 @@ $menu->header('Directivo');
                               <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Código Postal (*)</label>
-                                    <input onfocusout="findCp(this);" type="postal-code" class="form-control" id="codigoPostal" name="codigoPostal" placeholder="Código Postal"   />
+                                    <input onfocusout="findCp(this);" type="postal-code" class="form-control" id="codigoPostal" name="codigoPostal" placeholder="Código Postal"/>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -444,7 +444,6 @@ $menu->header('Directivo');
                             <!-- /.card-header -->
                             <div class="card-body border-primary">
                                 <div class="row">
-
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Calle (*)</label>
@@ -465,12 +464,13 @@ $menu->header('Directivo');
                                     </div>
                                 </div>
                                 <div class="row">
-                              <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Código Postal (*)</label>
-                                    <input onfocusout="findCpActualizar(this);" type="postal-code" class="form-control" id="codigoPostalActualizar" name="codigoPostalActualizar" placeholder="Código Postal"   />
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Código Postal (*)</label>
+                                            <input onfocusout="findCpActualizar(this);" type="postal-code" class="form-control" id="codigoPostalActualizar" name="codigoPostalActualizar" placeholder="Código Postal"   />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Estado (*)</label>
@@ -817,6 +817,21 @@ $menu->footer();
 ?>
 
 <script>
+    var findCp = function(codigoPostal){
+        var codigoLeido=leerCodigoPostal(codigoPostal.value);
+        $('#selectEstado').empty();
+        for (let i in codigoLeido) {
+            $('#selectEstado').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+        }
+        $('#selectMunicipio').empty();
+        for (let i in codigoLeido) {
+            $('#selectMunicipio').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+        }
+        $('#selectColonia').empty();
+        for (let i in codigoLeido) {
+            $('#selectColonia').append('<option value=' + codigoLeido[i].asentamiento + '>' + codigoLeido[i].asentamiento + '</option>');
+        }
+    }
     $(document).ready(function (){
         mostrarDirectivos();
         enviarFormularioRegistrar();
@@ -824,8 +839,7 @@ $menu->footer();
         eliminarRegistro();
         llenarGradoAcademico();
         llenarEscuela();
-        rutaImagen(); 
-        
+        rutaImagen();   
     });
     $(".custom-file-input").on("change", function() {
       var fileName = $(this).val().split("\\").pop();
@@ -858,8 +872,9 @@ const rutaImagen = () => {
         });
     }
 
-   /* function findCp(id_estado) {
+   function findCp(id_estado) {
         var selectEstado = document.getElementById('selectEstado');
+        selectEstado.addEventListener("change",function(){console.log(selectEstado.value)});
         var selectMunicipio = document.getElementById('selectMunicipio');
         var selectColonia = document.getElementById('selectColonia');
         const optionEstado = document.createElement('option');
@@ -900,7 +915,7 @@ const rutaImagen = () => {
                 console.log(response);
               }
               )
-    }*/
+    }
 
     
 
@@ -1601,18 +1616,35 @@ const rutaImagen = () => {
 
     });
 }
-function leerCodigoPostal(codigoPostal){
-          $.get( "<?php echo constant('URL'); ?> 'public/js/sepomex_abril-2016.json", function( data ) {
-            let data = JSON.parse(rawdata);
-            console.log(data);
-            let busqueda = data.filter(codigo => codigo.cp == codigoPostal);
-            res.json(busqueda);
-          });
-        }
+function leerCodigoPostal(codigoPostal){ 
+    var result = '';
+    $.ajax({
+            type: "GET",
+            url: "<?php echo constant('URL');?>public/js/sepomex_abril-2016.json",
+            async: false,
+            dataType: "json",
+            success: function(rawdata){
+                console.log(rawdata);
+                console.log("<?php echo constant('URL');?>public/js/sepomex_abril-2016.json");        
+                let busqueda = rawdata.filter(codigo => codigo.cp == codigoPostal);        
+                console.log(busqueda);
+                result = busqueda; 
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    /*$.get( "<?php echo constant('URL');?>public/js/sepomex_abril-2016.json", function( rawdata ) {
+        console.log(rawdata);
+        console.log("<?php echo constant('URL');?>public/js/sepomex_abril-2016.json");        
+        let busqueda = rawdata.filter(codigo => codigo.cp == codigoPostal);        
+        console.log(busqueda);
+        result = busqueda; 
+    });*/
+    return result;
+}
 
-</script>
-<script >
-  function soloLetras(e) {
+        function soloLetras(e) {
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toLowerCase();
     letras = "áéíóúabcdefghijklmnñopqrstuvwxyz ";
@@ -1628,8 +1660,5 @@ function leerCodigoPostal(codigoPostal){
       return false;
     }
   } 
-  function findCp(codigoPostal){
-        leerCodigoPostal(codigoPostal.value);
-
-    }
+  
 </script>

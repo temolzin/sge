@@ -281,8 +281,8 @@ class Menu
     else if($tipo == 'Profesor'){
 
       $menu = '
-      <li class="nav-item">
-      <a  href="'.constant('URL').'" class="nav-link">
+      <li class="nav-item active">
+      <a  href="'.constant('URL').'" class="nav-link active">
       <i class="nav-icon fa fa-home"></i> 
       <p>
       Inicio
