@@ -1,9 +1,9 @@
  <?php
-     session_start();
-   require 'view/menu.php';
-   $menu = new Menu();
-   $menu->header('Administrador');
-   ?>
+    session_start();
+    require 'view/menu.php';
+    $menu = new Menu();
+    $menu->header('Administrador');
+?>
 <head>
    <!-- Google Font: Source Sans Pro -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -55,340 +55,300 @@
       </div>
    </div>
 </section>
+
 <!--- Modal Registrar--->
 <div class="modal fade" id="modalRegistrarAdministrador" tabindex="-1" role="dialog" aria-labelledby="modalRegistrarAdministrador" aria-hidden="true">
-   <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-         <div class="card-success">
-            <div class="card-header">
-               <div class="d-sm-flex align-items-center justify-content-between ">
-                  <h4 class="card-title">Administrador <small> &nbsp;(*) Campos requeridos</small></h4>
-                  <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-               </div>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="card-success">
+        <div class="card-header">
+          <div class="d-sm-flex align-items-center justify-content-between ">
+            <h4 class="card-title">Administrador <small> &nbsp;(*) Campos requeridos</small></h4>
+            <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+        </div>
+        <form role="form" id="formRegistrarAdministrador" name="formRegistrarAdministrador">
+          <div class="card-body">
+            <div class="card">
+              <div class="card-header py-1 bg-secondary">
+                <h3 class="card-title">Datos Generales</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body border-primary">
+                <div class="row">
+                  <div class="col-12 col-sm-12" >
+                    <div class="form-group">
+                      <input type="number" value="1" hidden class="form-control" id="id_tipo_usuario" name="id_tipo_usuario"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Usuario (*)</label>
+                        <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Contraseña (*)</label>
+                      <input type="password" class="form-control" id="password_usuario" name="password_usuario"
+                              placeholder="Contraseña"
+                              minlength="8"
+                              maxlength="12"
+                              pattern="[A-Za-z]{8,12}"
+                              title="Introduce 8 caracteres mayusculas/minusculas/numeros"/>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12">
+                    <span><label>Foto Administrador (*)</label></span>
+                    <div class="form-group input-group">
+                      <div class="custom-file">
+                          <input type="file" accept="image/*" class="custom-file-input" name="foto_administrador" id="foto_administrador" lang="es">
+                            <label class="custom-file-label" for="imagen">Selecciona Imagen</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12">
+                    <label>Nombre(s) (*)</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input  onkeypress="return soloLetras(event)" type="name" class="form-control" id="nombre_administrador" name="nombre_administrador" placeholder="Introduce el Nombre"/>
+                      </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label>Apellido Paterno (*)</label>
+                      <input onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="appaterno_administrador" name="appaterno_administrador" placeholder="Introduce el Apellido Paterno"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label>Apellido Materno (*)</label>
+                      <input onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="apmaterno_administrador" name="apmaterno_administrador" placeholder="Introduce el Apellido Materno"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <label>Teléfono (*)</label>
+                    <div class="input-group-prepend">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                      </div>
+                      <input type="text" id="telefono_administrador" name="telefono_administrador" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <label>Email (*)</label>
+                    <div class="input-group-prepend">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                      </div>
+                      <input type="email" class="form-control" id="email_administrador" name="email_administrador" placeholder="Eje. usuario@gmail.com etc"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label>Fecha Nacimiento (*)</label>
+                      <input type="date" class="form-control" id="fechanacimiento_administrador" name="fechanacimiento_administrador" placeholder="Introduce la fecha de nacimiento"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <form role="form" id="formRegistrarAdministrador" name="formRegistrarAdministrador">
-               <div class="card-body">
-                  <div class="card">
-                     <div class="card-header py-1 bg-secondary">
-                        <h3 class="card-title">Datos Generales</h3>
-                        <div class="card-tools">
-                           <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                        </div>
-                        <!-- /.card-tools -->
-                     </div>
-                     <!-- /.card-header -->
-                     <div class="card-body border-primary">
-                        <div class="row">
-                           <div class="col-12 col-sm-12" >
-                              <div class="form-group">
-                                 <input type="number" value="1" hidden class="form-control" id="id_tipo_usuario" name="id_tipo_usuario"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Usuario (*)</label>
-                                 <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Contraseña (*)</label>
-                                 <input type="password" class="form-control" id="password_usuario" name="password_usuario"
-                                    placeholder="Contraseña"
-                                    minlength="8"
-                                    maxlength="12"
-                                    pattern="[A-Za-z]{8,12}"
-                                    title="Introduce 8 caracteres mayusculas/minusculas/numeros"/>
-                              </div>
-                           </div>
-                           <div class="col-12 col-sm-12">
-                              <span><label>Foto Administrador (*)</label></span>
-                              <div class="form-group input-group">
-                                 <div class="custom-file">
-                                    <input type="file" accept="image/*" class="custom-file-input" name="foto_administrador" id="foto_administrador" 
-                                       lang="es">
-                                    <label   class="custom-file-label" for="imagen">Selecciona Imagen</label>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-12 col-sm-12">
-                              <label>Nombre(s) (*)</label>
-                              <div class="input-group mb-3">
-                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                 </div>
-                                 <input  onkeypress="return soloLetras(event)" type="name" class="form-control" id="nombre_administrador" name="nombre_administrador" placeholder="Introduce el Nombre"/>
-                              </div>
-                           </div>
-                           <!--  <div class="col-lg-12">
-                              <div class="form-group">
-                                <label>Nombre(s)</label>
-                                <input  onkeypress="return soloLetras(event)" type="name" class="form-control" id="nombre_administrador" name="nombre_administrador" placeholder="Introduce el Nombre"/>
-                              </div>
-                              </div> -->
-                           <div class="col-lg-12">
-                              <div class="form-group">
-                                 <label>Apellido Paterno (*)</label>
-                                 <input  onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="appaterno_administrador" name="appaterno_administrador" placeholder="Introduce el Apellido Paterno"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-12">
-                              <div class="form-group">
-                                 <label>Apellido Materno (*)</label>
-                                 <input onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="apmaterno_administrador" name="apmaterno_administrador" placeholder="Introduce el Apellido Materno"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <label>Teléfono (*)</label>
-                              <div class="input-group-prepend">
-                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                 </div>
-                                 <input type="text" id="telefono_administrador" name="telefono_administrador" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <label>Email (*)</label>
-                              <div class="input-group-prepend">
-                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                 </div>
-                                 <input type="email" class="form-control" id="email_administrador" name="email_administrador" placeholder="Eje. usuario@gmail.com etc"/>
-                              </div>
-                           </div>
-     
-                           <div class="col-lg-12">
-                              <div class="form-group">
-                                 <label>Fecha Nacimiento (*)</label>
-                                 <input type="date" class="form-control" id="fechanacimiento_administrador" name="fechanacimiento_administrador" placeholder="Introduce la fecha de nacimiento"/>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  
-               
-                 
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                     <button type="submit" class="btn btn-success">Registrar</button>
-                  </div>
-               </div>
-         </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Registrar</button>
+            </div>
+          </div>
       </div>
-      </form>
-   </div>
+    </div>
+        </form>
+  </div>
 </div>
-</div>
-</div>
+
 <!----------------------------------------------- Modal Actualizar----------------------------------------------->
 <div class="modal fade" id="modalActualizarAdministrador" tabindex="-1" role="dialog" aria-labelledby="modalActualizarAdministrador" aria-hidden="true">
-   <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-         <div class="card-warning">
-            <div class="card-header">
-               <div class="d-sm-flex align-items-center justify-content-between " >
-                  <h4 class="card-title">Administrador <small> &nbsp;(*) Campos requeridos</small></h4>
-                  <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-               </div>
-               <!---->
-            </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form role="form" id="formActualizarAdministrador" name="formActualizarAdministrador">
-               <div class="card-body">
-                  <div class="card">
-                     <div class="card-header py-1 bg-warning">
-                        <h3 class="card-title">Datos Generales</h3>
-                        <div class="card-tools">
-                           <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                        </div>
-                        <!-- /.card-tools -->
-                     </div>
-                     <!-- /.card-header -->
-                     <div class="card-body border-primary">
-                        <div class="row">
-                           <input type="text" hidden class="form-control" id="id_administradorActualizar" name="id_administradorActualizar" />
-                           <input type="text" hidden class="form-control" id="id_usuarioActualizar" name="id_usuarioActualizar" placeholder="Introduce idusuario"/>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Usuario (*)</label>
-                                 <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Contraseña (*)</label>
-                                 <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña"/>
-                              </div>
-                           </div>
-                           <div class="col-12 col-sm-12">
-                              <span><label>Foto administrador (*)</label></span>
-                              <br>
-                              <div class="form-group input-group">
-                                 <div class="custom-file">
-                                    <input type="file" accept="image/*" class="custom-file-input"
-                                       name="foto_administradorActualizar" id="foto_administradorActualizar" lang="es">
-                                    <label id="foto_administradorActualizar" class="custom-file-label"  name="foto_administradorActualizar" id="foto_administradorActualizar" for="imagen">Selecciona Imagen</label> 
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Nombre(s) (*)</label>
-                                 <input onkeypress="return soloLetras(event)"  type="text" class="form-control" id="nombre_administradorActualizar" name="nombre_administradorActualizar" placeholder="Introduce el nombre del administrador"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Apellido Paterno (*)</label>
-                                 <input onkeypress="return soloLetras(event)"  type="text" class="form-control" id="appaterno_administradorActualizar" name="appaterno_administradorActualizar" placeholder="Introduce el Apellido paterno"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Apellido Materno (*)</label>
-                                 <input  onkeypress="return soloLetras(event)"  type="text" class="form-control" id="apmaterno_administradorActualizar" name="apmaterno_administradorActualizar" placeholder="Introduce el Apellido materno"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Teléfono (*)</label>
-                                 <input type="text" class="form-control" id="telefono_administradorActualizar" 
-                                    name="telefono_administradorActualizar" placeholder="Introduce el numero telefonico"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Email (*)</label>
-                                 <input type="text" class="form-control" id="email_administradorActualizar" name="email_administradorActualizar" placeholder="Introduce el tu correo"/>
-                              </div>
-                           </div> 
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Fecha Nacimiento (*)</label>
-                                 <input type="date" class="form-control" id="fechanacimiento_administradorActualizar" name="fechanacimiento_administradorActualizar" placeholder="Introduce la fecha de nacimiento"/>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="card-warning">
+        <div class="card-header">
+          <div class="d-sm-flex align-items-center justify-content-between " >
+            <h4 class="card-title">Administrador <small> &nbsp;(*) Campos requeridos</small></h4>
+            <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+        </div>
+        <form role="form" id="formActualizarAdministrador" name="formActualizarAdministrador">
+          <div class="card-body">
+            <div class="card">
+              <div class="card-header py-1 bg-warning">
+                <h3 class="card-title">Datos Generales</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body border-primary">
+                <div class="row">
+                  <input type="text" hidden class="form-control" id="id_administradorActualizar" name="id_administradorActualizar" />
+                  <input type="text" hidden class="form-control" id="id_usuarioActualizar" name="id_usuarioActualizar" placeholder="Introduce idusuario"/>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Usuario (*)</label>
+                      <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
+                    </div>
                   </div>
-                  
-                  
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Contraseña (*)</label>
+                      <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña"/>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-12">
+                    <span><label>Foto administrador (*)</label></span>
+                    <br>
+                    <div class="form-group input-group">
+                      <div class="custom-file">
+                        <input type="file" accept="image/*" class="custom-file-input" name="foto_administradorActualizar" id="foto_administradorActualizar" lang="es">
+                        <label id="foto_administradorActualizar" class="custom-file-label"  name="foto_administradorActualizar" id="foto_administradorActualizar" for="imagen">Selecciona Imagen</label> 
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Nombre(s) (*)</label>
+                      <input onkeypress="return soloLetras(event)"  type="text" class="form-control" id="nombre_administradorActualizar" name="nombre_administradorActualizar" placeholder="Introduce el nombre del administrador"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Apellido Paterno (*)</label>
+                      <input onkeypress="return soloLetras(event)"  type="text" class="form-control" id="appaterno_administradorActualizar" name="appaterno_administradorActualizar" placeholder="Introduce el Apellido paterno"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Apellido Materno (*)</label>
+                      <input  onkeypress="return soloLetras(event)"  type="text" class="form-control" id="apmaterno_administradorActualizar" name="apmaterno_administradorActualizar" placeholder="Introduce el Apellido materno"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Teléfono (*)</label>
+                      <input type="text" class="form-control" id="telefono_administradorActualizar" name="telefono_administradorActualizar" placeholder="Introduce el numero telefonico"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Email (*)</label>
+                      <input type="text" class="form-control" id="email_administradorActualizar" name="email_administradorActualizar" placeholder="Introduce el tu correo"/>
+                    </div>
+                  </div> 
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Fecha Nacimiento (*)</label>
+                      <input type="date" class="form-control" id="fechanacimiento_administradorActualizar" name="fechanacimiento_administradorActualizar" placeholder="Introduce la fecha de nacimiento"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>      
          <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-         <button type="submit" class="btn btn-warning">Actualizar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-warning">Actualizar</button>
          </div>
+          </div>
+        </form>                                                 
       </div>
-      </form>                                                 
-   </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
+
 <!--------------------------------------------------------- Modal DetalleAdministrador----------------------------------------------->
 <div class="modal fade" id="modalDetalleAdministrador" tabindex="-1" role="dialog" aria-labelledby="modalDetalleAdministrador" aria-hidden="true">
-   <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-         <div class="card-primary">
-            <div class="card-header">
-               <div class="d-sm-flex align-items-center justify-content-between " >
-                  <h4 class="card-title">Administrador <small> &nbsp;</small></h4>
-                  <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-               </div>
-               <!---->
-            </div>
-            <!-- /.card-header -->
-            <!-- form start -->
-            <form role="form" id="formConsulta" name="formConsulta">
-               <div class="card-body">
-                  <div class="card">
-                     <div class="card-header py-1 bg-primary">
-                        <h3 class="card-title">Datos Generales</h3>
-                        <div class="card-tools">
-                           <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                        </div>
-                        <!-- /.card-tools -->
-                     </div>
-                     <!-- /.card-header -->
-                     <div class="card-body border-primary">
-                        <div class="row">
-                           <input type="text" hidden class="form-control" id="id_administradorConsultar" name="id_administradorConsultar" />
-                           <input type="text" hidden  class="form-control" id="id_usuarioConsultar" name="id_usuarioConsultar"/>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Usuario</label>
-                                 <input disabled type="text" class="form-control" id="username_usuarioConsultar" name="username_usuarioConsultar" />
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Contraseña</label>
-                                 <input disabled type="password" class="form-control" id="password_usuarioConsultar" name="password_usuarioConsultar" />
-                              </div>
-                           </div>
-                           <!--   <div class="col-12 col-sm-12">
-                              <label>Foto administrador</label>
-                              <br>
-                              <div align="center" class="mx-auto">
-                                <img id="imgadministradorActualizar" class="rounded" name="imgadministradorActualizar" width="30%"> -->
-                           <!--   <img src="public/administrador/ " alt="Mi Imagen" class="rounded"  width="30%" title="Mi Imagen">
-                              <img src="public/administrador/Hernandez_Franco_Uriel/C2.jpeg" class="rounded" name="imgadministradorConsultar" width="30%"> 
-                                <img src="public/administrador/Flores_Vargas_Esteban/user-4.png" class="rounded" name="imgadministradorConsultar" width="30%">
-                              </div>
-                              </div> -->
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Nombre(s)</label>
-                                 <input type="text" disabled class="form-control" id="nombre_administradorConsultar" name="nombre_administradorConsultar" placeholder="Introduce el nombre del administrador"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Apellido Paterno</label>
-                                 <input type="text" disabled class="form-control" id="appaterno_administradorConsultar" name="appaterno_administradorConsultar" placeholder="Introduce el Apellido paterno"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Apellido Materno</label>
-                                 <input type="text" disabled class="form-control" id="apmaterno_administradorConsultar" name="apmaterno_administradorConsultar" placeholder="Introduce el Apellido Materno"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Teléfono</label>
-                                 <input type="text" disabled class="form-control" id="telefono_administradorConsultar" 
-                                    name="telefono_administradorConsultar" placeholder="Introduce el numero telefonico"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Email</label>
-                                 <input type="text" disabled class="form-control" id="email_administradorConsultar" name="email_administradorConsultar" placeholder="Introduce el email_administrador"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-6">
-                              <div class="form-group">
-                                 <label>Fecha Nacimiento</label>
-                                 <input type="date" disabled class="form-control" id="fechanacimiento_administradorConsultar" name="fechanacimiento_administradorConsultar" placeholder="Introduce la fecha de nacimiento"/>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="card-primary">
+        <div class="card-header">
+          <div class="d-sm-flex align-items-center justify-content-between " >
+            <h4 class="card-title">Administrador <small> &nbsp;</small></h4>
+            <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+        </div>
+        <form role="form" id="formConsulta" name="formConsulta">
+          <div class="card-body">
+            <div class="card">
+              <div class="card-header py-1 bg-primary">
+                <h3 class="card-title">Datos Generales</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                   </div>
-                  
-                 
+              </div>
+              <div class="card-body border-primary">
+                <div class="row">
+                  <input type="text" hidden class="form-control" id="id_administradorConsultar" name="id_administradorConsultar" />
+                  <input type="text" hidden  class="form-control" id="id_usuarioConsultar" name="id_usuarioConsultar"/>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Usuario</label>
+                      <input disabled type="text" class="form-control" id="username_usuarioConsultar" name="username_usuarioConsultar" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Contraseña</label>
+                      <input disabled type="password" class="form-control" id="password_usuarioConsultar" name="password_usuarioConsultar" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Nombre(s)</label>
+                      <input type="text" disabled class="form-control" id="nombre_administradorConsultar" name="nombre_administradorConsultar" placeholder="Introduce el nombre del administrador"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Apellido Paterno</label>
+                      <input type="text" disabled class="form-control" id="appaterno_administradorConsultar" name="appaterno_administradorConsultar" placeholder="Introduce el Apellido paterno"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Apellido Materno</label>
+                      <input type="text" disabled class="form-control" id="apmaterno_administradorConsultar" name="apmaterno_administradorConsultar" placeholder="Introduce el Apellido Materno"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Teléfono</label>
+                      <input type="text" disabled class="form-control" id="telefono_administradorConsultar" name="telefono_administradorConsultar" placeholder="Introduce el numero telefonico"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" disabled class="form-control" id="email_administradorConsultar" name="email_administradorConsultar" placeholder="Introduce el email_administrador"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Fecha Nacimiento</label>
+                      <input type="date" disabled class="form-control" id="fechanacimiento_administradorConsultar" name="fechanacimiento_administradorConsultar" placeholder="Introduce la fecha de nacimiento"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>      
          <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
          </div>
+          </div>
+        </form>                                                 
       </div>
-      </form>                                                 
-   </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
+
 <!-- **** Modal Eliminar Administrador *******-->
 <div class="modal fade" id="modalEliminarAdministrador" tabindex="-1" role="dialog" aria-labelledby="modalEliminarAdministrador" aria-hidden="true">
    <div class="modal-dialog modal-lg" role="document">
@@ -411,21 +371,78 @@
       </div>
    </div>
 </div>
+
 <?php
    $menu->footer();
    ?>
+
 <script src="public/plugins/inputmask/jquery.inputmask.min.js"></script>
 <script>
-  $(document).ready(function () {
+
+var findCp = function(codigoPostal){
+    var codigoLeido=leerCodigoPostal(codigoPostal.value);
+    $('#selectEstado').empty();
+    for (let i in codigoLeido) {
+        $('#selectEstado').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+    }
+    $('#selectMunicipio').empty();
+    for (let i in codigoLeido) {
+        $('#selectMunicipio').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+    }
+    $('#selectColonia').empty();
+    for (let i in codigoLeido) {
+        $('#selectColonia').append('<option value=' + codigoLeido[i].asentamiento + '>' + codigoLeido[i].asentamiento + '</option>');
+    }
+}
+
+var findCpActualizar = function(codigoPostal){
+    var codigoLeido=leerCodigoPostal(codigoPostal.value);
+    $('#selectEstado').empty();
+    for (let i in codigoLeido) {
+        $('#selectEstadoActualizar').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+    }
+    $('#selectMunicipio').empty();
+    for (let i in codigoLeido) {
+        $('#selectMunicipioActualizar').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+    }
+    $('#selectColonia').empty();
+    for (let i in codigoLeido) {
+        $('#selectColoniaActualizar').append('<option value=' + codigoLeido[i].asentamiento + '>' + codigoLeido[i].asentamiento + '</option>');
+    }
+}
+
+function leerCodigoPostal(codigoPostal){ 
+    var result = '';
+    $.ajax({
+        type: "GET",
+        url: "<?php echo constant('URL');?>public/js/sepomex_abril-2016.json",
+        async: false,
+        dataType: "json",
+        success: function(rawdata){
+            console.log(rawdata);
+            console.log("<?php echo constant('URL');?>public/js/sepomex_abril-2016.json");        
+            let busqueda = rawdata.filter(codigo => codigo.cp == codigoPostal);        
+            console.log(busqueda);
+            result = busqueda; 
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+    return result;
+}
+
+$(document).ready(function () {
     mostrarAdministradors();
     enviarFormularioRegistrar();
     enviarFormularioActualizar();
     eliminarRegistro();
     llenarGrupo();
     llenarEscuela();
-  });
+});
 
 $('[data-mask]').inputmask()
+
 const llenarGrupo = () => {
   $.ajax({
     type: "GET",
@@ -446,7 +463,6 @@ const llenarGrupo = () => {
   });
 }
 
-
 const llenarEscuela = () => {
   $.ajax({
     type: "GET",
@@ -464,94 +480,6 @@ const llenarEscuela = () => {
       console.log(data);
     }
   });
-}
-
-function findCp(id_estado) {
-  var selectEstado = document.getElementById('selectEstado');
-  var selectMunicipio = document.getElementById('selectMunicipio');
-  var selectColonia = document.getElementById('selectColonia');
-  const optionEstado = document.createElement('option');
-  const optionMunicipio = document.createElement('option');
-  const optionColonia = document.createElement('option');
-
-  for (let i = selectEstado.options.length; i >= 0; i--) {
-    selectEstado.remove(i);
-  }
-  for (let i = selectMunicipio.options.length; i >= 0; i--) {
-    selectMunicipio.remove(i);
-  }
-  for (let i = selectColonia.options.length; i >= 0; i--) {
-    selectColonia.remove(i);
-  }
-
-  Sepomex.findCp({
-      "cp": id_estado.value,
-      "user": "apiqroo"
-    },
-    function (response) {
-      //alert(response[0].CODI_COLONIA);
-      response.forEach(
-        function (valor, indice, array) {
-          // element => console.log(valor.CODI_COLONIA);
-          optionEstado.value = valor.CODI_ESTADO;
-          optionEstado.text = valor.CODI_ESTADO;
-          selectEstado.appendChild(optionEstado);
-
-          optionMunicipio.value = valor.CODI_MUNICIPIO;
-          optionMunicipio.text = valor.CODI_MUNICIPIO;
-          selectMunicipio.appendChild(optionMunicipio);
-
-          var op = new Option(valor.CODI_COLONIA, valor.CODI_COLONIA);
-          $("#selectColonia").append(op);
-        }
-      );
-      console.log(response);
-    }
-  )
-}
-
-function findCpActualizar(id_estado) {
-  console.log(id_estado);
-  var selectEstado = document.getElementById('selectEstadoActualizar');
-  var selectMunicipio = document.getElementById('selectMunicipioActualizar');
-  var selectColonia = document.getElementById('selectColoniaActualizar');
-  const optionEstado = document.createElement('option');
-  const optionMunicipio = document.createElement('option');
-  const optionColonia = document.createElement('option');
-
-  for (let i = selectEstado.options.length; i >= 0; i--) {
-    selectEstado.remove(i);
-  }
-  for (let i = selectMunicipio.options.length; i >= 0; i--) {
-    selectMunicipio.remove(i);
-  }
-  for (let i = selectColonia.options.length; i >= 0; i--) {
-    selectColonia.remove(i);
-  }
-
-  Sepomex.findCp({
-      "cp": id_estado.value,
-      "user": "apiqroo"
-    },
-    function (response) {
-      response.forEach(
-        function (valor, indice, array) {
-          // element => console.log(valor.CODI_COLONIA);
-          optionEstado.value = valor.CODI_ESTADO;
-          optionEstado.text = valor.CODI_ESTADO;
-          selectEstado.appendChild(optionEstado);
-
-          optionMunicipio.value = valor.CODI_MUNICIPIO;
-          optionMunicipio.text = valor.CODI_MUNICIPIO;
-          selectMunicipio.appendChild(optionMunicipio);
-
-          var op = new Option(valor.CODI_COLONIA, valor.CODI_COLONIA);
-          $("#selectColoniaActualizar").append(op);
-        }
-      );
-      console.log(response);
-    }
-  )
 }
 
 

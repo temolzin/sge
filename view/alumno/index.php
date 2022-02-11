@@ -668,6 +668,7 @@
 </div>
 </div>
 </div>
+
 <!-- **** Modal Eliminar Alumno *******-->
 <div class="modal fade" id="modalEliminarAlumno" tabindex="-1" role="dialog" aria-labelledby="modalEliminarAlumno" aria-hidden="true">
    <div class="modal-dialog modal-lg" role="document">
@@ -695,6 +696,60 @@
    ?>
 <script src="public/plugins/inputmask/jquery.inputmask.min.js"></script>
 <script>
+
+var findCp = function(codigoPostal){
+    var codigoLeido=leerCodigoPostal(codigoPostal.value);
+    $('#selectEstado').empty();
+    for (let i in codigoLeido) {
+        $('#selectEstado').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+    }
+    $('#selectMunicipio').empty();
+    for (let i in codigoLeido) {
+        $('#selectMunicipio').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+    }
+    $('#selectColonia').empty();
+    for (let i in codigoLeido) {
+        $('#selectColonia').append('<option value=' + codigoLeido[i].asentamiento + '>' + codigoLeido[i].asentamiento + '</option>');
+    }
+}
+
+var findCpActualizar = function(codigoPostal){
+    var codigoLeido=leerCodigoPostal(codigoPostal.value);
+    $('#selectEstado').empty();
+    for (let i in codigoLeido) {
+        $('#selectEstadoActualizar').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+    }
+    $('#selectMunicipio').empty();
+    for (let i in codigoLeido) {
+        $('#selectMunicipioActualizar').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+    }
+    $('#selectColonia').empty();
+    for (let i in codigoLeido) {
+        $('#selectColoniaActualizar').append('<option value=' + codigoLeido[i].asentamiento + '>' + codigoLeido[i].asentamiento + '</option>');
+    }
+}
+
+function leerCodigoPostal(codigoPostal){ 
+    var result = '';
+    $.ajax({
+        type: "GET",
+        url: "<?php echo constant('URL');?>public/js/sepomex_abril-2016.json",
+        async: false,
+        dataType: "json",
+        success: function(rawdata){
+            console.log(rawdata);
+            console.log("<?php echo constant('URL');?>public/js/sepomex_abril-2016.json");        
+            let busqueda = rawdata.filter(codigo => codigo.cp == codigoPostal);        
+            console.log(busqueda);
+            result = busqueda; 
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+    return result;
+}
+
   $(document).ready(function () {
     mostrarAlumnos();
     enviarFormularioRegistrar();
@@ -743,94 +798,6 @@ const llenarEscuela = () => {
       console.log(data);
     }
   });
-}
-
-function findCp(id_estado) {
-  var selectEstado = document.getElementById('selectEstado');
-  var selectMunicipio = document.getElementById('selectMunicipio');
-  var selectColonia = document.getElementById('selectColonia');
-  const optionEstado = document.createElement('option');
-  const optionMunicipio = document.createElement('option');
-  const optionColonia = document.createElement('option');
-
-  for (let i = selectEstado.options.length; i >= 0; i--) {
-    selectEstado.remove(i);
-  }
-  for (let i = selectMunicipio.options.length; i >= 0; i--) {
-    selectMunicipio.remove(i);
-  }
-  for (let i = selectColonia.options.length; i >= 0; i--) {
-    selectColonia.remove(i);
-  }
-
-  Sepomex.findCp({
-      "cp": id_estado.value,
-      "user": "apiqroo"
-    },
-    function (response) {
-      //alert(response[0].CODI_COLONIA);
-      response.forEach(
-        function (valor, indice, array) {
-          // element => console.log(valor.CODI_COLONIA);
-          optionEstado.value = valor.CODI_ESTADO;
-          optionEstado.text = valor.CODI_ESTADO;
-          selectEstado.appendChild(optionEstado);
-
-          optionMunicipio.value = valor.CODI_MUNICIPIO;
-          optionMunicipio.text = valor.CODI_MUNICIPIO;
-          selectMunicipio.appendChild(optionMunicipio);
-
-          var op = new Option(valor.CODI_COLONIA, valor.CODI_COLONIA);
-          $("#selectColonia").append(op);
-        }
-      );
-      console.log(response);
-    }
-  )
-}
-
-function findCpActualizar(id_estado) {
-  console.log(id_estado);
-  var selectEstado = document.getElementById('selectEstadoActualizar');
-  var selectMunicipio = document.getElementById('selectMunicipioActualizar');
-  var selectColonia = document.getElementById('selectColoniaActualizar');
-  const optionEstado = document.createElement('option');
-  const optionMunicipio = document.createElement('option');
-  const optionColonia = document.createElement('option');
-
-  for (let i = selectEstado.options.length; i >= 0; i--) {
-    selectEstado.remove(i);
-  }
-  for (let i = selectMunicipio.options.length; i >= 0; i--) {
-    selectMunicipio.remove(i);
-  }
-  for (let i = selectColonia.options.length; i >= 0; i--) {
-    selectColonia.remove(i);
-  }
-
-  Sepomex.findCp({
-      "cp": id_estado.value,
-      "user": "apiqroo"
-    },
-    function (response) {
-      response.forEach(
-        function (valor, indice, array) {
-          // element => console.log(valor.CODI_COLONIA);
-          optionEstado.value = valor.CODI_ESTADO;
-          optionEstado.text = valor.CODI_ESTADO;
-          selectEstado.appendChild(optionEstado);
-
-          optionMunicipio.value = valor.CODI_MUNICIPIO;
-          optionMunicipio.text = valor.CODI_MUNICIPIO;
-          selectMunicipio.appendChild(optionMunicipio);
-
-          var op = new Option(valor.CODI_COLONIA, valor.CODI_COLONIA);
-          $("#selectColoniaActualizar").append(op);
-        }
-      );
-      console.log(response);
-    }
-  )
 }
 
 
