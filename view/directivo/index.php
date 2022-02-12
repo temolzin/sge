@@ -747,10 +747,12 @@ var findCp = function(codigoPostal){
     $('#selectEstado').empty();
     for (let i in codigoLeido) {
         $('#selectEstado').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+        break;
     }
     $('#selectMunicipio').empty();
     for (let i in codigoLeido) {
         $('#selectMunicipio').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+        break;
     }
     $('#selectColonia').empty();
     for (let i in codigoLeido) {
