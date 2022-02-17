@@ -109,7 +109,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-12">
+                  <div class="col-lg-4">
                     <label>Nombre(s) (*)</label>
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -118,28 +118,28 @@
                         <input  onkeypress="return soloLetras(event)" type="name" class="form-control" id="nombre_administrador" name="nombre_administrador" placeholder="Introduce el Nombre"/>
                       </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Apellido Paterno (*)</label>
                       <input onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="appaterno_administrador" name="appaterno_administrador" placeholder="Introduce el Apellido Paterno"/>
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Apellido Materno (*)</label>
                       <input onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="apmaterno_administrador" name="apmaterno_administrador" placeholder="Introduce el Apellido Materno"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <label>Teléfono (*)</label>
                     <div class="input-group-prepend">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                       </div>
-                      <input type="text" id="telefono_administrador" name="telefono_administrador" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                      <input type="text" id="telefono_administrador" name="telefono_administrador" class="form-control" data-inputmask='"mask": "(999) 999-9999"' placeholder="Telefono">
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <label>Email (*)</label>
                     <div class="input-group-prepend">
                       <div class="input-group-prepend">
@@ -148,7 +148,7 @@
                       <input type="email" class="form-control" id="email_administrador" name="email_administrador" placeholder="Eje. usuario@gmail.com etc"/>
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Fecha Nacimiento (*)</label>
                       <input type="date" class="form-control" id="fechanacimiento_administrador" name="fechanacimiento_administrador" placeholder="Introduce la fecha de nacimiento"/>

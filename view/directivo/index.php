@@ -762,13 +762,15 @@ var findCp = function(codigoPostal){
 
 var findCpActualizar = function(codigoPostal){
     var codigoLeido=leerCodigoPostal(codigoPostal.value);
-    $('#selectEstado').empty();
+    /*$('#selectEstado').empty();*/
     for (let i in codigoLeido) {
         $('#selectEstadoActualizar').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+        break;
     }
     $('#selectMunicipio').empty();
     for (let i in codigoLeido) {
         $('#selectMunicipioActualizar').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+        break;
     }
     $('#selectColonia').empty();
     for (let i in codigoLeido) {

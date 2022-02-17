@@ -92,19 +92,27 @@
                                     <input type="text" class="form-control" id="cct_escuela" name="cct_escuela" placeholder="CCT"/>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Telefono</label>
-                                    <input type="text" class="form-control" id="telefono_escuela" name="telefono_escuela" placeholder="Telefono"/>
+                            <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Teléfono (*)</label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    </div>
+                                    <input type="tel" id="telefono_escuela" name="telefono_escuela" class="form-control" data-inputmask='"mask": "(99) 99-9999-9999"' data-mask placeholder="Teléfono">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="text" class="form-control" id="email_escuela" name="email_escuela" placeholder="Email"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <label>Email (*)</label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="email_escuela" name="email_escuela" placeholder="Eje. escuela@gmail.com "/>
                                 </div>
                             </div>
-                             <div class="col-lg-8">
+                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Observacion Escuela</label>
                                     <input type="text" class="form-control" id="observacion_escuela" name="observacion_escuela" placeholder="Observacion Escuela"/>
@@ -117,12 +125,9 @@
             </div>
 
                  <div class="card-body">
-
-
                          <div class="card">
                                 <div class="card-header py-1 bg-secondary">
                                     <h3 class="card-title">Dirección</h3>
-
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                     </div>
@@ -135,18 +140,16 @@
                                 <div class="form-group">
                                     <label>Calle Escuela</label>
                                     <input class="form-control" name="calle_escuela" id="calle_escuela" placeholder="Calle Escuela"/>
-
                                 </div>
                             </div>
 
-                            
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Numero Exterior</label>
                                     <input type="text" class="form-control" id="numxterior_escuela" name="numxterior_escuela" placeholder="Numero Exterior"/>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Numero Interior</label>
                                     <input type="text" class="form-control" id="numinterior_escuela" name="numinterior_escuela" placeholder="Numero Interior"/>
@@ -567,10 +570,13 @@ var findCp = function(codigoPostal){
     $('#selectEstado').empty();
     for (let i in codigoLeido) {
         $('#selectEstado').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+        break;
     }
+
     $('#selectMunicipio').empty();
     for (let i in codigoLeido) {
         $('#selectMunicipio').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+        break;
     }
     $('#selectColonia').empty();
     for (let i in codigoLeido) {
@@ -580,13 +586,15 @@ var findCp = function(codigoPostal){
 
 var findCpActualizar = function(codigoPostal){
     var codigoLeido=leerCodigoPostal(codigoPostal.value);
-    $('#selectEstado').empty();
+    /*$('#selectEstado').empty();*/
     for (let i in codigoLeido) {
         $('#selectEstadoActualizar').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+        break;
     }
     $('#selectMunicipio').empty();
     for (let i in codigoLeido) {
         $('#selectMunicipioActualizar').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+        break;
     }
     $('#selectColonia').empty();
     for (let i in codigoLeido) {

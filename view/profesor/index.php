@@ -94,7 +94,7 @@
                       </div>
                     </div> 
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <div class="form-group">
                         <label>Nombre(s) (*)</label>
                         <div class="input-group mb-3">
@@ -105,21 +105,21 @@
                       </div>
                     </div>
                   </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <div class="form-group">
                         <label>Apellido Paterno (*)</label>
                         <input onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="appaterno_profesor" name="appaterno_profesor" placeholder="Introduce el Apellido paterno"/>
                       </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <div class="form-group">
                         <label>Apellido Materno (*)</label>
                         <input onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="apmaterno_profesor" name="apmaterno_profesor" placeholder="Introduce el apellido materno"/>
                       </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <div class="form-group">
                         <label>Teléfono celular (*)</label>
                         <div class="input-group-prepend">
@@ -130,7 +130,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Correo electrónico (*)</label>
                       <div class="input-group-prepend">
@@ -142,7 +142,7 @@
                   </div>
                 </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <div class="form-group">
                         <label>Fecha Nacimiento (*)</label>
                         <input type="date" class="form-control" id="fechanacimiento_profesor" name="fechanacimiento_profesor" placeholder="Introduce la fecha de nacimiento"/>
@@ -756,10 +756,12 @@ var findCp = function(codigoPostal){
     $('#selectEstado').empty();
     for (let i in codigoLeido) {
         $('#selectEstado').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+        break;
     }
     $('#selectMunicipio').empty();
     for (let i in codigoLeido) {
         $('#selectMunicipio').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+        break;
     }
     $('#selectColonia').empty();
     for (let i in codigoLeido) {
@@ -769,13 +771,15 @@ var findCp = function(codigoPostal){
 
 var findCpActualizar = function(codigoPostal){
     var codigoLeido=leerCodigoPostal(codigoPostal.value);
-    $('#selectEstado').empty();
+    /*$('#selectEstado').empty();*/
     for (let i in codigoLeido) {
         $('#selectEstadoActualizar').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+        break;
     }
     $('#selectMunicipio').empty();
     for (let i in codigoLeido) {
         $('#selectMunicipioActualizar').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+        break;
     }
     $('#selectColonia').empty();
     for (let i in codigoLeido) {

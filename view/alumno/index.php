@@ -111,7 +111,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="col-12 col-sm-12">
+                           <div class="col-lg-4">
                               <label>Nombre(s) (*)</label>
                               <div class="input-group mb-3">
                                  <div class="input-group-prepend">
@@ -126,19 +126,19 @@
                                 <input  onkeypress="return soloLetras(event)" type="name" class="form-control" id="nombre_alumno" name="nombre_alumno" placeholder="Introduce el Nombre"/>
                               </div>
                               </div> -->
-                           <div class="col-lg-12">
+                           <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Apellido Paterno (*)</label>
                                  <input  onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="appaterno_alumno" name="appaterno_alumno" placeholder="Introduce el Apellido Paterno"/>
                               </div>
                            </div>
-                           <div class="col-lg-12">
+                           <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Apellido Materno (*)</label>
                                  <input onkeypress="return soloLetras(event)" type="family-name" class="form-control" id="apmaterno_alumno" name="apmaterno_alumno" placeholder="Introduce el Apellido Materno"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-4">
                               <label>Teléfono (*)</label>
                               <div class="input-group-prepend">
                                  <div class="input-group-prepend">
@@ -147,7 +147,7 @@
                                  <input type="text" id="telefono_alumno" name="telefono_alumno" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-4">
                               <label>Email (*)</label>
                               <div class="input-group-prepend">
                                  <div class="input-group-prepend">
@@ -157,7 +157,7 @@
                               </div>
                            </div>
      
-                           <div class="col-lg-12">
+                           <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Fecha Nacimiento (*)</label>
                                  <input type="date" class="form-control" id="fechanacimiento_alumno" name="fechanacimiento_alumno" placeholder="Introduce la fecha de nacimiento"/>
@@ -702,10 +702,12 @@ var findCp = function(codigoPostal){
     $('#selectEstado').empty();
     for (let i in codigoLeido) {
         $('#selectEstado').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+        break;
     }
     $('#selectMunicipio').empty();
     for (let i in codigoLeido) {
         $('#selectMunicipio').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+        break;
     }
     $('#selectColonia').empty();
     for (let i in codigoLeido) {
@@ -715,13 +717,15 @@ var findCp = function(codigoPostal){
 
 var findCpActualizar = function(codigoPostal){
     var codigoLeido=leerCodigoPostal(codigoPostal.value);
-    $('#selectEstado').empty();
+    /*$('#selectEstado').empty();*/
     for (let i in codigoLeido) {
         $('#selectEstadoActualizar').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+        break;
     }
     $('#selectMunicipio').empty();
     for (let i in codigoLeido) {
         $('#selectMunicipioActualizar').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+        break;
     }
     $('#selectColonia').empty();
     for (let i in codigoLeido) {
