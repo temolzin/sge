@@ -23,8 +23,8 @@
                         <table id="dataTableDirectivo" name="dataTableDirectivo" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
+                                <th>Foto</th>
                                     <th>Nombre</th>
-                                    <th>Foto</th>
                                     <th>Teléfono</th>
                                     <th>Cédula profesional</th>
                                     <th>Opciones</th>
@@ -61,7 +61,25 @@
                                 </div>
                             </div>
                             <div class="card-body border-primary">
-                                <div class="col-12 col-sm-12">
+                            <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Usuario (*)</label>
+                                            <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Contraseña (*)</label>
+                                            <input type="password" class="form-control" id="password_usuario" name="password_usuario"
+                                            placeholder="Contraseña"
+                                            minlength="8"
+                                            maxlength="12"
+                                            pattern="[A-Za-z]{8,12}"
+                                            title="Introduce 8 caracteres mayúsculas/minúsculas/números"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
                                         <span><label>Fotografía director (*)</label></span>
                                         <div class="form-group input-group">
                                         <div class="custom-file">
@@ -70,6 +88,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div>
+                                
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
@@ -139,25 +159,6 @@
                                                 <input type="text" class="form-control" id="curp_director" name="curp_director" placeholder="CURP"/>
                                             </div>
                                         </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Usuario (*)</label>
-                                            <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Contraseña (*)</label>
-                                            <input type="password" class="form-control" id="password_usuario" name="password_usuario"
-                                            placeholder="Contraseña"
-                                            minlength="8"
-                                            maxlength="12"
-                                            pattern="[A-Za-z]{8,12}"
-                                            title="Introduce 8 caracteres mayúsculas/minúsculas/números"/>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -302,7 +303,25 @@
                                         <input type="text" hidden class="form-control" id="id_usuarioActualizar" name="id_usuarioActualizar"/>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-12">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Usuario (*)</label>
+                                            <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Contraseña (*)</label>
+                                            <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar"
+                                            placeholder="Contraseña"
+                                            minlength="8"
+                                            maxlength="12"
+                                            pattern="[A-Za-z]{8,12}"
+                                            title="Introduce 8 caracteres mayúsculas/minúsculas/números"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
                                     <span><label>Fotografía Director (*)</label></span>
                                     <div class="form-group input-group">
                                         <div class="custom-file">
@@ -311,6 +330,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div>
+                                
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
@@ -380,25 +401,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Usuario (*)</label>
-                                            <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Contraseña (*)</label>
-                                            <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar"
-                                            placeholder="Contraseña"
-                                            minlength="8"
-                                            maxlength="12"
-                                            pattern="[A-Za-z]{8,12}"
-                                            title="Introduce 8 caracteres mayúsculas/minúsculas/números"/>
-                                        </div>
-                                    </div>
-                                </div> 
+                                 
                             </div>
                             <div class="card border-red">
                                 <div class="card-header py-1 bg-secondary ">
@@ -435,8 +438,7 @@
                                                 <input onfocusout="findCpActualizar(this);" type="postal-code" class="form-control" id="codigoPostalActualizar" name="codigoPostalActualizar" placeholder="Código Postal"   />
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-3">
+                                        <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Estado (*)</label>
                                             <select name="selectEstadoActualizar" id="selectEstadoActualizar" class="form-control selectEstadoActualizar">
@@ -459,6 +461,7 @@
                                                 <option value="default">Colonia</option>
                                             </select>
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -530,10 +533,22 @@
                             </div>
                             <div class="card-body border-primary">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Clave Director </label>
                                             <input disabled type="text" hiddden class="form-control" id="id_directorConsultar" name="id_directorConsultar"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Usuario</label>
+                                            <input disabled type="text" class="form-control" id="username_usuarioConsultar" name="username_usuarioConsultar" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Contraseña</label>
+                                            <input disabled type="password" class="form-control" id="password_usuarioConsultar" name="password_usuarioConsultar" />
                                         </div>
                                     </div>
                                 </div>
@@ -591,20 +606,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Usuario</label>
-                                            <input disabled type="text" class="form-control" id="username_usuarioConsultar" name="username_usuarioConsultar" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Contraseña</label>
-                                            <input disabled type="password" class="form-control" id="password_usuarioConsultar" name="password_usuarioConsultar" />
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
 
                         <div class="card border-red">
@@ -885,18 +887,18 @@ var mostrarDirectivos = function() {
             "url": "<?php echo constant('URL');?>directivo/readtable"
         },
         "columns": [
-            {defaultContent: "",
-                "render": function ( data, type, full ) {
-                    return full['nombre_director'] + ' ' + full['appaterno_director']+ ' ' + full['apmaterno_director'];
-                }  
-            },
             { defaultContent: "",
                 'render': function ( data, type, JsonResultRow, meta ) {
                     var fullnameImagen  = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director+ '/'+ JsonResultRow.foto_director;
                     var img = '/SGE/public/Director/'+ fullnameImagen;
-                    return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="150px" width="150px"/></center>';
+                    return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="100px" width="100px"/></center>';
                 }
-            },  
+            }, 
+            {defaultContent: "",
+                "render": function ( data, type, full ) {
+                    return full['nombre_director'] + ' ' + full['appaterno_director']+ ' ' + full['apmaterno_director'];
+                }  
+            }, 
             { "data": "telefono_director"},
             { "data": "cedulaprofesional_director"},
             {data:null,

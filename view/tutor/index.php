@@ -23,9 +23,9 @@ $menu->header('Tutor');
                         <table id="dataTableTutor" name="dataTableTutor" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
+                                <th>Foto</th>
                                     <th>Nombre</th>
-                                    <th>Fotografía</th>
-                                    <th>Alumno</th>
+                                    <th>Alumno Asignado</th>
                                     <th>Escuela</th>
                                     <th>Opciones</th>
                                 </tr>
@@ -912,12 +912,7 @@ function leerCodigoPostal(codigoPostal){
                 "url": "<?php echo constant('URL');?>tutor/readtable"
             },
             "columns": [
-            { defaultContent: "",
-                "render": 
-            function ( data, type, JsonResultRow, meta ) {
-                return JsonResultRow.nombre_tutor + ' ' + JsonResultRow.appaterno_tutor + ' ' + JsonResultRow.apmaterno_tutor;
-            }  
-            },
+            
             {   defaultContent: "",
      
               'render': function ( data, type, JsonResultRow, meta ) {
@@ -926,10 +921,16 @@ function leerCodigoPostal(codigoPostal){
 
                 var img = '/SGE/public/Tutor/'+ fullnameImagen;
 
-                return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="150px" width="150px"/></center>';
+                return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="100px" width="100px"/></center>';
             }  
 
         },
+        { defaultContent: "",
+                "render": 
+            function ( data, type, JsonResultRow, meta ) {
+                return JsonResultRow.nombre_tutor + ' ' + JsonResultRow.appaterno_tutor + ' ' + JsonResultRow.apmaterno_tutor;
+            }  
+            },
            // { "data": "nombre_alumno" },
             { defaultContent: "",
              "render": 

@@ -42,8 +42,8 @@
                   <table id="dataTableAlumno" name="dataTableAlumno" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                      <thead >
                         <tr>
+                        <th>Foto </th>
                            <th>Nombre</th>
-                           <th>Foto </th>
                            <th>Email</th>
                            <th>Opciones</th>
                         </tr>
@@ -84,13 +84,13 @@
                                  <input type="number" value="5" hidden class="form-control" id="id_tipo_usuario" name="id_tipo_usuario"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Usuario (*)</label>
                                  <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Contraseña (*)</label>
                                  <input type="password" class="form-control" id="password_usuario" name="password_usuario"
@@ -101,8 +101,8 @@
                                     title="Introduce 8 caracteres mayusculas/minusculas/numeros"/>
                               </div>
                            </div>
-                           <div class="col-12 col-sm-12">
-                              <span><label>Foto Alumno (*)</label></span>
+                           <div class="col-lg-4">
+                              <span><label>Foto(*)</label></span>
                               <div class="form-group input-group">
                                  <div class="custom-file">
                                     <input type="file" accept="image/*" class="custom-file-input" name="foto_alumno" id="foto_alumno" 
@@ -144,7 +144,7 @@
                                  <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                  </div>
-                                 <input type="text" id="telefono_alumno" name="telefono_alumno" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                                 <input type="text" id="telefono_alumno" name="telefono_alumno" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask placeholder="Télefono">
                               </div>
                            </div>
                            <div class="col-lg-4">
@@ -297,20 +297,20 @@
                         <div class="row">
                            <input type="text" hidden class="form-control" id="id_alumnoActualizar" name="id_alumnoActualizar" />
                            <input type="text" hidden class="form-control" id="id_usuarioActualizar" name="id_usuarioActualizar" placeholder="Introduce idusuario"/>
-                           <div class="col-lg-6">
+                           <div class="col-lg-4">
                               <div class="form-group">
-                                 <label>Usuario (*)</label>
+                                 <label>Usuario</label>
                                  <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-4">
                               <div class="form-group">
-                                 <label>Contraseña (*)</label>
+                                 <label>Contraseña</label>
                                  <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña"/>
                               </div>
                            </div>
-                           <div class="col-12 col-sm-12">
-                              <span><label>Foto (*)</label></span>
+                           <div class="col-lg-4">
+                              <span><label>Foto</label></span>
                               <br>
                               <div class="form-group input-group">
                                  <div class="custom-file">
@@ -320,8 +320,8 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="col-lg-6">
-                              <label>Nombre(s) (*)</label>
+                           <div class="col-lg-4">
+                              <label>Nombre(s)</label>
                               <div class="input-group mb-3">
                                  <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -329,20 +329,20 @@
                                  <input  onkeypress="return soloLetras(event)" type="name" class="form-control" id="nombre_alumnoActualizar" name="nombre_alumnoActualizar" placeholder="Introduce el Nombre"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-4">
                               <div class="form-group">
-                                 <label>Apellido Paterno (*)</label>
+                                 <label>Apellido Paterno</label>
                                  <input onkeypress="return soloLetras(event)"  type="text" class="form-control" id="appaterno_alumnoActualizar" name="appaterno_alumnoActualizar" placeholder="Introduce el Apellido paterno"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-4">
                               <div class="form-group">
-                                 <label>Apellido Materno (*)</label>
+                                 <label>Apellido Materno</label>
                                  <input  onkeypress="return soloLetras(event)"  type="text" class="form-control" id="apmaterno_alumnoActualizar" name="apmaterno_alumnoActualizar" placeholder="Introduce el Apellido materno"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
-                              <label>Teléfono (*)</label>
+                           <div class="col-lg-4">
+                              <label>Teléfono</label>
                               <div class="input-group-prepend">
                                  <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -350,8 +350,8 @@
                                  <input type="text" id="telefono_alumnoActualizar" name="telefono_alumnoActualizar" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                               </div>
                            </div>
-                           <div class="col-lg-6">
-                              <label>Email (*)</label>
+                           <div class="col-lg-4">
+                              <label>Email</label>
                               <div class="input-group-prepend">
                                  <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -359,9 +359,9 @@
                                  <input type="email" class="form-control" id="email_alumnoActualizar" name="email_alumnoActualizar" placeholder="Eje. usuario@gmail.com etc"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-4">
                               <div class="form-group">
-                                 <label>Fecha Nacimiento (*)</label>
+                                 <label>Fecha Nacimiento</label>
                                  <input type="date" class="form-control" id="fechanacimiento_alumnoActualizar" name="fechanacimiento_alumnoActualizar" placeholder="Introduce la fecha de nacimiento"/>
                               </div>
                            </div>
@@ -381,7 +381,7 @@
                         <div class="row">
                            <div class="col-lg-6">
                               <div class="form-group">
-                                 <label>Grupo (*)</label>
+                                 <label>Grupo </label>
                                  <select name="id_grupoActualizar" id="id_grupoActualizar" class="form-control id_grupo">
                                     <option value="default">Seleccione un grupo</option>
                                  </select>
@@ -389,7 +389,7 @@
                            </div>
                            <div class="col-lg-6">
                               <div class="form-group">
-                                 <label>Escuela (*)</label>
+                                 <label>Escuela </label>
                                  <select name="id_escuelaActualizar" id="id_escuelaActualizar" class="form-control id_escuela">
                                     <option value="default">Seleccione su escuela</option>
                                  </select>
@@ -411,32 +411,32 @@
                         <div class="row">
                            <div class="col-12 col-md-6">
                               <div class="form-group">
-                                 <label>Calle (*)</label>
+                                 <label>Calle </label>
                                  <input type="text" class="form-control" id="calle_alumnoActualizar" name="calle_alumnoActualizar" placeholder="Calle" />
                               </div>
                            </div>
                            <div class="col-lg-3">
                               <div class="form-group">
-                                 <label>No. exterior (*)</label>
+                                 <label>No. exterior </label>
                                  <input type="text" class="form-control" id="noexterior_alumnoActualizar" name="noexterior_alumnoActualizar" placeholder="No. exterior" />
                               </div>
                            </div>
                            <div class="col-lg-3">
                               <div class="form-group">
-                                 <label>No. interior (*)</label>
+                                 <label>No. interior </label>
                                  <input type="text" class="form-control" id="nointerior_alumnoActualizar" name="nointerior_alumnoActualizar" placeholder="No. interior " />
                               </div>
                            </div>
                            <div class="col-lg-3">
                               <div class="form-group">
-                                 <label>Código Postal (*)</label>
+                                 <label>Código Postal </label>
                                  <input onfocusout="findCpActualizar(this);" type="text" class="form-control" 
                                     id="codigoPostalActualizar" name="codigoPostalActualizar" placeholder="Codigo Postal" />
                               </div>
                            </div>
                            <div class="col-lg-3">
                               <div class="form-group">
-                                 <label>Estado (*)</label>
+                                 <label>Estado </label>
                                  <select name="selectEstadoActualizar" id="selectEstadoActualizar" class="form-control selectEstadoActualizar">
                                     <option value="default">Estado</option>
                                  </select>
@@ -444,7 +444,7 @@
                            </div>
                            <div class="col-lg-3">
                               <div class="form-group">
-                                 <label>Municipio (*)</label>
+                                 <label>Municipio </label>
                                  <select  name="selectMunicipioActualizar" 
                                     id="selectMunicipioActualizar" class="form-control selectMunicipioActualizar">
                                     <option value="default">Municipio</option>
@@ -453,7 +453,7 @@
                            </div>
                            <div class="col-lg-3">
                               <div class="form-group">
-                                 <label>Colonia (*)</label>
+                                 <label>Colonia </label>
                                  <select  name="selectColoniaActualizar" 
                                     id="selectColoniaActualizar" class="form-control selectColoniaActualizar">
                                     <option value="default">Colonia</option>
@@ -505,60 +505,50 @@
                         <div class="row">
                            <input type="text" hidden class="form-control" id="id_alumnoConsultar" name="id_alumnoConsultar" />
                            <input type="text" hidden  class="form-control" id="id_usuarioConsultar" name="id_usuarioConsultar"/>
-                           <div class="col-lg-6">
+                           <div class="col-lg-3">
                               <div class="form-group">
                                  <label>Usuario</label>
                                  <input disabled type="text" class="form-control" id="username_usuarioConsultar" name="username_usuarioConsultar" />
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-3">
                               <div class="form-group">
                                  <label>Contraseña</label>
                                  <input disabled type="password" class="form-control" id="password_usuarioConsultar" name="password_usuarioConsultar" />
                               </div>
                            </div>
-                           <!--   <div class="col-12 col-sm-12">
-                              <label>Foto Alumno</label>
-                              <br>
-                              <div align="center" class="mx-auto">
-                                <img id="imgAlumnoActualizar" class="rounded" name="imgAlumnoActualizar" width="30%"> -->
-                           <!--   <img src="public/alumno/ " alt="Mi Imagen" class="rounded"  width="30%" title="Mi Imagen">
-                              <img src="public/alumno/Hernandez_Franco_Uriel/C2.jpeg" class="rounded" name="imgAlumnoConsultar" width="30%"> 
-                                <img src="public/alumno/Flores_Vargas_Esteban/user-4.png" class="rounded" name="imgAlumnoConsultar" width="30%">
-                              </div>
-                              </div> -->
-                           <div class="col-lg-6">
+                           <div class="col-lg-3">
                               <div class="form-group">
                                  <label>Nombre(s)</label>
                                  <input type="text" disabled class="form-control" id="nombre_alumnoConsultar" name="nombre_alumnoConsultar" placeholder="Introduce el nombre del alumno"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-3">
                               <div class="form-group">
                                  <label>Apellido Paterno</label>
                                  <input type="text" disabled class="form-control" id="appaterno_alumnoConsultar" name="appaterno_alumnoConsultar" placeholder="Introduce el Apellido paterno"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-3">
                               <div class="form-group">
                                  <label>Apellido Materno</label>
                                  <input type="text" disabled class="form-control" id="apmaterno_alumnoConsultar" name="apmaterno_alumnoConsultar" placeholder="Introduce el Apellido Materno"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-3">
                               <div class="form-group">
                                  <label>Teléfono</label>
                                  <input type="text" disabled class="form-control" id="telefono_alumnoConsultar" 
                                     name="telefono_alumnoConsultar" placeholder="Introduce el numero telefonico"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-3">
                               <div class="form-group">
                                  <label>Email</label>
                                  <input type="text" disabled class="form-control" id="email_alumnoConsultar" name="email_alumnoConsultar" placeholder="Introduce el email_alumno"/>
                               </div>
                            </div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-3">
                               <div class="form-group">
                                  <label>Fecha Nacimiento</label>
                                  <input type="date" disabled class="form-control" id="fechanacimiento_alumnoConsultar" name="fechanacimiento_alumnoConsultar" placeholder="Introduce la fecha de nacimiento"/>
@@ -814,14 +804,6 @@ var mostrarAlumnos = function () {
 
     },
     "columns": [
-
-      {
-        defaultContent: "",
-        "render": function (data, type, full) {
-          return full['nombre_alumno'] + ' ' + full['appaterno_alumno'] + ' ' + full['apmaterno_alumno'];
-        }
-      },
-
       {
         defaultContent: "",
         "render": function (data, type, full, row) {
@@ -831,10 +813,19 @@ var mostrarAlumnos = function () {
 
           var img = '/SGE/public/alumno/' + fullnameImagen;
 
-          return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="150px" width="150px"/></center>';
+          return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="100px" width="100px"/></center>';
         }
 
       },
+
+      {
+        defaultContent: "",
+        "render": function (data, type, full) {
+          return full['nombre_alumno'] + ' ' + full['appaterno_alumno'] + ' ' + full['apmaterno_alumno'];
+        }
+      },
+
+      
 
       {
         "data": "email_alumno"

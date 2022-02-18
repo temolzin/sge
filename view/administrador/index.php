@@ -42,10 +42,10 @@
                   <table id="dataTableAdministrador" name="dataTableAdministrador" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                      <thead >
                         <tr>
-                           <th>Nombre</th>
-                           <th>Foto </th>
-                           <th>Email</th>
-                           <th>Opciones</th>
+                          <th>Foto </th>
+                          <th>Nombre</th>
+                          <th>Email</th>
+                          <th>Opciones</th>
                         </tr>
                      </thead>
                   </table>
@@ -194,13 +194,13 @@
                   <input type="text" hidden class="form-control" id="id_usuarioActualizar" name="id_usuarioActualizar" placeholder="Introduce idusuario"/>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label>Usuario (*)</label>
+                      <label>Usuario</label>
                       <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label>Contraseña (*)</label>
+                      <label>Contraseña</label>
                       <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña"/>
                     </div>
                   </div>
@@ -214,39 +214,54 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
-                      <label>Nombre(s) (*)</label>
-                      <input onkeypress="return soloLetras(event)"  type="text" class="form-control" id="nombre_administradorActualizar" name="nombre_administradorActualizar" placeholder="Introduce el nombre del administrador"/>
+                      <label>Nombre(s)</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input onkeypress="return soloLetras(event)"  type="text" class="form-control" id="nombre_administradorActualizar" name="nombre_administradorActualizar" placeholder="Introduce el nombre del administrador"/>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
-                      <label>Apellido Paterno (*)</label>
+                      <label>Apellido Paterno</label>
                       <input onkeypress="return soloLetras(event)"  type="text" class="form-control" id="appaterno_administradorActualizar" name="appaterno_administradorActualizar" placeholder="Introduce el Apellido paterno"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
-                      <label>Apellido Materno (*)</label>
+                      <label>Apellido Materno</label>
                       <input  onkeypress="return soloLetras(event)"  type="text" class="form-control" id="apmaterno_administradorActualizar" name="apmaterno_administradorActualizar" placeholder="Introduce el Apellido materno"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
-                      <label>Teléfono (*)</label>
+                      <label>Teléfono</label>
+                      <div class="input-group-prepend">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                      </div>
                       <input type="text" class="form-control" id="telefono_administradorActualizar" name="telefono_administradorActualizar" placeholder="Introduce el numero telefonico"/>
                     </div>
+                    </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
-                      <label>Email (*)</label>
+                      <label>Email</label>
+                      <div class="input-group-prepend">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                      </div>
                       <input type="text" class="form-control" id="email_administradorActualizar" name="email_administradorActualizar" placeholder="Introduce el tu correo"/>
                     </div>
+                    </div>
                   </div> 
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
-                      <label>Fecha Nacimiento (*)</label>
+                      <label>Fecha Nacimiento</label>
                       <input type="date" class="form-control" id="fechanacimiento_administradorActualizar" name="fechanacimiento_administradorActualizar" placeholder="Introduce la fecha de nacimiento"/>
                     </div>
                   </div>
@@ -288,49 +303,49 @@
                 <div class="row">
                   <input type="text" hidden class="form-control" id="id_administradorConsultar" name="id_administradorConsultar" />
                   <input type="text" hidden  class="form-control" id="id_usuarioConsultar" name="id_usuarioConsultar"/>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Usuario</label>
                       <input disabled type="text" class="form-control" id="username_usuarioConsultar" name="username_usuarioConsultar" />
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Contraseña</label>
                       <input disabled type="password" class="form-control" id="password_usuarioConsultar" name="password_usuarioConsultar" />
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Nombre(s)</label>
                       <input type="text" disabled class="form-control" id="nombre_administradorConsultar" name="nombre_administradorConsultar" placeholder="Introduce el nombre del administrador"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Apellido Paterno</label>
                       <input type="text" disabled class="form-control" id="appaterno_administradorConsultar" name="appaterno_administradorConsultar" placeholder="Introduce el Apellido paterno"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Apellido Materno</label>
                       <input type="text" disabled class="form-control" id="apmaterno_administradorConsultar" name="apmaterno_administradorConsultar" placeholder="Introduce el Apellido Materno"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Teléfono</label>
                       <input type="text" disabled class="form-control" id="telefono_administradorConsultar" name="telefono_administradorConsultar" placeholder="Introduce el numero telefonico"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Email</label>
                       <input type="text" disabled class="form-control" id="email_administradorConsultar" name="email_administradorConsultar" placeholder="Introduce el email_administrador"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Fecha Nacimiento</label>
                       <input type="date" disabled class="form-control" id="fechanacimiento_administradorConsultar" name="fechanacimiento_administradorConsultar" placeholder="Introduce la fecha de nacimiento"/>
@@ -495,12 +510,7 @@ var mostrarAdministradors = function () {
     },
     "columns": [
 
-      {
-        defaultContent: "",
-        "render": function (data, type, full) {
-          return full['nombre_administrador'] + ' ' + full['appaterno_administrador'] + ' ' + full['apmaterno_administrador'];
-        }
-      },
+      
 
       {
         defaultContent: "",
@@ -511,9 +521,15 @@ var mostrarAdministradors = function () {
 
           var img = '/SGE/public/administrador/' + fullnameImagen;
 
-          return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="150px" width="150px"/></center>';
+          return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="100px" width="100px"/></center>';
         }
 
+      },
+      {
+        defaultContent: "",
+        "render": function (data, type, full) {
+          return full['nombre_administrador'] + ' ' + full['appaterno_administrador'] + ' ' + full['apmaterno_administrador'];
+        }
       },
 
       {

@@ -42,8 +42,6 @@
 
 <!--*****************************************MODALS****************************************-->
 <!--------------------------------------------------------- Modal Registrar----------------------------------------------->
-
-
 <div class="modal fade" id="modalRegistrarEscuela" tabindex="-1" role="dialog" aria-labelledby="modalRegistrarEscuela" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -53,25 +51,16 @@
                         <h4 class="card-title">Escuela <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
-                    <!---->
-<!---->
                 </div>
-                <!-- /.card-header -->
-                <!-- form start -->
                 <form role="form" id="formRegistrarEscuela" name="formRegistrarEscuela" method="post">
                      <div class="card-body">
-
-
                          <div class="card">
                                 <div class="card-header py-1 bg-secondary">
                                     <h3 class="card-title">Datos Escolares</h3>
-
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                     </div>
-                                    <!-- /.card-tools -->
                                 </div>
-                                <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6">
@@ -115,7 +104,7 @@
                              <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Observacion Escuela</label>
-                                    <input type="text" class="form-control" id="observacion_escuela" name="observacion_escuela" placeholder="Observacion Escuela"/>
+                                    <textarea name="observacion_escuela" id="observacion_escuela" cols="20" rows="10" placeholder="Observacion Escuela" class="form-control" style="height: 42px;"></textarea>
                                 </div>
                             </div>    
 
@@ -131,9 +120,7 @@
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                     </div>
-                                    <!-- /.card-tools -->
                                 </div>
-                                <!-- /.card-header -->
                                  <div class="card-body">
                                     <div class="row">
                             <div class="col-lg-6">
@@ -207,6 +194,7 @@
 </div>
 
 <!--------------------------------------------------------- Modal Actualizar----------------------------------------------->
+
 <div class="modal fade" id="modalActualizarEscuela" tabindex="-1" role="dialog" aria-labelledby="modalActualizarEscuela" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -218,12 +206,8 @@
                     </div>
                     <!---->
                 </div>
-                <!-- /.card-header -->
-                <!-- form start -->
                 <form role="form" id="formActualizarEscuela" name="formActualizarEscuela">
                     <div class="card-body">
-
-
                          <div class="card">
                                 <div class="card-header py-1 bg-secondary">
                                     <h3 class="card-title">Datos Escolares</h3>
@@ -263,22 +247,33 @@
                                     <input type="text" class="form-control" id="cct_escuelaActualizar" name="cct_escuelaActualizar" placeholder="CCT"/>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Telefono</label>
-                                    <input type="text" class="form-control" id="telefono_escuelaActualizar" name="telefono_escuelaActualizar" placeholder="Telefono"/>
+                                    <div class="input-group-prepend">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" id="telefono_escuelaActualizar" name="telefono_escuelaActualizar" placeholder="Telefono"/>
+                                        </div>
                                 </div>
+                                
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" id="email_escuelaActualizar" name="email_escuelaActualizar" placeholder="Email"/>
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="email" class="form-control" id="email_escuelaActualizar" name="email_escuelaActualizar" placeholder="Email"/>
+                                    </div>
                                 </div>
                             </div>
-                             <div class="col-lg-6">
+                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Observacion</label>
-                                    <input type="text" class="form-control" id="observacion_escuelaActualizar" name="observacion_escuelaActualizar" placeholder="Observacion"/>
+                                    <textarea name="observacion_escuelaActualizar" id="observacion_escuelaActualizar" cols="20" rows="10" placeholder="Observacion" class="form-control" style="height: 42px;"></textarea>
                                 </div>
                             </div>
 
@@ -311,13 +306,13 @@
                             </div>
 
                             
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Numero Exterior</label>
                                     <input type="text" class="form-control" id="numxterior_escuelaActualizar" name="numxterior_escuelaActualizar" placeholder="Numero Exterior"/>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Numero Interior</label>
                                     <input type="text" class="form-control" id="numinterior_escuelaActualizar" name="numinterior_escuelaActualizar" placeholder="Numero Interior"/>
@@ -325,13 +320,13 @@
                             </div>
                         
                            
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Codigo Postal (*)</label>
                                     <input onfocusout="findCpActualizar(this);" type="text" class="form-control" id="codigoPostalActualizar" name="codigoPostalActualizar" placeholder="Codigo Postal"/>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Estado</label>
                                     <select class="form-control estado" id="selectEstadoActualizar" name="selectEstadoActualizar" placeholder="Estado">
@@ -339,7 +334,7 @@
                                     </select>
                                 </div>
                             </div>
-                             <div class="col-lg-4">
+                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Municipio</label>
                                     <select class="form-control municipio" id="selectMunicipioActualizar" name="selectMunicipioActualizar" placeholder="Municipio">
@@ -347,7 +342,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Colonia</label>
                                     <select class="form-control colonia" id="selectColoniaActualizar" name="selectColoniaActualizar" placeholder="Municipio">
@@ -355,8 +350,6 @@
                                     </select>
                                 </div>
                             </div>
-                         
-                           
                         </div>
                     </div>
                 </div>
@@ -387,12 +380,9 @@
                 <!-- form start -->
                 <form role="form" id="formConsulta" name="formConsulta">
                    <div class="card-body">
-
-
                          <div class="card">
                                 <div class="card-header py-1 bg-secondary">
                                     <h3 class="card-title">Datos Escolares</h3>
-
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                     </div>
@@ -428,19 +418,19 @@
                                     <input readonly type="text" class="form-control" id="cct_escuelaConsultar" name="cct_escuelaConsultar" placeholder="CCT"/>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Telefono</label>
                                     <input readonly type="text" class="form-control" id="telefono_escuelaConsultar" name="telefono_escuelaConsultar" placeholder="Telefono"/>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input readonly type="text" class="form-control" id="email_escuelaConsultar" name="email_escuelaConsultar" placeholder="Email"/>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Observaciones</label>
                                     <input readonly type="text" class="form-control" id="observacion_escuelaConsultar" name="observacion_escuelaConsultar" placeholder="Numero Interior"/>
@@ -476,13 +466,13 @@
                             </div>
 
                             
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Numero Exterior</label>
                                     <input readonly type="text" class="form-control" id="numxterior_escuelaConsultar" name="numxterior_escuelaConsultar" placeholder="Numero Exterior"/>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Numero Interior</label>
                                     <input readonly type="text" class="form-control" id="numinterior_escuelaConsultar" name="numinterior_escuelaConsultar" placeholder="Numero Interior"/>
