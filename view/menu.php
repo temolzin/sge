@@ -162,13 +162,14 @@ class Menu
 
       $menu = '  
      <li class="nav-item">
-      <a  href="' . constant('URL') . '" class="nav-link">
+      <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
-      </li>  
+      </li>
+
       <li class="nav-item">
       <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
@@ -178,7 +179,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="escuela_consulta" name="escuela_consulta" href="' . constant('URL') . 'escuela_consulta" class="nav-link">
+      <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
       <p>
       Escuela
@@ -211,7 +212,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="materia" name="materia" href="' . constant('URL') . 'materia" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'materia/index" class="nav-link">
       <i class="nav-icon fas fa-book"></i>
       <p>
       Materias
@@ -219,7 +220,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="materia_profesor" name="materia_profesor" href="' . constant('URL') . 'materia_profesor" class="nav-link">
+      <a id="showMateria" name="showMateria" href="' . constant('URL') . 'materia/showMateria" class="nav-link">
       <i class="nav-icon fas fa-book-open"></i>
       <p>
       Materias y profesores
@@ -358,13 +359,14 @@ class Menu
 
       $menu = '
       <li class="nav-item">
-      <a  href="' . constant('URL') . '" class="nav-link">
+      <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>
+
       <li class="nav-item">
       <a id="escuela" name="escuela" href="' . constant('URL') . 'escuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>

@@ -26,6 +26,11 @@ class Materia extends Controller
         $this->view->render('materia/materiaDetalleAlumno');
     }
 
+    function showMateria()
+    {
+        $this->view->render('materia/materiaDetalleProfesor');
+    }
+
     function insert()
     {
         $id_escuela = $_POST['id_escuela'];
@@ -170,6 +175,88 @@ class Materia extends Controller
         $obj = null;
         if (is_array($alumno_materiaDAO) || is_object($alumno_materiaDAO)) {
             foreach ($alumno_materiaDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
+
+    //****************************************************************** MATERIA DETALLE PROFESOR ******************************************
+
+    function insertDetalleProfesor()
+    {
+        $id_materia_profesor  = $_POST['id_materia_profesor'];
+        $id_profesor = $_POST['id_profesor'];
+        $id_grupo = $_POST['id_grupo'];
+        $id_materia = $_POST['id_materia'];
+
+
+
+        $data = array(
+            'id_materia_profesor' =>  $id_materia_profesor,
+            'id_profesor' => $id_profesor,
+            'id_grupo' => $id_grupo,
+            'id_materia' => $id_materia
+        );
+
+        require 'model/materiaDAO.php';
+        $this->loadModel('MateriaDAO');
+        $materia_profesorDAO = new MateriaDAO();
+        $materia_profesorDAO->insertDetalleProfesor($data);
+    }
+
+    function updateDetalleProfesor()
+    {
+        $id_materia_profesor  = $_POST['id_MateriaProfesorActualizar'];
+        $id_profesor  = $_POST['id_profesorActualizar'];
+        $id_grupo = $_POST['id_grupoActualizar'];
+        $id_materia = $_POST['id_materiaActualizar'];
+
+        $data = array(
+            'id_materia_profesor' => $id_materia_profesor,
+            'id_profesor' => $id_profesor,
+            'id_grupo' => $id_grupo,
+            'id_materia' => $id_materia
+        );
+
+        require 'model/materiaDAO.php';
+        $this->loadModel('MateriaDAO');
+        $materia_profesorDAO = new MateriaDAO();
+        $materia_profesorDAO->updateDetalleProfesor($data);
+    }
+
+    function deleteDetalleProfesor()
+    {
+        $id_materia_profesor  = $_POST['idEliminarMateriaProfesor'];
+
+        require 'model/materiaDAO.php';
+        $this->loadModel('MateriaDAO');
+        $materia_profesorDAO = new MateriaDAO();
+        $materia_profesorDAO->deleteDetalleProfesor($id_materia_profesor);
+    }
+
+
+
+    function readDetalleProfesor()
+    {
+        require 'model/materiaDAO.php';
+        $this->loadModel('MateriaDAO');
+        $materia_profesorDAO = new MateriaDAO();
+        $materia_profesorDAO = $materia_profesorDAO->readDetalleProfesor();
+        echo json_encode($materia_profesorDAO);
+    }
+
+    function readTableDetalleProfesor()
+    {
+        require 'model/materiaDAO.php';
+        $this->loadModel('MateriaDAO');
+        $materia_profesorDAO = new MateriaDAO();
+        $materia_profesorDAO = $materia_profesorDAO->readDetalleProfesor();
+        $obj = null;
+        if (is_array($materia_profesorDAO) || is_object($materia_profesorDAO)) {
+            foreach ($materia_profesorDAO as $key => $value) {
                 $obj["data"][] = $value;
             }
         } else {
