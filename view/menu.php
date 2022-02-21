@@ -96,40 +96,43 @@ class Menu
 
       $menu = '
        <li class="nav-item">
-      <a  href="' . constant('URL') . '" class="nav-link">
+      <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>
 
       <li class="nav-item">
-      <a id="tareaalumno" name="tareaalumno" href="' . constant('URL') . 'tareaalumno" class="nav-link">
+      <a id="showTareaAlumno" name="showTareaAlumno" href="' . constant('URL') . 'tarea/showTareaAlumno" class="nav-link">
       <i class="nav-icon fas fa-edit"></i>
       <p>
       Tareas
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="escuela_consulta" name="escuela_consulta" href="' . constant('URL') . 'escuela_consulta" class="nav-link">
+      <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
       <p>
       Escuela
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="alumno_incidencia" name="alumno_incidencia" href="' . constant('URL') . 'alumno_incidencia" class="nav-link">
+      <a id="showIncidenciaAlumno" name="showIncidenciaAlumno" href="' . constant('URL') . 'incidencia/showIncidenciaAlumno" class="nav-link">
       <i class="nav-icon fas fa-clipboard"></i>
       <p>
       Incidencias
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="alumno_materia" name="alumno_materia" href="' . constant('URL') . 'alumno_materia" class="nav-link">
+      <a id="showMateriaAlumno" name="showMateriaAlumno" href="' . constant('URL') . 'materia/showMateriaAlumno" class="nav-link">
       <i class="nav-icon fas fa-book-open"></i>
       <p>
       Materias
@@ -138,15 +141,16 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="calificacion_consulta" name="calificacion_consulta" href="' . constant('URL') . 'calificacion_consulta" class="nav-link">
+      <a id="showCalificacionAlumno" name="showCalificacionAlumno" href="' . constant('URL') . 'calificacion/showCalificacionAlumno" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="tareaCalificada" name="tareaCalificada" href="' . constant('URL') . 'tareaCalificada" class="nav-link">
+      <a id="showTareaCalificada" name="showTareaCalificada" href="' . constant('URL') . 'tarea/showTareaCalificada" class="nav-link">
       <i class="nav-icon fas fa-check-square"></i>
       <p>
       Tareas Calificadas

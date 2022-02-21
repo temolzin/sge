@@ -21,6 +21,16 @@ class Tarea extends Controller
         $this->view->render('tarea/tareaDetalleTutor');
     }
 
+    function showTareaAlumno()
+    {
+        $this->view->render('tarea/tareaDetalleAlumno');
+    }
+
+    function showTareaCalificada()
+    {
+        $this->view->render('tarea/tareaCalificada');
+    }
+
     function insert()
     {
         $id_grupo = $_POST['id_grupo'];
@@ -207,6 +217,102 @@ class Tarea extends Controller
         $obj = null;
         if (is_array($tareaalumno_consultaDAO) || is_object($tareaalumno_consultaDAO)) {
             foreach ($tareaalumno_consultaDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
+
+    //******************************************************** TAREA MOSTRAR ALUMNO **********************************************
+
+    function insertTareaAlumno()
+    {
+
+        $id_tarea_alumnoDetalle = $_POST['id_tarea_alumnoDetalle'];
+        $comentarios_tarea = $_POST['comentarios_tarea'];
+        $calificacion_tarea = $_POST['calificacion_tarea'];
+        $archivo_tarea_entregada = "";
+        if ($_FILES["archivo_tarea_entregada"]["name"] != null) {
+            $archivo = $_FILES["archivo_tarea_entregada"];
+            $archivo_tarea_entregada = $archivo["name"];
+            $tipoImagen = $archivo["type"];
+            $ruta_provisional = $archivo["tmp_name"];
+            $fullname = $id_tarea_alumnoDetalle . "_" . $archivo_tarea_entregada;
+
+            $carpeta = "public/tareas_entregadas/" . $fullname . "/";
+
+            if (!file_exists($carpeta)) {
+                mkdir($carpeta, 0777, true);
+            }
+
+            copy($ruta_provisional, $carpeta . $archivo_tarea_entregada);
+
+
+            $data = array(
+                'id_tarea_alumnoDetalle' => $id_tarea_alumnoDetalle,
+                'archivo_tarea_entregada' => $archivo_tarea_entregada,
+                'comentarios_tarea' => $comentarios_tarea,
+                'calificacion_tarea' => $calificacion_tarea
+            );
+
+            require 'model/tareaDAO.php';
+            $this->loadModel('TareaDAO');
+            $tareaalumnoDAO = new TareaDAO();
+            $tareaalumnoDAO->insertTareaAlumno($data);
+        }
+    }
+
+
+    function readTareaAlumno()
+    {
+        require 'model/tareaDAO.php';
+        $this->loadModel('TareaDAO');
+        $tareaalumnoDAO = new TareaDAO();
+        $tareaalumnoDAO = $tareaalumnoDAO->readTareaAlumno();
+        echo json_encode($tareaalumnoDAO);
+    }
+
+    function readTableTareaAlumno()
+    {
+        require 'model/tareaDAO.php';
+        $this->loadModel('TareaDAO');
+        $tareaalumnoDAO = new TareaDAO();
+        $tareaalumnoDAO = $tareaalumnoDAO->readTareaAlumno();
+
+        $obj = null;
+        if (is_array($tareaalumnoDAO) || is_object($tareaalumnoDAO)) {
+            foreach ($tareaalumnoDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
+
+    //******************************************************** TAREA CALIFICADA ************************************************
+
+    function readTareaCalificada()
+    {
+        require 'model/tareaDAO.php';
+        $this->loadModel('TareaDAO');
+        $tareaCalificadaDAO = new TareaDAO();
+        $tareaCalificadaDAO = $tareaCalificadaDAO->readTareaCalificada();
+        echo json_encode($tareaCalificadaDAO);
+    }
+
+    function readTableTareaCalificada()
+    {
+        require 'model/tareaDAO.php';
+        $this->loadModel('TareaDAO');
+        $tareaCalificadaDAO = new TareaDAO();
+        $tareaCalificadaDAO = $tareaCalificadaDAO->readTareaCalificada();
+
+        $obj = null;
+        if (is_array($tareaCalificadaDAO) || is_object($tareaCalificadaDAO)) {
+            foreach ($tareaCalificadaDAO as $key => $value) {
                 $obj["data"][] = $value;
             }
         } else {

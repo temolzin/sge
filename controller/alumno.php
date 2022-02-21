@@ -22,9 +22,9 @@ class Alumno extends Controller
     }
 
     function showMateriaTutor()
-  {
-    $this->view->render('alumno_materia_consulta/index');
-  }
+    {
+        $this->view->render('alumno_materia_consulta/index');
+    }
 
     function insert()
     {

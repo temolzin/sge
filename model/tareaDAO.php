@@ -197,5 +197,85 @@
 
       return $objTareaAlumno;
     }
+
+    //************************************** TAREA ALUMNO **********************************************
+
+    public function insertTareaAlumno($data)
+    {
+      $query = $this->db->conectar()->prepare('INSERT INTO tarea_entregada values (NULL, 
+            :id_tarea_alumno, 
+            :archivo_tarea_entregada, 
+            :comentarios_tarea,
+            :calificacion_tarea)');
+      $query->execute([
+        ':id_tarea_alumno' => $data['id_tarea_alumnoDetalle'],
+        ':archivo_tarea_entregada' => $data['archivo_tarea_entregada'],
+        ':comentarios_tarea' => $data['comentarios_tarea'],
+        ':calificacion_tarea' => $data['calificacion_tarea']
+      ]);
+      echo 'ok';
+    }
+
+    public function readTareaAlumno()
+    {
+      $id_grupo = $_SESSION['id_grupo'];
+      require_once 'tareaDTO.php';
+      $query = "SELECT t.id_tarea_alumno,g.nombre_grupo,m.nombre_materia,t.nombre_tarea,t.descripcion_tarea,t.archivo_tarea,t.fecha_entrega FROM grupo g, materia m, tarea_alumno t WHERE t.id_grupo = g.id_grupo AND m.id_materia = t.id_materia and t.id_grupo  =  '" . $id_grupo . "'";
+      $objTareaAlumno = array();
+
+      if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
+
+        foreach ($this->db->consultar($query) as $key => $value) {
+          $tareaalumno = new TareaDTO();
+          $tareaalumno->id_tarea_alumno = $value['id_tarea_alumno'];
+          $tareaalumno->id_grupo = $value['nombre_grupo'];
+          $tareaalumno->id_materia = $value['nombre_materia'];
+          $tareaalumno->nombre_tarea = $value['nombre_tarea'];
+          $tareaalumno->descripcion_tarea = $value['descripcion_tarea'];
+          $tareaalumno->archivo_tarea = $value['archivo_tarea'];
+          $tareaalumno->fecha_entrega = $value['fecha_entrega'];
+
+          array_push($objTareaAlumno, $tareaalumno);
+        }
+      } else {
+        $objTareaAlumno = null;
+      }
+
+      return $objTareaAlumno;
+    }
+
+    //************************************************** TAREA CALIFICADA *************************************************
+
+    public function readTareaCalificada()
+    {
+      $id_grupo = $_SESSION['id_grupo'];
+      require_once 'tareaDTO.php';
+      $query = "SELECT tarea_entregada.*, tarea_alumno.*, grupo.*, materia.* FROM tarea_entregada tarea_entregada, tarea_alumno tarea_alumno, grupo grupo, materia materia where tarea_alumno.id_grupo = grupo.id_grupo AND tarea_alumno.id_materia = materia.id_materia AND tarea_entregada.id_tarea_alumno = tarea_alumno.id_tarea_alumno AND tarea_alumno.id_grupo = '" . $id_grupo . "' ";
+
+
+      $objrTareasCalificada = array();
+      if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
+        foreach ($this->db->consultar($query) as $key => $value) {
+          $tareaCalificada = new TareaDTO();
+          $tareaCalificada->id_tarea_entregada = $value['id_tarea_entregada'];
+          $tareaCalificada->id_tarea_alumno = $value['id_tarea_alumno'];
+          $tareaCalificada->id_grupo = $value['id_grupo'];
+          $tareaCalificada->id_materia = $value['id_materia'];
+          $tareaCalificada->archivo_tarea_entregada = $value['archivo_tarea_entregada'];
+          $tareaCalificada->comentarios_tarea = $value['comentarios_tarea'];
+          $tareaCalificada->calificacion_tarea = $value['calificacion_tarea'];
+
+          $tareaCalificada->nombre_grupo = $value['nombre_grupo'];
+          $tareaCalificada->nombre_materia = $value['nombre_materia'];
+          $tareaCalificada->nombre_tarea = $value['nombre_tarea'];
+
+          array_push($objrTareasCalificada, $tareaCalificada);
+        }
+      } else {
+        $objrTareasCalificada = null;
+      }
+
+      return $objrTareasCalificada;
+    }
   }
   ?>

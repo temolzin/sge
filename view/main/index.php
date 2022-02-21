@@ -118,7 +118,7 @@ $menu->header('Tablero');
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="/sge/tareaalumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="/sge/tarea/showTareaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
             <div class="col-lg-3">
@@ -129,7 +129,7 @@ $menu->header('Tablero');
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="/sge/alumno_incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="/sge/incidencia/showIncidenciaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
       </div>

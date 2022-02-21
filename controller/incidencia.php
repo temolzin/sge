@@ -16,6 +16,11 @@ class Incidencia extends Controller
         $this->view->render('incidencia/incidenciaDetalle');
     }
 
+    function showIncidenciaAlumno()
+    {
+        $this->view->render('incidencia/incidenciaDetalleAlumno');
+    }
+
     function insert()
     {
         $id_alumno = $_POST['id_alumno'];
@@ -128,6 +133,36 @@ class Incidencia extends Controller
         } else {
             $obj = array();
         }
+        echo json_encode($obj);
+    }
+
+    //************************************************************************* INCIDENCIA ALUMNO **************************************
+
+    function readIncidenciaAlumno()
+    {
+        require 'model/incidenciaDAO.php';
+        $this->loadModel('IncidenciaDAO');
+        $alumno_incidenciaDAO = new IncidenciaDAO();
+        $alumno_incidenciaDAO = $alumno_incidenciaDAO->readIncidenciaAlumno();
+        echo json_encode($alumno_incidenciaDAO);
+    }
+
+    function readTableIncidenciaAlumno()
+    {
+        require 'model/incidenciaDAO.php';
+        $this->loadModel('IncidenciaDAO');
+        $alumno_incidenciaDAO = new IncidenciaDAO();
+        $alumno_incidenciaDAO = $alumno_incidenciaDAO->readIncidenciaAlumno();
+
+        $obj = null;
+        if (is_array($alumno_incidenciaDAO) || is_object($alumno_incidenciaDAO)) {
+            foreach ($alumno_incidenciaDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+
         echo json_encode($obj);
     }
 }
