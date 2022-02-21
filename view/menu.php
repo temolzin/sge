@@ -30,40 +30,44 @@ class Menu
 
       $menu = '
       <li class="nav-item">
-      <a  href="' . constant('URL') . '" class="nav-link">
+      <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
-      Dashboard
+      Inicio
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="escuela_consulta" name="escuela_consulta" href="' . constant('URL') . 'escuela_consulta" class="nav-link">
+      <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
       <p>
       Información Escolar 
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="alumno_consulta" name="alumno_consulta" href="' . constant('URL') . 'alumno_consulta" class="nav-link">
+      <a id="showAlumnoTutor" name="showAlumnoTutor" href="' . constant('URL') . 'alumno/showAlumnoTutor" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
       <p>
       Información Alumno      
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="incidencias_consulta" name="incidencias_consulta" href="' . constant('URL') . 'incidencias_consulta" class="nav-link">
+      <a id="showIncidencia" name="showIncidencia" href="' . constant('URL') . 'incidencia/showIncidencia" class="nav-link">
       <i class="nav-icon fas fa-clipboard "></i>
       <p>
       Incidencias
       </p>
       </a>
       </li>
+
       <?php } ?>
       <li class="nav-item">
-      <a id="tareaalumno_consulta" name="tareaalumno_consulta" href="' . constant('URL') . 'tareaalumno_consulta" class="nav-link">
+      <a id="showTareaTutor" name="showTareaTutor" href="' . constant('URL') . 'tarea/showTareaTutor" class="nav-link">
       <i class="nav-icon fas fa-edit"></i>
       <p>
       Tareas
@@ -71,7 +75,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="alumno_materia_consulta" name="alumno_materia_consulta" href="' . constant('URL') . 'alumno_materia_consulta" class="nav-link">
+      <a id="showMateriaTutor" name="showMateriaTutor" href="' . constant('URL') . 'materia/showMateriaTutor" class="nav-link">
       <i class="nav-icon fas fa-book-open"></i>
       <p>
       Materias
@@ -80,7 +84,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="calificacion_tutor_consulta" name="calificacion_tutor_consulta" href="' . constant('URL') . 'calificacion_tutor_consulta" class="nav-link">
+      <a id="showCalificacionTutor" name="showCalificacionTutor" href="' . constant('URL') . 'calificacion/showCalificacionTutor" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones

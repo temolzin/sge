@@ -16,6 +16,11 @@ class Tarea extends Controller
         $this->view->render('tarea/tareaEntregada');
     }
 
+    function showTareaTutor()
+    {
+        $this->view->render('tarea/tareaDetalleTutor');
+    }
+
     function insert()
     {
         $id_grupo = $_POST['id_grupo'];
@@ -173,6 +178,35 @@ class Tarea extends Controller
         $obj = null;
         if (is_array($tareaEntregadaDAO) || is_object($tareaEntregadaDAO)) {
             foreach ($tareaEntregadaDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
+
+    //**************************************************** TAREA MOSTRAR TUTOR **********************************************
+
+    function readTareaTutor()
+    {
+        require 'model/tareaDAO.php';
+        $this->loadModel('TareaDAO');
+        $tareaalumno_consultaDAO = new TareaDAO();
+        $tareaalumno_consultaDAO = $tareaalumno_consultaDAO->readTareaTutor();
+        echo json_encode($tareaalumno_consultaDAO);
+    }
+
+    function readTableTareaTutor()
+    {
+        require 'model/tareaDAO.php';
+        $this->loadModel('TareaDAO');
+        $tareaalumno_consultaDAO = new TareaDAO();
+        $tareaalumno_consultaDAO = $tareaalumno_consultaDAO->readTareaTutor();
+
+        $obj = null;
+        if (is_array($tareaalumno_consultaDAO) || is_object($tareaalumno_consultaDAO)) {
+            foreach ($tareaalumno_consultaDAO as $key => $value) {
                 $obj["data"][] = $value;
             }
         } else {

@@ -16,7 +16,7 @@ class TareaDTO implements JsonSerializable
     private $comentarios_tarea;
     private $calificacion_tarea;
 
-
+    private $id_tarea_alumnoDetalle;
 
     public function __get($property)
     {

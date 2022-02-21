@@ -6,11 +6,18 @@ class Incidencia extends Controller
         parent::__construct();
     }
 
-    function index(){
+    function index()
+    {
         $this->view->render('incidencia/index');
     }
 
-    function insert() {
+    function showIncidencia()
+    {
+        $this->view->render('incidencia/incidenciaDetalle');
+    }
+
+    function insert()
+    {
         $id_alumno = $_POST['id_alumno'];
         $id_profesor = $_POST['id_profesor'];
         $id_grupo  = $_POST['id_grupo'];
@@ -33,7 +40,8 @@ class Incidencia extends Controller
         $incidenciaDAO->insert($data);
     }
 
-    function update() {
+    function update()
+    {
         $id_incidencia = $_POST['id_incidenciaActualizar'];
         $id_alumno = $_POST['id_alumnoActualizar'];
         $id_profesor = $_POST['id_profesorActualizar'];
@@ -43,14 +51,14 @@ class Incidencia extends Controller
         $descripcion_incidencia = $_POST['descripcion_incidenciaActualizar'];
 
         $data = array(
-          'id_incidencia' => $id_incidencia, 
-          'id_alumno' => $id_alumno, 
-          'id_profesor' => $id_profesor,
-          'id_grupo' => $id_grupo,
-          'fechaincidencia_incidencia' => $fechaincidencia_incidencia,
-          'horaincidencia_incidencia' => $horaincidencia_incidencia,
-          'descripcion_incidencia' => $descripcion_incidencia
-      );
+            'id_incidencia' => $id_incidencia,
+            'id_alumno' => $id_alumno,
+            'id_profesor' => $id_profesor,
+            'id_grupo' => $id_grupo,
+            'fechaincidencia_incidencia' => $fechaincidencia_incidencia,
+            'horaincidencia_incidencia' => $horaincidencia_incidencia,
+            'descripcion_incidencia' => $descripcion_incidencia
+        );
 
         require 'model/incidenciaDAO.php';
         $this->loadModel('IncidenciaDAO');
@@ -58,7 +66,8 @@ class Incidencia extends Controller
         $incidenciaDAO->update($data);
     }
 
-    function delete(){
+    function delete()
+    {
         $id_incidencia  = $_POST['idEliminarIncidencia'];
 
         require 'model/incidenciaDAO.php';
@@ -67,22 +76,23 @@ class Incidencia extends Controller
         $incidenciaDAO->delete($id_incidencia);
     }
 
-    function read() {
+    function read()
+    {
         require 'model/incidenciaDAO.php';
         $this->loadModel('IncidenciaDAO');
         $incidenciaDAO = new IncidenciaDAO();
         $incidenciaDAO = $incidenciaDAO->read();
         echo json_encode($incidenciaDAO);
-    } 
-    function readTable() {
+    }
+    function readTable()
+    {
         require 'model/incidenciaDAO.php';
         $this->loadModel('IncidenciaDAO');
         $incidenciaDAO = new IncidenciaDAO();
         $incidenciaDAO = $incidenciaDAO->read();
 
         $obj = null;
-        if (is_array($incidenciaDAO) || is_object($incidenciaDAO))
-        {
+        if (is_array($incidenciaDAO) || is_object($incidenciaDAO)) {
             foreach ($incidenciaDAO as $key => $value) {
                 $obj["data"][] = $value;
             }
@@ -92,5 +102,32 @@ class Incidencia extends Controller
         echo json_encode($obj);
     }
 
-    
+    //********************************************************************* INCIDENCIA CONSULTAR **********************************************
+
+    function readIncidenciaConsulta()
+    {
+        require 'model/incidenciaDAO.php';
+        $this->loadModel('IncidenciaDAO');
+        $incidencias_consultaDAO = new IncidenciaDAO();
+        $incidencias_consultaDAO = $incidencias_consultaDAO->readIncidenciaConsulta();
+        echo json_encode($incidencias_consultaDAO);
+    }
+
+    function readTableIncidenciaConsulta()
+    {
+        require 'model/incidenciaDAO.php';
+        $this->loadModel('IncidenciaDAO');
+        $incidencias_consultaDAO = new IncidenciaDAO();
+        $incidencias_consultaDAO = $incidencias_consultaDAO->readIncidenciaConsulta();
+
+        $obj = null;
+        if (is_array($incidencias_consultaDAO) || is_object($incidencias_consultaDAO)) {
+            foreach ($incidencias_consultaDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
 }

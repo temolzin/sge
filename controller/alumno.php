@@ -16,6 +16,16 @@ class Alumno extends Controller
         $this->view->render('alumno/alumnoDetalle');
     }
 
+    function showAlumnoTutor()
+    {
+        $this->view->render('alumno/alumnoDetalleTutor');
+    }
+
+    function showMateriaTutor()
+  {
+    $this->view->render('alumno_materia_consulta/index');
+  }
+
     function insert()
     {
         $id_grupo = $_POST['id_grupo'];

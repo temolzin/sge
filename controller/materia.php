@@ -16,6 +16,11 @@ class Materia extends Controller
         $this->view->render('materia/materiaDetalle');
     }
 
+    function showMateriaTutor()
+    {
+        $this->view->render('materia/materiaDetalleTutor');
+    }
+
     function insert()
     {
         $id_escuela = $_POST['id_escuela'];
@@ -102,6 +107,35 @@ class Materia extends Controller
         $obj = null;
         if (is_array($materia_profesor_consultaDAO) || is_object($materia_profesor_consultaDAO)) {
             foreach ($materia_profesor_consultaDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
+
+    //************************************************************************** MATERIA TUTOR ************************************************
+
+    function readMateriaTutor()
+    {
+        require 'model/materiaDAO.php';
+        $this->loadModel('MateriaDAO');
+        $alumno_materia_consultaDAO = new MateriaDAO();
+        $alumno_materia_consultaDAO = $alumno_materia_consultaDAO->readMateriaTutor();
+        echo json_encode($alumno_materia_consultaDAO);
+    }
+
+    function readTableMateriaTutor()
+    {
+        require 'model/materiaDAO.php';
+        $this->loadModel('MateriaDAO');
+        $alumno_materia_consultaDAO = new MateriaDAO();
+        $alumno_materia_consultaDAO = $alumno_materia_consultaDAO->readMateriaTutor();
+
+        $obj = null;
+        if (is_array($alumno_materia_consultaDAO) || is_object($alumno_materia_consultaDAO)) {
+            foreach ($alumno_materia_consultaDAO as $key => $value) {
                 $obj["data"][] = $value;
             }
         } else {
