@@ -1,6 +1,7 @@
   <?php
   session_start();
-  class AlumnoDAO extends Model implements CRUD {
+  class AlumnoDAO extends Model implements CRUD
+  {
     public function __construct()
     {
       parent::__construct();
@@ -44,7 +45,8 @@
         ':colonia_alumno' => $data['colonia_alumno'],
         ':telefono_alumno' => $data['telefono_alumno'],
         ':email_alumno' => $data['email_alumno'],
-        ':fechanacimiento_alumno' => $data['fechanacimiento_alumno']]);
+        ':fechanacimiento_alumno' => $data['fechanacimiento_alumno']
+      ]);
       echo 'ok';
     }
 
@@ -88,7 +90,8 @@
         ':colonia_alumno' => $data['colonia_alumno'],
         ':telefono_alumno' => $data['telefono_alumno'],
         ':email_alumno' => $data['email_alumno'],
-        ':fechanacimiento_alumno' => $data['fechanacimiento_alumno']]);
+        ':fechanacimiento_alumno' => $data['fechanacimiento_alumno']
+      ]);
       echo 'ok';
     }
 
@@ -103,7 +106,7 @@
     {
       $id_escuela = $_SESSION['id_escuela'];
       require_once 'alumnoDTO.php';
-      $query = "SELECT alumno.*, usuario.* from alumno alumno, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = alumno.id_usuario and alumno.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and alumno.id_escuela and director.id_escuela = '".$id_escuela."'";
+      $query = "SELECT alumno.*, usuario.* from alumno alumno, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = alumno.id_usuario and alumno.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and alumno.id_escuela and director.id_escuela = '" . $id_escuela . "'";
       $objAlumnos = array();
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
         foreach ($this->db->consultar($query) as $key => $value) {
@@ -123,11 +126,11 @@
           $alumno->estado_alumno  = $value['estado_alumno'];
           $alumno->municipio_alumno  = $value['municipio_alumno'];
           $alumno->colonia_alumno  = $value['colonia_alumno'];
-          $alumno->telefono_alumno = $value['telefono_alumno'];  
+          $alumno->telefono_alumno = $value['telefono_alumno'];
           $alumno->email_alumno = $value['email_alumno'];
-          $alumno->fechanacimiento_alumno= $value['fechanacimiento_alumno'];
+          $alumno->fechanacimiento_alumno = $value['fechanacimiento_alumno'];
           $alumno->username_usuario = $value['username_usuario'];
-          $alumno->password_usuario= $value['password_usuario'];
+          $alumno->password_usuario = $value['password_usuario'];
           array_push($objAlumnos, $alumno);
         }
       } else {
@@ -136,7 +139,43 @@
 
       return $objAlumnos;
     }
-    
 
+    //*********************************** ALUMNO DETALLE PROFESOR **************************************************
+
+    public function readAlumnoProfesor()
+    {
+      // $id_escuela = $_SESSION['id_escuela'];
+      $id_profesor = $_SESSION['id'];
+      require_once 'alumnoDTO.php';
+      $query = "SELECT alumno.*, escuela.*, profesor.*, grupo.* 
+                FROM alumno alumno, escuela escuela, profesor profesor, grupo grupo 
+                WHERE alumno.id_escuela = escuela.id_escuela 
+                and profesor.id_escuela = escuela.id_escuela 
+                and profesor.id_escuela = alumno.id_escuela 
+                and grupo.id_grupo = alumno.id_grupo 
+                AND profesor.id_profesor = '" . $id_profesor . "'";
+
+      $objAlumnos = array();
+      if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
+        foreach ($this->db->consultar($query) as $key => $value) {
+          $alumno = new AlumnoDTO();
+          $alumno->id_alumno = $value['id_alumno'];
+          $alumno->id_grupo = $value['id_grupo'];
+          $alumno->id_escuela = $value['id_escuela'];
+          $alumno->id_usuario = $value['id_usuario'];
+          $alumno->nombre_alumno = $value['nombre_alumno'];
+          $alumno->foto_alumno = $value['foto_alumno'];
+          $alumno->appaterno_alumno = $value['appaterno_alumno'];
+          $alumno->apmaterno_alumno = $value['apmaterno_alumno'];
+          $alumno->telefono_alumno = $value['telefono_alumno'];
+          $alumno->email_alumno = $value['email_alumno'];
+          array_push($objAlumnos, $alumno);
+        }
+      } else {
+        $objAlumnos = null;
+      }
+
+      return $objAlumnos;
+    }
   }
   ?>

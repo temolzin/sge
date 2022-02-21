@@ -5,32 +5,32 @@ $menu = new Menu();
 $menu->header('Tablero');
 ?>
 <section class="content">
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-12">
-            <div class="card">
-               <div class="card-header">
-                  <h4> Detalles de tareas</h4>
-               </div>
-               <div class="card-body">
-                  <div class="table-responsive" >
-                     <table id="dataTableTareaEntregada" name="dataTableTareaEntregada" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
-                        <thead>
-                           <tr>
-                              
-                              <th>Tarea</th>
-                              <th>Grupo</th>
-                              <th>Materia</th>
-                              <th>Entregable</th>
-                              <th>Opciones</th>
-                           </tr>
-                        </thead>
-                     </table>
-                  </div>
-               </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4> Detalles de tareas</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="dataTableTareaEntregada" name="dataTableTareaEntregada" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
+                <thead>
+                  <tr>
+
+                    <th>Tarea</th>
+                    <th>Grupo</th>
+                    <th>Materia</th>
+                    <th>Entregable</th>
+                    <th>Opciones</th>
+                  </tr>
+                </thead>
+              </table>
             </div>
-         </div>
+          </div>
+        </div>
       </div>
+    </div>
 </section>
 
 <!--------------------------------------------------------- Modal Actualizar----------------------------------------------->
@@ -39,7 +39,7 @@ $menu->header('Tablero');
     <div class="modal-content">
       <div class="card-warning">
         <div class="card-header">
-          <div class="d-sm-flex align-items-center justify-content-between " >
+          <div class="d-sm-flex align-items-center justify-content-between ">
             <h4 class="card-title">Calificar Tareas <small> &nbsp;(*) Campos requeridos</small></h4>
             <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
@@ -60,38 +60,38 @@ $menu->header('Tablero');
               <!-- /.card-header -->
               <div class="card-body border-primary">
                 <div class="row">
-                  <input type="text" hidden class="form-control" id="id_tarea_entregadaActualizar" name="id_tarea_entregadaActualizar"/>
+                  <input type="text" hidden class="form-control" id="id_tarea_entregadaActualizar" name="id_tarea_entregadaActualizar" />
 
 
                   <div class="col-lg-6">
                     <div class="form-group">
-                     <label>Comentarios del alumno</label>
-                     <input disabled type="text" class="form-control" id="comentarios_tareaActualizar" name="comentarios_tareaActualizar" placeholder="Comentarios"/>
-                   </div>
-                 </div>
-                 <div class="col-lg-6">
-                  <div class="form-group">
-                    <label>Calificación</label>
+                      <label>Comentarios del alumno</label>
+                      <input disabled type="text" class="form-control" id="comentarios_tareaActualizar" name="comentarios_tareaActualizar" placeholder="Comentarios" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Calificación</label>
 
-                    <input type="text" class="form-control" id="calificacion_tareaActualizar" name="calificacion_tareaActualizar" placeholder="Calificacion"/>
-                 </div>
-               </div>
+                      <input type="text" class="form-control" id="calificacion_tareaActualizar" name="calificacion_tareaActualizar" placeholder="Calificacion" />
+                    </div>
+                  </div>
 
-             </div>
-           </div>
-         </div>
+                </div>
+              </div>
+            </div>
 
 
-       </div>
-     </div>
-     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      <button type="submit" class="btn btn-warning">Actualizar</button>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-warning">Actualizar</button>
+      </div>
+
     </div>
-
+    </form>
   </div>
-</form>                                                 
-</div>
 </div>
 </div>
 </div>
@@ -101,63 +101,67 @@ $menu->header('Tablero');
 $menu->footer();
 ?>
 <script>
-
-
-  $(document).ready(function (){
+  $(document).ready(function() {
     mostrarTareasEntregada();
     enviarFormularioActualizar();
     llenarTarea();
     llenarGrupo();
     llenarMateria();
-});
-  
+  });
 
 
 
-var mostrarTareasEntregada = function() {
+
+  var mostrarTareasEntregada = function() {
     var tableTareaEntregada = $('#dataTableTareaEntregada').DataTable({
       "processing": true,
       "serverSide": false,
       "ajax": {
-        "url": "<?php echo constant('URL');?>tareaEntregada/readTable"
-    },
-    "columns": [
-    
-    { "data": "nombre_tarea" },
-    { "data": "nombre_grupo"},
-    { "data": "nombre_materia"},
-   {
-                    "defaultContent":"",
-                    render: function (data, type, row) {
-                        return `<a download="${row.archivo_tarea_entregada}" href="public/tareas_entregadas/${row.nombre_tarea}/${row.archivo_tarea_entregada}"><button class='consulta btn btn-danger' title="Descargar PDF"><i class="fa fa-file-pdf"></i></button></a>`;
-                    }   
-                },
-    {data:null,
-        "defaultContent":
-        
-        `
-        <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarTareaEntregada' title="Calificar tarea"><i class="fa fa-paper-plane"></i></button>`
-    }
-    ],
-    "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
-           if (aiDisplay.length > 0) {
-               $('body').removeClass('no-record');
-           }
-           else {
-               $('body').addClass('no-record');
-           }
-       },
-    responsive: true,
-    autoWidth: false,
-    language: idiomaDataTable,
-    lengthChange: true,
-    buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis'],
-    dom: 'Bfltip'
-});
-    obtenerdatosDT(tableTareaEntregada);
-}
+        "url": "<?php echo constant('URL'); ?>tarea/readTableTareaEntregada"
+      },
+      "columns": [
 
-var obtenerdatosDT = function (table) {
+        {
+          "data": "nombre_tarea"
+        },
+        {
+          "data": "nombre_grupo"
+        },
+        {
+          "data": "nombre_materia"
+        },
+        {
+          "defaultContent": "",
+          render: function(data, type, row) {
+            return `<a download="${row.archivo_tarea_entregada}" href="public/tareas_entregadas/${row.nombre_tarea}/${row.archivo_tarea_entregada}"><button class='consulta btn btn-danger' title="Descargar PDF"><i class="fa fa-file-pdf"></i></button></a>`;
+          }
+        },
+        {
+          data: null,
+          "defaultContent":
+
+            `
+        <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarTareaEntregada' title="Calificar tarea"><i class="fa fa-paper-plane"></i></button>`
+        }
+      ],
+      "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
+        if (aiDisplay.length > 0) {
+          $('body').removeClass('no-record');
+        } else {
+          $('body').addClass('no-record');
+        }
+      },
+      responsive: true,
+      autoWidth: false,
+      language: idiomaDataTable,
+      lengthChange: true,
+      buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis'],
+      dom: 'Bfltip'
+    });
+    obtenerdatosDT(tableTareaEntregada);
+  }
+
+  var obtenerdatosDT = function(table) {
     $('#dataTableTareaEntregada tbody').on('click', 'tr', function() {
       var data = table.row(this).data();
 
@@ -174,39 +178,39 @@ var obtenerdatosDT = function (table) {
 
 
 
-  });
-}
-$.validator.addMethod("selectRequired", function(value, element, arg){
+    });
+  }
+  $.validator.addMethod("selectRequired", function(value, element, arg) {
     return arg !== value;
-}, "Selecciona un valor");
+  }, "Selecciona un valor");
 
 
- var enviarFormularioActualizar = function () {
+  var enviarFormularioActualizar = function() {
     $.validator.setDefaults({
-      submitHandler: function () {
+      submitHandler: function() {
         var datos = $('#formActualizarTareaEntregada').serialize();
         $.ajax({
           type: "POST",
-          url: "<?php echo constant('URL');?>tareaEntregada/update",
+          url: "<?php echo constant('URL'); ?>tarea/updateTareaEntregada",
           data: datos,
-          success: function (data) {
+          success: function(data) {
             if (data == 'ok') {
               Swal.fire(
                 "¡Éxito!",
                 "El grupo ha sido Actualizado de manera correcta",
                 "success"
-                ).then(function () {
-                  window.location = "<?php echo constant('URL');?>tareaEntregada";
-                })
-              } else {
-                Swal.fire(
-                  "¡Error!",
-                  "Ha ocurrido un error al Actualizar el grupo. " + data,
-                  "error"
-                  );
-              }
-            },
-          });
+              ).then(function() {
+                window.location = "<?php echo constant('URL'); ?>tarea/tareaEntregada";
+              })
+            } else {
+              Swal.fire(
+                "¡Error!",
+                "Ha ocurrido un error al Actualizar el grupo. " + data,
+                "error"
+              );
+            }
+          },
+        });
       }
     });
     $('#formActualizarTareaEntregada').validate({
@@ -254,17 +258,16 @@ $.validator.addMethod("selectRequired", function(value, element, arg){
         }
       },
       errorElement: 'span',
-      errorPlacement: function (error, element) {
+      errorPlacement: function(error, element) {
         error.addClass('invalid-feedback');
         element.closest('.form-group').append(error);
       },
-      highlight: function (element, errorClass, validClass) {
+      highlight: function(element, errorClass, validClass) {
         $(element).addClass('is-invalid');
       },
-      unhighlight: function (element, errorClass, validClass) {
+      unhighlight: function(element, errorClass, validClass) {
         $(element).removeClass('is-invalid');
       }
     });
   }
-
 </script>

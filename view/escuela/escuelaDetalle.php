@@ -1,24 +1,24 @@
 <?php
-    session_start();
+session_start();
 
-    $nombre_escuela = $_SESSION['nombre_escuela'];
-    $rfc_escuela= $_SESSION['rfc_escuela'];
-    $cct_escuela = $_SESSION['cct_escuela'];
-    $calle_escuela = $_SESSION['calle_escuela'];
-    $numxterior_escuela = $_SESSION['numxterior_escuela'];
-    $numinterior_escuela = $_SESSION['numinterior_escuela'];
-    $cp_escuela = $_SESSION['cp_escuela'];
-    $estado_escuela = $_SESSION['estado_escuela'];
-    $municipio_escuela = $_SESSION['municipio_escuela'];
-    $colonia_escuela = $_SESSION['colonia_escuela'];
-    $telefono_escuela = $_SESSION['telefono_escuela'];
-    $email_escuela = $_SESSION['email_escuela'];
-    $observacion_escuela = $_SESSION['observacion_escuela'];
+$nombre_escuela = $_SESSION['nombre_escuela'];
+$rfc_escuela = $_SESSION['rfc_escuela'];
+$cct_escuela = $_SESSION['cct_escuela'];
+$calle_escuela = $_SESSION['calle_escuela'];
+$numxterior_escuela = $_SESSION['numxterior_escuela'];
+$numinterior_escuela = $_SESSION['numinterior_escuela'];
+$cp_escuela = $_SESSION['cp_escuela'];
+$estado_escuela = $_SESSION['estado_escuela'];
+$municipio_escuela = $_SESSION['municipio_escuela'];
+$colonia_escuela = $_SESSION['colonia_escuela'];
+$telefono_escuela = $_SESSION['telefono_escuela'];
+$email_escuela = $_SESSION['email_escuela'];
+$observacion_escuela = $_SESSION['observacion_escuela'];
 
 
-    require 'view/menu.php';
-    $menu = new Menu();
-    $menu->header('Tablero');
+require 'view/menu.php';
+$menu = new Menu();
+$menu->header('Tablero');
 
 ?>
 
@@ -38,7 +38,7 @@
             <div class="col-lg-12">
                <div class="card p-3 mb-2 bg-gradient-primary ">
                   <center>
-                     <h3>  <?php echo $nombre_escuela; ?></h3>
+                     <h3> <?php echo $nombre_escuela; ?></h3>
                   </center>
                </div>
             </div>
@@ -88,13 +88,13 @@
             <div class="col-sm-4">
                <label class="col-md-4  control-label">Nª Exterior</label>
                <div class="col-md-10 col-sm-9 col-xs-4">
-                  <input  disabled type="text" class="form-control" value="<?php echo $numxterior_escuela  ?>">
+                  <input disabled type="text" class="form-control" value="<?php echo $numxterior_escuela  ?>">
                </div>
             </div>
             <div class="col-sm-4">
                <label class="col-md-4  control-label">Nª Interior</label>
                <div class="col-md-10 col-sm-9 col-xs-4">
-                  <input  disabled type="text" class="form-control" value="<?php echo $numinterior_escuela  ?>">
+                  <input disabled type="text" class="form-control" value="<?php echo $numinterior_escuela  ?>">
                </div>
             </div>
             <div class="col-sm-4">
@@ -106,7 +106,7 @@
             <div class="col-sm-4">
                <label class="col-md-4  control-label">Estado</label>
                <div class="col-md-10 col-sm-9 col-xs-4">
-                  <input  disabled type="text" class="form-control" value="<?php echo $estado_escuela  ?>">
+                  <input disabled type="text" class="form-control" value="<?php echo $estado_escuela  ?>">
                </div>
             </div>
             <div class="col-sm-4">
@@ -126,7 +126,7 @@
    </div>
 </section>
 
- 
+
 <?php
-    $menu->footer();
+$menu->footer();
 ?>
