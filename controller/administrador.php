@@ -89,7 +89,7 @@ class Administrador extends Controller
                  'id_usuario' => $id_usuario,
                  'foto_administrador' => $nombreImagen,
                  'nombre_administrador' => $nombre_administrador, 
-                 'appaterno_administrador' => $appaterno_administrador, 
+                 'appaterno_administradorActualizar' => $appaterno_administrador, 
                  'apmaterno_administrador' => $apmaterno_administrador,
                  'telefono_administrador' => $telefono_administrador, 
                  'email_administrador' => $email_administrador, 

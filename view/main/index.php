@@ -69,7 +69,7 @@
             </div>
             <div class="col-md-8">
                <h4 class="font-45 weight-500 mb-10 text-capitalize" style="font-size: 30px" >
-                  Bienvenido
+                  Bienvenid@
                </h4>
                <div class="weight-600 font-30 text-blue" style="font-size: 30px">
                   <?php echo $nombre_completo; ?> 
@@ -213,7 +213,7 @@
             <div class="icon">
                <i class="ion ion-university"></i>
             </div>
-            <a href="http://localhost/sge/consulta_escuela" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="http://localhost/sge/escuela" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -566,7 +566,7 @@
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="/sge/alumno_incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/sge/incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
    </div>
@@ -611,7 +611,7 @@
                      </div>
                   </div>
                </div>
-               <a href="http://localhost/sge/consulta_escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
+               <a href="http://localhost/sge/escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
             </div>
          </div>
       </div>

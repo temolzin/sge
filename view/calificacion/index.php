@@ -68,7 +68,7 @@
 
 
               <div class="card border-red">
-                <div class="card-header py-1 bg-secondary"> 
+                <div class="col-lg-12"> 
                   <h3 class="card-title">Calificación</h3>
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -79,77 +79,63 @@
                 <div class="card-body border-secondary">
                   
 
-                   
-
-                  <div class="col-lg-12">
+                   <div class="row">
+                   <div class="col-lg-4">
                       <div class="form-group">
-                        <label>Seleccione Profesor (*)</label>
+                        <label>Profesor (*)</label>
                         <select name="id_profesor" id="id_profesor" class="form-control id_profesor">
                           <option value="default">Seleccione el profesor</option>
                         </select>
                       </div>
                     </div> 
-
-                     <div class="col-lg-12">
+                    <div class="col-lg-4">
                       <div class="form-group">
-                        <label>Seleccione Alumno (*)</label>
+                        <label>Alumno (*)</label>
                         <select name="id_alumno" id="id_alumno" class="form-control id_alumno">
                           <option value="default">Seleccione el alumno</option>
                         </select>
                       </div>
                     </div>
-
-                    <div class="col-lg-12">
+                    <div class="col-lg-4">
                       <div class="form-group">
-                        <label>Seleccione Parcial (*)</label>
+                        <label>Parcial (*)</label>
                         <select name="id_parcial" id="id_parcial" class="form-control id_parcial">
                           <option value="default">Seleccione el parcial</option>
                         </select>
                       </div>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-4">
                       <div class="form-group">
-                        <label>Seleccione Materia (*)</label>
+                        <label>Materia (*)</label>
                         <select name="id_materia" id="id_materia" class="form-control id_materia">
                           <option value="default">Seleccione la materia</option>
                         </select>
                       </div>
                     </div>
-
-<div class="row">
-                     <div class="col-lg-3">
-
+                    <div class="col-lg-4">
                     <div class="form-group">
                         <label>Calificación (*)</label> 
                         <input  type="number" step="any" id="calificacion" name="calificacion" class="form-control" placeholder="Ingresa calificacion">
                       </div> 
                  </div>  
-<div class="col-lg-9">
-
-                        <div class="form-group">
-                        <label>Observación (*)</label> 
-                        <textarea  type="text" id="observacion_calificacion" name="observacion_calificacion" class="form-control" placeholder="Ingresa observacion..."></textarea>
-                    
                  
-                   </div>
-                 </div>  
-                      </div>  
-                     <!--  <div class="form-group">
-                        <label>Calificacion (*)</label> 
-                        <input  type="number" step="any" id="calificacion" name="calificacion" class="form-control" placeholder="Ingresa calificacion">
-                      </div> -->
-                  
-                  
-
-
-                    <div class="row">
-                      <div class="col-lg-6">
+                 <div class="col-lg-4">
                         <div class="form-group">
-                          <label>Coloque la Fecha (*)</label>
+                          <label>Fecha (*)</label>
                           <input type="date" class="form-control" id="fecha_calificacion" name="fecha_calificacion" placeholder="Fecha"/>
                         </div>
                       </div>
-                    </div>
+                      <div class="col-lg-12">
+                 <div class="form-group">
+                        <label>Observación (*)</label> 
+                        <textarea  type="text" id="observacion_calificacion" name="observacion_calificacion" class="form-control" placeholder="Ingresa observacion..."></textarea>
+                   </div>
+                 </div>
+                   </div>
+                 </div>  
+                      </div>  
+
+                    
                   </div>
 
               </div>
@@ -210,65 +196,58 @@
 
                 
 
-                <div class="col-lg-12">
+                <div class="col-lg-4">
                   <div class="form-group">
-                    <label> Profesor (*)</label>
+                    <label> Profesor </label>
                     <select name="id_profesorActualizar" id="id_profesorActualizar" class="form-control id_profesor">
                       <option value="default">Seleccione el profesor</option>
                     </select>
                   </div>
                 </div>
-<div class="col-lg-12">
+                <div class="col-lg-4">
                   <div class="form-group">
-                    <label> Alumno (*)</label>
+                    <label> Alumno </label>
                     <select name="id_alumnoActualizar" id="id_alumnoActualizar" class="form-control id_alumno">
                       <option value="default">Seleccione el alumno</option>
                     </select>
                   </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-4">
                   <div class="form-group">
-                    <label> Parcial (*)</label>
+                    <label> Parcial </label>
                     <select name="id_parcialActualizar" id="id_parcialActualizar" class="form-control id_parcial">
                       <option value="default">Seleccione el parcial</option>
                     </select>
                   </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-4">
                   <div class="form-group">
-                    <label> Materia (*)</label>
+                    <label> Materia </label>
                     <select name="id_materiaActualizar" id="id_materiaActualizar" class="form-control id_materia">
                       <option value="default">Seleccione la materia</option>
                     </select>
                   </div>
                 </div>
-              </div>    
-              
-   <div class="row">
-                     <div class="col-lg-3">
-
+                <div class="col-lg-4">
                 <div class="form-group">
-                 <label>Calificación (*)</label> 
+                 <label>Calificación </label> 
                  <input type="number" step="any" id="calificacionActualizar" name="calificacionActualizar" class="form-control" placeholder="Enter ..."/> 
                </div>
-             </div>
-
-              <div class="col-lg-9">
+              </div>
+              <div class="col-lg-4">
+                  <div class="form-group">
+                    <label>Fecha</label>
+                    <input type="date" class="form-control" id="fecha_calificacionActualizar" name="fecha_calificacionActualizar" placeholder="Fecha"/>
+                  </div>
+                </div>
+                <div class="col-lg-12">
 
                 <div class="form-group">
                  <label>Observación (*)</label> 
                  <textarea type="text" id="observacion_calificacionActualizar" name="observacion_calificacionActualizar" class="form-control" placeholder="Enter ..."></textarea> 
                </div>
              </div>
-              </div>
-             <div class="row">
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label>Fecha (*)</label>
-                    <input type="date" class="form-control" id="fecha_calificacionActualizar" name="fecha_calificacionActualizar" placeholder="Fecha"/>
-                  </div>
-                </div>
-              </div>
+              </div> 
            </div>
          </div>
 
@@ -313,59 +292,55 @@
 
       
 
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Profesor</label>
                       <select   disabled name="id_profesorConsultar" id="id_profesorConsultar" class="form-control id_profesor">
                       </select>
                     </div>
                   </div>
- <div class="col-lg-12">
+ <div class="col-lg-4">
                     <div class="form-group">
                       <label>Alumno</label>
                       <select  disabled name="id_alumnoConsultar" id="id_alumnoConsultar" class="form-control id_alumno">
                       </select>
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Parcial </label>
                       <select  disabled  name="id_parcialConsultar" id="id_parcialConsultar" class="form-control id_parcial">
                       </select>
                     </div>
                   </div>
-                   <div class="col-lg-12">
+                   <div class="col-lg-4">
                     <div class="form-group">
                       <label>Materia</label>
                       <select  disabled  name="id_materiaConsultar" id="id_materiaConsultar" class="form-control id_materia">
                       </select>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                     <div class="col-lg-3">
+                  <div class="col-lg-4">
 
                     <div class="form-group">
                      <label>Calificación</label> 
                      <textarea    disabled type="text" id="calificacionConsultar" name="calificacionConsultar" class="form-control" placeholder="Enter ..."></textarea>
                    </div>
-                 </div>  
-<div class="col-lg-9">
+                 </div>
+                 <div class="col-lg-4">
+                    <div class="form-group">
+                      <label>Fecha </label>
+                      <input  disabled type="date" class="form-control" id="fecha_calificacionConsultar" name="fecha_calificacionConsultar" placeholder="Fecha"/>
+                    </div>
+                  </div> 
+                  <div class="col-lg-12">
 
                     <div class="form-group">
                      <label>Observación </label> 
                      <textarea    disabled type="text" id="observacion_calificacionConsultar" name="observacion_calificacionConsultar" class="form-control" placeholder="Enter ..."></textarea>
                    </div>
-                 </div>  
-                      </div>  
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label>Fecha </label>
-                      <input  disabled type="date" class="form-control" id="fecha_calificacionConsultar" name="fecha_calificacionConsultar" placeholder="Fecha"/>
-                    </div>
-                  </div>
-             </div>
+                 </div> 
+                </div>
            </div>
 
          </div>
