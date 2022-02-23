@@ -34,20 +34,19 @@
     public function update($data)
     {
       $query = $this->db->conectar()->prepare('UPDATE administrador SET
-        
        id_usuario = :id_usuario,
-       nombre_administrador = :nombre_administrador,
+       nombre_administrador = :nombre_administradorActualizar,
        foto_administrador = :foto_administrador,
        appaterno_administrador = :appaterno_administrador,
        apmaterno_administrador = :apmaterno_administrador,
        telefono_administrador = :telefono_administrador,
        email_administrador = :email_administrador,
        fechanacimiento_administrador = :fechanacimiento_administrador
-       WHERE id_administrador = :id_administrador');
+       WHERE id_administrador = :id_administradorActualizar');
       $query->execute([
-        ':id_administrador' => $data['id_administrador'],
+        ':id_administrador' => $data['id_administradorActualizar'],
         ':id_usuario' => $data['id_usuario'],
-        ':nombre_administrador' => $data['nombre_administrador'],
+        ':nombre_administradorActualizar' => $data['nombre_administradorActualizar'],
         ':foto_administrador' => $data['foto_administrador'],
         ':appaterno_administrador' => $data['appaterno_administrador'],
         ':apmaterno_administrador' => $data['apmaterno_administrador'],

@@ -3,32 +3,32 @@
 class Menu
 {
 
-  function header($title)
+      function header($title)
 
-  {
-    $tipo = $_SESSION['tipo'];
-
-
-
-    $nombre = $_SESSION['nombre'];
-    $foto = $_SESSION['foto'];
-    $appaterno = $_SESSION['appaterno'];
-    $apmaterno = $_SESSION['apmaterno'];
-    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
-
-    $fotoruta = '/SGE/public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-
-
-    //$tutor = 'tutor';
+      {
+            $tipo = $_SESSION['tipo'];
 
 
 
+            $nombre = $_SESSION['nombre'];
+            $foto = $_SESSION['foto'];
+            $appaterno = $_SESSION['appaterno'];
+            $apmaterno = $_SESSION['apmaterno'];
+            $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
 
-    $menu = '';
+            $fotoruta = '/SGE/public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 
-    if ($tipo == 'Tutor') {
 
-      $menu = '
+            //$tutor = 'tutor';
+
+
+
+
+            $menu = '';
+
+            if ($tipo == 'Tutor') {
+
+                  $menu = '
       <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
@@ -40,7 +40,6 @@ class Menu
 
       <li class="nav-item">
       <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
-      <i class="nav-icon fas fa-school"></i>
       <p>
       Información Escolar 
       </p>
@@ -92,9 +91,9 @@ class Menu
       </a>
       </li>
    ';
-    } else if ($tipo == 'Alumno') {
+            } else if ($tipo == 'Alumno') {
 
-      $menu = '
+                  $menu = '
        <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
@@ -158,9 +157,9 @@ class Menu
       </a>
       </li>
      ';
-    } else if ($tipo == 'Director') {
+            } else if ($tipo == 'Director') {
 
-      $menu = '  
+                  $menu = '  
      <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
@@ -278,9 +277,9 @@ class Menu
       </li>
 
       ';
-    } else if ($tipo == 'Profesor') {
+            } else if ($tipo == 'Profesor') {
 
-      $menu = '
+                  $menu = '
       <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
@@ -354,10 +353,10 @@ class Menu
       </li>
 
 ';
-    } else if ($tipo == 'Administrador') {
-      //$fotoruta = '/SGE/public/Director/Jiménez_Silva_Luis/bongocat.gif';
+            } else if ($tipo == 'Administrador') {
+                  //$fotoruta = '/SGE/public/Director/Jiménez_Silva_Luis/bongocat.gif';
 
-      $menu = '
+                  $menu = '
       <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
@@ -404,12 +403,12 @@ class Menu
       </li>
 
 ';
-    } else {
+            } else {
 
-      echo $menu;
-    }
+                  echo $menu;
+            }
 
-    echo '
+            echo '
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -552,11 +551,11 @@ class Menu
     </div>
     </div><!-- /.container-fluid -->
     </section>';
-  }
+      }
 
-  function footer()
-  {
-    echo '    <!-- /.content -->
+      function footer()
+      {
+            echo '    <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -651,9 +650,11 @@ class Menu
         <script src="' . constant('URL') . 'public/plugins/jquery-validation/jquery.validate.js"></script>
         <!-- SWEETALERT2 -->
         <script src="' . constant('URL') . 'public/plugins/sweetalert2/sweetalert2.js"></script>
+        
         <!--SEPOMEX-->
-        <script src="http://servicios.apiqroo.com.mx/sepomex/public/js/sepomex_js/sepomex.js"></script>
+        <script src="https://api.copomex.com/query/info_cp/09810?token=pruebas"></script>
         <script src="public/plugins/select2/js/select2.full.min.js"></script>
+        
         <!--CONTRSEÑA-->
         <script src="js/jquery.min.js"></script>
         <script src="js/strength.min.js"></script>
@@ -684,5 +685,5 @@ class Menu
         </script>
         </body>
         </html>';
-  }
+      }
 }

@@ -66,11 +66,10 @@ $menu->header('Tablero');
             </div>
             <div class="col-md-8">
                <h4 class="font-45 weight-500 mb-10 text-capitalize" style="font-size: 30px">
-                  Bienvenido
-               </h4>
-               <div class="weight-600 font-30 text-blue" style="font-size: 30px">
-                  <?php echo $nombre_completo; ?>
-               </div>
+                  Bienvenid@
+                  <div class="weight-600 font-30 text-blue" style="font-size: 30px">
+                     <?php echo $nombre_completo; ?>
+                  </div>
                </h4>
             </div>
          </div>
@@ -563,7 +562,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="/sge/alumno_incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/sge/incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
    </div>
@@ -610,6 +609,8 @@ $menu->header('Tablero');
                   </div>
                   <a href="http://localhost/sge/consulta_escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
                </div>
+               <<<<<<< HEAD=======<a href="http://localhost/sge/escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
+                  >>>>>>> 62b804876230b4c793283273b1ab4aa26728c79d
             </div>
          </div>
       </div>
