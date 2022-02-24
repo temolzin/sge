@@ -3,67 +3,70 @@
 class Menu
 {
 
-  function header($title)
-  
-  {
-    $tipo = $_SESSION['tipo'];
+      function header($title)
 
-    
-
-    $nombre = $_SESSION['nombre'];
-    $foto = $_SESSION['foto'];
-    $appaterno = $_SESSION['appaterno'];
-    $apmaterno = $_SESSION['apmaterno'];
-    $nombre_completo = $nombre." ".$appaterno." ".$apmaterno;
-
-    $fotoruta = '/SGE/public/'.$tipo.'/'.$appaterno.'_'.$apmaterno.'_'.$nombre.'/'.$foto;
+      {
+            $tipo = $_SESSION['tipo'];
 
 
-        //$tutor = 'tutor';
+
+            $nombre = $_SESSION['nombre'];
+            $foto = $_SESSION['foto'];
+            $appaterno = $_SESSION['appaterno'];
+            $apmaterno = $_SESSION['apmaterno'];
+            $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
+
+            $fotoruta = '/SGE/public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 
 
-    
+            //$tutor = 'tutor';
 
-    $menu ='';
 
-    if($tipo == 'Tutor'){
 
-      $menu = '
+
+            $menu = '';
+
+            if ($tipo == 'Tutor') {
+
+                  $menu = '
       <li class="nav-item">
-      <a  href="'.constant('URL').'" class="nav-link">
+      <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
       Inicio
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="escuela_consulta" name="escuela_consulta" href="'.constant('URL').'escuela" class="nav-link">
-      <i class="nav-icon fas fa-school"></i>
+      <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
       <p>
       Información Escolar 
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="alumno_consulta" name="alumno_consulta" href="'.constant('URL').'alumno" class="nav-link">
+      <a id="showAlumnoTutor" name="showAlumnoTutor" href="' . constant('URL') . 'alumno/showAlumnoTutor" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
       <p>
       Información Alumno      
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="incidencias_consulta" name="incidencias_consulta" href="'.constant('URL').'incidencia" class="nav-link">
+      <a id="showIncidencia" name="showIncidencia" href="' . constant('URL') . 'incidencia/showIncidencia" class="nav-link">
       <i class="nav-icon fas fa-clipboard "></i>
       <p>
       Incidencias
       </p>
       </a>
       </li>
+
       <?php } ?>
       <li class="nav-item">
-      <a id="tareaalumno_consulta" name="tareaalumno_consulta" href="'.constant('URL').'tarea" class="nav-link">
+      <a id="showTareaTutor" name="showTareaTutor" href="' . constant('URL') . 'tarea/showTareaTutor" class="nav-link">
       <i class="nav-icon fas fa-edit"></i>
       <p>
       Tareas
@@ -71,7 +74,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="alumno_materia_consulta" name="alumno_materia_consulta" href="'.constant('URL').'materia" class="nav-link">
+      <a id="showMateriaTutor" name="showMateriaTutor" href="' . constant('URL') . 'materia/showMateriaTutor" class="nav-link">
       <i class="nav-icon fas fa-book-open"></i>
       <p>
       Materias
@@ -80,7 +83,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="calificacion_tutor_consulta" name="calificacion_tutor_consulta" href="'.constant('URL').'calificacion" class="nav-link">
+      <a id="showCalificacionTutor" name="showCalificacionTutor" href="' . constant('URL') . 'calificacion/showCalificacionTutor" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
@@ -88,15 +91,11 @@ class Menu
       </a>
       </li>
    ';
+            } else if ($tipo == 'Alumno') {
 
-
-    }
-
-    else if($tipo == 'Alumno'){
-
-      $menu = '
+                  $menu = '
        <li class="nav-item">
-      <a  href="'.constant('URL').'" class="nav-link">
+      <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
       Inicio
@@ -105,31 +104,34 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="tareaalumno" name="tareaalumno" href="'.constant('URL').'tareaalumno" class="nav-link">
+      <a id="showTareaAlumno" name="showTareaAlumno" href="' . constant('URL') . 'tarea/showTareaAlumno" class="nav-link">
       <i class="nav-icon fas fa-edit"></i>
       <p>
       Tareas
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="escuela_consulta" name="escuela_consulta" href="'.constant('URL').'escuela_consulta" class="nav-link">
+      <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
       <p>
       Escuela
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="alumno_incidencia" name="alumno_incidencia" href="'.constant('URL').'alumno_incidencia" class="nav-link">
+      <a id="showIncidenciaAlumno" name="showIncidenciaAlumno" href="' . constant('URL') . 'incidencia/showIncidenciaAlumno" class="nav-link">
       <i class="nav-icon fas fa-clipboard"></i>
       <p>
       Incidencias
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="alumno_materia" name="alumno_materia" href="'.constant('URL').'alumno_materia" class="nav-link">
+      <a id="showMateriaAlumno" name="showMateriaAlumno" href="' . constant('URL') . 'materia/showMateriaAlumno" class="nav-link">
       <i class="nav-icon fas fa-book-open"></i>
       <p>
       Materias
@@ -138,15 +140,16 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="calificacion_consulta" name="calificacion_consulta" href="'.constant('URL').'calificacion_consulta" class="nav-link">
+      <a id="showCalificacionAlumno" name="showCalificacionAlumno" href="' . constant('URL') . 'calificacion/showCalificacionAlumno" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="tareaCalificada" name="tareaCalificada" href="'.constant('URL').'tareaCalificada" class="nav-link">
+      <a id="showTareaCalificada" name="showTareaCalificada" href="' . constant('URL') . 'tarea/showTareaCalificada" class="nav-link">
       <i class="nav-icon fas fa-check-square"></i>
       <p>
       Tareas Calificadas
@@ -154,22 +157,20 @@ class Menu
       </a>
       </li>
      ';
+            } else if ($tipo == 'Director') {
 
-    } 
-
-    else if($tipo == 'Director'){
-
-      $menu = '  
+                  $menu = '  
      <li class="nav-item">
-      <a  href="'.constant('URL').'" class="nav-link">
+      <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
       Inicio
       </p>
       </a>
-      </li>  
+      </li>
+
       <li class="nav-item">
-      <a id="directivo" name="directivo" href="'.constant('URL').'directivo" class="nav-link">
+      <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
       Directivo (s)
@@ -177,7 +178,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="escuela_consulta" name="escuela_consulta" href="'.constant('URL').'escuela_consulta" class="nav-link">
+      <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
       <p>
       Escuela
@@ -185,7 +186,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="alumno" name="alumno" href="'.constant('URL').'alumno" class="nav-link">
+      <a id="alumno" name="alumno" href="' . constant('URL') . 'alumno" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
       <p>
       Alumnos
@@ -193,7 +194,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="tutor" name="tutor" href="'.constant('URL').'tutor" class="nav-link">
+      <a id="tutor" name="tutor" href="' . constant('URL') . 'tutor" class="nav-link">
       <i class="nav-icon fas fa-user-tie"></i>
       <p>
       Tutores
@@ -202,7 +203,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="profesor" name="profesor" href="'.constant('URL').'profesor" class="nav-link">
+      <a id="profesor" name="profesor" href="' . constant('URL') . 'profesor" class="nav-link">
       <i class="nav-icon fas fa-chalkboard-teacher"></i>
       <p>
       Profesores
@@ -210,7 +211,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="materia" name="materia" href="'.constant('URL').'materia" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'materia/index" class="nav-link">
       <i class="nav-icon fas fa-book"></i>
       <p>
       Materias
@@ -218,7 +219,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="materia_profesor" name="materia_profesor" href="'.constant('URL').'materia_profesor" class="nav-link">
+      <a id="showMateria" name="showMateria" href="' . constant('URL') . 'materia/showMateria" class="nav-link">
       <i class="nav-icon fas fa-book-open"></i>
       <p>
       Materias y profesores
@@ -226,7 +227,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="gradoAcademico" name="gradoAcademico" href="'.constant('URL').'gradoAcademico" class="nav-link">
+      <a id="gradoAcademico" name="gradoAcademico" href="' . constant('URL') . 'gradoAcademico" class="nav-link">
       <i class="nav-icon fas fa-graduation-cap"></i>
       <p>
       Grados Académicos
@@ -235,7 +236,7 @@ class Menu
       </li> 
 
       <li class="nav-item">
-      <a id="calificacion" name="calificacion" href="'.constant('URL').'calificacion" class="nav-link">
+      <a id="calificacion" name="calificacion" href="' . constant('URL') . 'calificacion" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
@@ -243,7 +244,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="cobro" name="cobro" href="'.constant('URL').'cobro" class="nav-link">
+      <a id="cobro" name="cobro" href="' . constant('URL') . 'cobro" class="nav-link">
       <i class="nav-icon fas fa-hand-holding-usd"></i>
       <p>
       Cobros
@@ -251,7 +252,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="grupo" name="grupo" href="'.constant('URL').'grupo" class="nav-link">
+      <a id="grupo" name="grupo" href="' . constant('URL') . 'grupo" class="nav-link">
       <i class="nav-icon fas fa-chalkboard-teacher"></i>
       <p>
       Grupos
@@ -259,7 +260,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="horario" name="horario" href="'.constant('URL').'horario" class="nav-link">
+      <a id="horario" name="horario" href="' . constant('URL') . 'horario" class="nav-link">
       <i class="nav-icon fas fa-calendar-alt"></i>
       <p>
       Horarios
@@ -267,7 +268,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="pago" name="pago" href="'.constant('URL').'pago" class="nav-link">
+      <a id="pago" name="pago" href="' . constant('URL') . 'pago" class="nav-link">
       <i class="nav-icon fas fa-money-check-alt"></i>
       <p>
       Pagos
@@ -276,21 +277,20 @@ class Menu
       </li>
 
       ';
-    }
+            } else if ($tipo == 'Profesor') {
 
-    else if($tipo == 'Profesor'){
-
-      $menu = '
-      <li class="nav-item active">
-      <a  href="'.constant('URL').'" class="nav-link active">
+                  $menu = '
+      <li class="nav-item">
+      <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
       Inicio
       </p>
       </a>
       </li>
+      
       <li class="nav-item">
-      <a id="tarea" name="tarea" href="'.constant('URL').'tarea" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'tarea/index" class="nav-link">
       <i class="nav-icon fas fa fa-paper-plane"></i>
       <p>
       Tareas
@@ -299,31 +299,34 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="incidencia" name="incidencia" href="'.constant('URL').'incidencia" class="nav-link">
+      <a id="incidencia" name="incidencia" href="' . constant('URL') . 'incidencia" class="nav-link">
       <i class="nav-icon fas fa-paste"></i>
       <p>
       Incidencias
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="tareaEntregada" name="tareaEntregada" href="'.constant('URL').'tareaEntregada" class="nav-link">
+      <a id="showTareaEntregada" name="showTareaEntregada" href="' . constant('URL') . 'tarea/showTareaEntregada" class="nav-link">
       <i class="nav-icon fas fa-book-reader"></i>
       <p>
-      Ver Tareas
+      Tareas Entregadas
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="escuela_consulta" name="escuela_consulta" href="'.constant('URL').'escuela" class="nav-link">
+      <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
       <p>
       Escuela 
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="profesor_alumno_consulta" name="profesor_alumno_consulta" href="'.constant('URL').'alumno" class="nav-link">
+      <a id="showAlumnoProfesor" name="showAlumnoProfesor" href="' . constant('URL') . 'alumno/showAlumnoProfesor" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
       <p>
       Alumnos
@@ -332,7 +335,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="materia_profesor_consulta" name="materia_profesor_consulta" href="'.constant('URL').'materia" class="nav-link">
+      <a id="showMateriaProfesor" name="showMateriaProfesor" href="' . constant('URL') . 'materia/showMateriaProfesor" class="nav-link">
       <i class="nav-icon fas fa-book"></i>
       <p>
       Materias
@@ -341,7 +344,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="calificacion" name="calificacion" href="'.constant('URL').'calificacion" class="nav-link">
+      <a id="calificacion" name="calificacion" href="' . constant('URL') . 'calificacion" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
@@ -350,21 +353,21 @@ class Menu
       </li>
 
 ';
+            } else if ($tipo == 'Administrador') {
+                  //$fotoruta = '/SGE/public/Director/Jiménez_Silva_Luis/bongocat.gif';
 
-    }else if($tipo == 'Administrador'){
-        //$fotoruta = '/SGE/public/Director/Jiménez_Silva_Luis/bongocat.gif';
-
-      $menu = '
+                  $menu = '
       <li class="nav-item">
-      <a  id="main" name="main" href="'.constant('URL').'main" class="nav-link active">
+      <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
       Inicio
       </p>
       </a>
       </li>
+
       <li class="nav-item">
-      <a id="escuela" name="escuela" href="'.constant('URL').'escuela" class="nav-link">
+      <a id="escuela" name="escuela" href="' . constant('URL') . 'escuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
       <p>
       Escuelas
@@ -372,7 +375,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="administrador" name="administrador" href="'.constant('URL').'administrador" class="nav-link">
+      <a id="administrador" name="administrador" href="' . constant('URL') . 'administrador" class="nav-link">
       <i class="nav-icon fas fa-user-secret"></i>
       <p>
       Administradores
@@ -381,7 +384,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="directivo" name="directivo" href="'.constant('URL').'directivo" class="nav-link">
+      <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
       Directores
@@ -391,7 +394,7 @@ class Menu
 
 
       <li class="nav-item">
-      <a id="gradoAcademico" name="gradoAcademico" href="'.constant('URL').'gradoAcademico" class="nav-link">
+      <a id="gradoAcademico" name="gradoAcademico" href="' . constant('URL') . 'gradoAcademico" class="nav-link">
       <i class="nav-icon fas fa-graduation-cap"></i>
       <p>
       Grados Académicos
@@ -400,17 +403,12 @@ class Menu
       </li>
 
 ';
+            } else {
 
+                  echo $menu;
+            }
 
-    }
-
-    else{
-
-      echo $menu;
-      
-    }
-    
-    echo '
+            echo '
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -425,9 +423,9 @@ class Menu
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- DATATABLES -->
-    <link rel="stylesheet" href="'. constant('URL'). 'public/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
-    <link rel="stylesheet" href="'. constant('URL'). 'public/plugins/datatables-responsive/css/responsive.bootstrap4.css">
-    <link rel="stylesheet" href="'. constant('URL'). 'public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="' . constant('URL') . 'public/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="' . constant('URL') . 'public/plugins/datatables-responsive/css/responsive.bootstrap4.css">
+    <link rel="stylesheet" href="' . constant('URL') . 'public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="' . constant('URL') . 'public/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
@@ -473,7 +471,7 @@ class Menu
     <a class="nav-link" data-toggle="dropdown" href="#">
     
 
-    <i class="far fa-user" <p>  '.$nombre.'</p>
+    <i class="far fa-user" <p>  ' . $nombre . '</p>
     
 
     </i>
@@ -507,7 +505,7 @@ class Menu
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="http://localhost/sge/" class="brand-link">
-    <center><span class="brand-text font-weight-light">Bienvenid@ '.$tipo.'</span></center>
+    <center><span class="brand-text font-weight-light">Bienvenido ' . $tipo . '</span></center>
     </a>
 
     <!-- Sidebar -->
@@ -515,10 +513,10 @@ class Menu
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-    <img src="'.$fotoruta.'" class="img-circle elevation-2" alt="User Image">
+    <img src="' . $fotoruta . '" class="img-circle elevation-2" alt="User Image">
     </div>
     <div class="info">
-    <a href="http://localhost/sge/perfil" class="d-block">'.$nombre.'</a>
+    <a href="http://localhost/sge/perfil" class="d-block">' . $nombre . '</a>
     
     </div>
     </div>
@@ -532,7 +530,7 @@ class Menu
     with font-awesome or any other icon font library -->
     
 
-    '.$menu.'
+    ' . $menu . '
     
     </ul>
     </nav>
@@ -553,11 +551,11 @@ class Menu
     </div>
     </div><!-- /.container-fluid -->
     </section>';
-  }
+      }
 
-  function footer()
-  {
-    echo '    <!-- /.content -->
+      function footer()
+      {
+            echo '    <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
@@ -684,17 +682,8 @@ class Menu
           $("#modulo").val(URLactual);
           $("#modulo2").val(URLactual);
         }
-<<<<<<< HEAD
-
-        
-
-=======
-        
->>>>>>> e6cab16713d7885adef040889a8906d2d793d44f
         </script>
         </body>
         </html>';
       }
-    }
-
-    ?>
+}
