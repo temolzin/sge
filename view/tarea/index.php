@@ -66,21 +66,22 @@ $menu->header('Tarea');
               <!-- /.card-header -->
               <div class="card-body border-primary">
                 <div class="row">
-                  <div class="col-6 lg-6">
-                    <div class="form-group">
-                      <!--<label>Num. de Servicio (*)</label>-->
-                      <input type="text" hidden class="form-control" id="id_tarea_alumno" name="id_tarea_alumno" />
+                <div class="col-lg-4">
+                    <span><label>Subir Archivo (*)</label></span>
+                    <div class="form-group input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="archivo_tarea" id="archivo_tarea" lang="es">
+                        <label class="custom-file-label" for="archivo">Seleccione Archivo</label>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
-                      <label>Seleccione Grupo (*)</label>
-                      <select name="id_grupo" id="id_grupo" class="form-control id_grupo">
-                        <option value="default">Seleccione el grupo</option>
-                      </select>
+                      <label>Nombre/Título (*)</label>
+                      <input type="text" class="form-control" id="nombre_tarea" name="nombre_tarea" placeholder="Introduce el nombre/titulo de la tarea." />
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Seleccione Materia (*)</label>
                       <select name="id_materia" id="id_materia" class="form-control id_materia">
@@ -88,10 +89,13 @@ $menu->header('Tarea');
                       </select>
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  
+                  <div class="col-lg-6">
                     <div class="form-group">
-                      <label>Nombre/Título (*)</label>
-                      <input type="text" class="form-control" id="nombre_tarea" name="nombre_tarea" placeholder="Introduce el nombre/titulo de la tarea." />
+                      <label>Seleccione Grupo (*)</label>
+                      <select name="id_grupo" id="id_grupo" class="form-control id_grupo">
+                        <option value="default">Seleccione el grupo</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -106,15 +110,10 @@ $menu->header('Tarea');
                       <textarea type="text" class="form-control" id="descripcion_tarea" name="descripcion_tarea" placeholder="Introduce la descripción de la tarea."></textarea>
                     </div>
                   </div>
-
-
-                  <div class="col-12 col-sm-12">
-                    <span><label>Subir Archivo (*)</label></span>
-                    <div class="form-group input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="archivo_tarea" id="archivo_tarea" lang="es">
-                        <label class="custom-file-label" for="archivo">Seleccione Archivo</label>
-                      </div>
+                  <div class="col-6 lg-6">
+                    <div class="form-group">
+                      <!--<label>Num. de Servicio (*)</label>-->
+                      <input type="text" hidden class="form-control" id="id_tarea_alumno" name="id_tarea_alumno" />
                     </div>
                   </div>
                 </div>
@@ -160,34 +159,34 @@ $menu->header('Tarea');
               <div class="card-body border-primary">
                 <div class="row">
                   <input type="text" hidden class="form-control" id="id_tarea_alumnoActualizar" name="id_tarea_alumnoActualizar" />
-
-
-
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label>Grupo (*)</label>
-                      <select name="id_grupoActualizar" id="id_grupoActualizar" class="form-control id_grupo">
-                      </select>
+                  <div class="col-lg-4">
+                    <span><label>Archivo (*)</label></span>
+                    <br>
+                    <div class="form-group input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="archivo_tareaActualizar" id="archivo_tareaActualizar" lang="es">
+                        <label id="archivo_tareaActualizar" class="custom-file-label" name="archivo_tareaActualizar" id="archivo_tareaActualizar" for="imagen">Seleccione archivo</label>
+                      </div>
                     </div>
                   </div>
-
-
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label>Nombre/Título (*)</label>
+                      <input type="text" class="form-control" id="nombre_tareaActualizar" name="nombre_tareaActualizar" placeholder="Introduce el nombre de la tarea" />
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Materia (*)</label>
                       <select dname="id_materiaActualizar" id="id_materiaActualizar" class="form-control id_materia">
                       </select>
                     </div>
                   </div>
-
-
-
-
-
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label>Nombre/Título (*)</label>
-                      <input type="text" class="form-control" id="nombre_tareaActualizar" name="nombre_tareaActualizar" placeholder="Introduce el nombre de la tarea" />
+                      <label>Grupo (*)</label>
+                      <select name="id_grupoActualizar" id="id_grupoActualizar" class="form-control id_grupo">
+                      </select>
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -196,30 +195,12 @@ $menu->header('Tarea');
                       <input type="date" class="form-control" id="fecha_entregaActualizar" name="fecha_entregaActualizar" placeholder="Introduce la fecha de entrega" />
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
                     <div class="form-group">
                       <label>Descripción (*)</label>
                       <input type="text" class="form-control" id="descripcion_tareaActualizar" name="descripcion_tareaActualizar" placeholder="Introduce la descripción de la tarea" />
                     </div>
                   </div>
-
-                  <div class="col-12 col-sm-12">
-                    <span><label>Archivo (*)</label></span>
-                    <br>
-
-                    <div class="form-group input-group">
-                      <div class="custom-file">
-
-                        <input type="file" class="custom-file-input" name="archivo_tareaActualizar" id="archivo_tareaActualizar" lang="es">
-                        <label id="archivo_tareaActualizar" class="custom-file-label" name="archivo_tareaActualizar" id="archivo_tareaActualizar" for="imagen">Seleccione archivo</label>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
                 </div>
               </div>
             </div>
@@ -262,14 +243,20 @@ $menu->header('Tarea');
               <div class="card-body border-primary">
                 <div class="row">
                   <input type="text" hidden class="form-control" id="id_tarea_alumnoConsultar" name="id_tarea_alumnoConsultar" />
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label>Grupo </label>
-                      <select disabled name="id_grupoConsultar" id="id_grupoConsultar" class="form-control id_grupo">
-                      </select>
+                  <div class="col-lg-4">
+                    <span><label>Archivo</label></span>
+                    <br>
+                    <div align="center" class="mx-auto">
+                      <img id="archivo_tareaConsultar" class="rounded" name="archivo_tareaConsultar" width="30%">
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label>Nombre/Título</label>
+                      <input type="text" disabled class="form-control" id="nombre_tareaConsultar" name="nombre_tareaConsultar" placeholder="Nombre/titulo" />
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Materia </label>
                       <select disabled name="id_materiaConsultar" id="id_materiaConsultar" class="form-control id_materia">
@@ -278,30 +265,27 @@ $menu->header('Tarea');
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label>Nombre/Título</label>
-                      <input type="text" disabled class="form-control" id="nombre_tareaConsultar" name="nombre_tareaConsultar" placeholder="Nombre/titulo" />
+                      <label>Grupo </label>
+                      <select disabled name="id_grupoConsultar" id="id_grupoConsultar" class="form-control id_grupo">
+                      </select>
                     </div>
                   </div>
+                  
+                  
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label>Fecha de entrega</label>
                       <input type="date" disabled class="form-control" id="fecha_entregaConsultar" name="fecha_entregaConsultar" placeholder="Fecha de entrega" />
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
                     <div class="form-group">
                       <label>Descripción</label>
                       <input type="text" disabled class="form-control" id="descripcion_tareaConsultar" name="descripcion_tareaConsultar" placeholder="Descripcion" />
                     </div>
                   </div>
 
-                  <div class="col-12 col-sm-12">
-                    <span><label>Archivo</label></span>
-                    <br>
-                    <div align="center" class="mx-auto">
-                      <img id="archivo_tareaConsultar" class="rounded" name="archivo_tareaConsultar" width="30%">
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>

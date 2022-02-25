@@ -40,6 +40,7 @@ class Menu
 
       <li class="nav-item">
       <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
+      <i class="nav-icon fa fa-school"></i> 
       <p>
       Información Escolar 
       </p>

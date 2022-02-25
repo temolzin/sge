@@ -271,7 +271,7 @@
                         <!-- /.card-header -->
                         <div class="card-body border-primary">
                             <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Escuela </label>
                                     <select disabled name="id_escuelaConsultar" id="id_escuelaConsultar" class="form-control id_escuela">

@@ -68,7 +68,20 @@ $menu->header('Tutor');
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body border-primary">
-                                <div class="col-12 col-sm-12">
+                                <div class="row">
+                                <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Usuario (*)</label>
+                                            <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Contraseña (*)</label>
+                                            <input type="password" class="form-control" id="password_usuario" name="password_usuario" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
                                     <span><label>Fotografía Tutor (*)</label></span>
                                     <div class="form-group input-group">
                                         <div class="custom-file">
@@ -77,6 +90,8 @@ $menu->header('Tutor');
                                         </div>
                                     </div>
                                 </div>
+                                </div>
+                                
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
@@ -133,23 +148,6 @@ $menu->header('Tutor');
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Usuario (*)</label>
-                                            <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Contraseña (*)</label>
-                                            <input type="password" class="form-control" id="password_usuario" name="password_usuario" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
@@ -292,7 +290,20 @@ $menu->header('Tutor');
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body border-primary">
-                                <div class="col-12 col-sm-12">
+                                <div class="row">
+                                <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Usuario (*)</label>
+                                            <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Contraseña (*)</label>
+                                            <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
                                     <span><label>Fotografía Tutor (*)</label></span>
                                     <div class="form-group input-group">
                                         <div class="custom-file">
@@ -301,6 +312,8 @@ $menu->header('Tutor');
                                         </div>
                                     </div>
                                 </div>
+                                </div>
+                                
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <input type="text" hidden class="form-control" id="id_tutorActualizar" name="id_tutorActualizar" />
@@ -365,22 +378,6 @@ $menu->header('Tutor');
                                             </div>
                                         </div>
                                     </div>
-
-
-
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Usuario (*)</label>
-                                            <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Contraseña (*)</label>
-                                            <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
@@ -910,7 +907,7 @@ $menu->footer();
 
                         var img = '/SGE/public/Tutor/' + fullnameImagen;
 
-                        return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="100px" width="100px"/></center>';
+                        return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
 
                 },

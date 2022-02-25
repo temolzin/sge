@@ -70,13 +70,13 @@
                     </div>
                   </div>
                   
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Nombre Grupo (*)</label>
                       <input type="text" class="form-control" id="nombre_grupo" name="nombre_grupo" placeholder="Grupo"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Turno (*)</label>
 
@@ -87,7 +87,7 @@
                       </select>
                     </div>
                   </div>
-   <div class="col-lg-6">
+                  <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Escuela (*)</label>
                                  <select name="id_escuela" id="id_escuela" class="form-control id_escuela">
@@ -145,13 +145,13 @@
 
 
 
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
                      <label>Nombre Grupo (*)</label>
                      <input type="text" class="form-control" id="nombre_grupoActualizar" name="nombre_grupoActualizar" placeholder="grupo"/>
                    </div>
                  </div>
-                 <div class="col-lg-6">
+                 <div class="col-lg-4">
                   <div class="form-group">
                     <label>Turno (*)</label>
 
@@ -162,7 +162,7 @@
                    </select>
                  </div>
                </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Escuela (*)</label>
                                  <select name="id_escuelaActualizar" id="id_escuelaActualizar" class="form-control id_escuela">
@@ -219,20 +219,20 @@
                   <input type="text" hidden class="form-control" id="id_escuelaConsultar" name="id_escuelaConsultar"/>
 
 
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Grupo </label>
                      <input disabled name="nombre_grupoConsultar" id="nombre_grupoConsultar" class="form-control nombre_grupoConsultar">
                      </input>
                    </div>
                  </div>
-                 <div class="col-lg-6">
+                 <div class="col-lg-4">
                   <div class="form-group">
                <label>Turno </label>
                 <input disabled name="turno_grupoConsultar" id="turno_grupoConsultar" class="form-control turno_grupoConsultar">
                  </div>
                </div>
-                 <div class="col-lg-6">
+                 <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Escuela </label>
                                  <select disabled name="id_escuelaConsultar" id="id_escuelaConsultar" class="form-control id_escuela"></select>

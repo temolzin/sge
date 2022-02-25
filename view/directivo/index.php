@@ -235,7 +235,7 @@
                             </div>
                             <div class="card-body border-primary">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Grado académico (*)</label>
                                             <select name="id_grado_academico" id="id_grado_academico" class="form-control id_grado_academico">
@@ -243,14 +243,13 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Cédula Profesional (*)</label>
                                             <input type="text" class="form-control" id="cedulaprofesional_director" name="cedulaprofesional_director" placeholder="Cédula" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Escuela (*)</label>
                                         <select name="id_escuela" id="id_escuela" class="form-control id_escuela">
@@ -258,6 +257,8 @@
                                         </select>
                                     </div>
                                 </div>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -475,7 +476,7 @@
                             </div>
                             <div class="card-body border-primary">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Grado académico (*)</label>
                                             <select name="id_grado_academicoActualizar" id="id_grado_academicoActualizar" class="form-control id_grado_academico">
@@ -483,14 +484,13 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Cédula Profesional (*)</label>
                                             <input type="text" class="form-control" id="cedulaprofesional_directorActualizar" name="cedulaprofesional_directorActualizar" placeholder="Cédula" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Escuela (*)</label>
                                         <select name="id_escuelaActualizar" id="id_escuelaActualizar" class="form-control id_escuela">
@@ -498,6 +498,8 @@
                                         </select>
                                     </div>
                                 </div>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -681,7 +683,7 @@
                             </div>
                             <div class="card-body border-primary">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Grado académico </label>
                                             <select disabled name="id_grado_academicoConsultar" id="id_grado_academicoConsultar" class="form-control id_grado_academico">
@@ -689,14 +691,13 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Cédula Profesional </label>
                                             <input disabled type="text" class="form-control" id="cedulaprofesional_directorConsultar" name="cedulaprofesional_directorConsultar" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Escuela </label>
                                         <select disabled name="id_escuelaConsultar" id="id_escuelaConsultar" class="form-control id_escuela">
@@ -704,6 +705,8 @@
                                         </select>
                                     </div>
                                 </div>
+                                </div>
+                                
                             </div>
                         </div>
                         </div>
@@ -891,7 +894,7 @@ var mostrarDirectivos = function() {
                 'render': function ( data, type, JsonResultRow, meta ) {
                     var fullnameImagen  = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director+ '/'+ JsonResultRow.foto_director;
                     var img = '/SGE/public/Director/'+ fullnameImagen;
-                    return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="100px" width="100px"/></center>';
+                    return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                 }
             }, 
             {defaultContent: "",

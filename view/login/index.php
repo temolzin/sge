@@ -21,12 +21,13 @@
 		<div class="login_title">
 			<span>INGRESA TUS DATOS PARA ACCEDER AL SISTEMA</span>
 		</div>
+		<form action="#" class="signin-form" id="formEnviarLogin" name="formEnviarLogin" role="document">
 		<div class="login_fields">
-			<div class="login_fields__user">
+			<div class="login_fields__user form-group">
 				<div class="icon">
 					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png"/>
 				</div>
-				<input placeholder="Username" type="text">
+				<input placeholder="Username" type="text" id="username_usuario" name="username_usuario"  class="form-control" placeholder="Username" required>
 					<div class="validation">
 						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png"/>
 					</div>
@@ -36,74 +37,50 @@
 				<div class="icon">
 					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png"/>
 				</div>
-				<input placeholder="Password" type="password"></input>
+				<input type="password" id="password_usuario"  name="password_usuario" class="form-control" placeholder="Password" required></input>
 				<div class="validation">
 					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png"/>
 				</div>
 			</div>
 			<div class="login_fields__submit">
-				<input type="submit" value="Log In"></input>
+				<input type="submit" value="Log In"></input> 
 			</div>
 		</div>
+		</form>
+		
 		<div class="success">
-			<h2>Authentication Success</h2>
-			<p>Welcome back</p>
+			<h2>Tu cuenta a sido verificada</h2>
+			<p>Bienvenid@</p>
+		</div>
+		<div class="fail">
+			<h2>Los datos ingresados no son correctos</h2>
+			<p>Intenta de nuevo</p>
 		</div>
 	</div>
 	<div class="authent">
 		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/puff.svg"/>
-		<p>Authenticating...</p>
+		<p>VERIFICANDO...</p>
 	</div>
 </body>
-
+<!-- jQuery -->
+<script src="public/plugins/jquery/jquery.min.js"></script>
+          <!-- JQUERY VALIDATE -->
+    <script src="public/plugins/jquery-validation/jquery.validate.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
+  
+    <script src="public/plugins/jquery-validation/jquery.validate.js"></script>
+    <!-- SWEETALERT2 -->
+    <script src="public/plugins/sweetalert2/sweetalert2.js"></script>
+        
+         <!-- jQuery Knob Chart -->
+    <script src="public/plugins/jquery-knob/jquery.knob.min.js"></script>
+   
+  
+    <!-- Bootstrap 4 -->
+    <script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
-	$('input[type="submit"]').click(function(){
-		$('.login').addClass('test')
-		setTimeout(function(){
-			$('.login').addClass('testtwo')
-		},300);
-		setTimeout(function(){
-			$(".authent").show().animate({right:-320},{easing : 'easeOutQuint' ,duration: 600, queue: false });
-			$(".authent").animate({opacity: 1},{duration: 200, queue: false }).addClass('visible');
-		},500);
-		setTimeout(function(){
-			$(".authent").show().animate({right:90},{easing : 'easeOutQuint' ,duration: 600, queue: false });
-			$(".authent").animate({opacity: 0},{duration: 200, queue: false }).addClass('visible');
-			$('.login').removeClass('testtwo')
-		},2500);
-		setTimeout(function(){
-			$('.login').removeClass('test')
-			$('.login div').fadeOut(123);
-		},2800);
-		setTimeout(function(){
-			$('.success').fadeIn();
-		},3200);
-	});
-
-$('input[type="text"],input[type="password"]').focus(function(){
-  $(this).prev().animate({'opacity':'1'},200)
-});
-$('input[type="text"],input[type="password"]').blur(function(){
-  $(this).prev().animate({'opacity':'.5'},200)
-});
-
-$('input[type="text"],input[type="password"]').keyup(function(){
-  if(!$(this).val() == ''){
-    $(this).next().animate({'opacity':'1','right' : '30'},200)
-  } else {
-    $(this).next().animate({'opacity':'0','right' : '20'},200)
-  }
-});
-
-var open = 0;
-$('.tab').click(function(){
-  $(this).fadeOut(200,function(){
-    $(this).parent().animate({'left':'0'})
-  });
-});
-
-
-
+	
   $(document).ready(function (){
 		loginIngresar();
 
@@ -120,25 +97,105 @@ $('.tab').click(function(){
 					success: function (data) {
                 
 					if (data > 0) {
-							Swal.fire(
-								"¡Éxito!",
-								"Bienvenido :D",
-								"success"
-								).then(function () {
-									window.location = "<?php echo constant('URL');?>";
-								})
-                        
+						$('input[type="submit"]').click(function () {
+						$(".login").addClass("test");
+						setTimeout(function () {
+							$(".login").addClass("testtwo");
+						}, 300);
+						setTimeout(function () {
+							$(".authent")
+							.show()
+							.animate(
+								{ right: -320 },
+								{ easing: "easeOutQuint", duration: 600, queue: false }
+							);
+							$(".authent")
+							.animate({ opacity: 1 }, { duration: 200, queue: false })
+							.addClass("visible");
+						}, 500);
+						setTimeout(function () {
+							$(".authent")
+							.show()
+							.animate(
+								{ right: 90 },
+								{ easing: "easeOutQuint", duration: 600, queue: false }
+							);
+							$(".authent")
+							.animate({ opacity: 0 }, { duration: 200, queue: false })
+							.addClass("visible");
+							$(".login").removeClass("testtwo");
+						}, 2500);
+						setTimeout(function () {
+							$(".login").removeClass("test");
+							$(".login div").fadeOut(123);
+						}, 2800);
+						setTimeout(function () {
+							$(".success").fadeIn();
+						}, 3200);
+						setTimeout(function(){window.location = "<?php echo constant('URL');?>main";},4500);
+						});
+						
+						$('input[type="text"],input[type="password"]').focus(function () {
+						$(this).prev().animate({ opacity: "1" }, 200);
+						});
+						$('input[type="text"],input[type="password"]').blur(function () {
+						$(this).prev().animate({ opacity: ".5" }, 200);
+						});
+
+						$('input[type="text"],input[type="password"]').keyup(function () {
+						if (!$(this).val() == "") {
+							$(this).next().animate({ opacity: "1", right: "30" }, 200);
+						} else {
+							$(this).next().animate({ opacity: "0", right: "20" }, 200);
+						}
+						});
 							} 
                               else
-                        
                                 {
-								Swal.fire(
+									$(".login").addClass("test");
+						setTimeout(function () {
+							$(".login").addClass("testtwo");
+						}, 300);
+						setTimeout(function () {
+							$(".authent")
+							.show()
+							.animate(
+								{ right: -320 },
+								{ easing: "easeOutQuint", duration: 600, queue: false }
+							);
+							$(".authent")
+							.animate({ opacity: 1 }, { duration: 200, queue: false })
+							.addClass("visible");
+						}, 500);
+						setTimeout(function () {
+							$(".authent")
+							.show()
+							.animate(
+								{ right: 90 },
+								{ easing: "easeOutQuint", duration: 600, queue: false }
+							);
+							$(".authent")
+							.animate({ opacity: 0 }, { duration: 200, queue: false })
+							.addClass("visible");
+							$(".login").removeClass("testtwo");
+						}, 2500);
+						setTimeout(function () {
+							$(".login").removeClass("test");
+							$(".login div").fadeOut(123);
+						}, 2800);
+						setTimeout(function () {
+							$(".fail").fadeIn();
+						}, 3200);
+						setTimeout(function(){window.location = "<?php echo constant('URL');?>";},4500);
+						
+									
+								/*Swal.fire(
 									"¡Error!",
 									"Los datos son incorrectos o no existe ese usuario en la base. " ,
 									"error" 
 									).then(function () {
 									window.location = "<?php echo constant('URL');?>usuario";
-								})
+								})*/
 							}
 						},
 					});
@@ -175,9 +232,6 @@ $('.tab').click(function(){
             }
         });
 }
-    
-   
-	
 	function show() {
 		var p = document.getElementById('password_usuario');
 		p.setAttribute('type', 'text');
@@ -189,7 +243,6 @@ $('.tab').click(function(){
 	}
 
 	var pwShown = 0;
-
 	document.getElementById("eye").addEventListener("click", function () {
 		if (pwShown == 0) {
 			pwShown = 1;
@@ -199,10 +252,4 @@ $('.tab').click(function(){
 			hide();
 		}
 	}, false);
-    
-
 </script>
-
-
-
-

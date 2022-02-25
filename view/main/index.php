@@ -1036,7 +1036,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/Director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="max-width: 110px; max-height: 110px;>' +
+                     '<img src="/SGE/public/Director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 75px; height: 75px;>' +
                      '<a class="users-list-name">' + elem.nombre_director + '<a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
@@ -1058,7 +1058,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="max-width: 110px; max-height: 110px;>' +
+                     '<img src="/SGE/public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 75px; height: 75px;>' +
                      '<a class="users-list-name">' + elem.nombre_administrador + '<a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
                      '</li>';

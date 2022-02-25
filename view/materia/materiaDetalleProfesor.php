@@ -84,7 +84,7 @@ $menu->header('materia_profesor');
                     <div class="card-body">
                         <div class="row">
                             <input hidden name="id_materia_profesor" placeholder="ID" />
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Seleccione Profesor (*)</label>
                                     <select name="id_profesor" id="id_profesor" class="form-control id_profesor">
@@ -94,7 +94,7 @@ $menu->header('materia_profesor');
                                 </div>
                             </div>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Seleccione Grupo (*)</label>
                                     <select name="id_grupo" id="id_grupo" class="form-control id_grupo">
@@ -102,7 +102,7 @@ $menu->header('materia_profesor');
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Seleccione Materia (*)</label>
                                     <select name="id_materia" id="id_materia" class="form-control id_materia">
@@ -163,7 +163,7 @@ $menu->header('materia_profesor');
                             <div class="card-body border-primary">
                                 <div class="row">
                                     <input type="text" hidden class="form-control" id="id_MateriaProfesorActualizar" name="id_MateriaProfesorActualizar" />
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Profesor (*)</label>
                                             <select name="id_profesorActualizar" id="id_profesorActualizar" class="form-control id_profesor">
@@ -174,7 +174,7 @@ $menu->header('materia_profesor');
                                     </div>
 
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Grupo (*)</label>
                                             <select name="id_grupoActualizar" id="id_grupoActualizar" class="form-control id_grupo">
@@ -184,7 +184,7 @@ $menu->header('materia_profesor');
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Materia (*)</label>
                                             <select multiple name="id_materiaActualizar" id="id_materiaActualizar" class="form-control id_materia" data-placeholder="Para visulizar las materias">
@@ -241,14 +241,14 @@ $menu->header('materia_profesor');
                             <div class="card-body border-primary">
                                 <div class="row">
                                     <input type="text" hidden class="form-control" id="id_materiaProfesorConsultar" name="id_materiaProfesorConsultar" />
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Profesor</label>
                                             <select disabled name="id_profesorConsultar" id="id_profesorConsultar" class="form-control id_profesor">
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Grupo </label>
 
@@ -257,7 +257,7 @@ $menu->header('materia_profesor');
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Materia </label>
                                             <input disabled name="id_materiaConsultar" id="id_materiaConsultar" class="form-control id_materiaConsultar">

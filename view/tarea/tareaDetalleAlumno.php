@@ -61,28 +61,22 @@ $menu->header('TareaAlumno');
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Grupo</label>
                                     <input readonly type="text" class="form-control" id="grupo_alumnoConsultar" name="grupo_alumnoConsultar" placeholder="Grupo" />
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Materia</label>
                                     <input readonly type="text" class="form-control" id="materia_alumnoConsultar" name="materia_alumnoConsultar" placeholder="Materia" />
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Tarea</label>
                                     <input readonly type="text" class="form-control" id="tarea_alumnoConsultar" name="tarea_alumnoConsultar" placeholder="CCT" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Descripción Tarea</label>
-                                    <input readonly type="text" class="form-control" id="descripcion_alumnoConsultar" name="descripcion_alumnoConsultar" placeholder="Telefono" />
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -91,11 +85,16 @@ $menu->header('TareaAlumno');
                                     <input readonly type="text" class="form-control" id="material_alumnoConsultar" name="material_alumnoConsultar" placeholder="Material" />
                                 </div>
                             </div>
-
-                            <div class="col-lg-3">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Fecha Entrega</label>
                                     <input readonly type="text" class="form-control" id="fechatarea_alumnoConsultar" name="fechatarea_alumnoConsultar" placeholder="Telefono" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Descripción Tarea</label>
+                                    <input readonly type="text" class="form-control" id="descripcion_alumnoConsultar" name="descripcion_alumnoConsultar" placeholder="Telefono" />
                                 </div>
                             </div>
 

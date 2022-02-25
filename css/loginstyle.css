@@ -69,6 +69,13 @@
  body .success p {
 	 font-size: 14px;
 }
+body .fail {
+	display: none;
+	color: #d5d8e2;
+}
+body .fail p {
+	font-size: 14px;
+}
  body p {
 	 color: #5b5e6f;
 	 font-size: 10px;
@@ -88,7 +95,7 @@
  body .login {
 	 opacity: 1;
 	 top: 20px;
-	 /*-webkit-transition-timing-function: cubic-bezier(0.68, -0.25, 0.265, 0.85);*/
+	 -webkit-transition-timing-function: cubic-bezier(0.68, -0.25, 0.265, 0.85);
 	 transition-property: transform, opacity, box-shadow, top, left;
 	 transition-duration: 0.5s;
 	 transform-origin: 161px 100%;
@@ -244,4 +251,3 @@
  .brand img {
 	 width: 30px;
 }
- 

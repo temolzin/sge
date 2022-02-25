@@ -68,7 +68,7 @@
                         <div class="card-body border-primary">
                             <div class="row">
                             
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Fecha (*)</label>
                                     <input type="date" class="form-control" id="materia_fecha_horario" name="materia_fecha_horario" placeholder="Fecha"/>
@@ -132,7 +132,7 @@
                 <!-- form start -->
                 <form role="form" id="formActualizarHorario" name="formActualizarHorario">
                     <div class="card-body">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" id="id_horarioActualizar" name="id_horarioActualizar"/>
                                 </div>
@@ -227,7 +227,7 @@
                         <!-- /.card-header -->
                         <div class="card-body border-primary">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Clave horario </label>
                                     <input disabled type="text" class="form-control" id="id_horarioConsultar" name="id_horarioConsultar"/>

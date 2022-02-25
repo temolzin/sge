@@ -813,7 +813,7 @@ var mostrarAlumnos = function () {
 
           var img = '/SGE/public/alumno/' + fullnameImagen;
 
-          return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="100px" width="100px"/></center>';
+          return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
         }
 
       },
