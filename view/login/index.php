@@ -27,7 +27,7 @@
 				<div class="icon">
 					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png"/>
 				</div>
-				<input placeholder="Username" type="text" id="username_usuario" name="username_usuario"  class="form-control" placeholder="Username" required>
+				<input placeholder="Usuario" type="text" id="username_usuario" name="username_usuario"  class="form-control" placeholder="Username" required>
 					<div class="validation">
 						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png"/>
 					</div>
@@ -37,13 +37,13 @@
 				<div class="icon">
 					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png"/>
 				</div>
-				<input type="password" id="password_usuario"  name="password_usuario" class="form-control" placeholder="Password" required></input>
+				<input type="password" id="password_usuario"  name="password_usuario" class="form-control" placeholder="Contraseña" required></input>
 				<div class="validation">
 					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png"/>
 				</div>
 			</div>
 			<div class="login_fields__submit">
-				<input type="submit" value="Log In"></input> 
+				<input type="submit" value="Ingresar"></input> 
 			</div>
 		</div>
 		</form>
