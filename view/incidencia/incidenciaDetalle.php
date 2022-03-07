@@ -59,21 +59,21 @@
                   <div class="card-body border-primary">
                     <div class="row">
 
-                      <div class="col-lg-6">
+                      <div class="col-lg-4">
                         <div class="form-group">
                           <label>Alumno </label>
                           <input disabled type="text" class="form-control" id="id_alumnoConsultar" name="id_alumnoConsultar" placeholder="Falta tu nombre" />
                         </div>
                       </div>
 
-                      <div class="col-lg-6">
+                      <div class="col-lg-4">
                         <div class="form-group">
                           <label>Profesor</label>
                           <input disabled type="text" class="form-control" id="id_profesorConsultar" name="id_profesorConsultar" placeholder="Falta Profesor" />
                         </div>
                       </div>
 
-                      <div class="col-lg-12">
+                      <div class="col-lg-4">
                         <div class="form-group">
                           <label>Grupo </label>
                           <input disabled type="text" class="form-control" id="id_grupoConsultar" name="id_grupoConsultar" placeholder="Falta Grupo" />

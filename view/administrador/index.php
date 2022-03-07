@@ -83,13 +83,13 @@
                       <input type="number" value="1" hidden class="form-control" id="id_tipo_usuario" name="id_tipo_usuario"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                         <label>Usuario (*)</label>
                         <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Contraseña (*)</label>
                       <input type="password" class="form-control" id="password_usuario" name="password_usuario"
@@ -100,7 +100,7 @@
                               title="Introduce 8 caracteres mayusculas/minusculas/numeros"/>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-12">
+                  <div class="col-lg-4">
                     <span><label>Foto Administrador (*)</label></span>
                     <div class="form-group input-group">
                       <div class="custom-file">
@@ -192,19 +192,19 @@
                 <div class="row">
                   <input type="text" hidden class="form-control" id="id_administradorActualizar" name="id_administradorActualizar" />
                   <input type="text" hidden class="form-control" id="id_usuarioActualizar" name="id_usuarioActualizar" placeholder="Introduce idusuario"/>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Usuario</label>
                       <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label>Contraseña</label>
                       <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña"/>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-12">
+                  <div class="col-lg-4">
                     <span><label>Foto administrador (*)</label></span>
                     <br>
                     <div class="form-group input-group">
@@ -339,13 +339,13 @@
                       <input type="text" disabled class="form-control" id="telefono_administradorConsultar" name="telefono_administradorConsultar" placeholder="Introduce el numero telefonico"/>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-6">
                     <div class="form-group">
                       <label>Email</label>
                       <input type="text" disabled class="form-control" id="email_administradorConsultar" name="email_administradorConsultar" placeholder="Introduce el email_administrador"/>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-6">
                     <div class="form-group">
                       <label>Fecha Nacimiento</label>
                       <input type="date" disabled class="form-control" id="fechanacimiento_administradorConsultar" name="fechanacimiento_administradorConsultar" placeholder="Introduce la fecha de nacimiento"/>
@@ -521,7 +521,7 @@ var mostrarAdministradors = function () {
 
           var img = '/SGE/public/administrador/' + fullnameImagen;
 
-          return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="100px" width="100px"/></center>';
+          return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
         }
 
       },

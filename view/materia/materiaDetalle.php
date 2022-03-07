@@ -93,14 +93,14 @@ $menu->header('materia_profesor_consulta');
                             <div class="card-body border-primary">
                                 <div class="row">
                                     <input type="text" hidden class="form-control" id="id_materiaProfesorConsultar" name="id_materiaProfesorConsultar" />
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Profesor</label>
                                             <select disabled name="id_profesorConsultar" id="id_profesorConsultar" class="form-control id_profesor">
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Grupo </label>
 
@@ -109,7 +109,7 @@ $menu->header('materia_profesor_consulta');
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Materia </label>
                                             <input disabled name="id_materiaConsultar" id="id_materiaConsultar" class="form-control id_materiaConsultar">
