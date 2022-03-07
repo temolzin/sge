@@ -106,10 +106,6 @@ $menu->header('tareaalumno_consulta');
     </div>
 </div>
 
-
-
-
-
 <?php
 $menu->footer();
 ?>
@@ -118,9 +114,6 @@ $menu->footer();
     $(document).ready(function() {
         mostrarTareaAlumno();
     });
-
-
-
 
     var mostrarTareaAlumno = function() {
         var tableTareaAlumno = $('#dataTableTareaConsultaAlumno').DataTable({
@@ -161,9 +154,6 @@ $menu->footer();
         $('#dataTableTareaConsultaAlumno tbody').on('click', 'tr', function() {
             var data = table.row(this).data();
 
-
-
-
             var idConsultar = $("#id_tarea_alumnoConsultar").val(data.id_tarea_alumno);
             var grupoalumno = $("#grupo_alumnoConsultar").val(data.id_grupo);
             var materilaAlumno = $("#materia_alumnoConsultar").val(data.id_materia);
@@ -174,8 +164,6 @@ $menu->footer();
 
             var idDetalle = $("#id_tarea_alumnoDetalle").val(data.id_tarea_alumno);
             var tarea_alumnoDetalle = $("#tarea_alumnoDetalle").val(data.nombre_tarea);
-
-
         });
     }
 </script>
