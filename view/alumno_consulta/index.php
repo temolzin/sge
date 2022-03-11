@@ -1,23 +1,23 @@
 <?php
 session_start();
 
-//Alumno 
-$foto_alumno = $_SESSION['foto_alumno'];
-$nombre_alumno = $_SESSION['nombre_alumno'];
-$appaterno_alumno = $_SESSION['appaterno_alumno'];
-$apmaterno_alumno = $_SESSION['apmaterno_alumno'];
-$calle_alumno = $_SESSION['calle_alumno'];
-$num_exterior_alumno = $_SESSION['num_exterior_alumno'];
-$num_interior_alumno = $_SESSION['num_interior_alumno'];
-$cp_alumno = $_SESSION['cp_alumno'];
-$estado_alumno = $_SESSION['estado_alumno'];
-$municipio_alumno = $_SESSION['municipio_alumno'];
-$colonia_alumno = $_SESSION['colonia_alumno'];
-$telefono_alumno = $_SESSION['telefono_alumno'];
-$email_alumno = $_SESSION['email_alumno'];
-$fecha_nacimiento_alumno =    $_SESSION['fecha_nacimiento_alumno'];
-$nombre_completo_al = $nombre_alumno . " " . $appaterno_alumno . " " . $apmaterno_alumno;
-$fotorutaalumno = '/SGE/public/Alumno/' . $appaterno_alumno . '_' . $apmaterno_alumno . '_' . $nombre_alumno . '/' . $foto_alumno;
+     //Alumno 
+    $foto_alumno = $_SESSION['foto_alumno'];
+    $nombre_alumno = $_SESSION['nombre_alumno'];
+    $appaterno_alumno = $_SESSION['appaterno_alumno'];
+    $apmaterno_alumno = $_SESSION['apmaterno_alumno'];
+    $calle_alumno = $_SESSION['calle_alumno'];
+    $num_exterior_alumno = $_SESSION['num_exterior_alumno'];
+    $num_interior_alumno = $_SESSION['num_interior_alumno'];
+    $cp_alumno = $_SESSION['cp_alumno'];
+    $estado_alumno = $_SESSION['estado_alumno'];
+    $municipio_alumno = $_SESSION['municipio_alumno'];
+    $colonia_alumno = $_SESSION['colonia_alumno'];
+    $telefono_alumno = $_SESSION['telefono_alumno'];
+    $email_alumno = $_SESSION['email_alumno'];
+    $fecha_nacimiento_alumno =    $_SESSION['fecha_nacimiento_alumno'];
+    $nombre_completo_al = $nombre_alumno." ".$appaterno_alumno." ".$apmaterno_alumno;
+    $fotorutaalumno = '/SGE/public/Alumno/'.$appaterno_alumno.'_'.$apmaterno_alumno.'_'.$nombre_alumno.'/'.$foto_alumno;
 
 require 'view/menu.php';
 $menu = new Menu();
@@ -30,7 +30,7 @@ $menu->header('Tablero');
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="public/dist/css/adminlte.min.css">
-<link rel="stylesheet" href="../css/perfilalumno.css">
+<link rel="stylesheet" href="css/perfilalumno.css">
 </head>
 
 <section class="content" style="margin: 20px 20px 20px 20px">
@@ -158,6 +158,10 @@ $menu->header('Tablero');
 </div>
 
 </section>
+
+
+
+
 <?php
 $menu->footer();
 ?>

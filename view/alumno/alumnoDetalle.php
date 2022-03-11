@@ -22,6 +22,8 @@ $menu->header('profesor_alumno_consulta');
    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
    <!-- Theme style -->
    <link rel="stylesheet" href="public/dist/css/adminlte.min.css">
+   <link rel="stylesheet" href="css/perfilalumno.css">
+   
 </head>
 <script src="js/sha1.js"></script>
 <section class="content">
