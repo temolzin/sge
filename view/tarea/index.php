@@ -388,6 +388,7 @@ $menu->footer();
       }
     });
   }
+  
   var mostrarTareas = function() {
     var tableTarea = $('#dataTableTarea').DataTable({
       "processing": true,
@@ -416,8 +417,8 @@ $menu->footer();
         {
           data: null,
           "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleTarea' title="Ver Detalles"><i class="fa fa-eye"></i></button>
-        <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarTarea' title="Editar Datos"><i class="fa fa-edit"></i></button>
-        <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarTarea' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
+          <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarTarea' title="Editar Datos"><i class="fa fa-edit"></i></button>
+          <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarTarea' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
         }
       ],
       "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
@@ -440,9 +441,10 @@ $menu->footer();
   var obtenerdatosDT = function(table) {
     $('#dataTableTarea tbody').on('click', 'tr', function() {
       var data = table.row(this).data();
-      console.log(data);
+      console.log("hola ",data);
 
       var idEliminar = $('#idEliminarTarea').val(data.id_tarea_alumno);
+
       var idActualizar = $("#id_tarea_alumnoActualizar").val(data.id_tarea_alumno);
       var id_grupo = $("#id_grupoActualizar option[value=" + data.id_grupo + "]").attr("selected", true);
       var id_materia = $("#id_materiaActualizar option[value=" + data.id_materia + "]").attr("selected", true);
@@ -458,7 +460,7 @@ $menu->footer();
       var nombre_tareaConsulta = $("#nombre_tareaConsultar").val(data.nombre_tarea);
       var fecha_entregaConsulta = $("#fecha_entregaConsultar").val(data.fecha_entrega);
       var descripcion_tareaConsulta = $("#descripcion_tareaConsultar").val(data.descripcion_tarea);
-      var archivo_tareaConsulta = $("#archivo_tareaConsultar").val(data.archivo_tarea);
+      //var archivo_tareaConsulta = $("#archivo_tareaConsultar").val(data.archivo_tarea);
 
     });
   }

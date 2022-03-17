@@ -61,12 +61,12 @@
       $id_profesor = $_SESSION['id'];
       require_once 'tareaDTO.php';
       $query = "SELECT tarea_alumno.*,  materia.*, grupo.*, profesor.*, escuela.*, materia_profesor.*
-    FROM tarea_alumno  tarea_alumno,  materia materia, grupo grupo, profesor profesor, escuela escuela, materia_profesor materia_profesor where  escuela.id_escuela = materia.id_escuela 
-    and tarea_alumno.id_materia=materia.id_materia
-    and  tarea_alumno.id_grupo=grupo.id_grupo
-    and materia.id_materia = materia_profesor.id_materia
-    and 
-    profesor.id_escuela = escuela.id_escuela and profesor.id_profesor =   '" . $id_profesor . "'";
+                FROM tarea_alumno  tarea_alumno,  materia materia, grupo grupo, profesor profesor, escuela escuela, materia_profesor materia_profesor where  escuela.id_escuela = materia.id_escuela 
+                and tarea_alumno.id_materia=materia.id_materia
+                and  tarea_alumno.id_grupo=grupo.id_grupo
+                and materia.id_materia = materia_profesor.id_materia
+                and profesor.id_escuela = escuela.id_escuela and profesor.id_profesor =   '" . $id_profesor . "'";
+
       $objTareas = array();
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
         foreach ($this->db->consultar($query) as $key => $value) {
@@ -76,7 +76,7 @@
           $tarea->id_materia = $value['nombre_materia'];
           $tarea->nombre_tarea = $value['nombre_tarea'];
           $tarea->descripcion_tarea = $value['descripcion_tarea'];
-          $tarea->archivo_tarea = $value['archivo_tarea'];
+          //$tarea->archivo_tarea = $value['archivo_tarea'];
           $tarea->fecha_entrega = $value['fecha_entrega'];
           $tarea->nombre = $value['fecha_entrega'];
           //$objTareas['data'][] = $tarea;
