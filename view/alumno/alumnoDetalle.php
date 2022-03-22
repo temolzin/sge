@@ -166,7 +166,7 @@ $menu->header('profesor_alumno_consulta');
       });
 
       $('[data-mask]').inputmask()
-      const llenarGrupo = () => {
+      function llenarGrupo() {
          $.ajax({
             type: "GET",
             url: "<?php echo constant('URL'); ?>grupo/read",
@@ -180,6 +180,7 @@ $menu->header('profesor_alumno_consulta');
                   $(".id_grupo").append('<option value=' + id + '>' + nombre + '</option>');
                });
             },
+            
             error: function(data) {
                console.log(data);
             }
@@ -187,7 +188,7 @@ $menu->header('profesor_alumno_consulta');
       }
 
 
-      const llenarEscuela = () => {
+      function llenarEscuela() {
          $.ajax({
             type: "GET",
             url: "<?php echo constant('URL'); ?>escuela/read",
@@ -208,7 +209,7 @@ $menu->header('profesor_alumno_consulta');
 
 
 
-      var mostrarAlumnos = function() {
+      function mostrarAlumnos() {
          var tableAlumno = $('#dataTableAlumno').DataTable({
             "processing": true,
             "serverSide": false,
@@ -267,7 +268,7 @@ $menu->header('profesor_alumno_consulta');
       }
 
 
-      var obtenerform_dataDT = function(table) {
+      function obtenerform_dataDT(table) {
          $('#dataTableAlumno tbody').on('click', 'tr', function() {
             var data = table.row(this).data();
             console.log(data);

@@ -481,7 +481,7 @@ class Menu
     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
     <div class="dropdown-divider"></div>
-    <a href="logout.php" class="dropdown-item">
+    <a href="../../sge/logout.php" class="dropdown-item">
     <i class="fas fa-times-circle mr-2"></i>Cerrar Sesión 
 
     </a>
