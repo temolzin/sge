@@ -514,7 +514,7 @@ class Menu
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-    <img src="' . $fotoruta . '" class="img-circle elevation-2" alt="User Image">
+    <img src="' . $fotoruta . '" class="img-circle elevation-2" alt="User Image" height="50px" width="50px">
     </div>
     <div class="info">
     <a href="http://localhost/sge/perfil" class="d-block">' . $nombre . '</a>

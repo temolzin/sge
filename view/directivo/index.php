@@ -23,7 +23,7 @@
                         <table id="dataTableDirectivo" name="dataTableDirectivo" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
-                                <th>Foto</th>
+                                <th style="width: 15px;">Foto</th>
                                     <th>Nombre</th>
                                     <th>Teléfono</th>
                                     <th>Cédula profesional</th>
@@ -62,13 +62,22 @@
                             </div>
                             <div class="card-body border-primary">
                             <div class="row">
-                                    <div class="col-lg-4">
+                            <div class="col-lg-12">
+                                        <span><label>Fotografía director (*)</label></span>
+                                        <div class="form-group input-group">
+                                        <div class="custom-file">
+                                            <input type="file" accept="image/*" class="custom-file-input" name="foto_director" id="foto_director" lang="es">
+                                            <label class="custom-file-label" for="imagen">Seleccione Fotografía</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Usuario (*)</label>
                                             <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario"/>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Contraseña (*)</label>
                                             <input type="password" class="form-control" id="password_usuario" name="password_usuario"
@@ -79,15 +88,7 @@
                                             title="Introduce 8 caracteres mayúsculas/minúsculas/números"/>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <span><label>Fotografía director (*)</label></span>
-                                        <div class="form-group input-group">
-                                        <div class="custom-file">
-                                            <input type="file" accept="image/*" class="custom-file-input" name="foto_director" id="foto_director" lang="es">
-                                            <label class="custom-file-label" for="imagen">Seleccione Fotografía</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                    
                                 </div>
                                 
                                 <div class="row">
@@ -1015,7 +1016,7 @@ var mostrarDirectivos = function() {
                        
                         var idUsuario = id_usuario; 
                                 var form_data = new FormData();
-                        var imagen = ""; 
+                        var imagen = '/SGE/public/img/default.jpg'; 
                         if($('#foto_director').val() != null) {
                           imagen = $('#foto_director').prop('files')[0];
                         }

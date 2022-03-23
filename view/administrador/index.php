@@ -42,7 +42,7 @@
                   <table id="dataTableAdministrador" name="dataTableAdministrador" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                      <thead >
                         <tr>
-                          <th>Foto </th>
+                          <th style="width: 20px;">Foto </th>
                           <th>Nombre</th>
                           <th>Email</th>
                           <th>Opciones</th>
@@ -83,13 +83,22 @@
                       <input type="number" value="1" hidden class="form-control" id="id_tipo_usuario" name="id_tipo_usuario"/>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-12">
+                    <span><label>Foto Administrador (*)</label></span>
+                    <div class="form-group input-group">
+                      <div class="custom-file">
+                          <input type="file" accept="image/*" class="custom-file-input" name="foto_administrador" id="foto_administrador" lang="es">
+                            <label class="custom-file-label" for="imagen">Selecciona Imagen</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
                     <div class="form-group">
                         <label>Usuario (*)</label>
                         <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario"/>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-6">
                     <div class="form-group">
                       <label>Contraseña (*)</label>
                       <input type="password" class="form-control" id="password_usuario" name="password_usuario"
@@ -100,15 +109,7 @@
                               title="Introduce 8 caracteres mayusculas/minusculas/numeros"/>
                     </div>
                   </div>
-                  <div class="col-lg-4">
-                    <span><label>Foto Administrador (*)</label></span>
-                    <div class="form-group input-group">
-                      <div class="custom-file">
-                          <input type="file" accept="image/*" class="custom-file-input" name="foto_administrador" id="foto_administrador" lang="es">
-                            <label class="custom-file-label" for="imagen">Selecciona Imagen</label>
-                      </div>
-                    </div>
-                  </div>
+                  
                   <div class="col-lg-4">
                     <label>Nombre(s) (*)</label>
                       <div class="input-group mb-3">
@@ -192,19 +193,7 @@
                 <div class="row">
                   <input type="text" hidden class="form-control" id="id_administradorActualizar" name="id_administradorActualizar" />
                   <input type="text" hidden class="form-control" id="id_usuarioActualizar" name="id_usuarioActualizar" placeholder="Introduce idusuario"/>
-                  <div class="col-lg-4">
-                    <div class="form-group">
-                      <label>Usuario</label>
-                      <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <div class="form-group">
-                      <label>Contraseña</label>
-                      <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña"/>
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-12">
                     <span><label>Foto administrador (*)</label></span>
                     <br>
                     <div class="form-group input-group">
@@ -214,6 +203,19 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Usuario</label>
+                      <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label>Contraseña</label>
+                      <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña"/>
+                    </div>
+                  </div>
+                  
                   <div class="col-lg-4">
                     <div class="form-group">
                       <label>Nombre(s)</label>
@@ -509,9 +511,6 @@ var mostrarAdministradors = function () {
 
     },
     "columns": [
-
-      
-
       {
         defaultContent: "",
         "render": function (data, type, full, row) {
@@ -623,9 +622,16 @@ var enviarFormularioRegistrar = function () {
           var id_usuario = data;
           var idUsuario = id_usuario;
           var form_data = new FormData();
-          var imagen = "";
+          imagen = $('#foto_administrador').prop('files')[0]; // Aqui obtienes la imagen del usuario de BBDD
+          $urlImagenBasica='/SGE/public/img/default.jpg';
+          if($('#foto_administrador').val() == null) {
+             imagen = $urlImagenBasica // Esta la tienes que obtener anteriormente y guardarla en la variable $urlImagenBasica
+          }     
+          var imagen = '/SGE/public/img/default.jpg';
           if ($('#foto_administrador').val() != null) {
             imagen = $('#foto_administrador').prop('files')[0];
+          }else{
+            imagen="images/default-profile.jpg";
           }
           form_data.append('id_usuario', idUsuario);
           form_data.append('foto_administrador', imagen);
