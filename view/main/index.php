@@ -607,10 +607,8 @@ $menu->header('Tablero');
                         </div>
                      </div>
                   </div>
-                  <a href="http://localhost/sge/consulta_escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
                </div>
-               <<<<<<< HEAD=======<a href="http://localhost/sge/escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
-                  >>>>>>> 62b804876230b4c793283273b1ab4aa26728c79d
+               <a href="http://localhost/sge/escuela/showEscuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
             </div>
          </div>
       </div>

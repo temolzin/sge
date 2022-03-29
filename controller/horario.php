@@ -69,7 +69,7 @@ class Horario extends Controller
         require 'model/horarioDAO.php';
         $this->loadModel('HorarioDAO');
         $horarioDAO = new HorarioDAO();
-        $horarioDAO = $horarioDAO->read();
+        $horarioDAO = $horarioDAO->readHorarioConsulta();
 
         $obj = null;
         if (is_array($horarioDAO) || is_object($horarioDAO)) {
@@ -79,7 +79,7 @@ class Horario extends Controller
         } else {
             $obj = array();
         }
-        echo json_encode($obj);
+        echo "hola ", json_encode($obj);
     }
 
     //***************************************************************************** HORARIO CONSULTA ************************************

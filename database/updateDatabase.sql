@@ -5,16 +5,15 @@ TRUNCATE table materia_grupo;
 TRUNCATE table pago;
 TRUNCATE table tarea_entregada;
 TRUNCATE table tutor;
+
 DELETE FROM alumno;
 DELETE FROM escuela; 
 DELETE FROM grado_academico; 
 DELETE FROM grupo;
 DELETE FROM horario_materia;
 DELETE FROM materia;
-DELETE FROM parcial;
 DELETE FROM profesor;
 DELETE FROM tarea_alumno;
-DELETE FROM tipo_usuario;
 DELETE FROM usuario;
 DELETE FROM administrador;
 DELETE FROM calificacion;
