@@ -186,7 +186,7 @@ INSERT INTO `director` (`id_director`, `id_escuela`, `id_grado_academico`, `id_u
 
 CREATE TABLE `escuela` (
   `id_escuela` int(11) NOT NULL,
-  `nombre_escuela` varchar(50) NOT NULL,
+  `foto_escuela` varchar(50) NOT NULL,
   `rfc_escuela` varchar(13) NOT NULL,
   `cct_escuela` varchar(16) NOT NULL,
   `calle_escuela` varchar(50) NOT NULL,

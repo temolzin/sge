@@ -19,3 +19,6 @@ DELETE FROM administrador;
 DELETE FROM calificacion;
 DELETE FROM cobro;
 DELETE FROM director;
+
+
+ALTER TABLE escuela ADD foto_escuela VARCHAR(50) AFTER nombre_escuela;
