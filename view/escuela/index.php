@@ -717,7 +717,7 @@ function leerCodigoPostal(codigoPostal){
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
-                                "El Escuela ha sido registrado de manera correcta",
+                                "La escuela ha sido registrado de manera correcta",
                                 "success"
                             ).then(function () {
                                 window.location = "<?php echo constant('URL');?>escuela";
@@ -725,7 +725,7 @@ function leerCodigoPostal(codigoPostal){
                         } else {
                             Swal.fire(
                                 "¡Error!",
-                                "Ha ocurrido un error al registrar el escuela. " + data,
+                                "Ha ocurrido un error al registrar la escuela. " + data,
                                 "error"
                             );
                         }
