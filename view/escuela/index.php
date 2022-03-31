@@ -23,6 +23,7 @@
                         <table id="dataTableEscuela" name="dataTableEscuela" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
+                                <th style="width: 15px;">Foto</th>
                                     <th>Nombre Escuela</th>
                                     <th>RFC</th>
                                     <th>CCT</th>
@@ -238,6 +239,15 @@
                             </div>
                         </div>
                         <div class="row">
+                        <div class="col-lg-12">
+                             <span><label>Foto Escuela (*)</label></span>
+                        <div class="form-group input-group">
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" name="foto_escuelaActualizar" id="foto_escuelaActualizar" lang="es">
+                                    <label class="custom-file-label" for="imagen">Selecciona Imagen</label>
+                            </div>
+                        </div>
+                        </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Nombre Escuela</label>
@@ -638,6 +648,12 @@ function leerCodigoPostal(codigoPostal){
                 "url": "<?php echo constant('URL');?>escuela/readTable"
             },
             "columns": [
+                {defaultContent: "",
+                    'render': function(data, type, JsonResultRow, meta) {
+                        var fullnameImagen = JsonResultRow.nombre_escuela + '_' + JsonResultRow.rfc_escuela;
+                        var img = '/SGE/public/escuela/' + fullnameImagen;
+                        return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
+                    }},
                 { "data": "nombre_escuela"},
                 { "data": "rfc_escuela"},
                 { "data": "cct_escuela"},
@@ -714,6 +730,8 @@ function leerCodigoPostal(codigoPostal){
                     url: "<?php echo constant('URL');?>escuela/insert",
                     data: datos,
                     success: function (data) {
+                        var form_data = new FormData();
+                        form_data.append('foto_director', imagen);
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
@@ -822,6 +840,7 @@ function leerCodigoPostal(codigoPostal){
                     url: "<?php echo constant('URL');?>escuela/update",
                     data: datos,
                     success: function (data) {
+                        
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
