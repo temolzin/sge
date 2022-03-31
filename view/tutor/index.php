@@ -23,7 +23,7 @@ $menu->header('Tutor');
                         <table id="dataTableTutor" name="dataTableTutor" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Foto</th>
+                                    <th style="width: 15px;">Foto</th>
                                     <th>Nombre</th>
                                     <th>Alumno Asignado</th>
                                     <th>Escuela</th>
@@ -69,19 +69,7 @@ $menu->header('Tutor');
                             <!-- /.card-header -->
                             <div class="card-body border-primary">
                                 <div class="row">
-                                <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Usuario (*)</label>
-                                            <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Contraseña (*)</label>
-                                            <input type="password" class="form-control" id="password_usuario" name="password_usuario" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
+                                <div class="col-lg-12">
                                     <span><label>Fotografía Tutor (*)</label></span>
                                     <div class="form-group input-group">
                                         <div class="custom-file">
@@ -90,6 +78,19 @@ $menu->header('Tutor');
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Usuario (*)</label>
+                                            <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Contraseña (*)</label>
+                                            <input type="password" class="form-control" id="password_usuario" name="password_usuario" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                                 
                                 <div class="row">
@@ -291,27 +292,28 @@ $menu->header('Tutor');
                             <!-- /.card-header -->
                             <div class="card-body border-primary">
                                 <div class="row">
-                                <div class="col-lg-4">
+                                <div class="col-lg-12">
+                                    <span><label>Fotografía Tutor (*)</label></span>
+                                    <div class="form-group input-group">
+                                        <div class="custom-file">
+                                            <input type="file" accept="image/*" class="custom-file-input" onChange="actualiza(this.value)" name="imgTutorActualizar" id="imgTutorActualizar" lang="es">
+                                            <label class="custom-file-label" for="imagen">Selecciona imagen</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Usuario (*)</label>
                                             <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario" />
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Contraseña (*)</label>
                                             <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                    <span><label>Fotografía Tutor (*)</label></span>
-                                    <div class="form-group input-group">
-                                        <div class="custom-file">
-                                            <input type="file" accept="image/*" class="custom-file-input" onChange="actualiza(this.value)" name="imgTutorActualizar" id="imgTutorActualizar" lang="es">
-                                            <label class="custom-file-label" for="imagen">dos.png</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                    
                                 </div>
                                 
                                 <div class="col-lg-4">

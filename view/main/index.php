@@ -928,7 +928,7 @@ $menu->header('Tablero');
          type: "POST",
 
          async: false,
-         url: "<?php echo constant('URL'); ?>consulta_calificacion/read",
+         url: "<?php echo constant('URL'); ?>calificacionDetalleAlumno/read",
          dataType: 'json', // what to expect back from the PHP script, if anything
          success: function(data) {
             //console.log('CALI ', data);
@@ -1034,8 +1034,8 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/Director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 75px; height: 75px;>' +
-                     '<a class="users-list-name">' + elem.nombre_director + '<a>' +
+                     '<img src="/SGE/public/Director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
+                     '<a class="users-list-name">' + '<br>'+elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
                   $('#listNuevosDirectivos').append(htmlTags);
@@ -1056,8 +1056,9 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 75px; height: 75px;>' +
-                     '<a class="users-list-name">' + elem.nombre_administrador + '<a>' +
+                     '<img src="/SGE/public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 80px; height: 80px;>' +
+                     '<br><br>'+
+                     '<a class="users-list-name">' + '<br>'+ elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
                      '</li>';
                   $('#listAdministradores').append(htmlTags);

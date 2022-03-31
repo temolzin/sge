@@ -63,6 +63,15 @@
                                 </div>
                     <div class="card-body">
                         <div class="row">
+                        <div class="col-lg-12">
+                             <span><label>Foto Escuela (*)</label></span>
+                        <div class="form-group input-group">
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" name="foto_escuela" id="foto_escuela" lang="es">
+                                    <label class="custom-file-label" for="imagen">Selecciona Imagen</label>
+                            </div>
+                        </div>
+                        </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Nombre Escuela</label>
@@ -81,7 +90,7 @@
                                     <input type="text" class="form-control" id="cct_escuela" name="cct_escuela" placeholder="CCT"/>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Teléfono (*)</label>
                                 <div class="input-group-prepend">
@@ -92,7 +101,7 @@
                                 </div>
                             </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <label>Email (*)</label>
                                 <div class="input-group-prepend">
                                     <div class="input-group-prepend">
@@ -101,7 +110,7 @@
                                     <input type="email" class="form-control" id="email_escuela" name="email_escuela" placeholder="Eje. escuela@gmail.com "/>
                                 </div>
                             </div>
-                             <div class="col-lg-4">
+                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Observacion Escuela</label>
                                     <textarea name="observacion_escuela" id="observacion_escuela" cols="20" rows="10" placeholder="Observacion Escuela" class="form-control" style="height: 42px;"></textarea>

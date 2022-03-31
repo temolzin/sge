@@ -150,7 +150,7 @@ $menu->header('Horario');
                             <div class="card-body border-primary">
                                 <div class="row">
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>Fecha (*)</label>
                                             <input type="date" class="form-control" id="materia_fecha_horarioActualizar" name="materia_fecha_horarioActualizar" placeholder="Fecha" />
@@ -233,7 +233,7 @@ $menu->header('Horario');
                                             <input disabled type="text" class="form-control" id="id_horarioConsultar" name="id_horarioConsultar" />
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label>Fecha </label>
                                             <input type="text" disabled class="form-control" id="materia_fecha_horarioConsultar" name="materia_fecha_horarioConsultar" />
