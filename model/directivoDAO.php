@@ -42,12 +42,71 @@ class DirectivoDAO extends Model implements CRUD
 
     public function update($data)
     {
+        //add
+        $imagen = '';
+
+        //add
+        $arrayActualizar = [];
+
+        if (isset($data['foto_director'])) {
+
+            //add
+            $imagen = 'foto_director = :foto_director,';
+
+            $arrayActualizar = [
+                ':id_director' => $data['id_director'],
+                ':id_escuela' => $data['id_escuela'],
+                ':id_grado_academico' => $data['id_grado_academico'],
+                ':id_usuario' => $data['id_usuario'],
+                ':foto_director' => $data['foto_director'],
+                ':nombre_director' => $data['nombre_director'],
+                ':appaterno_director' => $data['appaterno_director'],
+                ':apmaterno_director' => $data['apmaterno_director'],
+                ':rfc_director' => $data['rfc_director'],
+                ':curp_director' => $data['curp_director'],
+                ':calle_director' => $data['calle_director'],
+                ':numexterior_director' => $data['numexterior_director'],
+                ':numinterior_director' => $data['numinterior_director'],
+                ':cp_director' => $data['cp_director'],
+                ':estado_director' => $data['estado_director'],
+                ':municipio_director' => $data['municipio_director'],
+                ':colonia_director' => $data['colonia_director'],
+                ':telefono_director' => $data['telefono_director'],
+                ':email_director' => $data['email_director'],
+                ':cedulaprofesional_director' => $data['cedulaprofesional_director'],
+                ':fechanacimiento_director' => $data['fechanacimiento_director']
+            ];
+        } else {
+            $arrayActualizar = [
+                ':id_director' => $data['id_director'],
+                ':id_escuela' => $data['id_escuela'],
+                ':id_grado_academico' => $data['id_grado_academico'],
+                ':id_usuario' => $data['id_usuario'],
+                ':nombre_director' => $data['nombre_director'],
+                ':appaterno_director' => $data['appaterno_director'],
+                ':apmaterno_director' => $data['apmaterno_director'],
+                ':rfc_director' => $data['rfc_director'],
+                ':curp_director' => $data['curp_director'],
+                ':calle_director' => $data['calle_director'],
+                ':numexterior_director' => $data['numexterior_director'],
+                ':numinterior_director' => $data['numinterior_director'],
+                ':cp_director' => $data['cp_director'],
+                ':estado_director' => $data['estado_director'],
+                ':municipio_director' => $data['municipio_director'],
+                ':colonia_director' => $data['colonia_director'],
+                ':telefono_director' => $data['telefono_director'],
+                ':email_director' => $data['email_director'],
+                ':cedulaprofesional_director' => $data['cedulaprofesional_director'],
+                ':fechanacimiento_director' => $data['fechanacimiento_director']
+            ];
+        }
+
         $query = $this->db->conectar()->prepare('UPDATE director SET 
             
             id_escuela = :id_escuela,
             id_grado_academico = :id_grado_academico, 
-            id_usuario = :id_usuario, 
-            foto_director = :foto_director, 
+            id_usuario = :id_usuario,
+            '.$imagen.' 
             nombre_director = :nombre_director, 
             appaterno_director = :appaterno_director, 
             apmaterno_director = :apmaterno_director, 
@@ -66,29 +125,7 @@ class DirectivoDAO extends Model implements CRUD
             fechanacimiento_director = :fechanacimiento_director  
             WHERE id_director = :id_director');
 
-        $query->execute([
-            ':id_director' => $data['id_director'],
-            ':id_escuela' => $data['id_escuela'],
-            ':id_grado_academico' => $data['id_grado_academico'],
-            ':id_usuario' => $data['id_usuario'],
-            ':foto_director' => $data['foto_director'],
-            ':nombre_director' => $data['nombre_director'],
-            ':appaterno_director' => $data['appaterno_director'],
-            ':apmaterno_director' => $data['apmaterno_director'],
-            ':rfc_director' => $data['rfc_director'],
-            ':curp_director' => $data['curp_director'],
-            ':calle_director' => $data['calle_director'],
-            ':numexterior_director' => $data['numexterior_director'],
-            ':numinterior_director' => $data['numinterior_director'],
-            ':cp_director' => $data['cp_director'],
-            ':estado_director' => $data['estado_director'],
-            ':municipio_director' => $data['municipio_director'],
-            ':colonia_director' => $data['colonia_director'],
-            ':telefono_director' => $data['telefono_director'],
-            ':email_director' => $data['email_director'],
-            ':cedulaprofesional_director' => $data['cedulaprofesional_director'],
-            ':fechanacimiento_director' => $data['fechanacimiento_director']
-        ]);
+        $query->execute($arrayActualizar);
         echo 'ok';
     }
 
