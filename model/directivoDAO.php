@@ -106,7 +106,7 @@ class DirectivoDAO extends Model implements CRUD
             id_escuela = :id_escuela,
             id_grado_academico = :id_grado_academico, 
             id_usuario = :id_usuario,
-            '.$imagen.' 
+            ' . $imagen . ' 
             nombre_director = :nombre_director, 
             appaterno_director = :appaterno_director, 
             apmaterno_director = :apmaterno_director, 
