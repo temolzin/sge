@@ -45,9 +45,9 @@
         $imagen = 'foto_administrador = :foto_administrador,';
 
         $arrayActualizar = [
-          ':id_administrador' => $data['id_administradorActualizar'],
+          ':id_administrador' => $data['id_administrador'],
           ':id_usuario' => $data['id_usuario'],
-          ':nombre_administradorActualizar' => $data['nombre_administradorActualizar'],
+          ':nombre_administrador' => $data['nombre_administrador'],
           ':foto_administrador' => $data['foto_administrador'],
           ':appaterno_administrador' => $data['appaterno_administrador'],
           ':apmaterno_administrador' => $data['apmaterno_administrador'],
@@ -57,9 +57,9 @@
         ];
       } else {
         $arrayActualizar = [
-          ':id_administrador' => $data['id_administradorActualizar'],
+          ':id_administrador' => $data['id_administrador'],
           ':id_usuario' => $data['id_usuario'],
-          ':nombre_administradorActualizar' => $data['nombre_administradorActualizar'],
+          ':nombre_administrador' => $data['nombre_administrador'],
           ':appaterno_administrador' => $data['appaterno_administrador'],
           ':apmaterno_administrador' => $data['apmaterno_administrador'],
           ':telefono_administrador' => $data['telefono_administrador'],
@@ -68,16 +68,18 @@
         ];
       }
 
+      
+
       $query = $this->db->conectar()->prepare('UPDATE administrador SET
        id_usuario = :id_usuario,
-       nombre_administrador = :nombre_administradorActualizar,
+       nombre_administrador = :nombre_administrador,
        ' . $imagen . '
        appaterno_administrador = :appaterno_administrador,
        apmaterno_administrador = :apmaterno_administrador,
        telefono_administrador = :telefono_administrador,
        email_administrador = :email_administrador,
        fechanacimiento_administrador = :fechanacimiento_administrador
-       WHERE id_administrador = :id_administradorActualizar');
+       WHERE id_administrador = :id_administrador');
 
       $query->execute($arrayActualizar);
       echo 'ok';
