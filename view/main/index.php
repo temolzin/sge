@@ -163,7 +163,7 @@ $menu->header('Tablero');
                   <!-- /.table-responsive -->
                </div>
                <div class="card-footer clearfix">
-                  <a href="http://localhost/sge/calificacion_consulta" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
+                  <a href="http://localhost/sge/calificacion/showCalificacionAlumno" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
                </div>
             </div>
          </div>
@@ -551,7 +551,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="/sge/tareaalumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/sge/tarea/showTareaTutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <div class="col-lg-6">
@@ -562,7 +562,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="/sge/incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="/sge/incidencia/showIncidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
    </div>
@@ -607,10 +607,8 @@ $menu->header('Tablero');
                         </div>
                      </div>
                   </div>
-                  <a href="http://localhost/sge/consulta_escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
                </div>
-               <<<<<<< HEAD=======<a href="http://localhost/sge/escuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
-                  >>>>>>> 62b804876230b4c793283273b1ab4aa26728c79d
+               <a href="http://localhost/sge/escuela/showEscuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
             </div>
          </div>
       </div>
@@ -930,7 +928,7 @@ $menu->header('Tablero');
          type: "POST",
 
          async: false,
-         url: "<?php echo constant('URL'); ?>consulta_calificacion/read",
+         url: "<?php echo constant('URL'); ?>calificacionDetalleAlumno/read",
          dataType: 'json', // what to expect back from the PHP script, if anything
          success: function(data) {
             //console.log('CALI ', data);
@@ -1036,8 +1034,8 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/Director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 75px; height: 75px;>' +
-                     '<a class="users-list-name">' + elem.nombre_director + '<a>' +
+                     '<img src="/SGE/public/Director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
+                     '<a class="users-list-name">' + '<br>'+elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
                   $('#listNuevosDirectivos').append(htmlTags);
@@ -1058,8 +1056,9 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 75px; height: 75px;>' +
-                     '<a class="users-list-name">' + elem.nombre_administrador + '<a>' +
+                     '<img src="/SGE/public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 80px; height: 80px;>' +
+                     '<br><br>'+
+                     '<a class="users-list-name">' + '<br>'+ elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
                      '</li>';
                   $('#listAdministradores').append(htmlTags);

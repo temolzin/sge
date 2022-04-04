@@ -149,7 +149,7 @@ session_start();
 
                         </div>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-7">
                                 <div class="form-group">
                                     <label>Concepto (*)</label>
                                    <!--  <input type="text" class="form-control" id="descripcion_pagoActualizar" name="descripcion_pagoActualizar" placeholder="Concepto pago"/> -->
@@ -163,7 +163,7 @@ session_start();
                                     </select>
                                 </div>
                             </div>
-                             <div class="col-sm-6">
+                             <div class="col-sm-5">
                               <label>Monto total cobro (*)</label>
                               <div class="input-group mb-3">
                                 <div class="input-group-prepend">

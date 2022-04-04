@@ -39,8 +39,9 @@ $menu->header('profesor_alumno_consulta');
                   <table id="dataTableAlumno" name="dataTableAlumno" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                      <thead>
                         <tr>
+                        <th style="width: 15px;">Foto </th>
                            <th>Nombre</th>
-                           <th>Foto </th>
+                           
                            <th>Email</th>
                            <th>Opciones</th>
                         </tr>
@@ -218,14 +219,6 @@ $menu->header('profesor_alumno_consulta');
 
             },
             "columns": [
-
-               {
-                  defaultContent: "",
-                  "render": function(data, type, full) {
-                     return full['nombre_alumno'] + ' ' + full['appaterno_alumno'] + ' ' + full['apmaterno_alumno'];
-                  }
-               },
-
                {
                   defaultContent: "",
                   "render": function(data, type, full, row) {
@@ -235,9 +228,15 @@ $menu->header('profesor_alumno_consulta');
 
                      var img = '/SGE/public/Alumno/' + fullnameImagen;
 
-                     return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="150px" width="150px"/></center>';
+                     return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                   }
 
+               },
+               {
+                  defaultContent: "",
+                  "render": function(data, type, full) {
+                     return full['nombre_alumno'] + ' ' + full['appaterno_alumno'] + ' ' + full['apmaterno_alumno'];
+                  }
                },
 
                {

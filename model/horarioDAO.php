@@ -40,12 +40,14 @@ class HorarioDAO extends Model implements CRUD
         if ($tipo == 'Director') {
             $id_escuela = $_SESSION['id_escuela'];
             require_once 'horarioDTO.php';
-            $query = "SELECT materia.*, horario_materia.* from horario_materia horario_materia,  materia materia, escuela escuela, director director 
-    where horario_materia.id_horario = materia.id_horario and 
-    materia.id_escuela = escuela.id_escuela and 
-    director.id_escuela = escuela.id_escuela 
-    and  director.id_escuela  = materia.id_escuela and 
-    director.id_escuela =   '" . $id_escuela . "'";
+            $query = "SELECT materia.*, horario_materia.* 
+                      from horario_materia horario_materia,  materia materia, escuela escuela, director director 
+                      where horario_materia.id_horario = materia.id_horario 
+                      and materia.id_escuela = escuela.id_escuela 
+                      and director.id_escuela = escuela.id_escuela 
+                      and director.id_escuela  = materia.id_escuela 
+                      and director.id_escuela =   '" . $id_escuela . "'";
+
             $objHorarios = array();
 
             if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
@@ -62,6 +64,7 @@ class HorarioDAO extends Model implements CRUD
             }
 
             return $objHorarios;
+
         } else {
 
             require_once 'horarioDTO.php';
@@ -77,6 +80,7 @@ class HorarioDAO extends Model implements CRUD
                     $horario->materia_horafin_horario = $value['materia_horafin_horario'];
                     array_push($objHorarios, $horario);
                 }
+                
             } else {
                 $objHorarios = null;
             }

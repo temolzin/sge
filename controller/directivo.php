@@ -114,54 +114,85 @@ class Directivo extends Controller
         $cedulaprofesional_director = $_POST['cedulaprofesional_directorActualizar'];
         $fechanacimiento_director = $_POST['fechanacimiento_directorActualizar'];
 
+
         $nombreImagen = "";
-        if ($_FILES["imgDirectorActualizar"]["name"] != null) {
-            $imagen = $_FILES["imgDirectorActualizar"];
-            $nombreImagen = $imagen["name"];
-            $tipoImagen = $imagen["type"];
-            $ruta_provisional = $imagen["tmp_name"];
 
-            $fullname = $appaterno_director . "_" . $apmaterno_director . "_" . $nombre_director;
-            $carpeta = "public/director/" . $fullname . "/";
+        $arrayActualizar = array();
 
-            if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
-                echo 'errorimagen';
-            } else {
-                if (!file_exists($carpeta)) {
-                    mkdir($carpeta, 0777, true);
+        if (isset($_FILES["imgDirectorActualizar"])) {
+
+            if ($_FILES["imgDirectorActualizar"]["name"] != null) {
+
+                $imagen = $_FILES["imgDirectorActualizar"];
+                $nombreImagen = $imagen["name"];
+                $tipoImagen = $imagen["type"];
+                $ruta_provisional = $imagen["tmp_name"];
+
+                $fullname = $appaterno_director . "_" . $apmaterno_director . "_" . $nombre_director;
+                $carpeta = "public/director/" . $fullname . "/";
+
+                if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
+                    echo 'errorimagen';
+                } else {
+                    if (!file_exists($carpeta)) {
+                        mkdir($carpeta, 0777, true);
+                    }
+                    copy($ruta_provisional, $carpeta . $nombreImagen);
+
+                    $arrayActualizar = array(
+                        'id_director' => $id_director,
+                        'id_escuela' => $id_escuela,
+                        'id_grado_academico' => $id_grado_academico,
+                        'id_usuario' => $id_usuario,
+                        'foto_director' => $nombreImagen,
+                        'nombre_director' => $nombre_director,
+                        'appaterno_director' => $appaterno_director,
+                        'apmaterno_director' => $apmaterno_director,
+                        'rfc_director' => $rfc_director,
+                        'curp_director' => $curp_director,
+                        'calle_director' => $calle_director,
+                        'numexterior_director' => $numexterior_director,
+                        'numinterior_director' => $numinterior_director,
+                        'cp_director' => $cp_director,
+                        'estado_director' => $estado_director,
+                        'municipio_director' => $municipio_director,
+                        'colonia_director' => $colonia_director,
+                        'telefono_director' => $telefono_director,
+                        'email_director' => $email_director,
+                        'cedulaprofesional_director' => $cedulaprofesional_director,
+                        'fechanacimiento_director' => $fechanacimiento_director
+                    );
                 }
-                copy($ruta_provisional, $carpeta . $nombreImagen);
-
-                $data = array(
-                    'id_director' => $id_director,
-                    'id_escuela' => $id_escuela,
-                    'id_grado_academico' => $id_grado_academico,
-                    'id_usuario' => $id_usuario,
-                    'foto_director' => $nombreImagen,
-                    'nombre_director' => $nombre_director,
-                    'appaterno_director' => $appaterno_director,
-                    'apmaterno_director' => $apmaterno_director,
-                    'rfc_director' => $rfc_director,
-                    'curp_director' => $curp_director,
-                    'calle_director' => $calle_director,
-                    'numexterior_director' => $numexterior_director,
-                    'numinterior_director' => $numinterior_director,
-                    'cp_director' => $cp_director,
-                    'estado_director' => $estado_director,
-                    'municipio_director' => $municipio_director,
-                    'colonia_director' => $colonia_director,
-                    'telefono_director' => $telefono_director,
-                    'email_director' => $email_director,
-                    'cedulaprofesional_director' => $cedulaprofesional_director,
-                    'fechanacimiento_director' => $fechanacimiento_director
-                );
-
-                require 'model/directivoDAO.php';
-                $this->loadModel('DirectivoDAO');
-                $directivoDAO = new DirectivoDAO();
-                $directivoDAO->update($data);
             }
+        } else {
+            $arrayActualizar = array(
+                'id_director' => $id_director,
+                'id_escuela' => $id_escuela,
+                'id_grado_academico' => $id_grado_academico,
+                'id_usuario' => $id_usuario,
+                'nombre_director' => $nombre_director,
+                'appaterno_director' => $appaterno_director,
+                'apmaterno_director' => $apmaterno_director,
+                'rfc_director' => $rfc_director,
+                'curp_director' => $curp_director,
+                'calle_director' => $calle_director,
+                'numexterior_director' => $numexterior_director,
+                'numinterior_director' => $numinterior_director,
+                'cp_director' => $cp_director,
+                'estado_director' => $estado_director,
+                'municipio_director' => $municipio_director,
+                'colonia_director' => $colonia_director,
+                'telefono_director' => $telefono_director,
+                'email_director' => $email_director,
+                'cedulaprofesional_director' => $cedulaprofesional_director,
+                'fechanacimiento_director' => $fechanacimiento_director
+            );
         }
+
+        require 'model/directivoDAO.php';
+        $this->loadModel('DirectivoDAO');
+        $directivoDAO = new DirectivoDAO();
+        $directivoDAO->update($arrayActualizar);
     }
 
     function delete()

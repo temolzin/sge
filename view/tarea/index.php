@@ -66,7 +66,7 @@ $menu->header('Tarea');
               <!-- /.card-header -->
               <div class="card-body border-primary">
                 <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-12">
                     <span><label>Subir Archivo (*)</label></span>
                     <div class="form-group input-group">
                       <div class="custom-file">
@@ -75,13 +75,13 @@ $menu->header('Tarea');
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-6">
                     <div class="form-group">
                       <label>Nombre/Título (*)</label>
                       <input type="text" class="form-control" id="nombre_tarea" name="nombre_tarea" placeholder="Introduce el nombre/titulo de la tarea." />
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-6">
                     <div class="form-group">
                       <label>Seleccione Materia (*)</label>
                       <select name="id_materia" id="id_materia" class="form-control id_materia">
@@ -159,7 +159,7 @@ $menu->header('Tarea');
               <div class="card-body border-primary">
                 <div class="row">
                   <input type="text" hidden class="form-control" id="id_tarea_alumnoActualizar" name="id_tarea_alumnoActualizar" />
-                  <div class="col-lg-4">
+                  <div class="col-lg-12">
                     <span><label>Archivo (*)</label></span>
                     <br>
                     <div class="form-group input-group">
@@ -169,13 +169,13 @@ $menu->header('Tarea');
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-6">
                     <div class="form-group">
                       <label>Nombre/Título (*)</label>
                       <input type="text" class="form-control" id="nombre_tareaActualizar" name="nombre_tareaActualizar" placeholder="Introduce el nombre de la tarea" />
                     </div>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-6">
                     <div class="form-group">
                       <label>Materia (*)</label>
                       <select dname="id_materiaActualizar" id="id_materiaActualizar" class="form-control id_materia">

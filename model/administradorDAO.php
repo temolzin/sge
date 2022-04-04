@@ -1,8 +1,9 @@
   <?php
   session_start();
-  class AdministradorDAO extends Model implements CRUD {
+  class AdministradorDAO extends Model implements CRUD
+  {
     public function __construct()
-    { 
+    {
       parent::__construct();
     }
 
@@ -26,33 +27,61 @@
         ':apmaterno_administrador' => $data['apmaterno_administrador'],
         ':telefono_administrador' => $data['telefono_administrador'],
         ':email_administrador' => $data['email_administrador'],
-        ':fechanacimiento_administrador' => $data['fechanacimiento_administrador']]);
+        ':fechanacimiento_administrador' => $data['fechanacimiento_administrador']
+      ]);
       echo 'ok';
     }
 
 
     public function update($data)
     {
+
+      $imagen = '';
+
+      $arrayActualizar = [];
+
+      if (isset($data['foto_administrador'])) {
+
+        $imagen = 'foto_administrador = :foto_administrador,';
+
+        $arrayActualizar = [
+          ':id_administrador' => $data['id_administrador'],
+          ':id_usuario' => $data['id_usuario'],
+          ':nombre_administrador' => $data['nombre_administrador'],
+          ':foto_administrador' => $data['foto_administrador'],
+          ':appaterno_administrador' => $data['appaterno_administrador'],
+          ':apmaterno_administrador' => $data['apmaterno_administrador'],
+          ':telefono_administrador' => $data['telefono_administrador'],
+          ':email_administrador' => $data['email_administrador'],
+          ':fechanacimiento_administrador' => $data['fechanacimiento_administrador']
+        ];
+      } else {
+        $arrayActualizar = [
+          ':id_administrador' => $data['id_administrador'],
+          ':id_usuario' => $data['id_usuario'],
+          ':nombre_administrador' => $data['nombre_administrador'],
+          ':appaterno_administrador' => $data['appaterno_administrador'],
+          ':apmaterno_administrador' => $data['apmaterno_administrador'],
+          ':telefono_administrador' => $data['telefono_administrador'],
+          ':email_administrador' => $data['email_administrador'],
+          ':fechanacimiento_administrador' => $data['fechanacimiento_administrador']
+        ];
+      }
+
+      
+
       $query = $this->db->conectar()->prepare('UPDATE administrador SET
        id_usuario = :id_usuario,
-       nombre_administrador = :nombre_administradorActualizar,
-       foto_administrador = :foto_administrador,
+       nombre_administrador = :nombre_administrador,
+       ' . $imagen . '
        appaterno_administrador = :appaterno_administrador,
        apmaterno_administrador = :apmaterno_administrador,
        telefono_administrador = :telefono_administrador,
        email_administrador = :email_administrador,
        fechanacimiento_administrador = :fechanacimiento_administrador
-       WHERE id_administrador = :id_administradorActualizar');
-      $query->execute([
-        ':id_administrador' => $data['id_administradorActualizar'],
-        ':id_usuario' => $data['id_usuario'],
-        ':nombre_administradorActualizar' => $data['nombre_administradorActualizar'],
-        ':foto_administrador' => $data['foto_administrador'],
-        ':appaterno_administrador' => $data['appaterno_administrador'],
-        ':apmaterno_administrador' => $data['apmaterno_administrador'],
-        ':telefono_administrador' => $data['telefono_administrador'],
-        ':email_administrador' => $data['email_administrador'],
-        ':fechanacimiento_administrador' => $data['fechanacimiento_administrador']]);
+       WHERE id_administrador = :id_administrador');
+
+      $query->execute($arrayActualizar);
       echo 'ok';
     }
 
@@ -79,11 +108,11 @@
           $administrador->nombre_administrador = $value['nombre_administrador'];
           $administrador->appaterno_administrador = $value['appaterno_administrador'];
           $administrador->apmaterno_administrador = $value['apmaterno_administrador'];
-          $administrador->telefono_administrador = $value['telefono_administrador'];  
+          $administrador->telefono_administrador = $value['telefono_administrador'];
           $administrador->email_administrador = $value['email_administrador'];
-          $administrador->fechanacimiento_administrador= $value['fechanacimiento_administrador'];
+          $administrador->fechanacimiento_administrador = $value['fechanacimiento_administrador'];
           $administrador->username_usuario = $value['username_usuario'];
-          $administrador->password_usuario= $value['password_usuario'];
+          $administrador->password_usuario = $value['password_usuario'];
           array_push($objAdministradors, $administrador);
         }
       } else {
@@ -92,7 +121,5 @@
 
       return $objAdministradors;
     }
-
-
   }
   ?>

@@ -42,7 +42,7 @@
                   <table id="dataTableAlumno" name="dataTableAlumno" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                      <thead >
                         <tr>
-                        <th>Foto </th>
+                        <th style="width: 15px;">Foto </th>
                            <th>Nombre</th>
                            <th>Email</th>
                            <th>Opciones</th>
@@ -84,13 +84,23 @@
                                  <input type="number" value="5" hidden class="form-control" id="id_tipo_usuario" name="id_tipo_usuario"/>
                               </div>
                            </div>
-                           <div class="col-lg-4">
+                           <div class="col-lg-12">
+                              <span><label>Foto(*)</label></span>
+                              <div class="form-group input-group">
+                                 <div class="custom-file">
+                                    <input type="file" accept="image/*" class="custom-file-input" name="foto_alumno" id="foto_alumno" 
+                                       lang="es">
+                                    <label   class="custom-file-label" for="imagen">Selecciona Imagen</label>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-6">
                               <div class="form-group">
                                  <label>Usuario (*)</label>
                                  <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario"/>
                               </div>
                            </div>
-                           <div class="col-lg-4">
+                           <div class="col-lg-6">
                               <div class="form-group">
                                  <label>Contraseña (*)</label>
                                  <input type="password" class="form-control" id="password_usuario" name="password_usuario"
@@ -101,16 +111,7 @@
                                     title="Introduce 8 caracteres mayusculas/minusculas/numeros"/>
                               </div>
                            </div>
-                           <div class="col-lg-4">
-                              <span><label>Foto(*)</label></span>
-                              <div class="form-group input-group">
-                                 <div class="custom-file">
-                                    <input type="file" accept="image/*" class="custom-file-input" name="foto_alumno" id="foto_alumno" 
-                                       lang="es">
-                                    <label   class="custom-file-label" for="imagen">Selecciona Imagen</label>
-                                 </div>
-                              </div>
-                           </div>
+                           
                            <div class="col-lg-4">
                               <label>Nombre(s) (*)</label>
                               <div class="input-group mb-3">
@@ -297,19 +298,7 @@
                         <div class="row">
                            <input type="text" hidden class="form-control" id="id_alumnoActualizar" name="id_alumnoActualizar" />
                            <input type="text" hidden class="form-control" id="id_usuarioActualizar" name="id_usuarioActualizar" placeholder="Introduce idusuario"/>
-                           <div class="col-lg-4">
-                              <div class="form-group">
-                                 <label>Usuario</label>
-                                 <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-4">
-                              <div class="form-group">
-                                 <label>Contraseña</label>
-                                 <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña"/>
-                              </div>
-                           </div>
-                           <div class="col-lg-4">
+                           <div class="col-lg-12">
                               <span><label>Foto</label></span>
                               <br>
                               <div class="form-group input-group">
@@ -320,6 +309,19 @@
                                  </div>
                               </div>
                            </div>
+                           <div class="col-lg-6">
+                              <div class="form-group">
+                                 <label>Usuario</label>
+                                 <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario"/>
+                              </div>
+                           </div>
+                           <div class="col-lg-6">
+                              <div class="form-group">
+                                 <label>Contraseña</label>
+                                 <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña"/>
+                              </div>
+                           </div>
+                           
                            <div class="col-lg-4">
                               <label>Nombre(s)</label>
                               <div class="input-group mb-3">
