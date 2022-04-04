@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    require 'view/menu.php';
-    $menu = new Menu();
-    $menu->header('Escuela');
+session_start();
+require 'view/menu.php';
+$menu = new Menu();
+$menu->header('Escuela');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -23,7 +23,6 @@
                         <table id="dataTableEscuela" name="dataTableEscuela" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
-                                <th style="width: 15px;">Foto</th>
                                     <th>Nombre Escuela</th>
                                     <th>RFC</th>
                                     <th>CCT</th>
@@ -48,155 +47,146 @@
         <div class="modal-content">
             <div class="card-success">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Escuela <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                 </div>
                 <form role="form" id="formRegistrarEscuela" name="formRegistrarEscuela" method="post">
-                     <div class="card-body">
-                         <div class="card">
-                                <div class="card-header py-1 bg-secondary">
-                                    <h3 class="card-title">Datos Escolares</h3>
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                    </div>
-                                </div>
                     <div class="card-body">
-                        <div class="row">
-                        <div class="col-lg-12">
-                             <span><label>Foto Escuela (*)</label></span>
-                        <div class="form-group input-group">
-                            <div class="custom-file">
-                                <input type="file" accept="image/*" class="custom-file-input" name="foto_escuela" id="foto_escuela" lang="es">
-                                    <label class="custom-file-label" for="imagen">Selecciona Imagen</label>
-                            </div>
-                        </div>
-                        </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Nombre Escuela</label>
-                                    <input type="text" class="form-control" id="nombre_escuela" name="nombre_escuela" placeholder="Nombre Escuela"/>
+                        <div class="card">
+                            <div class="card-header py-1 bg-secondary">
+                                <h3 class="card-title">Datos Escolares</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>RFC</label>
-                                    <input type="text" class="form-control" id="rfc_escuela" name="rfc_escuela" placeholder="RFC"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>CCT</label>
-                                    <input type="text" class="form-control" id="cct_escuela" name="cct_escuela" placeholder="CCT"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Teléfono (*)</label>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Nombre Escuela</label>
+                                            <input type="text" class="form-control" id="nombre_escuela" name="nombre_escuela" placeholder="Nombre Escuela" />
+                                        </div>
                                     </div>
-                                    <input type="tel" id="telefono_escuela" name="telefono_escuela" class="form-control" data-inputmask='"mask": "(99) 99-9999-9999"' data-mask placeholder="Teléfono">
-                                </div>
-                            </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <label>Email (*)</label>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>RFC</label>
+                                            <input type="text" class="form-control" id="rfc_escuela" name="rfc_escuela" placeholder="RFC" />
+                                        </div>
                                     </div>
-                                    <input type="email" class="form-control" id="email_escuela" name="email_escuela" placeholder="Eje. escuela@gmail.com "/>
-                                </div>
-                            </div>
-                             <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label>Observacion Escuela</label>
-                                    <textarea name="observacion_escuela" id="observacion_escuela" cols="20" rows="10" placeholder="Observacion Escuela" class="form-control" style="height: 42px;"></textarea>
-                                </div>
-                            </div>    
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>CCT</label>
+                                            <input type="text" class="form-control" id="cct_escuela" name="cct_escuela" placeholder="CCT" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Teléfono (*)</label>
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                </div>
+                                                <input type="tel" id="telefono_escuela" name="telefono_escuela" class="form-control" data-inputmask='"mask": "(99) 99-9999-9999"' data-mask placeholder="Teléfono">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>Email (*)</label>
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                            </div>
+                                            <input type="email" class="form-control" id="email_escuela" name="email_escuela" placeholder="Eje. escuela@gmail.com " />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Observacion Escuela</label>
+                                            <textarea name="observacion_escuela" id="observacion_escuela" cols="20" rows="10" placeholder="Observacion Escuela" class="form-control" style="height: 42px;"></textarea>
+                                        </div>
+                                    </div>
 
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-                 <div class="card-body">
-                         <div class="card">
-                                <div class="card-header py-1 bg-secondary">
-                                    <h3 class="card-title">Dirección</h3>
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-header py-1 bg-secondary">
+                                <h3 class="card-title">Dirección</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Calle Escuela</label>
+                                            <input class="form-control" name="calle_escuela" id="calle_escuela" placeholder="Calle Escuela" />
+                                        </div>
                                     </div>
-                                </div>
-                                 <div class="card-body">
-                                    <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Calle Escuela</label>
-                                    <input class="form-control" name="calle_escuela" id="calle_escuela" placeholder="Calle Escuela"/>
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Numero Exterior</label>
+                                            <input type="text" class="form-control" id="numxterior_escuela" name="numxterior_escuela" placeholder="Numero Exterior" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Numero Interior</label>
+                                            <input type="text" class="form-control" id="numinterior_escuela" name="numinterior_escuela" placeholder="Numero Interior" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Codigo Postal (*)</label>
+                                            <input onfocusout="findCp(this);" type="text" class="form-control" id="codigoPostal" name="codigoPostal" placeholder="Codigo Postal" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Estado (*)</label>
+                                            <select name="selectEstado" id="selectEstado" class="form-control selectEstado">
+                                                <option value="default">Estado</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Municipio (*)</label>
+                                            <select name="selectMunicipio" id="selectMunicipio" class="form-control selectMunicipio">
+                                                <option value="default">Municipio</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Colonia (*)</label>
+                                            <select name="selectColonia" id="selectColonia" class="form-control selectColonia">
+                                                <option value="default">Colonia</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+
                                 </div>
                             </div>
-
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Numero Exterior</label>
-                                    <input type="text" class="form-control" id="numxterior_escuela" name="numxterior_escuela" placeholder="Numero Exterior"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Numero Interior</label>
-                                    <input type="text" class="form-control" id="numinterior_escuela" name="numinterior_escuela" placeholder="Numero Interior"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                             <div class="form-group">
-                               <label>Codigo Postal (*)</label>
-                               <input onfocusout="findCp(this);" type="text" class="form-control" id="codigoPostal" name="codigoPostal" placeholder="Codigo Postal"   />
-                             </div>
-                           </div>
-                           <div class="col-lg-3">
-                             <div class="form-group">
-                              <label>Estado (*)</label>
-                              <select name="selectEstado" id="selectEstado" class="form-control selectEstado">
-                               <option value="default">Estado</option>
-                             </select>
-                           </div>
-                         </div>
-
-                         <div class="col-lg-3">
-                           <div class="form-group">
-                            <label>Municipio (*)</label>
-                            <select name="selectMunicipio" id="selectMunicipio" class="form-control selectMunicipio">
-                             <option value="default">Municipio</option>
-                           </select>
-                         </div>
-                       </div>
-
-                       <div class="col-lg-3">
-                         <div class="form-group">
-                          <label>Colonia (*)</label>
-                          <select name="selectColonia" id="selectColonia" class="form-control selectColonia">
-                           <option value="default">Colonia</option>
-                         </select>
-                       </div>
-                     </div>
-                   
-                 
-                                   
-                                        
                         </div>
                     </div>
-                </div>
-            </div>
                     <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-success">Registrar</button>
-                        </div>
-                    
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Registrar</button>
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -210,7 +200,7 @@
         <div class="modal-content">
             <div class="card-warning">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title"> Escuela <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -218,165 +208,156 @@
                 </div>
                 <form role="form" id="formActualizarEscuela" name="formActualizarEscuela">
                     <div class="card-body">
-                         <div class="card">
-                                <div class="card-header py-1 bg-secondary">
-                                    <h3 class="card-title">Datos Escolares</h3>
+                        <div class="card">
+                            <div class="card-header py-1 bg-secondary">
+                                <h3 class="card-title">Datos Escolares</h3>
 
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <!-- /.card-tools -->
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label hidden>Id (*)</label>
+                                            <input type="text" hidden class="form-control" id="id_escuelaActualizar" name="id_escuelaActualizar" placeholder="id" />
+                                        </div>
                                     </div>
-                                    <!-- /.card-tools -->
                                 </div>
-                                <!-- /.card-header -->
-                    <div class="card-body">
-                        
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label hidden>Id (*)</label>
-                                    <input type="text" hidden class="form-control" id="id_escuelaActualizar" name="id_escuelaActualizar" placeholder="id"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-lg-12">
-                             <span><label>Foto Escuela (*)</label></span>
-                        <div class="form-group input-group">
-                            <div class="custom-file">
-                                <input type="file" accept="image/*" class="custom-file-input" name="foto_escuelaActualizar" id="foto_escuelaActualizar" lang="es">
-                                    <label class="custom-file-label" for="imagen">Selecciona Imagen</label>
-                            </div>
-                        </div>
-                        </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Nombre Escuela</label>
-                                    <input type="text" class="form-control" id="nombre_escuelaActualizar" name="nombre_escuelaActualizar" placeholder="Nombre Escuela"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>RFC</label>
-                                    <input type="text" class="form-control" id="rfc_escuelaActualizar" name="rfc_escuelaActualizar" placeholder="RFC"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>CCT</label>
-                                    <input type="text" class="form-control" id="cct_escuelaActualizar" name="cct_escuelaActualizar" placeholder="CCT"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Telefono</label>
-                                    <div class="input-group-prepend">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Nombre Escuela</label>
+                                            <input type="text" class="form-control" id="nombre_escuelaActualizar" name="nombre_escuelaActualizar" placeholder="Nombre Escuela" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>RFC</label>
+                                            <input type="text" class="form-control" id="rfc_escuelaActualizar" name="rfc_escuelaActualizar" placeholder="RFC" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>CCT</label>
+                                            <input type="text" class="form-control" id="cct_escuelaActualizar" name="cct_escuelaActualizar" placeholder="CCT" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Telefono</label>
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" id="telefono_escuelaActualizar" name="telefono_escuelaActualizar" placeholder="Telefono" />
                                             </div>
-                                            <input type="text" class="form-control" id="telefono_escuelaActualizar" name="telefono_escuelaActualizar" placeholder="Telefono"/>
                                         </div>
-                                </div>
-                                
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                </div>
+                                                <input type="email" class="form-control" id="email_escuelaActualizar" name="email_escuelaActualizar" placeholder="Email" />
+                                            </div>
                                         </div>
-                                        <input type="email" class="form-control" id="email_escuelaActualizar" name="email_escuelaActualizar" placeholder="Email"/>
                                     </div>
-                                </div>
-                            </div>
-                             <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Observacion</label>
-                                    <textarea name="observacion_escuelaActualizar" id="observacion_escuelaActualizar" cols="20" rows="10" placeholder="Observacion" class="form-control" style="height: 42px;"></textarea>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-                 <div class="card-body">
-
-
-                         <div class="card">
-                                <div class="card-header py-1 bg-secondary">
-                                    <h3 class="card-title">Dirección</h3>
-
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Observacion</label>
+                                            <textarea name="observacion_escuelaActualizar" id="observacion_escuelaActualizar" cols="20" rows="10" placeholder="Observacion" class="form-control" style="height: 42px;"></textarea>
+                                        </div>
                                     </div>
-                                    <!-- /.card-tools -->
-                                </div>
-                                <!-- /.card-header -->
-                                 <div class="card-body">
-                                    <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Calle Escuela</label>
-                                    <input class="form-control" name="calle_escuelaActualizar" id="calle_escuelaActualizar" placeholder="Calle Escuela"/>
 
-                                </div>
-                            </div>
-
-                            
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Numero Exterior</label>
-                                    <input type="text" class="form-control" id="numxterior_escuelaActualizar" name="numxterior_escuelaActualizar" placeholder="Numero Exterior"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Numero Interior</label>
-                                    <input type="text" class="form-control" id="numinterior_escuelaActualizar" name="numinterior_escuelaActualizar" placeholder="Numero Interior"/>
-                                </div>
-                            </div>
-                        
-                           
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Codigo Postal (*)</label>
-                                    <input onfocusout="findCpActualizar(this);" type="text" class="form-control" id="codigoPostalActualizar" name="codigoPostalActualizar" placeholder="Codigo Postal"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Estado</label>
-                                    <select class="form-control estado" id="selectEstadoActualizar" name="selectEstadoActualizar" placeholder="Estado">
-                                    <option value="default">Selecciona el Estado</option>
-                                    </select>
-                                </div>
-                            </div>
-                             <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Municipio</label>
-                                    <select class="form-control municipio" id="selectMunicipioActualizar" name="selectMunicipioActualizar" placeholder="Municipio">
-                                    <option value="default">Selecciona el Municipio</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Colonia</label>
-                                    <select class="form-control colonia" id="selectColoniaActualizar" name="selectColoniaActualizar" placeholder="Municipio">
-                                    <option value="default">Selecciona la Colonia</option>
-                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+
+                    <div class="card-body">
+
+
+                        <div class="card">
+                            <div class="card-header py-1 bg-secondary">
+                                <h3 class="card-title">Dirección</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <!-- /.card-tools -->
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Calle Escuela</label>
+                                            <input class="form-control" name="calle_escuelaActualizar" id="calle_escuelaActualizar" placeholder="Calle Escuela" />
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Numero Exterior</label>
+                                            <input type="text" class="form-control" id="numxterior_escuelaActualizar" name="numxterior_escuelaActualizar" placeholder="Numero Exterior" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Numero Interior</label>
+                                            <input type="text" class="form-control" id="numinterior_escuelaActualizar" name="numinterior_escuelaActualizar" placeholder="Numero Interior" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Codigo Postal (*)</label>
+                                            <input onfocusout="findCpActualizar(this);" type="text" class="form-control" id="codigoPostalActualizar" name="codigoPostalActualizar" placeholder="Codigo Postal" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Estado</label>
+                                            <select class="form-control estado" id="selectEstadoActualizar" name="selectEstadoActualizar" placeholder="Estado">
+                                                <option value="default">Selecciona el Estado</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Municipio</label>
+                                            <select class="form-control municipio" id="selectMunicipioActualizar" name="selectMunicipioActualizar" placeholder="Municipio">
+                                                <option value="default">Selecciona el Municipio</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Colonia</label>
+                                            <select class="form-control colonia" id="selectColoniaActualizar" name="selectColoniaActualizar" placeholder="Municipio">
+                                                <option value="default">Selecciona la Colonia</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-success">Actualizar</button>
-                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Actualizar</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -389,7 +370,7 @@
         <div class="modal-content">
             <div class="card-primary">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Escuela <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -398,148 +379,148 @@
                 <!-- /.card-header -->
                 <!-- form start -->
                 <form role="form" id="formConsulta" name="formConsulta">
-                   <div class="card-body">
-                         <div class="card">
-                                <div class="card-header py-1 bg-secondary">
-                                    <h3 class="card-title">Datos Escolares</h3>
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                    </div>
-                                    <!-- /.card-tools -->
-                                </div>
-                                <!-- /.card-header -->
                     <div class="card-body">
-                        
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label hidden>Id (*)</label>
-                                    <input type="text" hidden class="form-control" id="id_escuelaConsultar" name="id_escuelaConsultar" placeholder="id"/>
+                        <div class="card">
+                            <div class="card-header py-1 bg-secondary">
+                                <h3 class="card-title">Datos Escolares</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
+                                <!-- /.card-tools -->
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Nombre Escuela</label>
-                                    <input readonly type="text" class="form-control" id="nombre_escuelaConsultar" name="nombre_escuelaConsultar" placeholder="Nombre Escuela"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>RFC</label>
-                                    <input readonly type="text" class="form-control" id="rfc_escuelaConsultar" name="rfc_escuelaConsultar" placeholder="RFC"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>CCT</label>
-                                    <input readonly type="text" class="form-control" id="cct_escuelaConsultar" name="cct_escuelaConsultar" placeholder="CCT"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Telefono</label>
-                                    <input readonly type="text" class="form-control" id="telefono_escuelaConsultar" name="telefono_escuelaConsultar" placeholder="Telefono"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input readonly type="text" class="form-control" id="email_escuelaConsultar" name="email_escuelaConsultar" placeholder="Email"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Observaciones</label>
-                                    <input readonly type="text" class="form-control" id="observacion_escuelaConsultar" name="observacion_escuelaConsultar" placeholder="Numero Interior"/>
-                                </div>
-                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-                 <div class="card-body">
-
-
-                         <div class="card">
-                                <div class="card-header py-1 bg-secondary">
-                                    <h3 class="card-title">Dirección</h3>
-
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label hidden>Id (*)</label>
+                                            <input type="text" hidden class="form-control" id="id_escuelaConsultar" name="id_escuelaConsultar" placeholder="id" />
+                                        </div>
                                     </div>
-                                    <!-- /.card-tools -->
                                 </div>
-                                <!-- /.card-header -->
-                                 <div class="card-body">
-                                    <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Calle Escuela</label>
-                                    <input readonly class="form-control" name="calle_escuelaConsultar" id="calle_escuelaConsultar" placeholder="Calle Escuela"/>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Nombre Escuela</label>
+                                            <input readonly type="text" class="form-control" id="nombre_escuelaConsultar" name="nombre_escuelaConsultar" placeholder="Nombre Escuela" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>RFC</label>
+                                            <input readonly type="text" class="form-control" id="rfc_escuelaConsultar" name="rfc_escuelaConsultar" placeholder="RFC" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>CCT</label>
+                                            <input readonly type="text" class="form-control" id="cct_escuelaConsultar" name="cct_escuelaConsultar" placeholder="CCT" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Telefono</label>
+                                            <input readonly type="text" class="form-control" id="telefono_escuelaConsultar" name="telefono_escuelaConsultar" placeholder="Telefono" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input readonly type="text" class="form-control" id="email_escuelaConsultar" name="email_escuelaConsultar" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Observaciones</label>
+                                            <input readonly type="text" class="form-control" id="observacion_escuelaConsultar" name="observacion_escuelaConsultar" placeholder="Numero Interior" />
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
-
-                            
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Numero Exterior</label>
-                                    <input readonly type="text" class="form-control" id="numxterior_escuelaConsultar" name="numxterior_escuelaConsultar" placeholder="Numero Exterior"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Numero Interior</label>
-                                    <input readonly type="text" class="form-control" id="numinterior_escuelaConsultar" name="numinterior_escuelaConsultar" placeholder="Numero Interior"/>
-                                </div>
-                            </div>
-                        
-                          
-                       <div class="col-lg-3">
-                                 <div class="form-group">
-                                   <label>Codigo Postal (*)</label>
-                                   <input disabled type="text" class="form-control" id="codigoPostalConsultar" name="codigoPostalConsultar" placeholder="Codigo Postal" />
-                                 </div>
-                               </div>
-                               <div class="col-lg-3">
-                                 <div class="form-group">
-                                  <label>Estado (*)</label>
-                                  <input disabled name="selectEstadoConsultar" id="selectEstadoConsultar" class="form-control">
-                                  <option value="default"></option>
-                            
-                              </div>
-                            </div>
-
-                            <div class="col-lg-3">
-                             <div class="form-group">
-                              <label>Municipio (*)</label>
-                              <input disabled name="selectMunicipioConsultar" id="selectMunicipioConsultar" class="form-control">
-                              <option value="default"></option>
-                            
-                          </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                         <div class="form-group">
-                          <label>Colonia (*)</label>
-                          <input disabled name="selectColoniaConsultar" id="selectColoniaConsultar" class="form-control">
-                          <option value="default"></option>
-                        
-                      </div>
-                    </div>
-                            
-                            
                         </div>
                     </div>
-                </div>
-                     
-            </div>
-                    
-                    
+
+                    <div class="card-body">
+
+
+                        <div class="card">
+                            <div class="card-header py-1 bg-secondary">
+                                <h3 class="card-title">Dirección</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <!-- /.card-tools -->
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Calle Escuela</label>
+                                            <input readonly class="form-control" name="calle_escuelaConsultar" id="calle_escuelaConsultar" placeholder="Calle Escuela" />
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Numero Exterior</label>
+                                            <input readonly type="text" class="form-control" id="numxterior_escuelaConsultar" name="numxterior_escuelaConsultar" placeholder="Numero Exterior" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Numero Interior</label>
+                                            <input readonly type="text" class="form-control" id="numinterior_escuelaConsultar" name="numinterior_escuelaConsultar" placeholder="Numero Interior" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Codigo Postal (*)</label>
+                                            <input disabled type="text" class="form-control" id="codigoPostalConsultar" name="codigoPostalConsultar" placeholder="Codigo Postal" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Estado (*)</label>
+                                            <input disabled name="selectEstadoConsultar" id="selectEstadoConsultar" class="form-control">
+                                            <option value="default"></option>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Municipio (*)</label>
+                                            <input disabled name="selectMunicipioConsultar" id="selectMunicipioConsultar" class="form-control">
+                                            <option value="default"></option>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Colonia (*)</label>
+                                            <input disabled name="selectColoniaConsultar" id="selectColoniaConsultar" class="form-control">
+                                            <option value="default"></option>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </form>
             </div>
         </div>
@@ -569,101 +550,106 @@
 </div>
 
 <?php
-    $menu->footer();
+$menu->footer();
 ?>
 
 <script>
-
-var findCp = function(codigoPostal){
-    var codigoLeido=leerCodigoPostal(codigoPostal.value);
-    $('#selectEstado').empty();
-    for (let i in codigoLeido) {
-        $('#selectEstado').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
-        break;
-    }
-
-    $('#selectMunicipio').empty();
-    for (let i in codigoLeido) {
-        $('#selectMunicipio').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
-        break;
-    }
-    $('#selectColonia').empty();
-    for (let i in codigoLeido) {
-        $('#selectColonia').append('<option value=' + codigoLeido[i].asentamiento + '>' + codigoLeido[i].asentamiento + '</option>');
-    }
-}
-
-var findCpActualizar = function(codigoPostal){
-    var codigoLeido=leerCodigoPostal(codigoPostal.value);
-    /*$('#selectEstado').empty();*/
-    for (let i in codigoLeido) {
-        $('#selectEstadoActualizar').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
-        break;
-    }
-    $('#selectMunicipio').empty();
-    for (let i in codigoLeido) {
-        $('#selectMunicipioActualizar').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
-        break;
-    }
-    $('#selectColonia').empty();
-    for (let i in codigoLeido) {
-        $('#selectColoniaActualizar').append('<option value=' + codigoLeido[i].asentamiento + '>' + codigoLeido[i].asentamiento + '</option>');
-    }
-}
-
-function leerCodigoPostal(codigoPostal){ 
-    var result = '';
-    $.ajax({
-        type: "GET",
-        url: "<?php echo constant('URL');?>public/js/sepomex_abril-2016.json",
-        async: false,
-        dataType: "json",
-        success: function(rawdata){
-            console.log(rawdata);
-            console.log("<?php echo constant('URL');?>public/js/sepomex_abril-2016.json");        
-            let busqueda = rawdata.filter(codigo => codigo.cp == codigoPostal);        
-            console.log(busqueda);
-            result = busqueda; 
-        },
-        error: function(data) {
-            console.log(data);
+    var findCp = function(codigoPostal) {
+        var codigoLeido = leerCodigoPostal(codigoPostal.value);
+        $('#selectEstado').empty();
+        for (let i in codigoLeido) {
+            $('#selectEstado').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+            break;
         }
-    });
-    return result;
-}
 
-    $(document).ready(function (){
+        $('#selectMunicipio').empty();
+        for (let i in codigoLeido) {
+            $('#selectMunicipio').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+            break;
+        }
+        $('#selectColonia').empty();
+        for (let i in codigoLeido) {
+            $('#selectColonia').append('<option value=' + codigoLeido[i].asentamiento + '>' + codigoLeido[i].asentamiento + '</option>');
+        }
+    }
+
+    var findCpActualizar = function(codigoPostal) {
+        var codigoLeido = leerCodigoPostal(codigoPostal.value);
+        /*$('#selectEstado').empty();*/
+        for (let i in codigoLeido) {
+            $('#selectEstadoActualizar').append('<option value=' + codigoLeido[i].estado + '>' + codigoLeido[i].estado + '</option>');
+            break;
+        }
+        $('#selectMunicipio').empty();
+        for (let i in codigoLeido) {
+            $('#selectMunicipioActualizar').append('<option value=' + codigoLeido[i].municipio + '>' + codigoLeido[i].municipio + '</option>');
+            break;
+        }
+        $('#selectColonia').empty();
+        for (let i in codigoLeido) {
+            $('#selectColoniaActualizar').append('<option value=' + codigoLeido[i].asentamiento + '>' + codigoLeido[i].asentamiento + '</option>');
+        }
+    }
+
+    function leerCodigoPostal(codigoPostal) {
+        var result = '';
+        $.ajax({
+            type: "GET",
+            url: "<?php echo constant('URL'); ?>public/js/sepomex_abril-2016.json",
+            async: false,
+            dataType: "json",
+            success: function(rawdata) {
+                console.log(rawdata);
+                console.log("<?php echo constant('URL'); ?>public/js/sepomex_abril-2016.json");
+                let busqueda = rawdata.filter(codigo => codigo.cp == codigoPostal);
+                console.log(busqueda);
+                result = busqueda;
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+        return result;
+    }
+
+    $(document).ready(function() {
         mostrarEscuela();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
         eliminarRegistro();
     });
-    
-    
+
+
 
     var mostrarEscuela = function() {
         var tableEscuela = $('#dataTableEscuela').DataTable({
             "processing": true,
             "ajax": {
-                "url": "<?php echo constant('URL');?>escuela/readTable"
+                "url": "<?php echo constant('URL'); ?>escuela/readTable"
             },
             "columns": [
-                {defaultContent: "",
-                    'render': function(data, type, JsonResultRow, meta) {
-                        var fullnameImagen = JsonResultRow.nombre_escuela + '_' + JsonResultRow.rfc_escuela;
-                        var img = '/SGE/public/escuela/' + fullnameImagen;
-                        return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
-                    }},
-                { "data": "nombre_escuela"},
-                { "data": "rfc_escuela"},
-                { "data": "cct_escuela"},
-                { "data": "calle_escuela" },
-                { "data": "numxterior_escuela"},
-                { "data": "numinterior_escuela"},
-               
-                {data:null,
-                    "defaultContent":
-                        `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleEscuela' title="Ver Detalles"><i class="fa fa-eye"></i></button>
+                {
+                    "data": "nombre_escuela"
+                },
+                {
+                    "data": "rfc_escuela"
+                },
+                {
+                    "data": "cct_escuela"
+                },
+                {
+                    "data": "calle_escuela"
+                },
+                {
+                    "data": "numxterior_escuela"
+                },
+                {
+                    "data": "numinterior_escuela"
+                },
+
+                {
+                    data: null,
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleEscuela' title="Ver Detalles"><i class="fa fa-eye"></i></button>
                          <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarEscuela' title="Editar Datos"><i class="fa fa-edit"></i></button>
                          <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarEscuela' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
                 }
@@ -678,7 +664,7 @@ function leerCodigoPostal(codigoPostal){
         obtenerdatosDT(tableEscuela);
     }
 
-    var obtenerdatosDT = function (table) {
+    var obtenerdatosDT = function(table) {
         $('#dataTableEscuela tbody').on('click', 'tr', function() {
             var data = table.row(this).data();
             var idEliminar = $('#idEliminarEscuela').val(data.id_escuela);
@@ -700,9 +686,7 @@ function leerCodigoPostal(codigoPostal){
             var telefono_escuela = $("#telefono_escuelaActualizar").val(data.telefono_escuela);
             var email_escuela = $("#email_escuelaActualizar").val(data.email_escuela);
             var observacion_escuela = $("#observacion_escuelaActualizar").val(data.observacion_escuela);
-            
-            
-           
+
             var idConsultar = $("#id_escuelaConsultar").val(data.id_escuela);
             var nombre_escuelaConsultar = $("#nombre_escuelaConsultar").val(data.nombre_escuela);
             var rfc_escuelaConsultar = $("#rfc_escuelaConsultar").val(data.rfc_escuela);
@@ -717,28 +701,26 @@ function leerCodigoPostal(codigoPostal){
             var telefono_escuelaConsultar = $("#telefono_escuelaConsultar").val(data.telefono_escuela);
             var email_escuelaConsultar = $("#email_escuelaConsultar").val(data.email_escuela);
             var observacion_escuelaConsultar = $("#observacion_escuelaConsultar").val(data.observacion_escuela);
-            
+
         });
     }
 
-    var enviarFormularioRegistrar = function () {
+    var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
-            submitHandler: function () {
+            submitHandler: function() {
                 var datos = $('#formRegistrarEscuela').serialize();
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo constant('URL');?>escuela/insert",
+                    url: "<?php echo constant('URL'); ?>escuela/insert",
                     data: datos,
-                    success: function (data) {
-                        var form_data = new FormData();
-                        form_data.append('foto_director', imagen);
+                    success: function(data) {
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "La escuela ha sido registrado de manera correcta",
                                 "success"
-                            ).then(function () {
-                                window.location = "<?php echo constant('URL');?>escuela";
+                            ).then(function() {
+                                window.location = "<?php echo constant('URL'); ?>escuela";
                             })
                         } else {
                             Swal.fire(
@@ -776,7 +758,7 @@ function leerCodigoPostal(codigoPostal){
                     required: true
                 },
                 telefono_escuela: {
-            
+
                     required: true,
                     number: true
                 },
@@ -818,36 +800,36 @@ function leerCodigoPostal(codigoPostal){
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
         });
     }
 
-    var enviarFormularioActualizar = function () {
+    var enviarFormularioActualizar = function() {
         $.validator.setDefaults({
-            submitHandler: function () {
+            submitHandler: function() {
                 var datos = $('#formActualizarEscuela').serialize();
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo constant('URL');?>escuela/update",
+                    url: "<?php echo constant('URL'); ?>escuela/update",
                     data: datos,
-                    success: function (data) {
-                        
+                    success: function(data) {
+
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "El Escuela ha sido Actualizado de manera correcta",
                                 "success"
-                            ).then(function () {
-                                window.location = "<?php echo constant('URL');?>Escuela";
+                            ).then(function() {
+                                window.location = "<?php echo constant('URL'); ?>Escuela";
                             })
                         } else {
                             Swal.fire(
@@ -898,38 +880,38 @@ function leerCodigoPostal(codigoPostal){
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
         });
     }
 
-    var eliminarRegistro = function () {
-        $( "#formEliminarEscuela" ).submit(function( event ) {
+    var eliminarRegistro = function() {
+        $("#formEliminarEscuela").submit(function(event) {
             event.preventDefault();
             var datos = $('#formEliminarEscuela').serialize();
             $.ajax({
                 type: "POST",
-                url: "<?php echo constant('URL');?>escuela/delete",
+                url: "<?php echo constant('URL'); ?>escuela/delete",
                 data: datos,
-                success: function (data) {
+                success: function(data) {
                     if (data == 'ok') {
                         Swal.fire(
                             "¡Éxito!",
                             "El Escuela ha sido eliminado correctamente",
                             "success"
-                        ).then(function () {
-                            window.location = "<?php echo constant('URL');?>escuela";
+                        ).then(function() {
+                            window.location = "<?php echo constant('URL'); ?>escuela";
                         })
                     } else {
-                        Swal.fire (
+                        Swal.fire(
                             "¡Error!",
                             "Ha ocurrido un error al eliminar el escuela. " + data,
                             "error"

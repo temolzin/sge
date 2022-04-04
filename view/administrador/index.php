@@ -599,7 +599,6 @@
      });
    }
 
-
    var enviarFormularioRegistrar = function() {
      $.validator.setDefaults({
        submitHandler: function() {

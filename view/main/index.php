@@ -163,7 +163,7 @@ $menu->header('Tablero');
                   <!-- /.table-responsive -->
                </div>
                <div class="card-footer clearfix">
-                  <a href="http://localhost/sge/calificacion_consulta" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
+                  <a href="http://localhost/sge/calificacion/showCalificacionAlumno" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
                </div>
             </div>
          </div>

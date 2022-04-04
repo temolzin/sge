@@ -11,8 +11,7 @@
         public function insert($data)
         {
             $query = $this->db->conectar()->prepare('INSERT INTO escuela values (NULL, 
-            :nombre_escuela, 
-            :foto_escuela, 
+            :nombre_escuela,  
             :rfc_escuela, 
             :cct_escuela,
             :calle_escuela,
@@ -26,7 +25,6 @@
             :email_escuela,
             :observacion_escuela)');
             $query->execute([':nombre_escuela' => $data['nombre_escuela'],
-            ':foto_escuela' => $data['foto_escuela'],
             ':rfc_escuela' => $data['rfc_escuela'],
             ':cct_escuela' => $data['cct_escuela'],
             ':calle_escuela' => $data['calle_escuela'],
