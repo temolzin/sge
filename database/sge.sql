@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-08-2021 a las 00:09:52
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.3
+-- Tiempo de generación: 20-04-2022 a las 18:28:10
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,8 +44,7 @@ CREATE TABLE `administrador` (
 --
 
 INSERT INTO `administrador` (`id_administrador`, `id_usuario`, `foto_administrador`, `nombre_administrador`, `appaterno_administrador`, `apmaterno_administrador`, `telefono_administrador`, `email_administrador`, `fechanacimiento_administrador`) VALUES
-(2, 51, 'cristian.jpg', 'Cristian', 'Garcia', 'Espinoza', '(555) 497-4848', 'cris@gmail.com', '1999-10-13'),
-(3, 52, 'jesus.jpg', 'Jesus', 'Federico', 'Villeda', '(555) 497-4848', 'jesus@gmail.com', '2000-12-20');
+(4, 63, 'Sin título.png', 'Edwin', 'Martínez', 'Martínez', '5530297992', 'edwin@gmail.com', '2001-12-07');
 
 -- --------------------------------------------------------
 
@@ -79,10 +78,37 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`id_alumno`, `id_grupo`, `id_escuela`, `id_usuario`, `foto_alumno`, `nombre_alumno`, `appaterno_alumno`, `apmaterno_alumno`, `calle_alumno`, `noexterior_alumno`, `nointerior_alumno`, `cp_alumno`, `estado_alumno`, `municipio_alumno`, `colonia_alumno`, `telefono_alumno`, `email_alumno`, `fechanacimiento_alumno`) VALUES
-(1, 2, 9, 25, 'hombre1.jpeg', 'Sergio', 'Parra', 'López', 'Callle Moreno Mijares', 's/n', '78', 55607, 'México', 'Zumpango', 'Paseos del Lago', '(558) 256-9374', 'sergio@gmail.com', '2021-06-29'),
-(2, 5, 11, 26, 'user-3.png', 'Elli', 'Martínez', 'Silva', 'Lagunas pien', 's/n', '767', 55607, 'México', 'Zumpango', 'Paseos del Lago', '(555) 555-5555', 'mayra@gmail.com', '2021-07-04'),
-(17, 2, 9, 40, 'user-h.jpeg', 'Angel', 'Hernandez', 'Hernandez', 'Ferrocarril', 's/n', 'Lt4', 43806, 'Hidalgo', 'Tizayuca', 'Geo Villas', '(562) 173-8735', 'angelsas@gmail.com', '2021-08-11'),
-(18, 2, 9, 49, 'mujer1.jpeg', 'Arely', 'Jimenez', 'Martinez', 'nose ', '4', '45', 55748, 'México', 'Tecámac', 'San José', '(555) 555-6565', 'arely@gmail.com', '2001-05-11');
+(20, 11, 19, 67, 'root.png', 'Edgar', 'Ávila', 'Sánchez', 'paseo', '45', '45', 55749, 'México', 'Tecámac', 'Villa', '(545) 454-5454', 'edgar@gmail.com', '2022-04-01'),
+(21, 11, 19, 68, 'root.png', 'Gabriela', 'Martínez', 'Hernández', 'paseo', '4', '5', 55749, 'México', 'Tecámac', 'Sierra', '(654) 654-6446', 'gaby@gmail.com', '2022-04-01'),
+(22, 11, 19, 69, 'root.png', 'Ximena', 'Martínez', 'Martínez', 'Paseo', '45', '54', 55748, 'México', 'Tecámac', 'Ampliación', '(654) 654-6456', 'ximena@gmail.com', '2022-03-31'),
+(23, 11, 19, 70, 'root.png', 'Valeria', 'Hernández', 'Pérez', 'paseo', '8', '8', 55749, 'México', 'Tecámac', 'Ixotitla', '(987) 987-9878', 'valeria@gmail.com', '2022-04-01'),
+(24, 11, 19, 71, 'root.png', 'Jeremy', 'Moreno', 'Silva', 'paseo', '4', '4', 55749, 'México', 'Tecámac', '5', '(216) 565-4515', 'jere@gmail.com', '2022-04-12'),
+(25, 11, 19, 72, 'root.png', 'Samantha', 'Martínez', 'Ochoa', 'paseo', '5', '2', 55749, 'México', 'Tecámac', '5', '(987) 654-3211', 'sam@gmail.com', '2022-04-12'),
+(26, 11, 19, 73, 'root.png', 'Mauricio', 'Pérez', 'Hernández', 'pozo', '5', '7', 55749, 'México', 'Tecámac', 'Sierra', '(654) 132-1635', 'mau@gmail.com', '2022-04-12'),
+(27, 11, 19, 74, 'root.png', 'Pablo', 'Gómez', 'Gómez', 'pozo', '8', '4', 55749, 'México', 'Tecámac', 'Ampliación', '(465) 456-4564', 'pablo@gmail.com', '2022-04-13'),
+(28, 11, 19, 75, 'root.png', 'Juan', 'Pérez', 'Hernández', 'tezozomoc', '4', '7', 55749, 'México', 'Tecámac', 'Texcaltitla', '(654) 654-6545', 'juan@gmail.com', '2022-04-01'),
+(29, 11, 19, 76, 'root.png', 'Jatziry', 'Martínez', 'Martínez', 'tezozomoc', '54', '8', 55743, 'México', 'Tecámac', 'Rancho', '(654) 654-6545', 'jatzy@gmail.com', '2022-04-01'),
+(30, 12, 19, 77, 'root.png', 'Alexis', 'Martínez', 'Hernández', 'Pozo', '8', '6', 55743, 'México', 'Tecámac', 'La', '(546) 546-4654', 'Alexis@gmail.com', '2022-04-01'),
+(31, 16, 20, 80, 'default.png', 'ALUMNO1M', 'ALUMNO1M', 'ALUMNO1M', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Valle', '(123) 456-789_', 'ALUMNO1M@alumno.com', '2010-01-01'),
+(32, 16, 20, 81, 'default.png', 'alumnom2', 'alumnom2', 'alumnom2', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto', '(555) 936-8986', 'alumnom2@alumno.com', '2010-01-01'),
+(33, 16, 20, 82, 'default.png', 'alumno3m', 'alumno3m', 'alumno3m', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto', '(555) 936-8986', 'alumno3m@alumno.com', '2010-01-01'),
+(34, 16, 20, 83, 'default.png', 'alumno4m', 'alumno4m', 'alumno4m', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto', '(555) 936-8986', 'alumno4m@alumno.com', '2010-02-01'),
+(35, 16, 20, 84, 'default.png', 'alumno4m', 'alumno4m', 'alumno4m', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto', '(555) 936-8986', 'alumno4m@alumno.com', '2010-01-01'),
+(36, 16, 20, 85, 'default.png', 'alumno5m', 'alumno5m', 'alumno5m', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto', '(123) 456-789_', 'alumno5m@gmail.com', '2010-01-01'),
+(37, 16, 20, 86, 'default.png', 'alumno6m', 'alumno6m', 'alumno6m', 'calle', '1', '1', 55710, 'México', 'Coacalco', 'Arcos', '(525) 551-8496', 'alumno6m@alumno.com', '2010-01-01'),
+(38, 16, 20, 87, 'default.png', 'alumno7m', 'alumno7m', 'alumno7m', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto', '(555) 936-8986', 'alumno7m@alumno.com', '2010-01-01'),
+(39, 16, 20, 88, 'default.png', 'alumno8m', 'alumno8m', 'alumno8m', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto', '(555) 936-8986', 'alumno8m@alumno.com', '2010-01-01'),
+(40, 16, 20, 89, 'default.png', 'alumno9m', 'alumno9m', 'alumno9m', 'calle', '1', '1', 55710, 'México', 'Coacalco', 'Arcos', '(525) 551-8496', 'alumno9m@alumno.com', '2010-01-01'),
+(41, 16, 20, 90, 'default.png', 'alumno10m', 'alumno10m', 'alumno10m', 'calle', '1', '1', 43806, 'Hidalgo', 'Tizayuca', 'Ampliación', '(562) 173-8735', 'alumno10m@alumno.com', '2010-01-01'),
+(42, 18, 20, 91, 'default.png', 'alumno1v', 'alumno1v', 'alumno1v', 'calle', '1', '1', 43806, 'Hidalgo', 'Tizayuca', 'Ampliación', '(562) 173-8735', 'alumno1v@alumno.com', '2010-01-01'),
+(43, 18, 20, 92, 'default.png', 'alumno2v', 'alumno2v', 'alumno2v', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto', '(555) 936-8986', 'alumno2v@alumno.com', '2010-01-01'),
+(44, 18, 20, 93, 'default.png', 'alumno3v', 'alumno3v', 'alumno3v', 'calle', '1', '1', 55710, 'México', 'Coacalco', 'Arcos', '(525) 551-8496', 'alumno3v@alumno.com', '2010-01-01'),
+(45, 18, 20, 94, 'default.png', 'alumno4v', 'alumno4v', 'alumno4v', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto', '(555) 936-8986', 'alumno4v@alumno.com', '2010-01-01'),
+(46, 18, 20, 95, 'default.png', 'alumno5v', 'alumno5v', 'alumno5v', 'calle', '1', '1', 43806, 'Hidalgo', 'Tizayuca', 'Ampliación', '(562) 173-8735', 'alumno5v@alumno.com', '2010-01-01'),
+(47, 18, 20, 96, 'default.png', 'alumno6v', 'alumno6v', 'alumno6v', 'calle', '1', '1', 43806, 'Hidalgo', 'Tizayuca', 'Ampliación', '(562) 173-8735', 'alumno6v@alumno.com', '2010-01-01'),
+(48, 18, 20, 97, 'default.png', 'alumno7v', 'alumno7v', 'alumno7v', 'calle', '1', '1', 43806, 'Hidalgo', 'Tizayuca', 'Ampliación', '(562) 173-8735', 'alumno7v@alumno.com', '2010-01-01'),
+(49, 18, 20, 98, 'default.png', 'alumno8v', 'alumno8v', 'alumno8v', 'calle', '1', '1', 55710, 'México', 'Coacalco', 'Arcos', '(525) 551-8496', 'alumno8v@gmail.com', '2010-01-01'),
+(50, 18, 20, 99, 'default.png', 'alumno10v', 'alumno10v', 'alumno10v', 'calle', '1', '1', 55710, 'México', 'Coacalco', 'Arcos', '(525) 551-8496', 'alumno10v@ALUMNO.COM', '2010-01-01');
 
 -- --------------------------------------------------------
 
@@ -100,16 +126,6 @@ CREATE TABLE `calificacion` (
   `observacion_calificacion` varchar(80) NOT NULL,
   `fecha_calificacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `calificacion`
---
-
-INSERT INTO `calificacion` (`id_calificacion`, `id_profesor`, `id_alumno`, `id_parcial`, `id_materia`, `calificacion`, `observacion_calificacion`, `fecha_calificacion`) VALUES
-(3, 7, 2, 3, 14, 10, 'Ninguna', '2021-08-10'),
-(8, 7, 1, 3, 2, 9, 'Buena :D', '2021-08-18'),
-(9, 7, 1, 6, 15, 8, 'Pasaste perro', '2021-08-08'),
-(10, 7, 1, 8, 15, 5, 'Te mamaste perro', '2021-08-19');
 
 -- --------------------------------------------------------
 
@@ -133,9 +149,11 @@ CREATE TABLE `cobro` (
 --
 
 INSERT INTO `cobro` (`id_cobro`, `id_alumno`, `cantidad_cobro`, `iva_cobro`, `concepto_cobro`, `fechalimite_cobro`, `activo_cobro`, `fecha_cobro`) VALUES
-(2, 1, 4045, 11, 'Inscripción', '2021-09-10', 1, '2021-08-05'),
-(3, 2, 58, 5, 'Constancia de estudios', '2021-08-06', 1, '2021-08-05'),
-(6, 16, 15, 2, 'Constancia de estudios', '2021-08-19', 1, '2021-08-16');
+(7, 31, 12222, 1212, 'Inscripción', '2022-04-20', 1, '2022-04-20'),
+(8, 42, 10000, 1, 'Reinscripción', '2022-04-20', 1, '2022-04-20'),
+(9, 32, 100000, 1, 'Constancia de estudios', '2022-04-20', 1, '2022-04-20'),
+(10, 43, 122, 1, 'Mantenimiento', '2022-04-20', 1, '2022-04-20'),
+(11, 33, 12222, 1, 'Titulación', '2022-04-20', 1, '2022-04-20');
 
 -- --------------------------------------------------------
 
@@ -172,11 +190,9 @@ CREATE TABLE `director` (
 --
 
 INSERT INTO `director` (`id_director`, `id_escuela`, `id_grado_academico`, `id_usuario`, `foto_director`, `nombre_director`, `appaterno_director`, `apmaterno_director`, `rfc_director`, `curp_director`, `calle_director`, `numexterior_director`, `numinterior_director`, `cp_director`, `estado_director`, `municipio_director`, `colonia_director`, `telefono_director`, `email_director`, `cedulaprofesional_director`, `fechanacimiento_director`) VALUES
-(5, 9, 2, 30, 'h-user3.jpeg', 'Marioo', 'Jiménez', 'Silva', 'LSGY5465G15', 'LSHJFN65215231', 'Ferrocarril', 's/n', '478', '55607', 'México', 'Zumpango', 'Primero de Mayo', '5541258963', 'luis@gmail.com', 'LSFYDHJSF45', '2021-07-30'),
-(6, 14, 2, 39, 'user6.jpg', 'Julian', 'Jiménez', 'Hernandez', 'sdssdjaja12', 'asas1213', 'Ferrocarril', 's/n', '3', '55607', 'México', 'Zumpango', 'Paseos del Lago', '5541258963', 'luis@gmail.com', 'ewae232', '2021-08-11'),
-(13, 8, 2, 48, 'h-user1.jpeg', 'Gerardo', 'Rellez', 'Rosas', 'rrrr', 'rrr', 'No se ', '4', '6', '42184', 'Hidalgo', 'Mineral de la Reforma', 'Valle del Álamo', '55544', 'gerard@gamil.com', '555', '2005-10-12'),
-(14, 17, 1, 61, 'user-2H.jpeg', 'Lizbeth', 'Rosas', 'Rosas ', '323', '12312', 'sdsd', '8', '7', '42181', 'Hidalgo', 'Mineral de la Reforma', 'San Guillermo la Reforma', '455454', 'liz@gmail.com', '555', '2021-08-03'),
-(15, 18, 1, 62, 'user-h.jpeg', 'Alejandro', 'Hernandez', 'Hernandez', 'sdssdjaja12', 'asdasdsa', 'Ferrocarril', 's/n', '3', '43806', 'Hidalgo', 'Tizayuca', 'Geo Villas', '5621738735', 'angelsas@gmail.com', 'ewae232', '2021-08-17');
+(16, 19, 6, 64, 'root.png', 'Leonardo', 'Moran', 'Jasso', 'abc', 'abc', 'Av. León ', '54', '54', '55748', 'México', 'Tecámac', 'Los', '5574869553', 'Leo@gmail.com', 'abc', '2022-04-01'),
+(17, 20, 6, 78, 'default.png', 'asbaje', 'ASBAJE', 'ASBAJE', 'ASBAJE1234567', 'ASBAJE1234567', 'calle', '1', '1', '55710', 'México', 'Coacalco', 'Villa', '123456789', 'ASBAJE@ASBAJE.COM', 'ASBAJE1234567', '2000-01-01'),
+(18, 20, 5, 79, 'default.png', 'asbajesegundo', 'asbajesegundo', 'asbajesegundo', 'asbajesegundo', 'asbajesegundo12345', 'a', '1', '1', '43806', 'Hidalgo', 'Tizayuca', 'Fuentes', '12345678', 'asbajesegundo@asbaje.com', 'asbajesegundo123456', '2000-01-01');
 
 -- --------------------------------------------------------
 
@@ -206,12 +222,8 @@ CREATE TABLE `escuela` (
 --
 
 INSERT INTO `escuela` (`id_escuela`, `nombre_escuela`, `rfc_escuela`, `cct_escuela`, `calle_escuela`, `numxterior_escuela`, `numinterior_escuela`, `cp_escuela`, `estado_escuela`, `municipio_escuela`, `colonia_escuela`, `telefono_escuela`, `email_escuela`, `observacion_escuela`) VALUES
-(8, 'Felipe Villanueva', 'GG656', '545', '1ra Cerrada de Jalisco', '7', '3', 43806, 'Hidalgo', 'Tizayuca', 'Geo Villas', '5548799', 'felipe@gmail.com', 'Es una buena escuela'),
-(9, 'Miguel Hidalgo', '5454', '8787', 'Morelos', '7', '7', 55748, 'México', 'Tecámac', 'San Martín Azcatepec', '5565943615', 'miguel@gmail.com', 'Esta bonita'),
-(11, 'ESTIC 21', 'HGY878', '548', 'Av lazaro cardenas ', '8', '7', 55747, 'México', 'Tecámac', 'San Isidro Citlalcóatl', '5565943615', 'estic22@gmail.com', 'Es una bonita Secundaria '),
-(14, 'UAEH', '444', '8787', 'SS', 'SS', '5', 42184, 'Hidalgo', 'Mineral de la Reforma', 'Campestre Villas del Álamo', '65645', 'uaeh@gmail.com', 'esta rebonita'),
-(17, 'CECYTEM ECATEPEC', '4444', '6566', 'sdsd', '8', '7', 42184, 'Hidalgo', 'Mineral de la Reforma', 'Valle del Álamo', '545454545', 'cecy@gmail.com', 'ESTA BONITA'),
-(18, 'Primaria Velazco', 'PrimariaVelaz', '6552515625', 'Ferrocarril', '7', '15', 43806, 'Hidalgo', 'Tizayuca', 'Geo Villas', '5621738735', 'PrimariaVelazco@gmail.com', 'Escuela primaria');
+(19, 'Universidad Tecnológica de Tecámac', 'abcd', 'abcd', 'Av. Héroes ', '54', '54', 55749, 'México', 'Tecámac', '5', '552225698', 'UTTEC@gmail.com', 'Ninguno'),
+(20, 'Juana de Asbaje', 'asbaje12345', '1234', 'prueba', '12', '12', 55767, 'México', 'Tecámac', 'Real', '123456789', 'asbaje@asbaje.com', 'es una escuela de color azul');
 
 -- --------------------------------------------------------
 
@@ -230,8 +242,9 @@ CREATE TABLE `grado_academico` (
 --
 
 INSERT INTO `grado_academico` (`id_grado_academico`, `nombre_grado_academico`, `observacion_gradoacademico`) VALUES
-(1, 'Ingeniería', 'Computación '),
-(2, 'Licenciatura', 'Derecho');
+(4, 'Técnico Superior Universitario', 'TSU'),
+(5, 'Licenciatura', 'Lic.'),
+(6, 'Ingeniería', 'Ing.');
 
 -- --------------------------------------------------------
 
@@ -251,13 +264,13 @@ CREATE TABLE `grupo` (
 --
 
 INSERT INTO `grupo` (`id_grupo`, `id_escuela`, `nombre_grupo`, `turno_grupo`) VALUES
-(1, 8, '1A', 'Vespertino'),
-(2, 9, '2B', 'Vespertino'),
-(5, 11, '3B', 'Matutino'),
-(6, 11, '4A', 'Matutino'),
-(8, 8, '1A', 'Matutino'),
-(9, 8, '1A', 'Vespertino'),
-(10, 8, '4B', 'Matutino');
+(11, 19, '1A', 'Matutino'),
+(12, 19, '1B', 'Matutino'),
+(13, 19, '2A', 'Matutino'),
+(14, 19, '2B', 'Matutino'),
+(15, 19, '3A', 'Matutino'),
+(16, 20, '1TSM1', 'Matutino'),
+(18, 20, '1TSV1', 'Vespertino');
 
 -- --------------------------------------------------------
 
@@ -269,16 +282,6 @@ CREATE TABLE `grupo_profesor` (
   `id_grupo` int(11) NOT NULL,
   `id_profesor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `grupo_profesor`
---
-
-INSERT INTO `grupo_profesor` (`id_grupo`, `id_profesor`) VALUES
-(1, 1),
-(1, 1),
-(1, 1),
-(1, 1);
 
 -- --------------------------------------------------------
 
@@ -298,9 +301,11 @@ CREATE TABLE `horario_materia` (
 --
 
 INSERT INTO `horario_materia` (`id_horario`, `materia_fecha_horario`, `materia_horainicio_horario`, `materia_horafin_horario`) VALUES
-(1, '2021-07-08', '13:00:00', '14:00:00'),
-(2, '2021-06-25', '07:00:00', '08:00:00'),
-(3, '2021-08-07', '13:55:00', '08:50:00');
+(4, '2022-05-02', '08:00:00', '10:00:00'),
+(5, '2022-05-02', '10:00:00', '12:00:00'),
+(6, '2022-04-20', '10:00:00', '23:00:00'),
+(7, '2022-04-20', '15:00:00', '16:00:00'),
+(8, '2022-04-20', '14:02:00', '15:03:00');
 
 -- --------------------------------------------------------
 
@@ -323,8 +328,8 @@ CREATE TABLE `incidencias` (
 --
 
 INSERT INTO `incidencias` (`id_incidencia`, `id_alumno`, `id_profesor`, `id_grupo`, `fechaincidencia_incidencia`, `horaincidencia_incidencia`, `descripcion_incidencia`) VALUES
-(3, 1, 7, 2, '2021-08-02', '07:40:11', 'Entro tarde a la escuela, por 40 minutos. '),
-(4, 2, 7, 2, '2021-08-09', '07:08:00', 'Entrada tarde');
+(1, 35, 16, 16, '2022-04-20', '11:21:00', 'PELEA'),
+(2, 46, 17, 18, '2022-04-20', '11:21:00', 'PELEA');
 
 -- --------------------------------------------------------
 
@@ -344,13 +349,11 @@ CREATE TABLE `materia` (
 --
 
 INSERT INTO `materia` (`id_materia`, `id_escuela`, `id_horario`, `nombre_materia`) VALUES
-(1, 9, 2, 'Español'),
-(2, 11, 1, 'Historia'),
-(14, 11, 1, 'Ciencias'),
-(15, 8, 1, 'Música'),
-(16, 8, 1, 'Física'),
-(17, 11, 1, 'Derecho'),
-(19, 9, 1, 'Ciencias Naturales');
+(20, 19, 4, 'Matematicas'),
+(21, 19, 5, 'Español'),
+(22, 20, 6, 'materia1'),
+(23, 20, 7, 'materia2'),
+(24, 20, 8, 'materia3');
 
 -- --------------------------------------------------------
 
@@ -362,16 +365,6 @@ CREATE TABLE `materia_grupo` (
   `id_grupo` int(11) NOT NULL,
   `id_materia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `materia_grupo`
---
-
-INSERT INTO `materia_grupo` (`id_grupo`, `id_materia`) VALUES
-(1, 1),
-(3, 1),
-(2, 2),
-(4, 2);
 
 -- --------------------------------------------------------
 
@@ -391,11 +384,11 @@ CREATE TABLE `materia_profesor` (
 --
 
 INSERT INTO `materia_profesor` (`id_materia_profesor`, `id_profesor`, `id_grupo`, `id_materia`) VALUES
-(3, 7, 2, 2),
-(7, 7, 5, 14),
-(9, 7, 5, 17),
-(11, 7, 2, 1),
-(12, 12, 2, 19);
+(1, 14, 11, 21),
+(2, 15, 12, 20),
+(3, 16, 16, 22),
+(4, 17, 18, 23),
+(5, 18, 16, 24);
 
 -- --------------------------------------------------------
 
@@ -419,7 +412,12 @@ CREATE TABLE `pago` (
 --
 
 INSERT INTO `pago` (`id_pago`, `id_cobro`, `cantidad_pago`, `descripcion_pago`, `fecha_pago`, `hora_pago`, `monto_cobro_pago`, `restante_pago`) VALUES
-(13, 3, 15, 'Mantenimiento', '2021-08-16', '23:00:09', 58, 43);
+(1, 7, 12222, 'Inscripción', '2022-04-20', '11:15:18', 1111, -11111),
+(2, 8, 100, 'Reinscripción', '2022-04-20', '11:17:52', 100, 0),
+(3, 9, 12222, 'Constancia de estudios', '2022-04-20', '11:18:04', 12222, 0),
+(4, 10, 122, 'Constancia de estudios', '2022-04-20', '11:18:24', 122, 0),
+(5, 11, 122222, 'Mantenimiento', '2022-04-20', '11:18:39', 12222, -110000),
+(6, 11, 1000, 'Titulación', '2022-04-20', '11:19:20', 1000, 0);
 
 -- --------------------------------------------------------
 
@@ -434,15 +432,6 @@ CREATE TABLE `parcial` (
   `fechainicio_parcial` date NOT NULL,
   `fechafin_parcial` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `parcial`
---
-
-INSERT INTO `parcial` (`id_parcial`, `id_escuela`, `nombre_parcial`, `fechainicio_parcial`, `fechafin_parcial`) VALUES
-(3, 9, '1 Bimestre', '2021-01-06', '2021-03-11'),
-(6, 8, '2 Bimestre', '2021-07-02', '2021-08-07'),
-(8, 11, '3 Bimestre', '2021-06-30', '2021-07-30');
 
 -- --------------------------------------------------------
 
@@ -477,8 +466,11 @@ CREATE TABLE `profesor` (
 --
 
 INSERT INTO `profesor` (`id_profesor`, `id_grado_academico`, `id_escuela`, `id_usuario`, `foto_profesor`, `nombre_profesor`, `appaterno_profesor`, `apmaterno_profesor`, `cedula_profesor`, `calle_profesor`, `numexterior_profesor`, `numinterior_profesor`, `cp_profesor`, `estado_profesor`, `municipio_profesor`, `colonia_profesor`, `telefono_profesor`, `email_profesor`, `fechanacimiento_profesor`) VALUES
-(7, 2, 9, 31, 'user-2H.jpeg', 'Fernando', 'Méndez', 'Gutiérrez', 'MAYU2489652', 'Lagunas', 's/n', '48', 55604, 'México', 'Zumpango', 'Hombres Ilustres', '5541258963', 'karika@outlook.es', '2021-08-04'),
-(12, 1, 9, 56, 'mujer2.jpeg', 'Rocio', 'Hernandez', 'Juarez', 'ssss', 'sdsd', '8', '8', 42184, 'Hidalgo', 'Mineral de la Reforma', 'Valle del Álamo', '45645454', 'rocio@gmail.com', '2002-06-03');
+(14, 5, 19, 65, 'root.png', 'Erika', 'García', 'Reséndiz ', 'abc', 'Av. Tezozomoc', '45', '45', 55749, 'México', 'Tecámac', 'La', '5547896321', 'eri@gmail.com', '2001-04-06'),
+(15, 6, 19, 66, 'root.png', 'Alexis', 'Rueda', 'Martínez', 'abc', 'Colmillo', '45', '54', 55748, 'México', 'Tecámac', 'Ampliación', '5478963214', 'alex@gmail.com', '2022-04-01'),
+(16, 4, 20, 105, 'default.png', 'PROFESOR1', 'PROFESOR1', 'PROFESOR1', 'PROFESOR1', 'calle', '12', '12', 55770, 'México', 'Tecámac', 'El', '123456789', 'PROFESOR1@PROFESOR.COM', '2010-01-01'),
+(17, 5, 20, 108, 'default.png', 'PROFESOR2', 'PROFESOR2', 'PROFESOR2', 'PROFESOR2', 'calle', '12', '12', 55767, 'México', 'Tecámac', 'Conjunto', '12346789', 'PROFESOR2@PROFESOR.COM', '2010-01-01'),
+(18, 6, 20, 109, 'default.png', 'PROFESOR3', 'PROFESOR3', 'PROFESOR3', 'PROFESOR3', 'calle', '12', '12', 55770, 'México', 'Tecámac', 'El', '12346789', 'PROFESOR3@PROFESOR.COM', '2010-01-01');
 
 -- --------------------------------------------------------
 
@@ -501,9 +493,10 @@ CREATE TABLE `tarea_alumno` (
 --
 
 INSERT INTO `tarea_alumno` (`id_tarea_alumno`, `id_grupo`, `id_materia`, `nombre_tarea`, `descripcion_tarea`, `archivo_tarea`, `fecha_entrega`) VALUES
-(1, 5, 2, 'La independencia', 'Hacer una investigación sobre la independencia ', '', '2021-06-30'),
-(2, 2, 1, 'Verbos', 'Una tarea de verbos', 'Pa la liz.pdf', '2021-06-30'),
-(3, 5, 14, '2da Guerra Mundial ', 'Porque empezo la Guerra ', 'No hay', '2021-06-09');
+(8, 16, 22, 'TAREA1', 'TAREA1', 'default.png', '2022-04-20'),
+(9, 18, 23, 'TAREA2', 'TAREA2', 'default.png', '2022-04-20'),
+(10, 18, 24, 'TAREA3', 'TAREA3', 'default.png', '2022-04-20'),
+(11, 16, 22, 'TAREA2', 'TAREA2', 'default.png', '2022-04-20');
 
 -- --------------------------------------------------------
 
@@ -518,14 +511,6 @@ CREATE TABLE `tarea_entregada` (
   `comentarios_tarea` varchar(200) NOT NULL,
   `calificacion_tarea` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tarea_entregada`
---
-
-INSERT INTO `tarea_entregada` (`id_tarea_entregada`, `id_tarea_alumno`, `archivo_tarea_entregada`, `comentarios_tarea`, `calificacion_tarea`) VALUES
-(28, 2, 'trabajo2', 'No me gusto la tarea profe', 0),
-(30, 2, 'user6.jpg', 'se me fue el internet', 10);
 
 -- --------------------------------------------------------
 
@@ -581,8 +566,11 @@ CREATE TABLE `tutor` (
 --
 
 INSERT INTO `tutor` (`id_tutor`, `id_alumno`, `id_escuela`, `id_usuario`, `foto_tutor`, `nombre_tutor`, `appaterno_tutor`, `apmaterno_tutor`, `fechanacimiento_tutor`, `telefono_tutor`, `email_tutor`, `calle_tutor`, `noexterior_tutor`, `nointerior_tutor`, `cp_tutor`, `estado_tutor`, `municipio_tutor`, `colonia_tutor`) VALUES
-(1060, 17, 9, 5, 'user-4.png', 'Minerva', 'López', 'Silva', '2021-08-07', '5586964532', 'minerva@gmail.com', 'Lagunas', 's/n', '82', 55604, 'México', 'Zumpango', 'Hombres Ilustres'),
-(1071, 1, 9, 50, 'WhatsApp Image 2021-01-05 at 8.45.38 PM.jpeg', 'Cristina', 'Lopez', 'Morales', '2002-06-27', '5555454', 'cris@gmail.com', 'no se ', '7', '9', 55748, 'México', 'Tecámac', 'San Martín Azcatepec');
+(1, 31, 20, 100, 'default.png', 'TUTOR1', 'TUTOR1', 'TUTOR1', '2010-01-01', '123456789', 'TUTOR1@TUTOR.COM', 'calle', '1', '1', 55767, 'México', 'Tecámac', 'Conjunto'),
+(2, 42, 20, 101, 'default.png', 'TUTOR2', 'TUTOR2', 'TUTOR2', '2010-01-01', '123456789', 'TUTOR2@TUTOR.COM', 'calle', '1', '1', 43806, 'Hidalgo', 'Tizayuca', 'Ampliación'),
+(3, 32, 20, 102, 'default.png', 'TUTOR3', 'TUTOR3', 'TUTOR3', '2010-01-01', '12346789', 'TUTOR3@TUTOR.COM', 'calle', '1', '1', 55770, 'México', 'Tecámac', 'El'),
+(4, 43, 20, 103, 'default.png', 'TUTOR4', 'TUTOR4', 'TUTOR4', '2010-01-01', '123456789', 'TUTOR4@TUTOR.COM', 'calle', '1', '1', 43806, 'Hidalgo', 'Tizayuca', 'Ampliación'),
+(5, 33, 20, 104, 'default.png', 'TUTOR5', 'TUTOR5', 'TUTOR5', '2010-01-01', '123456789', 'TUTOR5@TUTOT.COM', 'calle', '1', '1', 55710, 'México', 'Coacalco', 'Arcos');
 
 -- --------------------------------------------------------
 
@@ -603,26 +591,53 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `id_tipo_usuario`, `username_usuario`, `password_usuario`, `activo_usuario`) VALUES
-(5, 4, 'MinervaLop', 'asdfghjk', 1),
-(25, 5, 'Sergio', 'sergiodhujkl', 1),
-(26, 5, 'Mayra', 'sdfghjkl', 1),
-(30, 2, 'Luiss', 'ssnfjk651', 1),
-(31, 3, 'Karika', 'dfghjk', 1),
-(39, 2, 'Julian', 'asassde434', 1),
-(40, 5, 'Angel', 'Angelasas', 1),
-(45, 2, 'rodrigo', '12345678', 2),
-(46, 2, 'clau', '12345678', 1),
-(47, 2, 'liz', '12345678', 1),
-(48, 2, 'gerard', '123456789', 1),
-(49, 5, 'Arely', '12345678', 1),
-(50, 4, 'cristina', '12345678', 1),
-(51, 1, 'AdminCris', '12345678', 1),
-(52, 1, 'AdminJesus', '12345678', 1),
-(56, 3, 'ProfMiguelHidalgo2', '12345678', 1),
-(57, 3, 'ProfConalep2', '12345678', 1),
-(58, 4, 'TutorMiguelHdg', '12345678', 1),
-(61, 2, 'LizDirectivo', '12345678', 1),
-(62, 2, 'Alejandro', 'Alejandro', 1);
+(63, 1, 'admin', '12345678', 1),
+(64, 2, 'Director', '12345678', 1),
+(65, 3, 'ErikaM', '12345678', 1),
+(66, 3, 'AlexisM', '12345678', 1),
+(67, 5, 'Alumno1', '12345678', 1),
+(68, 5, 'Alumno2', '12345678', 1),
+(69, 5, 'Alumno3', '12345678', 1),
+(70, 5, 'Alumno4', '12345678', 1),
+(71, 5, 'Alumno5', '12345678', 1),
+(72, 5, 'Alumno6', '12345678', 1),
+(73, 5, 'Alumno7', '12345678', 1),
+(74, 5, 'Alumno8', '12345678', 1),
+(75, 5, 'Alumno9', '12345678', 1),
+(76, 5, 'Alumno10', '12345678', 1),
+(77, 5, 'Alumno11', '12346578', 1),
+(78, 2, 'DirectivoAsbaje', '12345678', 1),
+(79, 2, 'DirectivoAsbaje2', '12345678', 1),
+(80, 5, 'ALUMNO1M', '12345678', 1),
+(81, 5, 'alumnom2', '12345678', 1),
+(82, 5, 'alumno3m', '12345678', 1),
+(83, 5, 'alumno4m', '12345678', 1),
+(84, 5, 'alumno4m', '12345678', 1),
+(85, 5, 'alumno5m', '12345678', 1),
+(86, 5, 'alumno6m', '12345678', 1),
+(87, 5, 'alumno7m', '12345678', 1),
+(88, 5, 'alumno8m', '12345678', 1),
+(89, 5, 'alumno9m', '12345678', 1),
+(90, 5, 'alumno10m', '12345678', 1),
+(91, 5, 'alumno1v', '12345678', 1),
+(92, 5, 'alumno2v', '12345678', 1),
+(93, 5, 'alumno3v', '12345678', 1),
+(94, 5, 'alumno4v', '12345678', 1),
+(95, 5, 'alumno5v', '12345678', 1),
+(96, 5, 'alumno6v', '12345678', 1),
+(97, 5, 'alumno7v', '12345678', 1),
+(98, 5, 'alumno8v', '12345678', 1),
+(99, 5, 'alumno10v', '12345678', 1),
+(100, 4, 'TUTOR1', '12345678', 1),
+(101, 4, 'TUTOR2', '12345678', 1),
+(102, 4, 'TUTOR3', '12345678', 1),
+(103, 4, 'TUTOR4', '12345678', 1),
+(104, 4, 'TUTOR5', '12345678', 1),
+(105, 3, 'PROFESOR1', '12345678', 1),
+(106, 3, 'PROFESOR2', '12345678', 1),
+(107, 3, 'PROFESOR2', '12345678', 1),
+(108, 3, 'PROFESOR2', '12345678', 1),
+(109, 3, 'PROFESOR3', '12345678', 1);
 
 --
 -- Índices para tablas volcadas
@@ -803,85 +818,85 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `id_administrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_administrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `calificacion`
 --
 ALTER TABLE `calificacion`
-  MODIFY `id_calificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_calificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `cobro`
 --
 ALTER TABLE `cobro`
-  MODIFY `id_cobro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_cobro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `director`
 --
 ALTER TABLE `director`
-  MODIFY `id_director` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_director` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `escuela`
 --
 ALTER TABLE `escuela`
-  MODIFY `id_escuela` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_escuela` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `grado_academico`
 --
 ALTER TABLE `grado_academico`
-  MODIFY `id_grado_academico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_grado_academico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `horario_materia`
 --
 ALTER TABLE `horario_materia`
-  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `incidencias`
 --
 ALTER TABLE `incidencias`
-  MODIFY `id_incidencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_incidencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `id_materia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_materia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `materia_grupo`
 --
 ALTER TABLE `materia_grupo`
-  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `materia_profesor`
 --
 ALTER TABLE `materia_profesor`
-  MODIFY `id_materia_profesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_materia_profesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `pago`
 --
 ALTER TABLE `pago`
-  MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `parcial`
@@ -893,19 +908,19 @@ ALTER TABLE `parcial`
 -- AUTO_INCREMENT de la tabla `profesor`
 --
 ALTER TABLE `profesor`
-  MODIFY `id_profesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_profesor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `tarea_alumno`
 --
 ALTER TABLE `tarea_alumno`
-  MODIFY `id_tarea_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_tarea_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tarea_entregada`
 --
 ALTER TABLE `tarea_entregada`
-  MODIFY `id_tarea_entregada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_tarea_entregada` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`
@@ -917,13 +932,13 @@ ALTER TABLE `tipo_usuario`
 -- AUTO_INCREMENT de la tabla `tutor`
 --
 ALTER TABLE `tutor`
-  MODIFY `id_tutor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1074;
+  MODIFY `id_tutor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- Restricciones para tablas volcadas
