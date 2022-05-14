@@ -49,7 +49,7 @@
 		</form>
 		
 		<div class="success">
-			<h2>Tu cuenta a sido verificada</h2>
+			<h2>Tu cuenta ha sido verificada</h2>
 			<p>Bienvenid@</p>
 		</div>
 		<div class="fail">

@@ -388,7 +388,7 @@ class Menu
       <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
-      directores
+      Directores
       </p>
       </a>
       </li>
