@@ -139,7 +139,7 @@ class UsuarioDAO extends Model implements CRUD {
               $esc = count($query);
              
               $_SESSION['can_esc'] = $esc;
-           //Contar Directores
+           //Contar directores
               $query = $this->db->consultar("SELECT * FROM director");
               $dir = count($query);
              
@@ -278,7 +278,7 @@ class UsuarioDAO extends Model implements CRUD {
 
     echo $rows;
                
-                }else if($tipo == 'Director'){
+                }else if($tipo == 'director'){
 
  $query = $this->db->consultar("SELECT es.*, dr.* from escuela es, director dr where dr.id_escuela = es.id_escuela and id_usuario = '".$id."'"); 
  foreach (($query) as $key => $value){

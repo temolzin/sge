@@ -15,7 +15,6 @@ $telefono_escuela = $_SESSION['telefono_escuela'];
 $email_escuela = $_SESSION['email_escuela'];
 $observacion_escuela = $_SESSION['observacion_escuela'];
 
-
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Tablero');
@@ -28,8 +27,8 @@ $menu->header('Tablero');
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <link rel="stylesheet" href="public/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="css/perfilescuela.css">
+   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/dist/css/adminlte.min.css">
+   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/perfilescuela.css">
 </head>
 <section class="content" style="margin: 20px 20px 20px 20px">
    <div class="card mb-3">
@@ -86,13 +85,13 @@ $menu->header('Tablero');
                </div>
             </div>
             <div class="col-sm-4">
-               <label class="col-md-4  control-label">Nª Exterior</label>
+               <label class="col-md-5  control-label">Nª Exterior</label>
                <div class="col-md-10 col-sm-9 col-xs-4">
                   <input disabled type="text" class="form-control" value="<?php echo $numxterior_escuela  ?>">
                </div>
             </div>
             <div class="col-sm-4">
-               <label class="col-md-4  control-label">Nª Interior</label>
+               <label class="col-md-5  control-label">Nª Interior</label>
                <div class="col-md-10 col-sm-9 col-xs-4">
                   <input disabled type="text" class="form-control" value="<?php echo $numinterior_escuela  ?>">
                </div>
@@ -110,7 +109,7 @@ $menu->header('Tablero');
                </div>
             </div>
             <div class="col-sm-4">
-               <label class="col-md-4  control-label">Municipio</label>
+               <label class="col-md-5  control-label">Municipio</label>
                <div class="col-md-10 col-sm-9 col-xs-4">
                   <input disabled type="text" class="form-control" value="<?php echo $municipio_escuela  ?>">
                </div>

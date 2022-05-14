@@ -23,6 +23,7 @@ $menu->header('Escuela');
                         <table id="dataTableEscuela" name="dataTableEscuela" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th style="width: 15px;">Foto</th>
                                     <th>Nombre Escuela</th>
                                     <th>RFC</th>
                                     <th>CCT</th>
@@ -63,6 +64,15 @@ $menu->header('Escuela');
                             </div>
                             <div class="card-body">
                                 <div class="row">
+                                <div class="col-lg-12">
+                     <span><label>Foto Escuela (*)</label></span>
+                     <div class="form-group input-group">
+                       <div class="custom-file">
+                         <input type="file" accept="image/*" class="custom-file-input" name="foto_escuela" id="foto_escuela" lang="es">
+                         <label class="custom-file-label" for="imagen">Selecciona Imagen</label>
+                       </div>
+                     </div>
+                   </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Nombre Escuela</label>
@@ -227,6 +237,18 @@ $menu->header('Escuela');
                                             <input type="text" hidden class="form-control" id="id_escuelaActualizar" name="id_escuelaActualizar" placeholder="id" />
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-lg-12">
+                     <span><label>Foto Escuela (*)</label></span>
+                     <br>
+                     <div class="form-group input-group">
+                       <div class="custom-file">
+                         <input type="file" accept="image/*" class="custom-file-input" name="foto_escuelaActualizar" id="foto_escuelaActualizar" lang="es">
+                         <label id="foto_escuelaActualizar" class="custom-file-label" name="foto_escuelaActualizar" id="foto_escuelaActualizar" for="imagen">Selecciona Imagen</label>
+                       </div>
+                     </div>
+                   </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -628,6 +650,9 @@ $menu->footer();
                 "url": "<?php echo constant('URL'); ?>escuela/readTable"
             },
             "columns": [
+                {
+                    "data": "foto_escuela"
+                },
                 {
                     "data": "nombre_escuela"
                 },

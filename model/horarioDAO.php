@@ -37,7 +37,7 @@ class HorarioDAO extends Model implements CRUD
         $tipo = $_SESSION['tipo'];
 
 
-        if ($tipo == 'Director') {
+        if ($tipo == 'director') {
             $id_escuela = $_SESSION['id_escuela'];
             require_once 'horarioDTO.php';
             $query = "SELECT materia.*, horario_materia.* 

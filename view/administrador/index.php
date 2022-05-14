@@ -512,7 +512,7 @@
              var fullnameImagen = full['appaterno_administrador'] + '_' + full['apmaterno_administrador'] + '_' + full['nombre_administrador'] + '/' + full['foto_administrador'];
 
 
-             var img = '/SGE/public/administrador/' + fullnameImagen;
+             var img = '<?php echo constant('URL'); ?>public/administrador/' + fullnameImagen;
 
              return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
            }

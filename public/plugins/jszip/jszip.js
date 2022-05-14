@@ -449,7 +449,7 @@ var decToHex = function(dec, bytes) {
  *     ^^^_________________________ setuid, setgid, sticky
  *        ^^^^^^^^^________________ permissions
  *                 ^^^^^^^^^^______ not used ?
- *                           ^^^^^^ DOS attribute bits : Archive, Directory, Volume label, System file, Hidden, Read only
+ *                           ^^^^^^ DOS attribute bits : Archive, directory, Volume label, System file, Hidden, Read only
  */
 var generateUnixExternalFileAttr = function (unixPermissions, isDir) {
 
@@ -473,7 +473,7 @@ var generateUnixExternalFileAttr = function (unixPermissions, isDir) {
  * Bit 1     Hidden
  * Bit 2     System
  * Bit 3     Volume Label
- * Bit 4     Directory
+ * Bit 4     directory
  * Bit 5     Archive
  */
 var generateDosExternalFileAttr = function (dosPermissions, isDir) {
@@ -679,12 +679,12 @@ var generateZipParts = function(streamInfo, streamedContent, streamingEnded, off
  * @param {Function} encodeFileName the function to encode the comment.
  * @return {String} the EOCD record.
  */
-var generateCentralDirectoryEnd = function (entriesCount, centralDirLength, localDirLength, comment, encodeFileName) {
+var generateCentraldirectoryEnd = function (entriesCount, centralDirLength, localDirLength, comment, encodeFileName) {
     var dirEnd = "";
     var encodedComment = utils.transformTo("string", encodeFileName(comment));
 
     // end of central dir signature
-    dirEnd = signature.CENTRAL_DIRECTORY_END +
+    dirEnd = signature.CENTRAL_directorY_END +
         // number of this disk
         "\x00\x00" +
         // number of the disk with the start of the central directory
@@ -859,7 +859,7 @@ ZipFileWorker.prototype.flush = function () {
     }
     var centralDirLength = this.bytesWritten - localDirLength;
 
-    var dirEnd = generateCentralDirectoryEnd(this.dirRecords.length, centralDirLength, localDirLength, this.zipComment, this.encodeFileName);
+    var dirEnd = generateCentraldirectoryEnd(this.dirRecords.length, centralDirLength, localDirLength, this.zipComment, this.encodeFileName);
 
     this.push({
         data : dirEnd,
@@ -1375,7 +1375,7 @@ var fileAdd = function(name, data, originalOptions) {
     if (o.unixPermissions && (o.unixPermissions & 0x4000)) {
         o.dir = true;
     }
-    // Bit 4    Directory
+    // Bit 4    directory
     if (o.dosPermissions && (o.dosPermissions & 0x0010)) {
         o.dir = true;
     }
@@ -2027,9 +2027,9 @@ module.exports = function (data) {
 'use strict';
 exports.LOCAL_FILE_HEADER = "PK\x03\x04";
 exports.CENTRAL_FILE_HEADER = "PK\x01\x02";
-exports.CENTRAL_DIRECTORY_END = "PK\x05\x06";
-exports.ZIP64_CENTRAL_DIRECTORY_LOCATOR = "PK\x06\x07";
-exports.ZIP64_CENTRAL_DIRECTORY_END = "PK\x06\x06";
+exports.CENTRAL_directorY_END = "PK\x05\x06";
+exports.ZIP64_CENTRAL_directorY_LOCATOR = "PK\x06\x07";
+exports.ZIP64_CENTRAL_directorY_END = "PK\x06\x06";
 exports.DATA_DESCRIPTOR = "PK\x07\x08";
 
 },{}],24:[function(require,module,exports){
@@ -3667,7 +3667,7 @@ ZipEntries.prototype = {
      * Read the end of central directory.
      */
     readEndOfCentral: function() {
-        var offset = this.reader.lastIndexOfSignature(sig.CENTRAL_DIRECTORY_END);
+        var offset = this.reader.lastIndexOfSignature(sig.CENTRAL_directorY_END);
         if (offset < 0) {
             // Check if the content is a truncated zip or complete garbage.
             // A "LOCAL_FILE_HEADER" is not required at the beginning (auto
@@ -3686,7 +3686,7 @@ ZipEntries.prototype = {
         }
         this.reader.setIndex(offset);
         var endOfCentralDirOffset = offset;
-        this.checkSignature(sig.CENTRAL_DIRECTORY_END);
+        this.checkSignature(sig.CENTRAL_directorY_END);
         this.readBlockEndOfCentral();
 
 
@@ -3713,24 +3713,24 @@ ZipEntries.prototype = {
             */
 
             // should look for a zip64 EOCD locator
-            offset = this.reader.lastIndexOfSignature(sig.ZIP64_CENTRAL_DIRECTORY_LOCATOR);
+            offset = this.reader.lastIndexOfSignature(sig.ZIP64_CENTRAL_directorY_LOCATOR);
             if (offset < 0) {
                 throw new Error("Corrupted zip: can't find the ZIP64 end of central directory locator");
             }
             this.reader.setIndex(offset);
-            this.checkSignature(sig.ZIP64_CENTRAL_DIRECTORY_LOCATOR);
+            this.checkSignature(sig.ZIP64_CENTRAL_directorY_LOCATOR);
             this.readBlockZip64EndOfCentralLocator();
 
             // now the zip64 EOCD record
-            if (!this.isSignature(this.relativeOffsetEndOfZip64CentralDir, sig.ZIP64_CENTRAL_DIRECTORY_END)) {
+            if (!this.isSignature(this.relativeOffsetEndOfZip64CentralDir, sig.ZIP64_CENTRAL_directorY_END)) {
                 // console.warn("ZIP64 end of central directory not where expected.");
-                this.relativeOffsetEndOfZip64CentralDir = this.reader.lastIndexOfSignature(sig.ZIP64_CENTRAL_DIRECTORY_END);
+                this.relativeOffsetEndOfZip64CentralDir = this.reader.lastIndexOfSignature(sig.ZIP64_CENTRAL_directorY_END);
                 if (this.relativeOffsetEndOfZip64CentralDir < 0) {
                     throw new Error("Corrupted zip: can't find the ZIP64 end of central directory");
                 }
             }
             this.reader.setIndex(this.relativeOffsetEndOfZip64CentralDir);
-            this.checkSignature(sig.ZIP64_CENTRAL_DIRECTORY_END);
+            this.checkSignature(sig.ZIP64_CENTRAL_directorY_END);
             this.readBlockZip64EndOfCentral();
         }
 

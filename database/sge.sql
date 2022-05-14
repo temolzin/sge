@@ -529,7 +529,7 @@ CREATE TABLE `tipo_usuario` (
 
 INSERT INTO `tipo_usuario` (`id_tipo_usuario`, `nombre_tipo_usuario`) VALUES
 (1, 'Administrador'),
-(2, 'Director'),
+(2, 'director'),
 (3, 'Profesor'),
 (4, 'Tutor'),
 (5, 'Alumno');
@@ -592,7 +592,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `id_tipo_usuario`, `username_usuario`, `password_usuario`, `activo_usuario`) VALUES
 (63, 1, 'admin', '12345678', 1),
-(64, 2, 'Director', '12345678', 1),
+(64, 2, 'director', '12345678', 1),
 (65, 3, 'ErikaM', '12345678', 1),
 (66, 3, 'AlexisM', '12345678', 1),
 (67, 5, 'Alumno1', '12345678', 1),

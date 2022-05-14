@@ -47,7 +47,7 @@
 
 <section class="content">
    <?php if($tipo == 'Administrador')  { ?>
-   <link rel="stylesheet" href="css/perfiladmin.css">
+   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/perfiladmin.css">
    <div class="row">
       <div class="col-lg-12">
          <div class="card user-card-full">
@@ -106,7 +106,7 @@
    </div>
    <?php }else{ ?>
    <head>
-      <link rel="stylesheet" href="css/perfil.css">
+      <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/perfil.css">
    </head>
    <div class=row>
       <body>

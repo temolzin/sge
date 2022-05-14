@@ -48,7 +48,7 @@ class Menus {
                             <a id="directivo" name="directivo" href="'.constant('URL').'directivo" class="nav-link">
                               <i class="nav-icon fas fa-users-cog"></i>
                               <p>
-                                Director
+                                director
                               </p>
                             </a>
                           </li>

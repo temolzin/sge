@@ -145,7 +145,7 @@ class DirectivoDAO extends Model implements CRUD
 
             require_once 'directivoDTO.php';
             $query = "SELECT * FROM director INNER JOIN escuela on director.id_escuela =escuela.id_escuela INNER JOIN usuario on director.id_usuario=usuario.id_usuario order by id_director desc";
-            $objDirectores = array();
+            $objdirectores = array();
 
             if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
                 foreach ($this->db->consultar($query) as $key => $value) {
@@ -176,19 +176,19 @@ class DirectivoDAO extends Model implements CRUD
                     $director->username_usuario = $value['username_usuario'];
                     $director->password_usuario = $value['password_usuario'];
 
-                    array_push($objDirectores, $director);
+                    array_push($objdirectores, $director);
                 }
             } else {
-                $objDirectores = null;
+                $objdirectores = null;
             }
-            return $objDirectores;
+            return $objdirectores;
         } else {
 
             $id_escuela = $_SESSION['id_escuela'];
 
             require_once 'directivoDTO.php';
             $query = "select director.*, usuario.* from escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = director.id_usuario and director.id_escuela = escuela.id_escuela and director.id_escuela = '" . $id_escuela . "'";
-            $objDirectores = array();
+            $objdirectores = array();
 
             if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
                 foreach ($this->db->consultar($query) as $key => $value) {
@@ -218,12 +218,12 @@ class DirectivoDAO extends Model implements CRUD
                     $director->username_usuario = $value['username_usuario'];
                     $director->password_usuario = $value['password_usuario'];
 
-                    array_push($objDirectores, $director);
+                    array_push($objdirectores, $director);
                 }
             } else {
-                $objDirectores = null;
+                $objdirectores = null;
             }
-            return $objDirectores;
+            return $objdirectores;
         }
     }
 
@@ -233,7 +233,7 @@ class DirectivoDAO extends Model implements CRUD
     {
         require_once 'directivoDTO.php';
         $query = "SELECT * FROM director INNER JOIN escuela on director.id_escuela =escuela.id_escuela INNER JOIN usuario on director.id_usuario=usuario.id_usuario WHERE id_director =2";
-        $objDirectores = array();
+        $objdirectores = array();
         foreach ($this->db->consultar($query) as $key => $value) {
             $director = new DirectivoDTO();
             $director->id_director = $value['id_director'];
@@ -262,8 +262,8 @@ class DirectivoDAO extends Model implements CRUD
             $director->username_usuario = $value['username_usuario'];
             $director->password_usuario = $value['password_usuario'];
 
-            array_push($objDirectores, $director);
+            array_push($objdirectores, $director);
         }
-        return $objDirectores;
+        return $objdirectores;
     }
 }
