@@ -329,7 +329,7 @@ $menu->header('Tablero');
    <?php if ($tipo == 'Administrador') {
       $con_escuela = $_SESSION['can_esc'];
       $con_directores = $_SESSION['can_dir'];
-      $con_alumnos = $_SESSION['can_alu'];
+      $con_alumnos = isset($_SESSION['can_alu']) ? $_SESSION['can_alu'] : 0;
       $con_usuarios = $_SESSION['can_usu'];
    ?>
 
@@ -353,7 +353,7 @@ $menu->header('Tablero');
          <!-- small box -->
          <div class="small-box bg-warning">
             <div class="inner">
-               <h3>directores</h3>
+               <h3>Directores</h3>
                <h2><?php echo $con_directores; ?></h2>
             </div>
             <div class="icon">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2022 a las 21:07:58
+-- Tiempo de generación: 14-05-2022 a las 07:30:54
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.0
 
@@ -44,7 +44,7 @@ CREATE TABLE `administrador` (
 --
 
 INSERT INTO `administrador` (`id_administrador`, `id_usuario`, `foto_administrador`, `nombre_administrador`, `appaterno_administrador`, `apmaterno_administrador`, `telefono_administrador`, `email_administrador`, `fechanacimiento_administrador`) VALUES
-(2, 1, 'descarga.jpg', 'Temolzin Itzae', 'Roldan', 'Palacios', '5535092965', 'temolzin@rootheim.mx', '1991-12-15');
+(1, 1, '143952261_1117451125694923_191550161019300068_n.jpg', 'Temolzin', 'Roldan', 'Palacios', '5535092965', 'temolzin@hotmail.com', '1994-07-04');
 
 -- --------------------------------------------------------
 
@@ -72,13 +72,6 @@ CREATE TABLE `alumno` (
   `email_alumno` varchar(50) NOT NULL,
   `fechanacimiento_alumno` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `alumno`
---
-
-INSERT INTO `alumno` (`id_alumno`, `id_grupo`, `id_escuela`, `id_usuario`, `foto_alumno`, `nombre_alumno`, `appaterno_alumno`, `apmaterno_alumno`, `calle_alumno`, `noexterior_alumno`, `nointerior_alumno`, `cp_alumno`, `estado_alumno`, `municipio_alumno`, `colonia_alumno`, `telefono_alumno`, `email_alumno`, `fechanacimiento_alumno`) VALUES
-(1, 1, 1, 3, 'e542f8a045fe10388d3c7c562bbb2f67.jpg', 'Eduardo Magdiel', 'Padilla', 'Monasterio', 'Ahuehuete', '1', '36', 55749, 'México', 'Tecámac', 'Villa', '(563) 070-4934', 'eduardo@gmail.com', '2000-12-13');
 
 -- --------------------------------------------------------
 
@@ -149,7 +142,7 @@ CREATE TABLE `director` (
 --
 
 INSERT INTO `director` (`id_director`, `id_escuela`, `id_grado_academico`, `id_usuario`, `foto_director`, `nombre_director`, `appaterno_director`, `apmaterno_director`, `rfc_director`, `curp_director`, `calle_director`, `numexterior_director`, `numinterior_director`, `cp_director`, `estado_director`, `municipio_director`, `colonia_director`, `telefono_director`, `email_director`, `cedulaprofesional_director`, `fechanacimiento_director`) VALUES
-(1, 1, 2, 2, 'descarga.jpg', 'Emmanuel', 'García', 'Contreras', 'GACE980501342', 'GACE980501HMCDNEA1', 'Palma', '9', '3', '55804', 'México', 'Teotihuacán', 'Purificación', '5578990304', 'emmanuel@rootheim.com', 'AFDGAUS1421', '1998-05-01');
+(1, 1, 1, 2, 'WhatsApp Image 2022-05-13 at 10.34.04 PM.jpeg', 'Monserratt', 'Montaño', 'Redonda', '', '', 'Plaza Purificación', '9', 'S/N', '55804', 'México', 'Teotihuacan', 'Purificación', '5567732571', 'monserrattmr@hotmail.com', '', '1994-08-05');
 
 -- --------------------------------------------------------
 
@@ -179,7 +172,7 @@ CREATE TABLE `escuela` (
 --
 
 INSERT INTO `escuela` (`id_escuela`, `nombre_escuela`, `rfc_escuela`, `cct_escuela`, `calle_escuela`, `numxterior_escuela`, `numinterior_escuela`, `cp_escuela`, `estado_escuela`, `municipio_escuela`, `colonia_escuela`, `telefono_escuela`, `email_escuela`, `observacion_escuela`) VALUES
-(1, 'CECYTEM TECÁMAC', 'CEC-941015-RV', '15ETC0006C', 'Carretera Federal México-Pachuca, Km. 38.5', 'S/N', 'S/N', 55740, 'México', 'Tecámac', 'Ex Rancho San Agustín', '5559346038', 'plantel.tecamac@cecytem.mx', 'El plantel opera en instalaciones propias.');
+(1, 'Kids Brains Teotihuacan', '', '', 'Plaza Purificacion', '9', 'S/N', 55804, 'Edo. Mex.', 'Teotihuacan', 'Purificacion', '5567732571', 'monserratmr@hotmail.com', '');
 
 -- --------------------------------------------------------
 
@@ -198,8 +191,7 @@ CREATE TABLE `grado_academico` (
 --
 
 INSERT INTO `grado_academico` (`id_grado_academico`, `nombre_grado_academico`, `observacion_gradoacademico`) VALUES
-(2, 'Ingeniería', 'Sistemas'),
-(3, 'Licenciatura', 'Psicología');
+(1, 'Licenciatura', '');
 
 -- --------------------------------------------------------
 
@@ -213,13 +205,6 @@ CREATE TABLE `grupo` (
   `nombre_grupo` varchar(15) NOT NULL,
   `turno_grupo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `grupo`
---
-
-INSERT INTO `grupo` (`id_grupo`, `id_escuela`, `nombre_grupo`, `turno_grupo`) VALUES
-(1, 1, '103', 'Matutino');
 
 -- --------------------------------------------------------
 
@@ -403,11 +388,11 @@ CREATE TABLE `tipo_usuario` (
 --
 
 INSERT INTO `tipo_usuario` (`id_tipo_usuario`, `nombre_tipo_usuario`) VALUES
-(1, 'Administrador'),
+(1, 'administrador'),
 (2, 'director'),
-(3, 'Profesor'),
-(4, 'Tutor'),
-(5, 'Alumno');
+(3, 'profesor'),
+(4, 'tutor'),
+(5, 'alumno');
 
 -- --------------------------------------------------------
 
@@ -436,13 +421,6 @@ CREATE TABLE `tutor` (
   `colonia_tutor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `tutor`
---
-
-INSERT INTO `tutor` (`id_tutor`, `id_alumno`, `id_escuela`, `id_usuario`, `foto_tutor`, `nombre_tutor`, `appaterno_tutor`, `apmaterno_tutor`, `fechanacimiento_tutor`, `telefono_tutor`, `email_tutor`, `calle_tutor`, `noexterior_tutor`, `nointerior_tutor`, `cp_tutor`, `estado_tutor`, `municipio_tutor`, `colonia_tutor`) VALUES
-(1, 1, 1, 4, 'descarga.jpg', 'Beatriz Adriana', 'Monasterio', 'Armenta', '1982-08-30', '5630704934', 'bety@gmail.com', 'Ahuehuete', '1', '36', 55749, 'México', 'Tecámac', 'Villa');
-
 -- --------------------------------------------------------
 
 --
@@ -462,10 +440,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `id_tipo_usuario`, `username_usuario`, `password_usuario`, `activo_usuario`) VALUES
-(1, 1, 'Temolzin', '12345678', 1),
-(2, 2, 'Emmanuel', '12345678', 1),
-(3, 5, 'Eduardo', '12345678', 1),
-(4, 4, 'Beatriz', '12345678', 1);
+(1, 1, 'Temolzin', 'root#heim', 1),
+(2, 2, 'Monserratt', 'monz_0805', 1);
 
 --
 -- Índices para tablas volcadas
@@ -646,13 +622,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `id_administrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_administrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `calificacion`
@@ -676,19 +652,19 @@ ALTER TABLE `director`
 -- AUTO_INCREMENT de la tabla `escuela`
 --
 ALTER TABLE `escuela`
-  MODIFY `id_escuela` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_escuela` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `grado_academico`
 --
 ALTER TABLE `grado_academico`
-  MODIFY `id_grado_academico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_grado_academico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `horario_materia`
@@ -760,13 +736,13 @@ ALTER TABLE `tipo_usuario`
 -- AUTO_INCREMENT de la tabla `tutor`
 --
 ALTER TABLE `tutor`
-  MODIFY `id_tutor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_tutor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
