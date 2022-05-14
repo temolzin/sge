@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-  	<title>LOGIN SGE</title>
+  	<title>Login SGE</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link rel="stylesheet" href="css/loginstyle.css">
+	<link rel="shortcut icon" href="<?php constant('URL'); ?>favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/loginstyle.css">
 	
 	</head>
 	<body>
 	<div class="brand">
-	<a href="https://www.jamiecoulter.co.uk" target="_blank">
-		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/logo.png"/>
+	<a href="https://www.rootheim.com" target="_blank">
+		<img src="<?php constant('URL'); ?>public/img/rootheim_white.png"/>
 	</a>
 	</div>
 	<div class="login">
@@ -49,7 +49,7 @@
 		</form>
 		
 		<div class="success">
-			<h2>Tu cuenta a sido verificada</h2>
+			<h2>Tu cuenta ha sido verificada</h2>
 			<p>Bienvenid@</p>
 		</div>
 		<div class="fail">

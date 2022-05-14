@@ -49,7 +49,7 @@ class Directivo extends Controller
             $ruta_provisional = $imagen["tmp_name"];
 
             $fullname = $appaterno_director . "_" . $apmaterno_director . "_" . $nombre_director;
-            $carpeta = "public/Director/" . $fullname . "/";
+            $carpeta = "public/director/" . $fullname . "/";
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
             } else {
@@ -119,11 +119,11 @@ class Directivo extends Controller
 
         $arrayActualizar = array();
 
-        if (isset($_FILES["imgDirectorActualizar"])) {
+        if (isset($_FILES["imgdirectorActualizar"])) {
 
-            if ($_FILES["imgDirectorActualizar"]["name"] != null) {
+            if ($_FILES["imgdirectorActualizar"]["name"] != null) {
 
-                $imagen = $_FILES["imgDirectorActualizar"];
+                $imagen = $_FILES["imgdirectorActualizar"];
                 $nombreImagen = $imagen["name"];
                 $tipoImagen = $imagen["type"];
                 $ruta_provisional = $imagen["tmp_name"];
@@ -197,7 +197,7 @@ class Directivo extends Controller
 
     function delete()
     {
-        $id_director = $_POST['idEliminarDirector'];
+        $id_director = $_POST['idEliminardirector'];
 
         require 'model/directivoDAO.php';
         $this->loadModel('DirectivoDAO');

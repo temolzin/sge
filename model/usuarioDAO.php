@@ -66,7 +66,7 @@ class UsuarioDAO extends Model implements CRUD {
        if($activo_usuario==1){
            
            $id = $id_usuario;
-           if ($tipo == 'Alumno'){
+           if ($tipo == 'alumno'){
                 
                 
                 $query = $this->db->consultar("SELECT es.*, al.*, gr.* from escuela es, alumno al, grupo gr WHERE es.id_escuela = al.id_escuela and gr.id_grupo = al.id_grupo and gr.id_escuela = al.id_escuela and id_usuario = '".$id."'"); 
@@ -120,7 +120,7 @@ class UsuarioDAO extends Model implements CRUD {
                 
                  echo $rows;
                
-                } else if($tipo == 'Administrador'){
+                } else if($tipo == 'administrador'){
           
              $query = $this->db->consultar("SELECT * FROM administrador where id_usuario = '".$id."'");
              foreach (($query) as $key => $value){
@@ -139,7 +139,7 @@ class UsuarioDAO extends Model implements CRUD {
               $esc = count($query);
              
               $_SESSION['can_esc'] = $esc;
-           //Contar Directores
+           //Contar directores
               $query = $this->db->consultar("SELECT * FROM director");
               $dir = count($query);
              
@@ -158,7 +158,7 @@ class UsuarioDAO extends Model implements CRUD {
           
           echo $rows;
             
-                }else if($tipo == 'Tutor'){
+                }else if($tipo == 'tutor'){
 
         $query = $this->db->consultar("SELECT es.*,al.*,tu.*,gp.* from escuela es, alumno al, tutor tu, grupo gp where al.id_alumno = tu.id_alumno and al.id_escuela = tu.id_escuela and al.id_escuela = es.id_escuela and al.id_grupo = gp.id_grupo and tu.id_usuario = '".$id."'"); 
 
@@ -231,7 +231,7 @@ class UsuarioDAO extends Model implements CRUD {
      }
 
      echo $rows;
-    }else if($tipo == 'Profesor'){
+    }else if($tipo == 'profesor'){
 
     $query = $this->db->consultar("SELECT es.*, pr.* from escuela es, profesor pr where pr.id_escuela = es.id_escuela and id_usuario = '".$id."'"); 
 
@@ -278,7 +278,7 @@ class UsuarioDAO extends Model implements CRUD {
 
     echo $rows;
                
-                }else if($tipo == 'Director'){
+                }else if($tipo == 'director'){
 
  $query = $this->db->consultar("SELECT es.*, dr.* from escuela es, director dr where dr.id_escuela = es.id_escuela and id_usuario = '".$id."'"); 
  foreach (($query) as $key => $value){

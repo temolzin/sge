@@ -1654,9 +1654,9 @@ var Dropzone = /*#__PURE__*/function (_Emitter) {
             if (item.webkitGetAsEntry != null && (entry = item.webkitGetAsEntry())) {
               if (entry.isFile) {
                 result.push(_this5.addFile(item.getAsFile()));
-              } else if (entry.isDirectory) {
+              } else if (entry.isdirectory) {
                 // Append all files from that directory to files
-                result.push(_this5._addFilesFromDirectory(entry, entry.name));
+                result.push(_this5._addFilesFromdirectory(entry, entry.name));
               } else {
                 result.push(undefined);
               }
@@ -1681,8 +1681,8 @@ var Dropzone = /*#__PURE__*/function (_Emitter) {
     } // Goes through the directory, and adds each file it finds recursively
 
   }, {
-    key: "_addFilesFromDirectory",
-    value: function _addFilesFromDirectory(directory, path) {
+    key: "_addFilesFromdirectory",
+    value: function _addFilesFromdirectory(directory, path) {
       var _this6 = this;
 
       var dirReader = directory.createReader();
@@ -1712,12 +1712,12 @@ var Dropzone = /*#__PURE__*/function (_Emitter) {
                     file.fullPath = "".concat(path, "/").concat(file.name);
                     return _this6.addFile(file);
                   });
-                } else if (entry.isDirectory) {
-                  _this6._addFilesFromDirectory(entry, "".concat(path, "/").concat(entry.name));
+                } else if (entry.isdirectory) {
+                  _this6._addFilesFromdirectory(entry, "".concat(path, "/").concat(entry.name));
                 }
               } // Recursively call readEntries() again, since browser only handle
               // the first 100 entries.
-              // See: https://developer.mozilla.org/en-US/docs/Web/API/DirectoryReader#readEntries
+              // See: https://developer.mozilla.org/en-US/docs/Web/API/directoryReader#readEntries
 
             } catch (err) {
               _iterator15.e(err);

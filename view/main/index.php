@@ -163,7 +163,7 @@ $menu->header('Tablero');
                   <!-- /.table-responsive -->
                </div>
                <div class="card-footer clearfix">
-                  <a href="http://localhost/sge/calificacion/showCalificacionAlumno" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
+                  <a href="<?php echo constant('URL'); ?>calificacion/showCalificacionAlumno" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
                </div>
             </div>
          </div>
@@ -209,7 +209,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-university"></i>
             </div>
-            <a href="http://localhost/sge/escuela/showEscuela" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>escuela/showEscuela" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -223,7 +223,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-folder"></i>
             </div>
-            <a href="http://localhost/sge/tarea/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>tarea/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -237,7 +237,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-clipboard"></i>
             </div>
-            <a href="http://localhost/sge/incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -329,7 +329,7 @@ $menu->header('Tablero');
    <?php if ($tipo == 'Administrador') {
       $con_escuela = $_SESSION['can_esc'];
       $con_directores = $_SESSION['can_dir'];
-      $con_alumnos = $_SESSION['can_alu'];
+      $con_alumnos = isset($_SESSION['can_alu']) ? $_SESSION['can_alu'] : 0;
       $con_usuarios = $_SESSION['can_usu'];
    ?>
 
@@ -416,7 +416,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="http://localhost/sge/administrador">Ver Todos</a>
+               <a href="<?php echo constant('URL'); ?>administrador">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -448,7 +448,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="http://localhost/sge/directivo">Ver Todos</a>
+               <a href="<?php echo constant('URL'); ?>directivo">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -608,7 +608,7 @@ $menu->header('Tablero');
                      </div>
                   </div>
                </div>
-               <a href="http://localhost/sge/escuela/showEscuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
+               <a href="<?php echo constant('URL'); ?>escuela/showEscuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
             </div>
          </div>
       </div>
@@ -655,7 +655,7 @@ $menu->header('Tablero');
       </div>
    <?php } ?>
    <!-- /.DASHBOARD DIRECTIVO -->
-   <?php if ($tipo == 'Director') {
+   <?php if ($tipo == 'director') {
       $rfc_escuela = $_SESSION['rfc_escuela'];
       $cct_escuela = $_SESSION['cct_escuela'];
       $curp = $_SESSION['curp'];  ?>
@@ -669,7 +669,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-graduation-cap"></i>
             </div>
-            <a href="http://localhost/sge/alumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>alumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -683,7 +683,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-chalkboard-teacher"></i>
             </div>
-            <a href="http://localhost/sge/profesor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>profesor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -697,7 +697,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-user-tie"></i>
             </div>
-            <a href="http://localhost/sge/directivo" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>directivo" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <div class="col-lg-3 col-3">
@@ -710,7 +710,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-id-card"></i>
             </div>
-            <a href="http://localhost/sge/tutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>tutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -788,12 +788,12 @@ $menu->header('Tablero');
             <br><br>
             <div class="row" style="margin-left: 25px;">
                <div class="col-lg-6">
-                  <a class="btn btn-app" href="http://localhost/sge/cobro">
+                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>cobro">
                      <i class="fas fa-hand-holding-usd"></i> Cobro
                   </a>
                </div>
                <div class="col-lg-6">
-                  <a class="btn btn-app" href="http://localhost/sge/pago">
+                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>pago">
                      <i class="fas fa-money-check-alt"></i> Pago
                   </a>
                </div>
@@ -826,7 +826,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="http://localhost/sge/profesor">Ver Todos</a>
+               <a href="<?php echo constant('URL'); ?>profesor">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -862,7 +862,7 @@ $menu->header('Tablero');
                <!-- /.table-responsive -->
             </div>
             <div class="card-footer clearfix">
-               <a href="http://localhost/sge/alumno" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
+               <a href="<?php echo constant('URL'); ?>alumno" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
          </div>
       </div>
@@ -1034,7 +1034,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/Director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
+                     '<img src="/SGE/public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
                      '<a class="users-list-name">' + '<br>'+elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';

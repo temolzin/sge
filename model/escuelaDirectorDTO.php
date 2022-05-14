@@ -3,6 +3,7 @@
         private $id_escuela;
         private $nombre_escuela;
         private $rfc_escuela;
+        private $foto_escuela;
         private $cct_escuela;
         private $calle_escuela;
         private $numxterior_escuela;

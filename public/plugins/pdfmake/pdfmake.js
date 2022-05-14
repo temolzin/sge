@@ -43470,7 +43470,7 @@ var TableEntry = new r.Struct({
   length: r.uint32
 });
 
-var Directory = new r.Struct({
+var directory = new r.Struct({
   tag: new r.String(4),
   numTables: r.uint16,
   searchRange: r.uint16,
@@ -43479,7 +43479,7 @@ var Directory = new r.Struct({
   tables: new r.Array(TableEntry, 'numTables')
 });
 
-Directory.process = function () {
+directory.process = function () {
   var tables = {};
   for (var _iterator = this.tables, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _getIterator(_iterator);;) {
     var _ref;
@@ -43501,7 +43501,7 @@ Directory.process = function () {
   this.tables = tables;
 };
 
-Directory.preEncode = function (stream) {
+directory.preEncode = function (stream) {
   var tables$$ = [];
   for (var tag in this.tables) {
     var table = this.tables[tag];
@@ -53109,7 +53109,7 @@ var TTFSubset = function (_Subset) {
     //     ]
 
     // TODO: subset prep, cvt, fpgm?
-    Directory.encode(stream, {
+    directory.encode(stream, {
       tables: {
         head: head,
         hhea: hhea,
@@ -53397,7 +53397,7 @@ var TTFFont = (_class = function () {
     this._directoryPos = this.stream.pos;
     this._tables = {};
     this._glyphs = {};
-    this._decodeDirectory();
+    this._decodedirectory();
 
     // define properties for each table to lazily parse
     for (var tag in this.directory.tables) {
@@ -53441,8 +53441,8 @@ var TTFFont = (_class = function () {
     return null;
   };
 
-  TTFFont.prototype._decodeDirectory = function _decodeDirectory() {
-    return this.directory = Directory.decode(this.stream, { _startOffset: 0 });
+  TTFFont.prototype._decodedirectory = function _decodedirectory() {
+    return this.directory = directory.decode(this.stream, { _startOffset: 0 });
   };
 
   TTFFont.prototype._decodeTable = function _decodeTable(table) {
@@ -54017,7 +54017,7 @@ var TTFFont = (_class = function () {
   return TTFFont;
 }(), (_applyDecoratedDescriptor(_class.prototype, 'bbox', [cache], _Object$getOwnPropertyDescriptor(_class.prototype, 'bbox'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, '_cmapProcessor', [cache], _Object$getOwnPropertyDescriptor(_class.prototype, '_cmapProcessor'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'characterSet', [cache], _Object$getOwnPropertyDescriptor(_class.prototype, 'characterSet'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, '_layoutEngine', [cache], _Object$getOwnPropertyDescriptor(_class.prototype, '_layoutEngine'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'variationAxes', [cache], _Object$getOwnPropertyDescriptor(_class.prototype, 'variationAxes'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, 'namedVariations', [cache], _Object$getOwnPropertyDescriptor(_class.prototype, 'namedVariations'), _class.prototype), _applyDecoratedDescriptor(_class.prototype, '_variationProcessor', [cache], _Object$getOwnPropertyDescriptor(_class.prototype, '_variationProcessor'), _class.prototype)), _class);
 
-var WOFFDirectoryEntry = new r.Struct({
+var WOFFdirectoryEntry = new r.Struct({
   tag: new r.String(4),
   offset: new r.Pointer(r.uint32, 'void', { type: 'global' }),
   compLength: r.uint32,
@@ -54025,7 +54025,7 @@ var WOFFDirectoryEntry = new r.Struct({
   origChecksum: r.uint32
 });
 
-var WOFFDirectory = new r.Struct({
+var WOFFdirectory = new r.Struct({
   tag: new r.String(4), // should be 'wOFF'
   flavor: r.uint32,
   length: r.uint32,
@@ -54039,10 +54039,10 @@ var WOFFDirectory = new r.Struct({
   metaOrigLength: r.uint32,
   privOffset: r.uint32,
   privLength: r.uint32,
-  tables: new r.Array(WOFFDirectoryEntry, 'numTables')
+  tables: new r.Array(WOFFdirectoryEntry, 'numTables')
 });
 
-WOFFDirectory.process = function () {
+WOFFdirectory.process = function () {
   var tables = {};
   for (var _iterator = this.tables, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _getIterator(_iterator);;) {
     var _ref;
@@ -54077,8 +54077,8 @@ var WOFFFont = function (_TTFFont) {
     return buffer.toString('ascii', 0, 4) === 'wOFF';
   };
 
-  WOFFFont.prototype._decodeDirectory = function _decodeDirectory() {
-    this.directory = WOFFDirectory.decode(this.stream, { _startOffset: 0 });
+  WOFFFont.prototype._decodedirectory = function _decodedirectory() {
+    this.directory = WOFFdirectory.decode(this.stream, { _startOffset: 0 });
   };
 
   WOFFFont.prototype._getTableStream = function _getTableStream(tag) {
@@ -54152,7 +54152,7 @@ var Base128 = {
 
 var knownTags = ['cmap', 'head', 'hhea', 'hmtx', 'maxp', 'name', 'OS/2', 'post', 'cvt ', 'fpgm', 'glyf', 'loca', 'prep', 'CFF ', 'VORG', 'EBDT', 'EBLC', 'gasp', 'hdmx', 'kern', 'LTSH', 'PCLT', 'VDMX', 'vhea', 'vmtx', 'BASE', 'GDEF', 'GPOS', 'GSUB', 'EBSC', 'JSTF', 'MATH', 'CBDT', 'CBLC', 'COLR', 'CPAL', 'SVG ', 'sbix', 'acnt', 'avar', 'bdat', 'bloc', 'bsln', 'cvar', 'fdsc', 'feat', 'fmtx', 'fvar', 'gvar', 'hsty', 'just', 'lcar', 'mort', 'morx', 'opbd', 'prop', 'trak', 'Zapf', 'Silf', 'Glat', 'Gloc', 'Feat', 'Sill'];
 
-var WOFF2DirectoryEntry = new r.Struct({
+var WOFF2directoryEntry = new r.Struct({
   flags: r.uint8,
   customTag: new r.Optional(new r.String(4), function (t) {
     return (t.flags & 0x3f) === 0x3f;
@@ -54172,7 +54172,7 @@ var WOFF2DirectoryEntry = new r.Struct({
   })
 });
 
-var WOFF2Directory = new r.Struct({
+var WOFF2directory = new r.Struct({
   tag: new r.String(4), // should be 'wOF2'
   flavor: r.uint32,
   length: r.uint32,
@@ -54187,10 +54187,10 @@ var WOFF2Directory = new r.Struct({
   metaOrigLength: r.uint32,
   privOffset: r.uint32,
   privLength: r.uint32,
-  tables: new r.Array(WOFF2DirectoryEntry, 'numTables')
+  tables: new r.Array(WOFF2directoryEntry, 'numTables')
 });
 
-WOFF2Directory.process = function () {
+WOFF2directory.process = function () {
   var tables = {};
   for (var i = 0; i < this.tables.length; i++) {
     var table = this.tables[i];
@@ -54218,8 +54218,8 @@ var WOFF2Font = function (_TTFFont) {
     return buffer.toString('ascii', 0, 4) === 'wOF2';
   };
 
-  WOFF2Font.prototype._decodeDirectory = function _decodeDirectory() {
-    this.directory = WOFF2Directory.decode(this.stream);
+  WOFF2Font.prototype._decodedirectory = function _decodedirectory() {
+    this.directory = WOFF2directory.decode(this.stream);
     this._dataPos = this.stream.pos;
   };
 

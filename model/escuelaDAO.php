@@ -12,7 +12,8 @@
         {
             $query = $this->db->conectar()->prepare('INSERT INTO escuela values (NULL, 
             :nombre_escuela,  
-            :rfc_escuela, 
+            :rfc_escuela,
+            :foto_escuela, 
             :cct_escuela,
             :calle_escuela,
             :numxterior_escuela,
@@ -26,6 +27,7 @@
             :observacion_escuela)');
             $query->execute([':nombre_escuela' => $data['nombre_escuela'],
             ':rfc_escuela' => $data['rfc_escuela'],
+            ':foto_escuela' => $data['foto_escuela'],
             ':cct_escuela' => $data['cct_escuela'],
             ':calle_escuela' => $data['calle_escuela'],
             ':numxterior_escuela' => $data['numxterior_escuela'],
@@ -95,6 +97,7 @@
                 $escuela= new EscuelaDTO();
                 $escuela->id_escuela = $value['id_escuela'];
                 $escuela->nombre_escuela = $value['nombre_escuela'];
+                $escuela->foto_escuela = $value['foto_escuela'];
                 $escuela->rfc_escuela = $value['rfc_escuela'];
                 $escuela->cct_escuela = $value['cct_escuela'];
                 $escuela->calle_escuela = $value['calle_escuela'];
@@ -121,6 +124,7 @@
                 $escuela= new EscuelaDTO();
                 $escuela->id_escuela = $value['id_escuela'];
                 $escuela->nombre_escuela = $value['nombre_escuela'];
+                $escuela->foto_escuela = $value['foto_escuela'];
                 $escuela->rfc_escuela = $value['rfc_escuela'];
                 $escuela->cct_escuela = $value['cct_escuela'];
                 $escuela->calle_escuela = $value['calle_escuela'];
