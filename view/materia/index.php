@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    require 'view/menu.php';
-    $menu = new Menu();
-    $menu->header('Materia');
+session_start();
+require 'view/menu.php';
+$menu = new Menu();
+$menu->header('Materia');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -44,7 +44,7 @@
         <div class="modal-content">
             <div class="card-success">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Materia <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -57,59 +57,59 @@
                     <div class="card-body">
 
                         <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Información de la materia</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                            
-                                <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Nombre materia (*)</label>
-                                    <input type="text" class="form-control" id="nombre_materia" name="nombre_materia" placeholder="Materia"/>
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Información de la materia</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
+                                <!-- /.card-tools -->
                             </div>
-                            <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label>Horario (*)</label>
-                                    <select name="id_horario" id="id_horario" class="form-control id_horario">
-                                        <option value="default">Seleccione su horario</option>
-                                    </select>
-                                </div>
-                            </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
 
-                    <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Escuela perteneciente</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label>Escuela (*)</label>
-                                    <select name="id_escuela" id="id_escuela" class="form-control id_escuela">
-                                        <option value="default">Seleccione su escuela</option>
-                                    </select>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Nombre materia (*)</label>
+                                            <input type="text" class="form-control" id="nombre_materia" name="nombre_materia" placeholder="Materia" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Horario (*)</label>
+                                            <select name="id_horario" id="id_horario" class="form-control id_horario">
+                                                <option value="default">Seleccione su horario</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                        
+
+                        <div class="card border-red">
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Escuela perteneciente</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <!-- /.card-tools -->
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Escuela (*)</label>
+                                            <select name="id_escuela" id="id_escuela" class="form-control id_escuela">
+                                                <option value="default">Seleccione su escuela</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-success">Registrar</button>
@@ -127,7 +127,7 @@
         <div class="modal-content">
             <div class="card-warning">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Materia <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -138,64 +138,64 @@
                 <form role="form" id="formActualizarMateria" name="formActualizarMateria">
                     <div class="card-body">
                         <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" id="id_materiaActualizar" name="id_materiaActualizar"/>
-                                </div>
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="id_materiaActualizar" name="id_materiaActualizar" />
                             </div>
+                        </div>
 
-                         <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Información de la materia</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                            
-                                <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Nombre materia (*)</label>
-                                    <input type="text" class="form-control" id="nombre_materiaActualizar" name="nombre_materiaActualizar" placeholder="Materia"/>
+                        <div class="card border-red">
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Información de la materia</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
+                                <!-- /.card-tools -->
                             </div>
-                            <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label>Horario (*)</label>
-                                        <select name="id_horarioActualizar" id="id_horarioActualizar" class="form-control id_horario">
-                                        <option value="default">Seleccione su horario</option>
-                                    </select>
-                                </div>
-                            </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
 
-                    <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Escuela perteneciente</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label>Escuela (*)</label>
-                                   <select name="id_escuelaActualizar" id="id_escuelaActualizar" class="form-control id_escuela">
-                                        <option value="default">Seleccione su escuela</option>
-                                    </select>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Nombre materia (*)</label>
+                                            <input type="text" class="form-control" id="nombre_materiaActualizar" name="nombre_materiaActualizar" placeholder="Materia" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Horario (*)</label>
+                                            <select name="id_horarioActualizar" id="id_horarioActualizar" class="form-control id_horario">
+                                                <option value="default">Seleccione su horario</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+
+                        <div class="card border-red">
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Escuela perteneciente</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <!-- /.card-tools -->
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Escuela (*)</label>
+                                            <select name="id_escuelaActualizar" id="id_escuelaActualizar" class="form-control id_escuela">
+                                                <option value="default">Seleccione su escuela</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -214,7 +214,7 @@
         <div class="modal-content">
             <div class="card-primary">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Materia <small> &nbsp;</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -226,61 +226,61 @@
                     <div class="card-body">
 
 
-                         <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Información de la materia</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Clave materia </label>
-                                    <input disabled type="text" class="form-control" id="id_materiaConsultar" name="id_materiaConsultar"/>
+                        <div class="card border-red">
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Información de la materia</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
+                                <!-- /.card-tools -->
                             </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Nombre materia </label>
-                                    <input type="text" disabled class="form-control" id="nombre_materiaConsultar" name="nombre_materiaConsultar"/>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Clave materia </label>
+                                            <input disabled type="text" class="form-control" id="id_materiaConsultar" name="id_materiaConsultar" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Nombre materia </label>
+                                            <input type="text" disabled class="form-control" id="nombre_materiaConsultar" name="nombre_materiaConsultar" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label>Horario </label>
+                                            <select disabled name="id_horarioConsultar" id="id_horarioConsultar" class="form-control id_horario">
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Horario </label>
-                                    <select disabled name="id_horarioConsultar" id="id_horarioConsultar" class="form-control id_horario">
-                                </select>
-                                </div>
-                            </div>
-                        </div>   
                             </div>
                         </div>
 
-                    <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Escuela perteneciente</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                        <div class="card border-red">
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Escuela perteneciente</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <!-- /.card-tools -->
                             </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                            <div class="col-lg-7">
-                                <div class="form-group">
-                                    <label>Escuela </label>
-                                    <select disabled name="id_escuelaConsultar" id="id_escuelaConsultar" class="form-control id_escuela">
-                                </select>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Escuela </label>
+                                            <select disabled name="id_escuelaConsultar" id="id_escuelaConsultar" class="form-control id_escuela">
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -315,12 +315,11 @@
 </div>
 
 <?php
-    $menu->footer();
+$menu->footer();
 ?>
 
 <script>
-
-    $(document).ready(function (){
+    $(document).ready(function() {
         mostrarMaterias();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
@@ -332,15 +331,15 @@
     const llenarEscuela = () => {
         $.ajax({
             type: "GET",
-            url: "<?php echo constant('URL');?>escuela/read",
+            url: "<?php echo constant('URL'); ?>escuela/read",
             async: false,
             dataType: "json",
-            success: function(data){
+            success: function(data) {
                 //console.log('generos: ',data)
-                $.each(data,function(key, registro) {
+                $.each(data, function(key, registro) {
                     var id = registro.id_escuela;
                     var nombre = registro.nombre_escuela;
-                    $(".id_escuela").append('<option value='+id+'>'+nombre+'</option>');
+                    $(".id_escuela").append('<option value=' + id + '>' + nombre + '</option>');
                 });
             },
             error: function(data) {
@@ -349,19 +348,19 @@
         });
     }
 
-     const llenarHorario = () => {
+    const llenarHorario = () => {
         $.ajax({
             type: "GET",
-            url: "<?php echo constant('URL');?>horario/read",
+            url: "<?php echo constant('URL'); ?>horario/readHorarioConsulta",
             async: false,
             dataType: "json",
-            success: function(data){
+            success: function(data) {
                 //console.log('generos: ',data)
-                $.each(data,function(key, registro) {
+                $.each(data, function(key, registro) {
                     var id = registro.id_horario;
                     var fecha = registro.materia_fecha_horario;
                     var horario = registro.materia_horainicio_horario;
-                    $(".id_horario").append('<option value='+id+'>'+fecha+' --> '+horario+'</option>');
+                    $(".id_horario").append('<option value=' + id + '>' + fecha + ' --> ' + horario + '</option>');
                 });
             },
             error: function(data) {
@@ -375,27 +374,31 @@
             "processing": true,
             "serverSide": false,
             "ajax": {
-                "url": "<?php echo constant('URL');?>materia/readtable"
+                "url": "<?php echo constant('URL'); ?>materia/readtable"
             },
-            "columns": [
-                { "data": "nombre_escuela" },
-                { "data": "nombre_materia" },
-                { "data": "materia_fecha_horario" },
-                {data:null,
-                    "defaultContent":
-                        `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleMateria' title="Ver Detalles"><i class="fa fa-eye"></i></button>
+            "columns": [{
+                    "data": "nombre_escuela"
+                },
+                {
+                    "data": "nombre_materia"
+                },
+                {
+                    "data": "materia_fecha_horario"
+                },
+                {
+                    data: null,
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleMateria' title="Ver Detalles"><i class="fa fa-eye"></i></button>
                          <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarMateria' title="Editar Datos"><i class="fa fa-edit"></i></button>
                          <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarMateria' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
                 }
             ],
-            "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
-             if (aiDisplay.length > 0) {
-                 $('body').removeClass('no-record');
-             }
-             else {
-                 $('body').addClass('no-record');
-             }
-         },
+            "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
+                if (aiDisplay.length > 0) {
+                    $('body').removeClass('no-record');
+                } else {
+                    $('body').addClass('no-record');
+                }
+            },
             responsive: true,
             autoWidth: false,
             language: idiomaDataTable,
@@ -406,44 +409,44 @@
         obtenerdatosDT(tableMateria);
     }
 
-    var obtenerdatosDT = function (table) {
+    var obtenerdatosDT = function(table) {
         $('#dataTableMateria tbody').on('click', 'tr', function() {
             var data = table.row(this).data();
             console.log(data);
             var idEliminar = $('#idEliminarMateria').val(data.id_materia);
 
             var id_materia = $("#id_materiaActualizar").val(data.id_materia);
-            var id_escuela = $("#id_escuelaActualizar option[value=" + data.id_escuela + "]").attr("selected",true);
-            var id_horario = $("#id_horarioActualizar option[value=" + data.id_horario + "]").attr("selected",true);
+            var id_escuela = $("#id_escuelaActualizar option[value=" + data.id_escuela + "]").attr("selected", true);
+            var id_horario = $("#id_horarioActualizar option[value=" + data.id_horario + "]").attr("selected", true);
             var nombre_materia = $("#nombre_materiaActualizar").val(data.nombre_materia);
 
             var idConsulta = $("#id_materiaConsultar").val(data.id_materia);
-            var id_escuelaConsulta = $("#id_escuelaConsultar option[value=" + data.id_escuela + "]").attr("selected",true);
-            var id_horarioConsulta = $("#id_horarioConsultar option[value=" + data.id_horario + "]").attr("selected",true);
+            var id_escuelaConsulta = $("#id_escuelaConsultar option[value=" + data.id_escuela + "]").attr("selected", true);
+            var id_horarioConsulta = $("#id_horarioConsultar option[value=" + data.id_horario + "]").attr("selected", true);
             var nombre_materiaConsulta = $("#nombre_materiaConsultar").val(data.nombre_materia);
         });
     }
 
-    $.validator.addMethod("selectRequired", function(value, element, arg){
+    $.validator.addMethod("selectRequired", function(value, element, arg) {
         return arg !== value;
     }, "Selecciona un valor");
 
-    var enviarFormularioRegistrar = function () {
+    var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
-            submitHandler: function () {
+            submitHandler: function() {
                 var datos = $('#formRegistrarMateria').serialize();
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo constant('URL');?>materia/insert",
+                    url: "<?php echo constant('URL'); ?>materia/insert",
                     data: datos,
-                    success: function (data) {
+                    success: function(data) {
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "La materia ha sido registrada de manera correcta",
                                 "success"
-                            ).then(function () {
-                                window.location = "<?php echo constant('URL');?>materia";
+                            ).then(function() {
+                                window.location = "<?php echo constant('URL'); ?>materia";
                             })
                         } else {
                             Swal.fire(
@@ -480,35 +483,35 @@
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
         });
     }
 
-    var enviarFormularioActualizar = function () {
+    var enviarFormularioActualizar = function() {
         $.validator.setDefaults({
-            submitHandler: function () {
+            submitHandler: function() {
                 var datos = $('#formActualizarMateria').serialize();
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo constant('URL');?>materia/update",
+                    url: "<?php echo constant('URL'); ?>materia/update",
                     data: datos,
-                    success: function (data) {
+                    success: function(data) {
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "La Materia ha sido Actualizada de manera correcta",
                                 "success"
-                            ).then(function () {
-                                window.location = "<?php echo constant('URL');?>materia";
+                            ).then(function() {
+                                window.location = "<?php echo constant('URL'); ?>materia";
                             })
                         } else {
                             Swal.fire(
@@ -535,7 +538,7 @@
             },
             messages: {
                 id_escuelaActualizar: {
-                   selectRequired: "Seleccione una escuela"
+                    selectRequired: "Seleccione una escuela"
                 },
                 id_horarioActualizar: {
                     selectRequired: "Seleccione un horario"
@@ -545,38 +548,38 @@
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
         });
     }
 
-    var eliminarRegistro = function () {
-        $( "#formEliminarMateria" ).submit(function( event ) {
+    var eliminarRegistro = function() {
+        $("#formEliminarMateria").submit(function(event) {
             event.preventDefault();
             var datos = $('#formEliminarMateria').serialize();
             $.ajax({
                 type: "POST",
-                url: "<?php echo constant('URL');?>materia/delete",
+                url: "<?php echo constant('URL'); ?>materia/delete",
                 data: datos,
-                success: function (data) {
+                success: function(data) {
                     if (data == 'ok') {
                         Swal.fire(
                             "¡Éxito!",
                             "La materia ha sido eliminado correctamente",
                             "success"
-                        ).then(function () {
-                            window.location = "<?php echo constant('URL');?>materia";
+                        ).then(function() {
+                            window.location = "<?php echo constant('URL'); ?>materia";
                         })
                     } else {
-                        Swal.fire (
+                        Swal.fire(
                             "¡Error!",
                             "Ha ocurrido un error al eliminar la materia. " + data,
                             "error"
@@ -586,6 +589,4 @@
             });
         });
     }
-
-   
 </script>

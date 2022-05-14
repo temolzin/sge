@@ -15,5 +15,9 @@
 		function saludo() {
 			echo "METODO SALUDO";
 		}
+
+		function index(){
+			// $this->view->render('main/index');
+		}
 	}
 ?>

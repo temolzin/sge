@@ -65,6 +65,7 @@ class Grupo extends Controller
         $grupoDAO = $grupoDAO->read();
         echo json_encode($grupoDAO);
     }
+    
     function readTable() {
         require 'model/grupoDAO.php';
         $this->loadModel('GrupoDAO');

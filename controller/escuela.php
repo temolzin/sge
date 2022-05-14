@@ -6,12 +6,19 @@ class Escuela extends Controller
         parent::__construct();
     }
 
-    function index(){
+    function index()
+    {
         $this->view->render('escuela/index');
     }
 
-    function insert() {
-        
+    function showEscuela()
+    {
+        $this->view->render('escuela/escuelaDetalle');
+    }
+
+    function insert()
+    {
+
         $nombre_escuela = $_POST['nombre_escuela'];
         $rfc_escuela = $_POST['rfc_escuela'];
         $cct_escuela = $_POST['cct_escuela'];
@@ -26,7 +33,8 @@ class Escuela extends Controller
         $email_escuela = $_POST['email_escuela'];
         $observacion_escuela = $_POST['observacion_escuela'];
 
-        $data = array('nombre_escuela' => $nombre_escuela,
+        $data = array(
+            'nombre_escuela' => $nombre_escuela,
             'rfc_escuela' => $rfc_escuela,
             'cct_escuela' => $cct_escuela,
             'calle_escuela' => $calle_escuela,
@@ -38,7 +46,8 @@ class Escuela extends Controller
             'colonia_escuela' => $colonia_escuela,
             'telefono_escuela' => $telefono_escuela,
             'email_escuela' => $email_escuela,
-            'observacion_escuela' => $observacion_escuela);
+            'observacion_escuela' => $observacion_escuela
+        );
 
         require 'model/escuelaDAO.php';
         $this->loadModel('EscuelaDAO');
@@ -46,7 +55,8 @@ class Escuela extends Controller
         $escuelaDAO->insert($data);
     }
 
-    function update() {
+    function update()
+    {
         $id_escuela = $_POST['id_escuelaActualizar'];
         $nombre_escuela = $_POST['nombre_escuelaActualizar'];
         $rfc_escuela = $_POST['rfc_escuelaActualizar'];
@@ -55,7 +65,7 @@ class Escuela extends Controller
         $numxterior_escuela = $_POST['numxterior_escuelaActualizar'];
         $numinterior_escuela = $_POST['numinterior_escuelaActualizar'];
         $cp_escuela = $_POST['codigoPostalActualizar'];
-        $estado_escuela= $_POST['selectEstadoActualizar'];
+        $estado_escuela = $_POST['selectEstadoActualizar'];
         $municipio_escuela = $_POST['selectMunicipioActualizar'];
         $colonia_escuela = $_POST['selectColoniaActualizar'];
         $telefono_escuela = $_POST['telefono_escuelaActualizar'];
@@ -67,16 +77,17 @@ class Escuela extends Controller
             'nombre_escuela' => $nombre_escuela,
             'rfc_escuela' => $rfc_escuela,
             'cct_escuela' => $cct_escuela,
-            'calle_escuela'=> $calle_escuela,
-            'numxterior_escuela'=> $numxterior_escuela,
-            'numinterior_escuela'=> $numinterior_escuela,
+            'calle_escuela' => $calle_escuela,
+            'numxterior_escuela' => $numxterior_escuela,
+            'numinterior_escuela' => $numinterior_escuela,
             'cp_escuela' => $cp_escuela,
             'estado_escuela' => $estado_escuela,
             'municipio_escuela' => $municipio_escuela,
             'colonia_escuela' => $colonia_escuela,
-            'telefono_escuela'=> $telefono_escuela,
-            'email_escuela'=> $email_escuela,
-            'observacion_escuela'=> $observacion_escuela);
+            'telefono_escuela' => $telefono_escuela,
+            'email_escuela' => $email_escuela,
+            'observacion_escuela' => $observacion_escuela
+        );
 
         require 'model/escuelaDAO.php';
         $this->loadModel('EscuelaDAO');
@@ -84,7 +95,8 @@ class Escuela extends Controller
         $escuelaDAO->update($data);
     }
 
-    function delete(){
+    function delete()
+    {
         $escuela_matricula = $_POST['idEliminarEscuela'];
 
         require 'model/escuelaDAO.php';
@@ -93,23 +105,24 @@ class Escuela extends Controller
         $escuelaDAO->delete($escuela_matricula);
     }
 
-    function read() {
+    function read()
+    {
         require 'model/escuelaDAO.php';
         $this->loadModel('EscuelaDAO');
         $escuelaDAO = new EscuelaDAO();
         $escuelaDAO = $escuelaDAO->read();
-        echo json_encode ($escuelaDAO);
+        echo json_encode($escuelaDAO);
     }
 
-    function readTable() {
+    function readTable()
+    {
         require 'model/escuelaDAO.php';
         $this->loadModel('EscuelaDAO');
         $escuelaDAO = new EscuelaDAO();
         $escuelaDAO = $escuelaDAO->read();
 
         $obj = null;
-        if (is_array($escuelaDAO) || is_object($escuelaDAO))
-        {
+        if (is_array($escuelaDAO) || is_object($escuelaDAO)) {
             foreach ($escuelaDAO as $key => $value) {
                 $obj["data"][] = $value;
             }
@@ -117,9 +130,5 @@ class Escuela extends Controller
             $obj = array();
         }
         echo json_encode($obj);
-        
     }
-
-    
 }
-

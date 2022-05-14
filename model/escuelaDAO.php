@@ -11,7 +11,7 @@
         public function insert($data)
         {
             $query = $this->db->conectar()->prepare('INSERT INTO escuela values (NULL, 
-            :nombre_escuela, 
+            :nombre_escuela,  
             :rfc_escuela, 
             :cct_escuela,
             :calle_escuela,
@@ -146,4 +146,3 @@
         
   
     }
-?>

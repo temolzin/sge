@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    require 'view/menu.php';
-    $menu = new Menu();
-    $menu->header('Horario');
+session_start();
+require 'view/menu.php';
+$menu = new Menu();
+$menu->header('Horario');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -44,7 +44,7 @@
         <div class="modal-content">
             <div class="card-success">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Horario <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -57,54 +57,54 @@
                     <div class="card-body">
 
                         <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Fecha</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                            
-                                <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Fecha (*)</label>
-                                    <input type="date" class="form-control" id="materia_fecha_horario" name="materia_fecha_horario" placeholder="Fecha"/>
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Fecha</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
-                                </div> 
+                                <!-- /.card-tools -->
                             </div>
-                        </div>
-                    </div>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
 
-                    <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Horario</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Fecha (*)</label>
+                                            <input type="date" class="form-control" id="materia_fecha_horario" name="materia_fecha_horario" placeholder="Fecha" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /.card-tools -->
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Hora comienzo (*)</label>
-                                    <input type="time" class="form-control" id="materia_horainicio_horario" name="materia_horainicio_horario" placeholder="Inicio"/>
+
+                        <div class="card border-red">
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Horario</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
-                                </div> 
-                                <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Hora finaliza (*)</label>
-                                    <input type="time" class="form-control" id="materia_horafin_horario" name="materia_horafin_horario" placeholder="Finaliza"/>
+                                <!-- /.card-tools -->
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Hora comienzo (*)</label>
+                                            <input type="time" class="form-control" id="materia_horainicio_horario" name="materia_horainicio_horario" placeholder="Inicio" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Hora finaliza (*)</label>
+                                            <input type="time" class="form-control" id="materia_horafin_horario" name="materia_horafin_horario" placeholder="Finaliza" />
+                                        </div>
+                                    </div>
                                 </div>
-                                </div> 
+                            </div>
                         </div>
-                    </div>
-                </div>
-                        
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-success">Registrar</button>
@@ -122,7 +122,7 @@
         <div class="modal-content">
             <div class="card-warning">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Horario <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -132,60 +132,60 @@
                 <!-- form start -->
                 <form role="form" id="formActualizarHorario" name="formActualizarHorario">
                     <div class="card-body">
-                        <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" id="id_horarioActualizar" name="id_horarioActualizar"/>
-                                </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="id_horarioActualizar" name="id_horarioActualizar" />
                             </div>
+                        </div>
 
                         <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Fecha</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                            
-                                <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Fecha (*)</label>
-                                    <input type="date" class="form-control" id="materia_fecha_horarioActualizar" name="materia_fecha_horarioActualizar" placeholder="Fecha"/>
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Fecha</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
-                                </div> 
+                                <!-- /.card-tools -->
                             </div>
-                        </div>
-                    </div>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
 
-                    <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Horario</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Fecha (*)</label>
+                                            <input type="date" class="form-control" id="materia_fecha_horarioActualizar" name="materia_fecha_horarioActualizar" placeholder="Fecha" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /.card-tools -->
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Hora comienzo (*)</label>
-                                    <input type="time" class="form-control" id="materia_horainicio_horarioActualizar" name="materia_horainicio_horarioActualizar" placeholder="Inicio"/>
+
+                        <div class="card border-red">
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Horario</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
-                            </div> 
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Hora finaliza (*)</label>
-                                    <input type="time" class="form-control" id="materia_horafin_horarioActualizar" name="materia_horafin_horarioActualizar" placeholder="Finaliza"/>
+                                <!-- /.card-tools -->
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Hora comienzo (*)</label>
+                                            <input type="time" class="form-control" id="materia_horainicio_horarioActualizar" name="materia_horainicio_horarioActualizar" placeholder="Inicio" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Hora finaliza (*)</label>
+                                            <input type="time" class="form-control" id="materia_horafin_horarioActualizar" name="materia_horafin_horarioActualizar" placeholder="Finaliza" />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
-                    </div>
-                </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -204,7 +204,7 @@
         <div class="modal-content">
             <div class="card-primary">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Horario <small> &nbsp;</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -216,46 +216,46 @@
                     <div class="card-body">
 
 
-                         <div class="card border-red">
-                        <div class="card-header py-1 bg-secondary "> 
-                            <h3 class="card-title">Información del horario</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                        <div class="card border-red">
+                            <div class="card-header py-1 bg-secondary ">
+                                <h3 class="card-title">Información del horario</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div>
+                                <!-- /.card-tools -->
                             </div>
-                            <!-- /.card-tools -->
+                            <!-- /.card-header -->
+                            <div class="card-body border-primary">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Clave horario </label>
+                                            <input disabled type="text" class="form-control" id="id_horarioConsultar" name="id_horarioConsultar" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>Fecha </label>
+                                            <input type="text" disabled class="form-control" id="materia_fecha_horarioConsultar" name="materia_fecha_horarioConsultar" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Hora inicio </label>
+                                            <input type="text" disabled class="form-control" id="materia_horainicio_horarioConsultar" name="materia_horainicio_horarioConsultar" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Hora fin </label>
+                                            <input type="text" disabled class="form-control" id="materia_horafin_horarioConsultar" name="materia_horafin_horarioConsultar" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body border-primary">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Clave horario </label>
-                                    <input disabled type="text" class="form-control" id="id_horarioConsultar" name="id_horarioConsultar"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Fecha </label>
-                                    <input type="text" disabled class="form-control" id="materia_fecha_horarioConsultar" name="materia_fecha_horarioConsultar"/>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Hora inicio </label>
-                                    <input type="text" disabled class="form-control" id="materia_horainicio_horarioConsultar" name="materia_horainicio_horarioConsultar"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Hora fin </label>
-                                    <input type="text" disabled class="form-control" id="materia_horafin_horarioConsultar" name="materia_horafin_horarioConsultar"/>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -290,12 +290,11 @@
 </div>
 
 <?php
-    $menu->footer();
+$menu->footer();
 ?>
 
 <script>
-
-    $(document).ready(function (){
+    $(document).ready(function() {
         mostrarHorarios();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
@@ -308,27 +307,31 @@
             "processing": true,
             "serverSide": false,
             "ajax": {
-                "url": "<?php echo constant('URL');?>horario/readtable"
+                "url": "<?php echo constant('URL'); ?>horario/readTableHorarioConsulta"
             },
-            "columns": [
-                { "data": "materia_fecha_horario" },
-                { "data": "materia_horainicio_horario" },
-                { "data": "materia_horafin_horario" },
-                {data:null,
-                    "defaultContent":
-                        `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleHorario' title="Ver Detalles"><i class="fa fa-eye"></i></button>
+            "columns": [{
+                    "data": "materia_fecha_horario"
+                },
+                {
+                    "data": "materia_horainicio_horario"
+                },
+                {
+                    "data": "materia_horafin_horario"
+                },
+                {
+                    data: null,
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleHorario' title="Ver Detalles"><i class="fa fa-eye"></i></button>
                          <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarHorario' title="Editar Datos"><i class="fa fa-edit"></i></button>
                          <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarHorario' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
                 }
             ],
-            "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
-             if (aiDisplay.length > 0) {
-                 $('body').removeClass('no-record');
-             }
-             else {
-                 $('body').addClass('no-record');
-             }
-         },
+            "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
+                if (aiDisplay.length > 0) {
+                    $('body').removeClass('no-record');
+                } else {
+                    $('body').addClass('no-record');
+                }
+            },
             responsive: true,
             autoWidth: false,
             language: idiomaDataTable,
@@ -339,7 +342,7 @@
         obtenerdatosDT(tableHorario);
     }
 
-    var obtenerdatosDT = function (table) {
+    var obtenerdatosDT = function(table) {
         $('#dataTableHorario tbody').on('click', 'tr', function() {
             var data = table.row(this).data();
             console.log(data);
@@ -356,24 +359,24 @@
             var materia_horafin_horarioConsulta = $("#materia_horafin_horarioConsultar").val(data.materia_horafin_horario);
         });
     }
-    
 
-    var enviarFormularioRegistrar = function () {
+
+    var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
-            submitHandler: function () {
+            submitHandler: function() {
                 var datos = $('#formRegistrarHorario').serialize();
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo constant('URL');?>horario/insert",
+                    url: "<?php echo constant('URL'); ?>horario/insert",
                     data: datos,
-                    success: function (data) {
+                    success: function(data) {
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "El horario ha sido registrado de manera correcta",
                                 "success"
-                            ).then(function () {
-                                window.location = "<?php echo constant('URL');?>horario";
+                            ).then(function() {
+                                window.location = "<?php echo constant('URL'); ?>horario";
                             })
                         } else {
                             Swal.fire(
@@ -410,35 +413,35 @@
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
         });
     }
 
-    var enviarFormularioActualizar = function () {
+    var enviarFormularioActualizar = function() {
         $.validator.setDefaults({
-            submitHandler: function () {
+            submitHandler: function() {
                 var datos = $('#formActualizarHorario').serialize();
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo constant('URL');?>horario/update",
+                    url: "<?php echo constant('URL'); ?>horario/update",
                     data: datos,
-                    success: function (data) {
+                    success: function(data) {
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "El horario ha sido Actualizado de manera correcta",
                                 "success"
-                            ).then(function () {
-                                window.location = "<?php echo constant('URL');?>horario";
+                            ).then(function() {
+                                window.location = "<?php echo constant('URL'); ?>horario";
                             })
                         } else {
                             Swal.fire(
@@ -475,38 +478,38 @@
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
         });
     }
 
-    var eliminarRegistro = function () {
-        $( "#formEliminarHorario" ).submit(function( event ) {
+    var eliminarRegistro = function() {
+        $("#formEliminarHorario").submit(function(event) {
             event.preventDefault();
             var datos = $('#formEliminarHorario').serialize();
             $.ajax({
                 type: "POST",
-                url: "<?php echo constant('URL');?>horario/delete",
+                url: "<?php echo constant('URL'); ?>horario/delete",
                 data: datos,
-                success: function (data) {
+                success: function(data) {
                     if (data == 'ok') {
                         Swal.fire(
                             "¡Éxito!",
                             "El horario ha sido eliminado correctamente",
                             "success"
-                        ).then(function () {
-                            window.location = "<?php echo constant('URL');?>horario";
+                        ).then(function() {
+                            window.location = "<?php echo constant('URL'); ?>horario";
                         })
                     } else {
-                        Swal.fire (
+                        Swal.fire(
                             "¡Error!",
                             "Ha ocurrido un error al eliminar el horario. " + data,
                             "error"
@@ -516,6 +519,4 @@
             });
         });
     }
-
-   
 </script>
