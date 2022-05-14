@@ -158,7 +158,7 @@ class Menu
       </a>
       </li>
      ';
-            } else if ($tipo == 'Director') {
+            } else if ($tipo == 'director') {
 
                   $menu = '  
      <li class="nav-item">
@@ -355,7 +355,7 @@ class Menu
 
 ';
             } else if ($tipo == 'Administrador') {
-                  //$fotoruta = '/SGE/public/Director/Jiménez_Silva_Luis/bongocat.gif';
+                  //$fotoruta = '/SGE/public/director/Jiménez_Silva_Luis/bongocat.gif';
 
                   $menu = '
       <li class="nav-item">
@@ -388,7 +388,7 @@ class Menu
       <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
-      Directores
+      directores
       </p>
       </a>
       </li>
@@ -415,16 +415,19 @@ class Menu
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SGE  | RootHeimCompany</title>
+    <title>SGE | Root Heim</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="' . constant('URL') . 'public/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
+    
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- DATATABLES -->
     <link rel="stylesheet" href="' . constant('URL') . 'public/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="' . constant('URL') . 'favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="' . constant('URL') . 'public/plugins/datatables-responsive/css/responsive.bootstrap4.css">
     <link rel="stylesheet" href="' . constant('URL') . 'public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -454,10 +457,10 @@ class Menu
     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-    <a href="http://localhost/sge/" class="nav-link">Inicio</a>
+    <a href="'. constant('URL') .'" class="nav-link">Inicio</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-    <a href="http://localhost/sge/perfil" class="nav-link">Ver Perfil</a>
+    <a href="'. constant('URL') .'perfil" class="nav-link">Ver Perfil</a>
     </li>
     </ul>
 
@@ -481,7 +484,7 @@ class Menu
     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
     <div class="dropdown-divider"></div>
-    <a href="../../sge/logout.php" class="dropdown-item">
+    <a href="' . constant('URL') . 'logout.php" class="dropdown-item">
     <i class="fas fa-times-circle mr-2"></i>Cerrar Sesión 
 
     </a>
@@ -493,11 +496,11 @@ class Menu
     <i class="fas fa-expand-arrows-alt"></i>
     </a>
     </li>
-    <li class="nav-item">
+   <!-- <li class="nav-item">
     <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
     <i class="fas fa-th-large"></i>
     </a>
-    </li>
+    </li> -->
     </ul>
     </nav>
     <!-- /.navbar -->
@@ -505,7 +508,7 @@ class Menu
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="http://localhost/sge/" class="brand-link">
+    <a href="'. constant('URL') .'" class="brand-link">
     <center><span class="brand-text font-weight-light">Bienvenido ' . $tipo . '</span></center>
     </a>
 
@@ -517,7 +520,7 @@ class Menu
     <img src="' . $fotoruta . '" class="img-circle elevation-2" alt="User Image" height="50px" width="50px">
     </div>
     <div class="info">
-    <a href="http://localhost/sge/perfil" class="d-block">' . $nombre . '</a>
+    <a href="'. constant('URL') .'perfil" class="d-block">' . $nombre . '</a>
     
     </div>
     </div>
@@ -654,11 +657,11 @@ class Menu
         
         <!--SEPOMEX-->
         <script src="https://api.copomex.com/query/info_cp/09810?token=pruebas"></script>
-        <script src="public/plugins/select2/js/select2.full.min.js"></script>
+        <script src="' . constant('URL') . 'public/plugins/select2/js/select2.full.min.js"></script>
         
         <!--CONTRSEÑA-->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/strength.min.js"></script>
+        <script src="' . constant('URL') . 'public/js/jquery.min.js"></script>
+        <script src="' . constant('URL') . 'public/js/strength.min.js"></script>
 
         <script>
         $(document).ready(function (){

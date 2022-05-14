@@ -302,10 +302,10 @@ $menu->header('Directivo');
                                 </div>
                                 <div class="row">
                                 <div class="col-lg-12">
-                                        <span><label>Fotografía Director (*)</label></span>
+                                        <span><label>Fotografía director (*)</label></span>
                                         <div class="form-group input-group">
                                             <div class="custom-file">
-                                                <input type="file" accept="image/*" class="custom-file-input" name="imgDirectorActualizar" id="imgDirectorActualizar" lang="es">
+                                                <input type="file" accept="image/*" class="custom-file-input" name="imgdirectorActualizar" id="imgdirectorActualizar" lang="es">
                                                 <label class="custom-file-label" for="imagen">Selecciona imagen</label>
                                             </div>
                                         </div>
@@ -529,7 +529,7 @@ $menu->header('Directivo');
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Clave Director </label>
+                                            <label>Clave director </label>
                                             <input disabled type="text" hiddden class="form-control" id="id_directorConsultar" name="id_directorConsultar" />
                                         </div>
                                     </div>
@@ -723,9 +723,9 @@ $menu->header('Directivo');
                 </button>
             </div>
             <form role="form" id="formEliminarDirectivo" name="formEliminarDirectivo">
-                <input type="text" hidden id="idEliminarDirector" name="idEliminarDirector">
+                <input type="text" hidden id="idEliminardirector" name="idEliminardirector">
                 <input type="text" hidden id="idEliminarUsuario" name="idEliminarUsuario">
-                <div class="modal-body text-center text-danger">¿Realmente deseas eliminar este Director?</div>
+                <div class="modal-body text-center text-danger">¿Realmente deseas eliminar este director?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                     <button class="btn btn-danger" type="submit">Eliminar</button>
@@ -827,7 +827,7 @@ $menu->footer();
                     var fullnameImagen = appat + '' + apmat + '' + nombre + '/' + foto;
                     var fotoConsulta = '/SGE/public/director/' + fullnameImagen;
                     $(".id_director").append('<option value=' + id + '>' + fotoConsulta + '</option>');
-                    $('#imgDirectorConsultar').attr(fotoConsulta);
+                    $('#imgdirectorConsultar').attr(fotoConsulta);
                 });
             },
             error: function(data) {
@@ -885,7 +885,7 @@ $menu->footer();
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
-                        var img = '/SGE/public/Director/' + fullnameImagen;
+                        var img = '/SGE/public/director/' + fullnameImagen;
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
                 },
@@ -930,7 +930,7 @@ $menu->footer();
             var data = table.row(this).data();
             console.log(data);
 
-            var idEliminarDirector = $('#idEliminarDirector').val(data.id_director);
+            var idEliminardirector = $('#idEliminardirector').val(data.id_director);
             var idEliminarUsuario = $('#idEliminarUsuario').val(data.id_usuario);
 
             var id_director = $("#id_directorActualizar").val(data.id_director);
@@ -969,7 +969,7 @@ $menu->footer();
             var id_grado_academicoConsulta = $("#id_grado_academicoConsultar option[value=" + data.id_grado_academico + "]").attr("selected", true);
             var username_usuarioConsulta = $("#username_usuarioConsultar").val(data.username_usuario);
             var password_usuarioConsulta = $("#password_usuarioConsultar").val(data.password_usuario);
-            var rutaImagenConsulta = $("#imgDirectorConsultar option[value=" + data.id_director + "]").attr("selected", true);
+            var rutaImagenConsulta = $("#imgdirectorConsultar option[value=" + data.id_director + "]").attr("selected", true);
             var nombre_directorConsulta = $("#nombre_directorConsultar").val(data.nombre_director);
             var appaterno_directorConsulta = $("#appaterno_directorConsultar").val(data.appaterno_director);
             var apmaterno_directorConsulta = $("#apmaterno_directorConsultar").val(data.apmaterno_director);
@@ -1236,11 +1236,11 @@ $menu->footer();
                 });
                 var form_data = new FormData();
                 var imagen = "";
-                if ($('#imgDirectorActualizar').val() != null) {
-                    imagen = $('#imgDirectorActualizar').prop('files')[0];
+                if ($('#imgdirectorActualizar').val() != null) {
+                    imagen = $('#imgdirectorActualizar').prop('files')[0];
                 }
 
-                form_data.append('imgDirectorActualizar', imagen);
+                form_data.append('imgdirectorActualizar', imagen);
 
                 form_data.append('id_directorActualizar', document.getElementById('id_directorActualizar').value);
                 form_data.append('id_usuarioActualizar', document.getElementById('id_usuarioActualizar').value);

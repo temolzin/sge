@@ -404,7 +404,7 @@ CREATE TABLE `tipo_usuario` (
 
 INSERT INTO `tipo_usuario` (`id_tipo_usuario`, `nombre_tipo_usuario`) VALUES
 (1, 'Administrador'),
-(2, 'Director'),
+(2, 'director'),
 (3, 'Profesor'),
 (4, 'Tutor'),
 (5, 'Alumno');

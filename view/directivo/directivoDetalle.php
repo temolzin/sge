@@ -76,10 +76,10 @@ $menu->header('directivo_mostrar');
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-12">
-                                    <span><label>Fotografía Director</label></span>
+                                    <span><label>Fotografía director</label></span>
                                     <div class="form-group input-group">
                                         <div class="custom-file">
-                                            <input type="file" accept="image/*" class="custom-file-input" name="imgDirectorActualizar" id="imgDirectorActualizar" lang="es">
+                                            <input type="file" accept="image/*" class="custom-file-input" name="imgdirectorActualizar" id="imgdirectorActualizar" lang="es">
                                             <label class="custom-file-label" for="imagen">3.jpg</label>
                                         </div>
                                     </div>
@@ -310,7 +310,7 @@ $menu->header('directivo_mostrar');
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Clave Director </label>
+                                            <label>Clave director </label>
                                             <input disabled type="text" hidden class="form-control" id="id_directorConsultar" name="id_directorConsultar" />
                                         </div>
                                     </div>
@@ -666,7 +666,7 @@ $menu->footer();
             var data = table.row(this).data();
             console.log(data);
 
-            var idEliminarDirector = $('#idEliminarDirector').val(data.id_director);
+            var idEliminardirector = $('#idEliminardirector').val(data.id_director);
             var idEliminarUsuario = $('#idEliminarUsuario').val(data.id_usuario);
 
             var id_director = $("#id_directorActualizar").val(data.id_director);
@@ -705,7 +705,7 @@ $menu->footer();
             var id_grado_academicoConsulta = $("#id_grado_academicoConsultar option[value=" + data.id_grado_academico + "]").attr("selected", true);
             var username_usuarioConsulta = $("#username_usuarioConsultar").val(data.username_usuario);
             var password_usuarioConsulta = $("#password_usuarioConsultar").val(data.password_usuario);
-            var rutaImagenConsulta = $("#imgDirectorConsultar option[value=" + data.id_director + "]").attr("selected", true);
+            var rutaImagenConsulta = $("#imgdirectorConsultar option[value=" + data.id_director + "]").attr("selected", true);
             var nombre_directorConsulta = $("#nombre_directorConsultar").val(data.nombre_director);
             var appaterno_directorConsulta = $("#appaterno_directorConsultar").val(data.appaterno_director);
             var apmaterno_directorConsulta = $("#apmaterno_directorConsultar").val(data.apmaterno_director);
@@ -972,11 +972,11 @@ $menu->footer();
                 });
                 var form_data = new FormData();
                 var imagen = "";
-                if ($('#imgDirectorActualizar').val() != null) {
-                    imagen = $('#imgDirectorActualizar').prop('files')[0];
+                if ($('#imgdirectorActualizar').val() != null) {
+                    imagen = $('#imgdirectorActualizar').prop('files')[0];
                 }
 
-                form_data.append('imgDirectorActualizar', imagen);
+                form_data.append('imgdirectorActualizar', imagen);
 
                 form_data.append('id_directorActualizar', document.getElementById('id_directorActualizar').value);
                 form_data.append('id_usuarioActualizar', document.getElementById('id_usuarioActualizar').value);

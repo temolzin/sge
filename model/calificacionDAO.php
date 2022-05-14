@@ -109,7 +109,7 @@ class CalificacionDAO extends Model implements CRUD
         $tipo = $_SESSION['tipo'];
 
 
-        if ($tipo == 'Director') {
+        if ($tipo == 'director') {
             $id_escuela = $_SESSION['id_escuela'];
             require_once 'calificacionDTO.php';
             $query = "SELECT calificacion.*, profesor.*, alumno.*, parcial.*, materia.*, grupo.nombre_grupo from calificacion calificacion, profesor profesor, alumno alumno, parcial parcial, materia materia, grupo grupo, director director, escuela escuela where calificacion.id_profesor = profesor.id_profesor and calificacion.id_alumno=alumno.id_alumno and calificacion.id_parcial=parcial.id_parcial and calificacion.id_materia=materia.id_materia and grupo.id_grupo = alumno.id_grupo and director.id_escuela = escuela.id_escuela and profesor.id_escuela = escuela.id_escuela and director.id_escuela = '" . $id_escuela . "'";
