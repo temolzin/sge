@@ -21,10 +21,10 @@ class Alumno extends Controller
         $this->view->render('alumno/alumnoDetalleTutor');
     }
 
-    function showMateriaTutor()
-    {
-        $this->view->render('alumno_materia_consulta/index');
-    }
+    // function showMateriaTutor()
+    // {
+    //     $this->view->render('alumno_materia_consulta/index');
+    // }
 
     function insert()
     {

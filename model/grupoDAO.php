@@ -22,7 +22,9 @@ class GrupoDAO extends Model implements CRUD {
 
     public function update($data)
     {
-        $query = $this->db->conectar()->prepare('UPDATE grupo SET   id_escuela = :id_escuela, nombre_grupo = :nombre_grupo , turno_grupo = :turno_grupo WHERE id_grupo = :id_grupo');
+        $query = $this->db->conectar()->prepare('UPDATE grupo SET id_escuela = :id_escuela, 
+        nombre_grupo = :nombre_grupo , 
+        turno_grupo = :turno_grupo WHERE id_grupo = :id_grupo');
         $query->execute([
             ':id_grupo' => $data['id_grupo'],
             ':id_escuela' => $data['id_escuela'],

@@ -34,10 +34,11 @@
 
 				} else {
                     if($url[0] == 'login'){
-
+						
                     }else{
-                        $controller->index();
+						$controller->index();   
                     }
+					
                 }
 
 			} else {
