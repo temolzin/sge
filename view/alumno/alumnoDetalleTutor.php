@@ -17,7 +17,7 @@ $telefono_alumno = $_SESSION['telefono_alumno'];
 $email_alumno = $_SESSION['email_alumno'];
 $fecha_nacimiento_alumno =    $_SESSION['fecha_nacimiento_alumno'];
 $nombre_completo_al = $nombre_alumno . " " . $appaterno_alumno . " " . $apmaterno_alumno;
-$fotorutaalumno = '/SGE/public/Alumno/' . $appaterno_alumno . '_' . $apmaterno_alumno . '_' . $nombre_alumno . '/' . $foto_alumno;
+$fotorutaalumno = constant('URL').'public/alumno/' . $appaterno_alumno . '_' . $apmaterno_alumno . '_' . $nombre_alumno . '/' . $foto_alumno;
 
 require 'view/menu.php';
 $menu = new Menu();
@@ -29,8 +29,8 @@ $menu->header('Tablero');
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="public/dist/css/adminlte.min.css">
-<link rel="stylesheet" href="../css/perfilalumno.css">
+<link rel="stylesheet" href="<?php echo constant('URL')?>public/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="<?php echo constant('URL')?>css/perfilalumno.css">
 </head>
 
 <section class="content" style="margin: 20px 20px 20px 20px">

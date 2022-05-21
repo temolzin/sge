@@ -154,7 +154,7 @@ class UsuarioDAO extends Model implements CRUD {
               $alu = count($query);
              
               $_SESSION['can_alu'] = $alu;
-
+              
           
           echo $rows;
             

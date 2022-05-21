@@ -122,7 +122,7 @@ class Administrador extends Controller
         }
 
         require 'model/administradorDAO.php';
-        $this->loadModel('AdministradorDAO');
+        $this->loadModel('administradorDAO');
         $administradorDAO = new AdministradorDAO();
         $administradorDAO->update($arrayAcualizar);
     }

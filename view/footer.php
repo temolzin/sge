@@ -1,3 +1,3 @@
 <div id="footer">
-	&copy TemolzinItzae 2020-RootHeim-
+	&copy RootHeim-
 </div>

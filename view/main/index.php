@@ -10,14 +10,14 @@ if (!isset($_SESSION['tipo'])) {
 
 $tipo = $_SESSION['tipo'];
 
-if ($tipo == 'Administrador') {
+if ($tipo == 'administrador') {
 
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
    $appaterno = $_SESSION['appaterno'];
    $apmaterno = $_SESSION['apmaterno'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
-   $fotoruta = '/SGE/public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   $fotoruta = constant('URL').'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 } else {
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
@@ -36,7 +36,7 @@ if ($tipo == 'Administrador') {
    $nombre_escuela = $_SESSION['nombre_escuela'];
    $id_escuela = $_SESSION['id_escuela'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
-   $fotoruta = '/SGE/public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   $fotoruta = constant('URL').'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 }
 
 
@@ -51,12 +51,6 @@ $menu->header('Tablero');
 
 ?>
 
-<head>
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-   <link rel="stylesheet" href="public/plugins/fontawesome-free/css/all.min.css">
-   <link rel="stylesheet" href="public/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="public/plugins/fullcalendar/main.css">
-</head>
 <section class="content">
    <div class="container-fluid">
       <div class="card-box pd-20 height-100-p mb-30" style="background: #fff;">
@@ -77,7 +71,7 @@ $menu->header('Tablero');
       <br><br>
       <div class="row">
          <!-- /.DASHBOARD ALUMNO -->
-         <?php if ($tipo == 'Alumno') {
+         <?php if ($tipo == 'alumno') {
             $nombre_grupo = $_SESSION['nombre_grupo'];
             $turno_grupo = $_SESSION['turno_grupo'];
 
@@ -117,7 +111,7 @@ $menu->header('Tablero');
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="/sge/tarea/showTareaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL')?>tarea/showTareaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
             <div class="col-lg-3">
@@ -128,7 +122,7 @@ $menu->header('Tablero');
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="/sge/incidencia/showIncidenciaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL')?>incidencia/showIncidenciaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
       </div>
@@ -192,7 +186,7 @@ $menu->header('Tablero');
       </div>
    <?php } ?>
    <!-- /.DASHBOARD PROFESOR -->
-   <?php if ($tipo == 'Profesor') {
+   <?php if ($tipo == 'profesor') {
       $rfc_escuela = $_SESSION['rfc_escuela'];
       $cct_escuela = $_SESSION['cct_escuela'];
       $cedula = $_SESSION['cedula'];
@@ -326,11 +320,11 @@ $menu->header('Tablero');
 
    <?php } ?>
 
-   <?php if ($tipo == 'Administrador') {
-      $con_escuela = $_SESSION['can_esc'];
-      $con_directores = $_SESSION['can_dir'];
+   <?php if ($tipo == 'administrador') {
+      $con_escuela = isset($_SESSION['can_esc'])? $_SESSION['can_esc'] : 0;
+      $con_directores = isset($_SESSION['can_dir'])? $_SESSION['can_dir'] : 0;
       $con_alumnos = isset($_SESSION['can_alu']) ? $_SESSION['can_alu'] : 0;
-      $con_usuarios = $_SESSION['can_usu'];
+      $con_usuarios = isset($_SESSION['can_usu'])? $_SESSION['can_usu'] : 0;
    ?>
 
 
@@ -529,7 +523,7 @@ $menu->header('Tablero');
 
 
    <!-- /.DASHBOARD TUTOR -->
-   <?php if ($tipo == 'Tutor') {
+   <?php if ($tipo == 'tutor') {
       $nombre_grupo = $_SESSION['nombre_grupo'];
       $turno_grupo = $_SESSION['turno_grupo'];
       $nombre_alumno = $_SESSION['nombre_alumno'];
@@ -551,7 +545,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="/sge/tarea/showTareaTutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL')?>tarea/showTareaTutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <div class="col-lg-6">
@@ -562,7 +556,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="/sge/incidencia/showIncidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL')?>incidencia/showIncidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
    </div>
@@ -894,20 +888,19 @@ $menu->header('Tablero');
 </section>
 
 <!-- jQuery -->
-<script src="public/plugins/jquery/jquery.min.js"></script>
+<script src="<?php echo constant('URL'); ?>public/plugins/jquery/jquery.min.js"></script>
 <!-- ChartJS -->
-<script src="public/plugins/chart.js/Chart.min.js"></script>
+<script src="<?php echo constant('URL'); ?>public/plugins/chart.js/Chart.min.js"></script>
 <!-- AdminLTE App -->
-<script src="public/dist/js/adminlte.min.js"></script>
+<script src="<?php echo constant('URL'); ?>public/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="public/dist/js/demo.js"></script>
+<script src="<?php echo constant('URL'); ?>public/dist/js/demo.js"></script>
 <!-- Page specific script -->
-<script src="public/plugins/moment/moment.min.js"></script>
-<script src="public/plugins/fullcalendar/main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/plugins/moment/moment.min.js"></script>
+<script src="<?php echo constant('URL'); ?>public/plugins/fullcalendar/main.js"></script>
 
 <script type="text/javascript">
    $(document).ready(function() {
-      mostrarCalificaciones();
       mostrarDirectivos();
       mostrarUsuarios();
       mostrarUsuariosBloqueados();
@@ -922,36 +915,6 @@ $menu->header('Tablero');
          language: 'es'
       });
    });
-
-   var mostrarCalificaciones = function() {
-      $.ajax({
-         type: "POST",
-
-         async: false,
-         url: "<?php echo constant('URL'); ?>calificacionDetalleAlumno/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
-         success: function(data) {
-            //console.log('CALI ', data);
-            $.each(data, function(ind, elem) {
-               if (ind <= 9) {
-                  //console.log(elem.nombre_parcial);
-                  var colorCalificacion = "";
-                  if (elem.calificacion > 6) {
-                     colorCalificacion = "success";
-                  } else {
-                     colorCalificacion = "danger";
-                  }
-                  var htmlTags = '<tr>' +
-                     '<td>' + elem.nombre_parcial + '</td>' +
-                     '<td>' + elem.nombre_materia + '</td>' +
-                     '<td> <span class="badge badge-' + colorCalificacion + '">' + elem.calificacion + '</span></td>' +
-                     '</tr>';
-                  $('#tableCalificacionAlumno tbody').append(htmlTags);
-               }
-            });
-         },
-      });
-   }
 
    var mostrarUsuarios = function() {
       $.ajax({
@@ -1034,7 +997,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
+                     '<img src="<?php echo constant('URL')?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
                      '<a class="users-list-name">' + '<br>'+elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
@@ -1056,7 +1019,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 80px; height: 80px;>' +
+                     '<img src="<?php echo constant('URL')?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 80px; height: 80px;>' +
                      '<br><br>'+
                      '<a class="users-list-name">' + '<br>'+ elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
@@ -1080,7 +1043,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="/SGE/public/Profesor/' + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '" style="max-width: 110px; max-height: 110px;>' +
+                     '<img src="<?php echo constant('URL')?>public/Profesor/' + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '" style="max-width: 110px; max-height: 110px;>' +
                      '<a class="users-list-name">' + elem.nombre_profesor + '<a>' +
                      '<span class="users-list-date">' + elem.email_profesor + '</span>' +
                      '</li>';
