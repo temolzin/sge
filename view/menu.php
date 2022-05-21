@@ -16,17 +16,15 @@ class Menu
             $apmaterno = $_SESSION['apmaterno'];
             $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
 
-            $fotoruta = '/SGE/public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+            $fotoruta = constant('URL').'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 
 
             //$tutor = 'tutor';
 
 
-
-
             $menu = '';
 
-            if ($tipo == 'Tutor') {
+            if ($tipo == 'tutor') {
 
                   $menu = '
       <li class="nav-item">
@@ -92,10 +90,10 @@ class Menu
       </a>
       </li>
    ';
-            } else if ($tipo == 'Alumno') {
+            } else if ($tipo == 'alumno') {
 
                   $menu = '
-       <li class="nav-item">
+      <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
       <p>
@@ -160,7 +158,7 @@ class Menu
      ';
             } else if ($tipo == 'director') {
 
-                  $menu = '  
+                  $menu = ' 
      <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
@@ -278,7 +276,7 @@ class Menu
       </li>
 
       ';
-            } else if ($tipo == 'Profesor') {
+            } else if ($tipo == 'profesor') {
 
                   $menu = '
       <li class="nav-item">
@@ -354,7 +352,7 @@ class Menu
       </li>
 
 ';
-            } else if ($tipo == 'Administrador') {
+            } else if ($tipo == 'administrador') {
                   //$fotoruta = '/SGE/public/director/Jiménez_Silva_Luis/bongocat.gif';
 
                   $menu = '
@@ -563,7 +561,7 @@ class Menu
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-    <strong>Copyright &copy; TemolzinItzae 2020 <a href="https://www.rootheim.com/">RootHeimCompany</a>.</strong>
+    <strong>Copyright &copy; <a href="https://www.rootheim.com/">Root Heim Company</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
     <b>Version</b> 3.1.0-rc

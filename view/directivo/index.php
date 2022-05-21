@@ -825,7 +825,7 @@ $menu->footer();
                     var apmat = registro.apmaterno_director;
                     var foto = registro.foto_director;
                     var fullnameImagen = appat + '' + apmat + '' + nombre + '/' + foto;
-                    var fotoConsulta = '/SGE/public/director/' + fullnameImagen;
+                    var fotoConsulta = '<?php echo constant('URL');?>public/director/' + fullnameImagen;
                     $(".id_director").append('<option value=' + id + '>' + fotoConsulta + '</option>');
                     $('#imgdirectorConsultar').attr(fotoConsulta);
                 });
@@ -885,7 +885,7 @@ $menu->footer();
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
-                        var img = '/SGE/public/director/' + fullnameImagen;
+                        var img = '<?php echo constant('URL');?>public/director/' + fullnameImagen;
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
                 },
@@ -1011,7 +1011,7 @@ $menu->footer();
 
                         var idUsuario = id_usuario;
                         var form_data = new FormData();
-                        var imagen = '/SGE/public/img/default.jpg';
+                        var imagen = '<?php echo constant('URL');?>public/img/default.jpg';
                         if ($('#foto_director').val() != null) {
                             imagen = $('#foto_director').prop('files')[0];
                         }

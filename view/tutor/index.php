@@ -2,7 +2,7 @@
 session_start();
 require 'view/menu.php';
 $menu = new Menu();
-$menu->header('Tutor');
+$menu->header('tutor');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -835,7 +835,7 @@ $menu->footer();
                     var apmat = registro.apmaterno_tutor;
                     var foto = registro.foto_tutor;
                     var fullnameImagen = appat + '_' + apmat + '_' + nombre + '/' + foto;
-                    var fotoConsulta = '/SGE/public/tutor/' + fullnameImagen;
+                    var fotoConsulta = '<?php constant('URL'); ?>public/tutor/' + fullnameImagen;
                     $(".id_tutor").append('<option value=' + id + '>' + fotoConsulta + '</option>');
                     $('#imgTutorConsultar').attr(fotoConsulta);
                 });
@@ -907,7 +907,7 @@ $menu->footer();
 
                         var fullnameImagen = JsonResultRow.appaterno_tutor + '_' + JsonResultRow.apmaterno_tutor + '_' + JsonResultRow.nombre_tutor + '/' + JsonResultRow.foto_tutor;
 
-                        var img = '/SGE/public/Tutor/' + fullnameImagen;
+                        var img = '<?php echo constant('URL');?>public/Tutor/' + fullnameImagen;
 
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }

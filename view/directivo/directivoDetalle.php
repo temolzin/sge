@@ -642,7 +642,7 @@ $menu->footer();
 
                         var fullnameImagen = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
 
-                        var img = '/SGE/public/director/' + fullnameImagen;
+                        var img = '<?php echo constant('URL'); ?>public/director/' + fullnameImagen;
 
                         return '<center><img src="' + img + '" class="img-circle"  height="150px" width="150px"/></center>';
                     }
