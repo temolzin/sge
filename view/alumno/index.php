@@ -2,7 +2,7 @@
    session_start();
    require 'view/menu.php';
    $menu = new Menu();
-   $menu->header('Alumno');
+   $menu->header('alumno');
    ?>
 
  <head>
@@ -801,7 +801,7 @@
                    var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
 
 
-                   var img = '/SGE/public/alumno/' + fullnameImagen;
+                   var img = '<?php echo constant('URL');?>public/alumno/' + fullnameImagen;
 
                    return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                 }

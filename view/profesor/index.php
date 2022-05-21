@@ -2,7 +2,7 @@
 session_start();
 require 'view/menu.php';
 $menu = new Menu();
-$menu->header('Profesor');
+$menu->header('profesor');
 ?>
 <section class="content">
   <div class="container-fluid">
@@ -850,7 +850,7 @@ $menu->footer();
           "render": function(data, type, full, row) {
 
             var fullnameImagen = full['appaterno_profesor'] + '_' + full['apmaterno_profesor'] + '_' + full['nombre_profesor'] + '/' + full['foto_profesor'];
-            var img = '/SGE/public/Profesor/' + fullnameImagen;
+            var img = '<?php constant('URL'); ?>public/Profesor/' + fullnameImagen;
 
             return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
           }

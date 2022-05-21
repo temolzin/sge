@@ -36,11 +36,13 @@ class Escuela extends Controller
         if ($_FILES["foto_escuela"]["name"] != null) {
             $imagen = $_FILES["foto_escuela"];
             $nombreImagen = $imagen["name"];
+            //$nombreImagen = date("Y-n-j");
+            //$nombreImagen = date("Y-n-j");
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
-            $fullname = $nombre_escuela;
-            $carpeta = "public/escuela/" . $fullname . "/";
 
+            $fullname = $nombre_escuela . "_" . $rfc_escuela . "_" . $cct_escuela;
+            $carpeta = "public/escuela/" . $fullname . "/";
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
             } else {
@@ -48,12 +50,12 @@ class Escuela extends Controller
                     mkdir($carpeta, 0777, true);
                 }
                 copy($ruta_provisional, $carpeta . $nombreImagen);
-
+        
         $data = array(
             'nombre_escuela' => $nombre_escuela,
-            'foto_escuela' => $nombreImagen,
             'rfc_escuela' => $rfc_escuela,
             'cct_escuela' => $cct_escuela,
+            'foto_escuela' => $nombreImagen,
             'calle_escuela' => $calle_escuela,
             'numxterior_escuela' => $numxterior_escuela,
             'numinterior_escuela' => $numinterior_escuela,
@@ -64,22 +66,21 @@ class Escuela extends Controller
             'telefono_escuela' => $telefono_escuela,
             'email_escuela' => $email_escuela,
             'observacion_escuela' => $observacion_escuela,
-            'nombreImagen'  => $nombreImagen
+            
         );
 
         require 'model/escuelaDAO.php';
         $this->loadModel('EscuelaDAO');
         $escuelaDAO = new EscuelaDAO();
         $escuelaDAO->insert($data);
-        }       
+        }
     }
 }
-
+               
     function update()
     {
         $id_escuela = $_POST['id_escuelaActualizar'];
-        $nombre_escuela = $_POST['nombre_escuelaActualizar'];
-        $foto_escuela = $_POST['foto_escuelaActualizar'];
+        $nombre_escuela = $_POST['nombre_escuelaActualizar'];        
         $rfc_escuela = $_POST['rfc_escuelaActualizar'];
         $cct_escuela = $_POST['cct_escuelaActualizar'];
         $calle_escuela = $_POST['calle_escuelaActualizar'];
@@ -98,7 +99,6 @@ class Escuela extends Controller
             'id_escuela' => $id_escuela,
             'nombre_escuela' => $nombre_escuela,
             'rfc_escuela' => $rfc_escuela,
-            'foto_escuela' => $foto_escuela,
             'cct_escuela' => $cct_escuela,
             'calle_escuela' => $calle_escuela,
             'numxterior_escuela' => $numxterior_escuela,

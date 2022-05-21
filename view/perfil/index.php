@@ -7,7 +7,7 @@
     $tipo = $_SESSION['tipo'];
  
 
-    if($tipo == 'Administrador'){
+    if($tipo == 'administrador'){
         
       $foto = $_SESSION['foto'];
         $nombre = $_SESSION['nombre'];
@@ -17,7 +17,7 @@
         $email = $_SESSION['email'];
         $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
         $nombre_completo = $nombre." ".$appaterno." ".$apmaterno;
-         $fotoruta = '/SGE/public/'.$tipo.'/'.$appaterno.'_'.$apmaterno.'_'.$nombre.'/'.$foto;
+        $fotoruta = constant('URL'). 'public/'.$tipo.'/'.$appaterno.'_'.$apmaterno.'_'.$nombre.'/'.$foto;
     }else{
         
         $foto = $_SESSION['foto'];
@@ -35,7 +35,7 @@
         $municipio = $_SESSION['municipio'];
         $colonia = $_SESSION['colonia'];
         $nombre_completo = $nombre." ".$appaterno." ".$apmaterno;
-        $fotoruta = '/SGE/public/'.$tipo.'/'.$appaterno.'_'.$apmaterno.'_'.$nombre.'/'.$foto;
+        $fotoruta = constant('URL'). 'public/'.$tipo.'/'.$appaterno.'_'.$apmaterno.'_'.$nombre.'/'.$foto;
     
         
     }
@@ -46,7 +46,7 @@
 ?>
 
 <section class="content">
-   <?php if($tipo == 'Administrador')  { ?>
+   <?php if($tipo == 'administrador')  { ?>
    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/perfiladmin.css">
    <div class="row">
       <div class="col-lg-12">

@@ -141,7 +141,7 @@ class DirectivoDAO extends Model implements CRUD
         $tipo = $_SESSION['tipo'];
 
 
-        if ($tipo == 'Administrador') {
+        if ($tipo == 'administrador') {
 
             require_once 'directivoDTO.php';
             $query = "SELECT * FROM director INNER JOIN escuela on director.id_escuela =escuela.id_escuela INNER JOIN usuario on director.id_usuario=usuario.id_usuario order by id_director desc";

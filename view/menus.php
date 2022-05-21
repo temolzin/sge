@@ -4,9 +4,9 @@ class Menus {
     
     function menu_lateral(){
         
-    $tipo = 'Maestro';
+    $tipo = 'maestro';
     
-    if($tipo == 'Maestro'){
+    if($tipo == 'maestro'){
         
         echo '
         
@@ -31,7 +31,7 @@ class Menus {
                             
         
     
-    } else if($tipo == 'Tutor'){
+    } else if($tipo == 'tutor'){
         
        
         echo '
@@ -71,7 +71,7 @@ class Menus {
                              ';
                               
         
-    }else if($tipo == 'Alumno'){
+    }else if($tipo == 'alumno'){
         
     echo '
       
@@ -104,7 +104,7 @@ class Menus {
        
         ';
         
-    }else if($tipo == 'Directivo'){
+    }else if($tipo == 'directivo'){
         
         
         echo'
