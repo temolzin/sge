@@ -22,14 +22,6 @@ $menu->header('Tablero');
 ?>
 
 
-
-<head>
-   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/perfilescuela.css">
-</head>
 <section class="content" style="margin: 20px 20px 20px 20px">
    <div class="card mb-3">
       <div class="card-body">
