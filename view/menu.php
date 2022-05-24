@@ -176,7 +176,6 @@ class Menu
       </p>
       </a>
       </li>
-      
       <li class="nav-item">
       <a id="showEscuela" name="showEscuela" href="' . constant('URL') . 'escuela/showEscuela" class="nav-link">
       <i class="nav-icon fas fa-school"></i>
@@ -185,7 +184,6 @@ class Menu
       </p>
       </a>
       </li>
-
       <li class="nav-item">
       <a id="alumno" name="alumno" href="' . constant('URL') . 'alumno" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
@@ -194,7 +192,6 @@ class Menu
       </p>
       </a>
       </li>
-
       <li class="nav-item">
       <a id="tutor" name="tutor" href="' . constant('URL') . 'tutor" class="nav-link">
       <i class="nav-icon fas fa-user-tie"></i>
@@ -212,7 +209,6 @@ class Menu
       </p>
       </a>
       </li>
-
       <li class="nav-item">
       <a id="index" name="index" href="' . constant('URL') . 'materia/index" class="nav-link">
       <i class="nav-icon fas fa-book"></i>
@@ -221,7 +217,6 @@ class Menu
       </p>
       </a>
       </li>
-
       <li class="nav-item">
       <a id="showMateria" name="showMateria" href="' . constant('URL') . 'materia/showMateria" class="nav-link">
       <i class="nav-icon fas fa-book-open"></i>
@@ -230,7 +225,6 @@ class Menu
       </p>
       </a>
       </li>
-
       <li class="nav-item">
       <a id="gradoAcademico" name="gradoAcademico" href="' . constant('URL') . 'gradoAcademico" class="nav-link">
       <i class="nav-icon fas fa-graduation-cap"></i>
@@ -248,7 +242,6 @@ class Menu
       </p>
       </a>
       </li>
-
       <li class="nav-item">
       <a id="cobro" name="cobro" href="' . constant('URL') . 'cobro" class="nav-link">
       <i class="nav-icon fas fa-hand-holding-usd"></i>
@@ -257,7 +250,6 @@ class Menu
       </p>
       </a>
       </li>
-
       <li class="nav-item">
       <a id="grupo" name="grupo" href="' . constant('URL') . 'grupo" class="nav-link">
       <i class="nav-icon fas fa-chalkboard-teacher"></i>
@@ -266,7 +258,6 @@ class Menu
       </p>
       </a>
       </li>
-
       <li class="nav-item">
       <a id="horario" name="horario" href="' . constant('URL') . 'horario" class="nav-link">
       <i class="nav-icon fas fa-calendar-alt"></i>
@@ -275,7 +266,6 @@ class Menu
       </p>
       </a>
       </li>
-
       <li class="nav-item">
       <a id="pago" name="pago" href="' . constant('URL') . 'pago" class="nav-link">
       <i class="nav-icon fas fa-money-check-alt"></i>
@@ -312,15 +302,6 @@ class Menu
       <i class="nav-icon fas fa-paste"></i>
       <p>
       Incidencias
-      </p>
-      </a>
-      </li>
-      
-      <li class="nav-item">
-      <a id="tutor" name="tutor" href="' . constant('URL') . 'parcial" class="nav-link">
-      <i class="nav-icon fas fa-chalkboard"></i>
-      <p>
-      Parcial
       </p>
       </a>
       </li>
