@@ -901,6 +901,7 @@ $menu->header('Tablero');
 
 <script type="text/javascript">
    $(document).ready(function() {
+      mostrarCalificaciones();
       mostrarDirectivos();
       mostrarUsuarios();
       mostrarUsuariosBloqueados();
@@ -915,6 +916,36 @@ $menu->header('Tablero');
          language: 'es'
       });
    });
+
+   var mostrarCalificaciones = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>calificacionDetalleAlumno/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 9) {
+                  //console.log(elem.nombre_parcial);
+                  var colorCalificacion = "";
+                  if (elem.calificacion > 6) {
+                     colorCalificacion = "success";
+                  } else {
+                     colorCalificacion = "danger";
+                  }
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.nombre_parcial + '</td>' +
+                     '<td>' + elem.nombre_materia + '</td>' +
+                     '<td> <span class="badge badge-' + colorCalificacion + '">' + elem.calificacion + '</span></td>' +
+                     '</tr>';
+                  $('#tableCalificacionAlumno tbody').append(htmlTags);
+               }
+            });
+         },
+      });
+   }
 
    var mostrarUsuarios = function() {
       $.ajax({
