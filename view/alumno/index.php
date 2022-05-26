@@ -2,10 +2,9 @@
    session_start();
    require 'view/menu.php';
    $menu = new Menu();
-   $menu->header('alumno');
+   $menu->header('Alumno');
    ?>
    
- <script src="js/sha1.js"></script>
  <section class="content">
     <div class="container-fluid">
        <div class="row">

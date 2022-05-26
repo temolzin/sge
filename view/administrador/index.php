@@ -5,7 +5,6 @@
   $menu->header('administrador');
   ?>
 
- <script src="js/sha1.js"></script>
  <section class="content">
    <div class="container-fluid">
      <div class="row">

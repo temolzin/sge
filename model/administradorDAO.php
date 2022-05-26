@@ -111,6 +111,7 @@
           $administrador->telefono_administrador = $value['telefono_administrador'];
           $administrador->email_administrador = $value['email_administrador'];
           $administrador->fechanacimiento_administrador = $value['fechanacimiento_administrador'];
+          $administrador->id_tipo_usuario = $value['id_tipo_usuario'];
           $administrador->username_usuario = $value['username_usuario'];
           $administrador->password_usuario = $value['password_usuario'];
           array_push($objAdministradors, $administrador);
