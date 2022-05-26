@@ -4,7 +4,7 @@
    $menu = new Menu();
    $menu->header('Alumno');
    ?>
-   
+
  <section class="content">
     <div class="container-fluid">
        <div class="row">
