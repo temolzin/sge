@@ -2,7 +2,7 @@
         session_start();
     require 'view/menu.php';
     $menu = new Menu();
-    $menu->header('Grado Académico');
+    $menu->header('gradoAcademico');
     ?>
     <section class="content">
       <div class="container-fluid">

@@ -13,7 +13,6 @@
             :nombre_escuela, 
             :rfc_escuela,
             :cct_escuela,
-            :foto_escuela,
             :calle_escuela,
             :numxterior_escuela,
             :numinterior_escuela,
@@ -25,7 +24,6 @@
             :email_escuela,
             :observacion_escuela)');
             $query->execute([':nombre_escuela' => $data['nombre_escuela'],
-            ':foto_escuela' => $data['foto_escuela'],
             ':rfc_escuela' => $data['rfc_escuela'],
             ':cct_escuela' => $data['cct_escuela'],
             ':calle_escuela' => $data['calle_escuela'],
@@ -42,58 +40,9 @@
         }
 
         public function update($data)
-        {
-            $imagen = "";
-
-            $arrayActualizar = [];
-
-            if (isset($data['foto_escuela'])) {
-
-                //add
-                $imagen = 'foto_escuela = :foto_escuela,';
-    
-                $arrayActualizar = [
-                             ':id_escuela' => $data['id_escuela'],
-                             ':nombre_escuela' => $data['nombre_escuela'],
-                             ':foto_escuela' => $data['foto_escuela'],
-                             ':rfc_escuela' => $data['rfc_escuela'],
-                             ':cct_escuela' => $data['cct_escuela'],
-                             ':calle_escuela' => $data['calle_escuela'],
-                             ':numxterior_escuela' => $data['numxterior_escuela'],
-                             ':numinterior_escuela' => $data['numinterior_escuela'],
-                             ':cp_escuela' => $data['cp_escuela'],
-                             ':estado_escuela' => $data['estado_escuela'],
-                             ':municipio_escuela' => $data['municipio_escuela'],
-                             ':colonia_escuela' => $data['colonia_escuela'],
-                             ':numinterior_escuela' => $data['numinterior_escuela'],
-                             ':telefono_escuela' => $data['telefono_escuela'],
-                             ':email_escuela' => $data['email_escuela'],
-                             ':observacion_escuela' => $data['observacion_escuela']
-                ];
-            } else {
-
-                $arrayActualizar = [
-                    ':id_escuela' => $data['id_escuela'],
-                    ':nombre_escuela' => $data['nombre_escuela'],
-                    ':rfc_escuela' => $data['rfc_escuela'],
-                    ':cct_escuela' => $data['cct_escuela'],
-                    ':calle_escuela' => $data['calle_escuela'],
-                    ':numxterior_escuela' => $data['numxterior_escuela'],
-                    ':numinterior_escuela' => $data['numinterior_escuela'],
-                    ':cp_escuela' => $data['cp_escuela'],
-                    ':estado_escuela' => $data['estado_escuela'],
-                    ':municipio_escuela' => $data['municipio_escuela'],
-                    ':colonia_escuela' => $data['colonia_escuela'],
-                    ':numinterior_escuela' => $data['numinterior_escuela'],
-                    ':telefono_escuela' => $data['telefono_escuela'],
-                    ':email_escuela' => $data['email_escuela'],
-                    ':observacion_escuela' => $data['observacion_escuela']
-       ];
-    }
-
+        { 
             $query = $this->db->conectar()->prepare('UPDATE escuela SET 
             nombre_escuela = :nombre_escuela,
-            ' . $imagen . '
             rfc_escuela = :rfc_escuela,
             cct_escuela = :cct_escuela,
             calle_escuela = :calle_escuela,
@@ -108,7 +57,20 @@
             observacion_escuela = :observacion_escuela 
             WHERE id_escuela = :id_escuela');
 
-            $query->execute($arrayActualizar);
+            $query->execute([':id_escuela' => $data['id_escuela'],
+            ':nombre_escuela' => $data['nombre_escuela'],
+            ':rfc_escuela' => $data['rfc_escuela'],
+            ':cct_escuela' => $data['cct_escuela'],
+            ':calle_escuela' => $data['calle_escuela'],
+            ':numxterior_escuela' => $data['numxterior_escuela'],
+            ':numinterior_escuela' => $data['numinterior_escuela'],
+            ':cp_escuela' => $data['cp_escuela'],
+            ':estado_escuela' => $data['estado_escuela'],
+            ':municipio_escuela' => $data['municipio_escuela'], 
+            ':colonia_escuela' => $data['colonia_escuela'], 
+            ':telefono_escuela' => $data['telefono_escuela'],
+            ':email_escuela' => $data['email_escuela'],
+            ':observacion_escuela' => $data['observacion_escuela']]);
             echo 'ok';
         }
 
@@ -130,7 +92,6 @@
                 $escuela= new EscuelaDTO();
                 $escuela->id_escuela = $value['id_escuela'];
                 $escuela->nombre_escuela = $value['nombre_escuela'];
-                $escuela->foto_escuela = $value['foto_escuela'];
                 $escuela->rfc_escuela = $value['rfc_escuela'];
                 $escuela->cct_escuela = $value['cct_escuela'];
                 $escuela->calle_escuela = $value['calle_escuela'];
