@@ -63,22 +63,22 @@
 	</div>
 </body>
 <!-- jQuery -->
-<script src="public/plugins/jquery/jquery.min.js"></script>
+<script src="<?php echo constant('URL'); ?>public/plugins/jquery/jquery.min.js"></script>
           <!-- JQUERY VALIDATE -->
-    <script src="public/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="<?php echo constant('URL'); ?>public/plugins/jquery-validation/jquery.validate.js"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src="public/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="<?php echo constant('URL'); ?>public/plugins/jquery-ui/jquery-ui.min.js"></script>
   
-    <script src="public/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="<?php echo constant('URL'); ?>public/plugins/jquery-validation/jquery.validate.js"></script>
     <!-- SWEETALERT2 -->
-    <script src="public/plugins/sweetalert2/sweetalert2.js"></script>
+    <script src="<?php echo constant('URL'); ?>public/plugins/sweetalert2/sweetalert2.js"></script>
         
          <!-- jQuery Knob Chart -->
-    <script src="public/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <script src="<?php echo constant('URL'); ?>public/plugins/jquery-knob/jquery.knob.min.js"></script>
    
   
     <!-- Bootstrap 4 -->
-    <script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo constant('URL'); ?>public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
 	
   $(document).ready(function (){

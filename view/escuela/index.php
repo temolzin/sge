@@ -23,7 +23,6 @@ $menu->header('Escuela');
                         <table id="dataTableEscuela" name="dataTableEscuela" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 15px;">Foto</th>
                                     <th>Nombre Escuela</th>
                                     <th>RFC</th>
                                     <th>CCT</th>
@@ -64,13 +63,6 @@ $menu->header('Escuela');
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                <span><label>Fotografía Escuela (*)</label></span>
-                                        <div class="form-group input-group">
-                                            <div class="custom-file">
-                                                <input type="file" accept="image/*" class="custom-file-input" name="foto_escuela" id="foto_escuela" lang="es">
-                                                <label class="custom-file-label" for="imagen">Seleccione Fotografía</label>
-                                            </div>
-                                        </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Nombre Escuela</label>
@@ -237,15 +229,6 @@ $menu->header('Escuela');
                                     </div>
                                 </div>
                                 <div class="row">
-                                <div class="col-lg-12">
-                                        <span><label>Fotografía Escuela (*)</label></span>
-                                        <div class="form-group input-group">
-                                            <div class="custom-file">
-                                                <input type="file" accept="image/*" class="custom-file-input" name="foto_escuelaActualizar" id="foto_escuelaActualizar" lang="es">
-                                                <label class="custom-file-label" for="imagen">Selecciona imagen</label>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Nombre Escuela</label>
@@ -634,38 +617,12 @@ $menu->footer();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
         eliminarRegistro();
-        rutaImagen();
     });
 
     $(".custom-file-input").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
-
-    const rutaImagen = () => {
-        $.ajax({
-            type: "GET",
-            url: "<?php echo constant('URL'); ?>escuela/read",
-            async: false,
-            dataType: "json",
-            success: function(data) {
-                $.each(data, function(key, registro) {
-                    var id = registro.id_escuela;
-                    var nombre = registro.nombre_escuela;
-                    var rfc = registro.rfc_escuela;
-                    var cct = registro.cct_escuela;
-                    var foto = registro.foto_escuela;
-                    var fullnameImagen = nombre + '' + rfc + '' + cct + '/' + foto;
-                    var fotoConsulta = '<?php echo constant('URL')?>public/escuela/' + fullnameImagen;
-                    $(".id_escuela").append('<option value=' + id + '>' + fotoConsulta + '</option>');
-                    $('#foto_escuelaConsultar').attr(fotoConsulta);
-                });
-            },
-            error: function(data) {
-                console.log(data);
-            }
-        });
-    }
 
     var mostrarEscuela = function() {
         var tableEscuela = $('#dataTableEscuela').DataTable({
@@ -674,14 +631,6 @@ $menu->footer();
                 "url": "<?php echo constant('URL'); ?>escuela/readTable"
             },
             "columns": [
-                {
-                    defaultContent: "",
-                    'render': function(data, type, JsonResultRow, meta) {
-                        var fullnameImagen = JsonResultRow.nombre_escuela + '_' + JsonResultRow.rfc_escuela + '_' + JsonResultRow.cct_escuela + '/' + JsonResultRow.foto_escuela;
-                        var img = '<?php echo constant('URL')?>public/escuela/' + fullnameImagen;
-                        return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
-                    }
-                },
                 {
                     "data": "nombre_escuela"
                 },
@@ -725,7 +674,6 @@ $menu->footer();
 
             var id_escuela = $("#id_escuelaActualizar").val(data.id_escuela);
             var nombre_escuela = $("#nombre_escuelaActualizar").val(data.nombre_escuela);
-            var foto_escuela = $("#foto_escuelaActualizar").val(data.foto_escuela);
             var rfc_escuela = $("#rfc_escuelaActualizar").val(data.rfc_escuela);
             var cct_escuela = $("#cct_escuelaActualizar").val(data.cct_escuela);
             var calle_escuela = $("#calle_escuelaActualizar").val(data.calle_escuela);
@@ -744,7 +692,6 @@ $menu->footer();
 
             var idConsultar = $("#id_escuelaConsultar").val(data.id_escuela);
             var nombre_escuelaConsultar = $("#nombre_escuelaConsultar").val(data.nombre_escuela);
-            var rutaImagenConsulta = $("#foto_escuelaConsultar option[value=" + data.id_escuela + "]").attr("selected", true);
             var rfc_escuelaConsultar = $("#rfc_escuelaConsultar").val(data.rfc_escuela);
             var cct_escuelaConsultar = $("#cct_escuelaConsultar").val(data.cct_escuela);
             var calle_escuelaConsultar = $("#calle_escuelaConsultar").val(data.calle_escuela);
@@ -896,9 +843,6 @@ $menu->footer();
                         }
                     },
                 });
-                if ($('#imgdirectorActualizar').val() != null) {
-                    imagen = $('#imgdirectorActualizar').prop('files')[0];
-                }
             }
         });
         $('#formActualizarEscuela').validate({

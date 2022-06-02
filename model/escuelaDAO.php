@@ -13,7 +13,6 @@
             $query = $this->db->conectar()->prepare('INSERT INTO escuela values (NULL, 
             :nombre_escuela,  
             :rfc_escuela,
-            :foto_escuela,
             :cct_escuela,
             :calle_escuela,
             :numxterior_escuela,
@@ -26,7 +25,6 @@
             :email_escuela,
             :observacion_escuela)');
             $query->execute([':nombre_escuela' => $data['nombre_escuela'],
-            ':foto_escuela' => $data['foto_escuela'],
             ':rfc_escuela' => $data['rfc_escuela'],
             ':cct_escuela' => $data['cct_escuela'],
             ':calle_escuela' => $data['calle_escuela'],
@@ -44,11 +42,10 @@
 
         public function update($data)
         {
-            $query = $this->db->conectar()->prepare('UPDATE escuela SET nombre_escuela = :nombre_escuela, foto_escuela = :foto_escuela ,rfc_escuela = :rfc_escuela,cct_escuela = :cct_escuela,calle_escuela = :calle_escuela,numxterior_escuela = :numxterior_escuela,numinterior_escuela= :numinterior_escuela,cp_escuela = :cp_escuela,estado_escuela = :estado_escuela,municipio_escuela = :municipio_escuela, colonia_escuela = :colonia_escuela, telefono_escuela = :telefono_escuela,email_escuela = :email_escuela,observacion_escuela = :observacion_escuela WHERE id_escuela = :id_escuela');
+            $query = $this->db->conectar()->prepare('UPDATE escuela SET nombre_escuela = :nombre_escuela, rfc_escuela = :rfc_escuela,cct_escuela = :cct_escuela,calle_escuela = :calle_escuela,numxterior_escuela = :numxterior_escuela,numinterior_escuela= :numinterior_escuela,cp_escuela = :cp_escuela,estado_escuela = :estado_escuela,municipio_escuela = :municipio_escuela, colonia_escuela = :colonia_escuela, telefono_escuela = :telefono_escuela,email_escuela = :email_escuela,observacion_escuela = :observacion_escuela WHERE id_escuela = :id_escuela');
 
             $query->execute([':id_escuela' => $data['id_escuela'],
                              ':nombre_escuela' => $data['nombre_escuela'],
-                             ':foto_escuela' => $data['foto_escuela'],
                              ':rfc_escuela' => $data['rfc_escuela'],
                              ':cct_escuela' => $data['cct_escuela'],
                              ':calle_escuela' => $data['calle_escuela'],
@@ -97,7 +94,6 @@
                 foreach ($this->db->consultar($query) as $key => $value) {
                 $escuela= new EscuelaDTO();
                 $escuela->id_escuela = $value['id_escuela'];
-                $escuela->foto_escuela = $value['foto_escuela'];
                 $escuela->nombre_escuela = $value['nombre_escuela'];
                 $escuela->rfc_escuela = $value['rfc_escuela'];
                 $escuela->cct_escuela = $value['cct_escuela'];
