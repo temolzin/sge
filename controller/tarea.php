@@ -47,7 +47,7 @@ class Tarea extends Controller
             $ruta_provisional = $archivo["tmp_name"];
 
 
-            $carpeta = "public/tareas/" . $nombre_tarea . "/";
+            $carpeta = constant('URL')."public/tareas/" . $nombre_tarea . "/";
 
             if (!file_exists($carpeta)) {
                 mkdir($carpeta, 0777, true);
@@ -86,7 +86,7 @@ class Tarea extends Controller
             $ruta_provisional = $archivo["tmp_name"];
 
 
-            $carpeta = "public/tareas/" . $nombre_tarea . "/";
+            $carpeta = constant('URL')."public/tareas/" . $nombre_tarea . "/";
 
             if (!file_exists($carpeta)) {
                 mkdir($carpeta, 0777, true);
@@ -241,7 +241,7 @@ class Tarea extends Controller
             $ruta_provisional = $archivo["tmp_name"];
             $fullname = $id_tarea_alumnoDetalle . "_" . $archivo_tarea_entregada;
 
-            $carpeta = "public/tareas_entregadas/" . $fullname . "/";
+            $carpeta = constant('URL')."public/tareas_entregadas/" . $fullname . "/";
 
             if (!file_exists($carpeta)) {
                 mkdir($carpeta, 0777, true);

@@ -657,7 +657,7 @@
  <?php
    $menu->footer();
    ?>
- <script src="public/plugins/inputmask/jquery.inputmask.min.js"></script>
+ <script src="<?php constant('URL'); ?>public/plugins/inputmask/jquery.inputmask.min.js"></script>
  <script>
     var findCp = function(codigoPostal) {
        var codigoLeido = leerCodigoPostal(codigoPostal.value);

@@ -55,7 +55,7 @@ class TutorDAO extends Model implements CRUD {
         $id_escuela = $_SESSION['id_escuela'];
         
         require_once 'tutorDTO.php';
-        $query = "select tutor.*,alumno.nombre_alumno,alumno.appaterno_alumno,alumno.apmaterno_alumno, escuela.nombre_escuela, usuario.* from escuela escuela, alumno alumno,tutor tutor, usuario usuario, director director WHERE usuario.id_usuario = tutor.id_usuario and tutor.id_alumno = alumno.id_alumno and tutor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela = tutor.id_escuela and alumno.id_escuela = tutor.id_escuela and alumno.id_escuela= escuela.id_escuela and director.id_escuela = alumno.id_escuela and director.id_escuela = '".$id_escuela."'";
+        $query = "SELECT tutor.*,alumno.nombre_alumno,alumno.appaterno_alumno,alumno.apmaterno_alumno, escuela.nombre_escuela, usuario.* from escuela escuela, alumno alumno,tutor tutor, usuario usuario, director director WHERE usuario.id_usuario = tutor.id_usuario and tutor.id_alumno = alumno.id_alumno and tutor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela = tutor.id_escuela and alumno.id_escuela = tutor.id_escuela and alumno.id_escuela= escuela.id_escuela and director.id_escuela = alumno.id_escuela and director.id_escuela = '".$id_escuela."'";
         $objTutores = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
             foreach ($this->db->consultar($query) as $key => $value) {
@@ -75,6 +75,7 @@ class TutorDAO extends Model implements CRUD {
                 $tutor->noexterior_tutor = $value['noexterior_tutor'];
                 $tutor->nointerior_tutor = $value['nointerior_tutor'];
                 $tutor->cp_tutor = $value['cp_tutor'];
+                $tutor->id_tipo_usuario = $value['id_tipo_usuario'];
                 $tutor->estado_tutor = $value['estado_tutor'];
                 $tutor->municipio_tutor = $value['municipio_tutor'];
                 $tutor->colonia_tutor = $value['colonia_tutor'];

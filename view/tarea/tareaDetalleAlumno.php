@@ -218,7 +218,7 @@ $menu->footer();
                 {
                     "defaultContent": "",
                     render: function(data, type, row) {
-                        return `<a download="${row.archivo_tarea}" href="public/tareas/${row.nombre_tarea}/${row.archivo_tarea}"><button class='consulta btn btn-danger' title="Descargar PDF"><i class="fa fa-file-pdf"></i></button></a>`;
+                        return `<a download="${row.archivo_tarea}" href="<?php constant('URL');?>public/tareas/${row.nombre_tarea}/${row.archivo_tarea}"><button class='consulta btn btn-danger' title="Descargar PDF"><i class="fa fa-file-pdf"></i></button></a>`;
                     }
                 },
                 {

@@ -1,9 +1,9 @@
-    <?php
-        session_start();
-    require 'view/menu.php';
-    $menu = new Menu();
-    $menu->header('gradoAcademico');
-    ?>
+<?php
+session_start();
+require 'view/menu.php';
+$menu = new Menu();
+$menu->header('Grado');
+?>
     <section class="content">
       <div class="container-fluid">
         <div class="row">

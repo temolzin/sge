@@ -14,7 +14,7 @@ class Menu
             $foto = $_SESSION['foto'];
             $appaterno = $_SESSION['appaterno'];
             $apmaterno = $_SESSION['apmaterno'];
-            $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
+            // $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
 
             $fotoruta = constant('URL').'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 
@@ -63,7 +63,6 @@ class Menu
       </a>
       </li>
 
-      <?php } ?>
       <li class="nav-item">
       <a id="showTareaTutor" name="showTareaTutor" href="' . constant('URL') . 'tarea/showTareaTutor" class="nav-link">
       <i class="nav-icon fas fa-edit"></i>
@@ -214,7 +213,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'materia/index" class="nav-link">
+      <a id="materia" name="materia" href="' . constant('URL') . 'materia" class="nav-link">
       <i class="nav-icon fas fa-book"></i>
       <p>
       Materias
@@ -232,7 +231,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="gradoAcademico" name="gradoAcademico" href="' . constant('URL') . 'gradoAcademico" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'gradoAcademico/index" class="nav-link">
       <i class="nav-icon fas fa-graduation-cap"></i>
       <p>
       Grados Académicos
@@ -241,7 +240,7 @@ class Menu
       </li> 
 
       <li class="nav-item">
-      <a id="calificacion" name="calificacion" href="' . constant('URL') . 'calificacion" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'calificacion/index" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
@@ -259,7 +258,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="grupo" name="grupo" href="' . constant('URL') . 'grupo" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'grupo/index" class="nav-link">
       <i class="nav-icon fas fa-chalkboard-teacher"></i>
       <p>
       Grupos
@@ -396,7 +395,7 @@ class Menu
       <a id="administrador" name="administrador" href="' . constant('URL') . 'administrador" class="nav-link">
       <i class="nav-icon fas fa-user-secret"></i>
       <p>
-      Administradores
+      Administrador
       </p>
       </a>
       </li>

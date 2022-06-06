@@ -34,7 +34,7 @@ $menu->header('profesor_alumno_consulta');
    </div>
 </section>
 <!--- Modals--->
-< <!----------------------------------- Modal DetalleAlumno------------------------>
+<!----------------------------------- Modal DetalleAlumno------------------------>
    <div class="modal fade" id="modalDetalleAlumno" tabindex="-1" role="dialog" aria-labelledby="modalDetalleAlumno" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
          <div class="modal-content">
