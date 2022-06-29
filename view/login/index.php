@@ -194,7 +194,7 @@
 									"Los datos son incorrectos o no existe ese usuario en la base. " ,
 									"error" 
 									).then(function () {
-									window.location = "<?php echo constant('URL');?>usuario";
+									window.location = "usuario";
 								})*/
 							}
 						},

@@ -38,7 +38,7 @@ class Profesor extends Controller
             $ruta_provisional = $imagen["tmp_name"];
 
         $fullname = $appaterno_profesor ."_" . $apmaterno_profesor . "_" . $nombre_profesor;
-            $carpeta = "public/profesor/" .$fullname. "/";
+            $carpeta = constant('URL')."public/profesor/" .$fullname. "/";
 
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif')       {
                 echo 'errorimagen';
@@ -106,7 +106,7 @@ class Profesor extends Controller
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
             $fullname = $appaterno_profesor ."_" . $apmaterno_profesor . "_" . $nombre_profesor;
-            $carpeta = "public/profesor/" .$fullname. "/";
+            $carpeta = constant('URL')."public/profesor/" .$fullname. "/";
 
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif')       {
                 echo 'errorimagen';

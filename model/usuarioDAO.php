@@ -95,6 +95,7 @@ class UsuarioDAO extends Model implements CRUD {
                      //info escuela 
                      
                      $_SESSION['id_escuela'] = $value['id_escuela'];
+                     $_SESSION['foto_escuela'] = $value['foto_escuela'];
                      $_SESSION['nombre_escuela']=$value['nombre_escuela'];
                      $_SESSION['rfc_escuela'] = $value['rfc_escuela'];
                      $_SESSION['cct_escuela'] = $value['cct_escuela'];
@@ -166,6 +167,7 @@ class UsuarioDAO extends Model implements CRUD {
             
                      //Info Escuela
                      $_SESSION['id_escuela'] = $value['id_escuela'];
+                     $_SESSION['foto_escuela'] = $value['foto_escuela'];
                      $_SESSION['nombre_escuela']=$value['nombre_escuela'];
                      $_SESSION['rfc_escuela'] = $value['rfc_escuela'];
                      $_SESSION['cct_escuela'] = $value['cct_escuela'];
@@ -259,6 +261,7 @@ class UsuarioDAO extends Model implements CRUD {
         
          //Info Escuela
                      $_SESSION['id_escuela'] = $value['id_escuela'];
+                     $_SESSION['foto_escuela'] = $value['foto_escuela'];
                      $_SESSION['nombre_escuela']=$value['nombre_escuela'];
                      $_SESSION['rfc_escuela'] = $value['rfc_escuela'];
                      $_SESSION['cct_escuela'] = $value['cct_escuela'];
@@ -307,6 +310,7 @@ class UsuarioDAO extends Model implements CRUD {
      
                  //info escuela 
                  $_SESSION['id_escuela'] = $value['id_escuela'];
+                 $_SESSION['foto_escuela'] = $value['foto_escuela'];
                  $_SESSION['nombre_escuela']=$value['nombre_escuela'];
                  $_SESSION['rfc_escuela'] = $value['rfc_escuela'];
                  $_SESSION['cct_escuela'] = $value['cct_escuela'];

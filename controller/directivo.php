@@ -49,7 +49,7 @@ class Directivo extends Controller
             $ruta_provisional = $imagen["tmp_name"];
 
             $fullname = $appaterno_director . "_" . $apmaterno_director . "_" . $nombre_director;
-            $carpeta = "public/director/" . $fullname . "/";
+            $carpeta = constant('URL')."public/director/" . $fullname . "/";
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
             } else {
