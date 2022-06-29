@@ -9,7 +9,6 @@ class Menu
             $tipo = $_SESSION['tipo'];
 
 
-
             $nombre = $_SESSION['nombre'];
             $foto = $_SESSION['foto'];
             $appaterno = $_SESSION['appaterno'];
@@ -316,7 +315,7 @@ class Menu
       </li>
       
       <li class="nav-item">
-      <a id="tutor" name="tutor" href="' . constant('URL') . 'parcial" class="nav-link">
+      <a id="parcial" name="parcial" href="' . constant('URL') . 'parcial" class="nav-link">
       <i class="nav-icon fas fa-chalkboard"></i>
       <p>
       Parcial
@@ -371,7 +370,6 @@ class Menu
 
 ';
             } else if ($tipo == 'administrador') {
-                  //$fotoruta = '/SGE/public/director/Jiménez_Silva_Luis/bongocat.gif';
 
                   $menu = '
       <li class="nav-item">

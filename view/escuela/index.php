@@ -2,7 +2,7 @@
 session_start();
 require 'view/menu.php';
 $menu = new Menu();
-$menu->header('Escuela');
+$menu->header('escuela');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -23,6 +23,7 @@ $menu->header('Escuela');
                         <table id="dataTableEscuela" name="dataTableEscuela" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th style="width: 15px;">Foto</th>
                                     <th>Nombre Escuela</th>
                                     <th>RFC</th>
                                     <th>CCT</th>
@@ -52,7 +53,7 @@ $menu->header('Escuela');
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                 </div>
-                <form role="form" id="formRegistrarEscuela" name="formRegistrarEscuela" method="post">
+                <form role="form" id="formRegistrarEscuela" enctype="multipart/form-data" name="formRegistrarEscuela" method="post">
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header py-1 bg-secondary">
@@ -63,6 +64,15 @@ $menu->header('Escuela');
                             </div>
                             <div class="card-body">
                                 <div class="row">
+                                <div class="col-lg-12">
+                                        <span><label>Foto Escuela (*)</label></span>
+                                        <div class="form-group input-group">
+                                            <div class="custom-file">
+                                                <input type="file" accept="image/*" class="custom-file-input" name="foto_escuela" id="foto_escuela" lang="es">
+                                                <label class="custom-file-label" for="imagen">Seleccione Fotografía</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Nombre Escuela</label>
@@ -206,7 +216,7 @@ $menu->header('Escuela');
                     </div>
                     <!---->
                 </div>
-                <form role="form" id="formActualizarEscuela" name="formActualizarEscuela">
+                <form role="form" id="formActualizarEscuela" enctype="multipart/form-data" name="formActualizarEscuela">
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header py-1 bg-secondary">
@@ -225,6 +235,17 @@ $menu->header('Escuela');
                                         <div class="form-group">
                                             <label hidden>Id (*)</label>
                                             <input type="text" hidden class="form-control" id="id_escuelaActualizar" name="id_escuelaActualizar" placeholder="id" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-lg-12">
+                                        <span><label>Foto Escuela (*)</label></span>
+                                        <div class="form-group input-group">
+                                            <div class="custom-file">
+                                                <input type="file" accept="image/*" class="custom-file-input" name="foto_escuelaActualizar" id="foto_escuelaActualizar" lang="es">
+                                                <label class="custom-file-label" for="imagen">Selecciona imagen</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -595,12 +616,12 @@ $menu->footer();
         var result = '';
         $.ajax({
             type: "GET",
-            url: "<?php echo constant('URL'); ?>/public/js/sepomex_abril-2016.json",
+            url: "<?php echo constant('URL'); ?>public/js/sepomex_abril-2016.json",
             async: false,
             dataType: "json",
             success: function(rawdata) {
                 console.log(rawdata);
-                console.log("<?php echo constant('URL'); ?>/public/js/sepomex_abril-2016.json");
+                console.log("<?php echo constant('URL'); ?>public/js/sepomex_abril-2016.json");
                 let busqueda = rawdata.filter(codigo => codigo.cp == codigoPostal);
                 console.log(busqueda);
                 result = busqueda;
@@ -617,12 +638,38 @@ $menu->footer();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
         eliminarRegistro();
+        rutaImagen();
     });
 
     $(".custom-file-input").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
+
+    const rutaImagen = () => {
+        $.ajax({
+            type: "GET",
+            url: "<?php echo constant('URL'); ?>escuela/read",
+            async: false,
+            dataType: "json",
+            success: function(data) {
+                $.each(data, function(key, registro) {
+                    var id = registro.id_escuela;
+                    var nombre = registro.nombre_escuela;
+                    var cct = registro.cct_escuela;
+                    var rfc = registro.rfc_escuela;
+                    var foto = registro.foto_escuela;
+                    var fullnameImagen = cct + '' + rfc + '' + nombre + '/' + foto;
+                    var fotoConsulta = '<?php echo constant('URL');?>public/escuela/' + fullnameImagen;
+                    $(".id_escuela").append('<option value=' + id + '>' + fotoConsulta + '</option>');
+                    $('#foto_escuelaConsultar').attr(fotoConsulta);
+                });
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    }
 
     var mostrarEscuela = function() {
         var tableEscuela = $('#dataTableEscuela').DataTable({
@@ -632,13 +679,30 @@ $menu->footer();
             },
             "columns": [
                 {
-                    "data": "nombre_escuela"
+                    defaultContent: "",
+                    'render': function(data, type, JsonResultRow, meta) {
+                        var fullnameImagen = JsonResultRow.cct_escuela + '_' + JsonResultRow.rfc_escuela + '_' + JsonResultRow.nombre_escuela + '/' + JsonResultRow.foto_escuela;
+                        var img ='<?php echo constant('URL');?>public/escuela/' + fullnameImagen;
+                        return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
+                    }
                 },
                 {
-                    "data": "rfc_escuela"
+                    defaultContent: "",
+                    "render": function(data, type, full) {
+                        return full['nombre_escuela'];
+                    }
                 },
                 {
-                    "data": "cct_escuela"
+                    defaultContent: "",
+                    "render": function(data, type, full) {
+                        return full['rfc_escuela'];
+                    }
+                },
+                {
+                    defaultContent: "",
+                    "render": function(data, type, full) {
+                        return full['cct_escuela'];
+                    }
                 },
                 {
                     "data": "calle_escuela"
@@ -694,6 +758,9 @@ $menu->footer();
             var nombre_escuelaConsultar = $("#nombre_escuelaConsultar").val(data.nombre_escuela);
             var rfc_escuelaConsultar = $("#rfc_escuelaConsultar").val(data.rfc_escuela);
             var cct_escuelaConsultar = $("#cct_escuelaConsultar").val(data.cct_escuela);
+            var telefono_escuelaConsultar = $("#telefono_escuelaConsultar").val(data.telefono_escuela);
+            var email_escuelaConsultar = $("#email_escuelaConsultar").val(data.email_escuela);
+            var observacion_escuelaConsultar = $("#observacion_escuelaConsultar").val(data.observacion_escuela);
             var calle_escuelaConsultar = $("#calle_escuelaConsultar").val(data.calle_escuela);
             var numxterior_escuelaConsultar = $("#numxterior_escuelaConsultar").val(data.numxterior_escuela);
             var numinterior_escuelaConsultar = $("#numinterior_escuelaConsultar").val(data.numinterior_escuela);
@@ -701,21 +768,27 @@ $menu->footer();
             var estado_escuelaConsulta = $("#selectEstadoConsultar").val(data.estado_escuela);
             var municipio_escuelaConsulta = $("#selectMunicipioConsultar").val(data.municipio_escuela);
             var colonia_escuelaConsulta = $("#selectColoniaConsultar").val(data.colonia_escuela);
-            var telefono_escuelaConsultar = $("#telefono_escuelaConsultar").val(data.telefono_escuela);
-            var email_escuelaConsultar = $("#email_escuelaConsultar").val(data.email_escuela);
-            var observacion_escuelaConsultar = $("#observacion_escuelaConsultar").val(data.observacion_escuela);
 
         });
     }
 
     var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
-            submitHandler: function() {
-                var datos = $('#formRegistrarEscuela').serialize();
+            submitHandler: function(e) {
+                // var datos = $('#formRegistrarEscuela').serialize();
+                $('#formRegistrarEscuela').on('submit', function(e){
+                e.preventDefault();
                 $.ajax({
                     type: "POST",
                     url: "<?php echo constant('URL'); ?>escuela/insert",
-                    data: datos,
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    beforeSend: function(){
+                        $('.submit').attr("disabled", "disabled");
+                        $('#formRegistrarEscuela').css("opacity", ".5");
+                    },
                     success: function(data) {
                         console.log("data ", data)
                         if (data == 'ok') {
@@ -735,6 +808,7 @@ $menu->footer();
                         }
                     },
                 });
+            });
             }
         });
         $('#formRegistrarEscuela').validate({
@@ -817,69 +891,110 @@ $menu->footer();
         });
     }
 
+    // ACTUALIZAR
     var enviarFormularioActualizar = function() {
         $.validator.setDefaults({
-            submitHandler: function() {
-                var datos = $('#formActualizarEscuela').serialize();
+            submitHandler: function(e) {
+                // var datos = $('#formActualizarEscuela').serialize();
+                $('#formActualizarEscuela').on('submit', function(e){
+                e.preventDefault();
                 $.ajax({
                     type: "POST",
                     url: "<?php echo constant('URL'); ?>escuela/update",
-                    data: datos,
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    beforeSend: function(){
+                        $('.submit').attr("disabled", "disabled");
+                        $('#formActualizarEscuela').css("opacity", ".5");
+                    },
                     success: function(data) {
+                        console.log("data ", data)
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "El Escuela ha sido Actualizado de manera correcta",
                                 "success"
                             ).then(function() {
-                                window.location = "<?php echo constant('URL'); ?>Escuela";
+                                window.location = "<?php echo constant('URL'); ?>escuela";
                             })
                         } else {
                             Swal.fire(
                                 "¡Error!",
-                                "Ha ocurrido un error al Actualizar el escuela. " + data,
+                                "Ha ocurrido un error al Actualizar el escuela." + data,
                                 "error"
                             );
                         }
                     },
                 });
+            });
             }
         });
         $('#formActualizarEscuela').validate({
             rules: {
-                matriculaActualizar: {
+                id_escuela: {
                     required: true,
                     number: true
                 },
-                nombreActualizar: {
+                nombre_escuela: {
                     required: true
                 },
-                apaternoActualizar: {
+                rfc_escuela: {
                     required: true
                 },
-                amaternoActualizar: {
+                cct_escuela: {
                     required: true
                 },
-                emailActualizar: {
+                calle_escuela: {
+                    required: true
+                },
+                numxterior_escuela: {
+                    required: true
+                },
+                numinterior_escuela: {
+                    required: true
+                },
+                telefono_escuela: {
+
+                    required: true,
+                    number: true
+                },
+                email_escuela: {
+                    required: true
+                },
+                observacion_escuela: {
                     required: true
                 }
             },
             messages: {
-                matriculaActualizar: {
+                id_escuela: {
                     required: "Ingresa una matrícula",
                     number: "Sólo números"
                 },
-                nombreActualizar: {
+                nombre_escuela: {
                     required: "Ingresa un nombre"
                 },
-                apaternoActualizar: {
+                rfc_escuela: {
                     required: "Ingresa un apellido paterno"
                 },
-                amaternoActualizar: {
+                cct_escuela: {
                     required: "Ingresa un apellido materno"
                 },
-                emailActualizar: {
+                numxterior_escuela: {
+                    required: "Ingresa el numero Exterior"
+                },
+                numinterior_escuela: {
+                    required: "Ingresa el numero Interior"
+                },
+                telefono_escuela: {
+                    required: "Ingresa el numero Telefono"
+                },
+                email_escuela: {
                     required: "Ingresa un email"
+                },
+                observacion_escuela: {
+                    required: "Ingrese una observacion"
                 }
             },
             errorElement: 'span',
@@ -895,6 +1010,7 @@ $menu->footer();
             }
         });
     }
+    // FIN ACTUALIZAR
 
     var eliminarRegistro = function() {
         $("#formEliminarEscuela").submit(function(event) {

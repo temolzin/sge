@@ -138,7 +138,7 @@ $menu->header('profesor_alumno_consulta');
    <?php
    $menu->footer();
    ?>
-   <script src="public/plugins/inputmask/jquery.inputmask.min.js"></script>
+   <script src="<?php echo constant('URL')?>public/plugins/inputmask/jquery.inputmask.min.js"></script>
    <script>
       $(document).ready(function() {
          mostrarAlumnos();

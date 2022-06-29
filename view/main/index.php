@@ -410,7 +410,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL'); ?>administrador">Ver Todos</a>
+               <a href="<?php echo constant('URL') ?>administrador">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -442,7 +442,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL'); ?>directivo">Ver Todos</a>
+               <a href="<?php echo constant('URL') ?>directivo">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -908,6 +908,7 @@ $menu->header('Tablero');
       mostrarAdministradores();
       mostrarProfesores();
       mostrarAlumnos();
+      mostrarGradoAcademico();
    });
    $(function() {
       $('#datetimepicker12').datetimepicker({
@@ -916,6 +917,30 @@ $menu->header('Tablero');
          language: 'es'
       });
    });
+
+   var mostrarGradoAcademico = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>gradoAcademico/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_grado_academico + '</td>' +
+                     '<td>' + elem.nombre_grado_academico + '</td>' +
+                     '<td>' + elem.observacion_gradoacademico + '</td>' +
+                     '</tr>';
+                  // $('#tableAlumnos tbody').append(htmlTags);
+               }
+            });
+         },
+      });
+   }
 
    var mostrarCalificaciones = function() {
       $.ajax({
