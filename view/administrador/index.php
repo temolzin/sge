@@ -4,7 +4,6 @@
   $menu = new Menu();
   $menu->header('administrador');
   ?>
-
  <section class="content">
    <div class="container-fluid">
      <div class="row">

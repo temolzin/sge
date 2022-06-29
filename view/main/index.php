@@ -901,7 +901,6 @@ $menu->header('Tablero');
 
 <script type="text/javascript">
    $(document).ready(function() {
-      mostrarCalificaciones();
       mostrarDirectivos();
       mostrarUsuarios();
       mostrarUsuariosBloqueados();
@@ -918,6 +917,7 @@ $menu->header('Tablero');
       });
    });
 
+<<<<<<< feature/imagenEscuela
    var mostrarGradoAcademico = function() {
       $.ajax({
          type: "POST",
@@ -972,6 +972,8 @@ $menu->header('Tablero');
       });
    }
 
+=======
+>>>>>>> dev
    var mostrarUsuarios = function() {
       $.ajax({
          type: "POST",
