@@ -119,6 +119,7 @@ class ProfesorDAO extends Model implements CRUD {
         $profesor->id_grado_academico = $value['id_grado_academico'];
         $profesor->id_escuela = $value['id_escuela'];
         $profesor->id_usuario = $value['id_usuario'];
+        $profesor->id_tipo_usuario = $value['id_tipo_usuario'];
         $profesor->foto_profesor = $value['foto_profesor'];
         $profesor->nombre_profesor = $value['nombre_profesor'];
         $profesor->appaterno_profesor = $value['appaterno_profesor'];
@@ -162,6 +163,7 @@ class ProfesorDAO extends Model implements CRUD {
       $profesor->id_grado_academico = $value['id_grado_academico'];
       $profesor->id_escuela = $value['id_escuela'];
       $profesor->id_usuario = $value['id_usuario'];
+      $profesor->id_tipo_usuario = $value['id_tipo_usuario'];
       $profesor->foto_profesor = $value['foto_profesor'];
       $profesor->nombre_profesor = $value['nombre_profesor'];
       $profesor->appaterno_profesor = $value['appaterno_profesor'];

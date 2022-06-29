@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+$foto_escuela = $_SESSION['foto_escuela'];
 $nombre_escuela = $_SESSION['nombre_escuela'];
 $rfc_escuela = $_SESSION['rfc_escuela'];
 $cct_escuela = $_SESSION['cct_escuela'];
@@ -14,6 +15,7 @@ $colonia_escuela = $_SESSION['colonia_escuela'];
 $telefono_escuela = $_SESSION['telefono_escuela'];
 $email_escuela = $_SESSION['email_escuela'];
 $observacion_escuela = $_SESSION['observacion_escuela'];
+$fotoruta = constant('URL'). 'public/escuela/'.$cct_escuela.'_'.$rfc_escuela.'_'.$nombre_escuela.'/'.$foto_escuela;
 
 require 'view/menu.php';
 $menu = new Menu();
@@ -33,6 +35,15 @@ $menu->header('Tablero');
 <section class="content" style="margin: 20px 20px 20px 20px">
    <div class="card mb-3">
       <div class="card-body">
+      <div class="row">
+            <div class="col-lg-12">
+               
+                  <center>
+                  <img src="<?php echo $fotoruta;?>"  height="145px" width="145px" class="img-circle img-fluid">
+                  </center>
+               
+            </div>
+         </div>
          <div class="row">
             <div class="col-lg-12">
                <div class="card p-3 mb-2 bg-gradient-primary ">

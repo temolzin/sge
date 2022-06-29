@@ -779,12 +779,12 @@ $menu->footer();
         var result = '';
         $.ajax({
             type: "GET",
-            url: "<?php echo constant('URL'); ?>public/js/sepomex_abril-2016.json",
+            url: "<?php echo constant('URL'); ?>/public/js/sepomex_abril-2016.json",
             async: false,
             dataType: "json",
             success: function(rawdata) {
                 console.log(rawdata);
-                console.log("<?php echo constant('URL'); ?>public/js/sepomex_abril-2016.json");
+                console.log("<?php echo constant('URL'); ?>/public/js/sepomex_abril-2016.json");
                 let busqueda = rawdata.filter(codigo => codigo.cp == codigoPostal);
                 console.log(busqueda);
                 result = busqueda;

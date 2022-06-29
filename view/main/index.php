@@ -187,9 +187,9 @@ $menu->header('Tablero');
    <?php } ?>
    <!-- /.DASHBOARD PROFESOR -->
    <?php if ($tipo == 'profesor') {
-      $rfc_escuela = $_SESSION['rfc_escuela'];
-      $cct_escuela = $_SESSION['cct_escuela'];
-      $cedula = $_SESSION['cedula'];
+      $rfc_escuela = isset($_SESSION['rfc_escuela'])? $_SESSION['rfc_escuela'] : 0;
+      $cct_escuela = isset($_SESSION['cct_escuela'])? $_SESSION['cct_escuela'] : 0;
+      $cedula = isset($_SESSION['cedula'])? $_SESSION['cedula'] : 0;
 
 
    ?>
@@ -410,7 +410,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL'); ?>administrador">Ver Todos</a>
+               <a href="<?php echo constant('URL') ?>administrador">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -442,7 +442,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL'); ?>directivo">Ver Todos</a>
+               <a href="<?php echo constant('URL') ?>directivo">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -650,9 +650,9 @@ $menu->header('Tablero');
    <?php } ?>
    <!-- /.DASHBOARD DIRECTIVO -->
    <?php if ($tipo == 'director') {
-      $rfc_escuela = $_SESSION['rfc_escuela'];
-      $cct_escuela = $_SESSION['cct_escuela'];
-      $curp = $_SESSION['curp'];  ?>
+      $rfc_escuela = isset($_SESSION['rfc_escuela'])? $_SESSION['rfc_escuela'] : 0;
+      $cct_escuela = isset($_SESSION['cct_escuela'])? $_SESSION['cct_escuela'] : 0;
+      // $curp = $_SESSION['curp'];  ?>
       <div class="col-lg-3 col-3">
          <!-- small box -->
          <div class="small-box bg-info">
@@ -727,7 +727,7 @@ $menu->header('Tablero');
                   <div class="callout callout-info">
                      <p>Nombre Escuela: <?php echo  $nombre_escuela ?> </p>
                      <p>RFC: <?php echo  $rfc_escuela ?> </p>
-                     <p>CCT: <?php echo  $curp ?></p>
+                     <p>CCT: <?php echo  $cct_escuela ?></p>
                   </div>
                </div>
                <!-- /.card -->
@@ -907,6 +907,7 @@ $menu->header('Tablero');
       mostrarAdministradores();
       mostrarProfesores();
       mostrarAlumnos();
+      mostrarGradoAcademico();
    });
    $(function() {
       $('#datetimepicker12').datetimepicker({
@@ -916,6 +917,63 @@ $menu->header('Tablero');
       });
    });
 
+<<<<<<< feature/imagenEscuela
+   var mostrarGradoAcademico = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>gradoAcademico/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_grado_academico + '</td>' +
+                     '<td>' + elem.nombre_grado_academico + '</td>' +
+                     '<td>' + elem.observacion_gradoacademico + '</td>' +
+                     '</tr>';
+                  // $('#tableAlumnos tbody').append(htmlTags);
+               }
+            });
+         },
+      });
+   }
+
+   var mostrarCalificaciones = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>calificacionDetalleAlumno/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 9) {
+                  //console.log(elem.nombre_parcial);
+                  var colorCalificacion = "";
+                  if (elem.calificacion > 6) {
+                     colorCalificacion = "success";
+                  } else {
+                     colorCalificacion = "danger";
+                  }
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.nombre_parcial + '</td>' +
+                     '<td>' + elem.nombre_materia + '</td>' +
+                     '<td> <span class="badge badge-' + colorCalificacion + '">' + elem.calificacion + '</span></td>' +
+                     '</tr>';
+                  $('#tableCalificacionAlumno tbody').append(htmlTags);
+               }
+            });
+         },
+      });
+   }
+
+=======
+>>>>>>> dev
    var mostrarUsuarios = function() {
       $.ajax({
          type: "POST",
@@ -1043,7 +1101,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL')?>public/Profesor/' + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '" style="max-width: 110px; max-height: 110px;>' +
+                     '<img src="<?php echo constant('URL')?>public/profesor/' + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '" style="max-width: 110px; max-height: 110px;>' +
                      '<a class="users-list-name">' + elem.nombre_profesor + '<a>' +
                      '<span class="users-list-date">' + elem.email_profesor + '</span>' +
                      '</li>';
