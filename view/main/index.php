@@ -757,8 +757,8 @@ $menu->header('Tablero');
                         <td><?php echo  $nombre_completo ?></td>
                      </tr>
                      <tr>
-                        <td>Curp: </td>
-                        <td><?php echo  $curp ?></td>
+                        <td>Correo: </td>
+                        <td><?php echo  $email ?></td>
                      </tr>
                   </tbody>
                </table>
@@ -908,6 +908,11 @@ $menu->header('Tablero');
       mostrarProfesores();
       mostrarAlumnos();
       mostrarGradoAcademico();
+      mostrarGrupo();
+      mostrarTareas();
+      mostrarIncidencia();
+      mostrarParcial();
+      mostrarCalificaciones();
    });
    $(function() {
       $('#datetimepicker12').datetimepicker({
@@ -916,31 +921,6 @@ $menu->header('Tablero');
          language: 'es'
       });
    });
-
-<<<<<<< feature/imagenEscuela
-   var mostrarGradoAcademico = function() {
-      $.ajax({
-         type: "POST",
-
-         async: false,
-         url: "<?php echo constant('URL'); ?>gradoAcademico/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
-         success: function(data) {
-            //console.log('CALI ', data);
-            $.each(data, function(ind, elem) {
-               if (ind <= 4) {
-                  //console.log(elem.nombre_parcial);
-                  var htmlTags = '<tr>' +
-                     '<td>' + elem.id_grado_academico + '</td>' +
-                     '<td>' + elem.nombre_grado_academico + '</td>' +
-                     '<td>' + elem.observacion_gradoacademico + '</td>' +
-                     '</tr>';
-                  // $('#tableAlumnos tbody').append(htmlTags);
-               }
-            });
-         },
-      });
-   }
 
    var mostrarCalificaciones = function() {
       $.ajax({
@@ -972,8 +952,6 @@ $menu->header('Tablero');
       });
    }
 
-=======
->>>>>>> dev
    var mostrarUsuarios = function() {
       $.ajax({
          type: "POST",
@@ -1123,12 +1101,145 @@ $menu->header('Tablero');
             $.each(data, function(ind, elem) {
                if (ind <= 4) {
                   //console.log(elem.nombre_parcial);
+                  var htmlTags = '<li>' +
+                     '<img src="<?php echo constant('URL')?>public/alumno/' + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '" style="max-width: 110px; max-height: 110px;>' +
+                     '<a class="users-list-name">' + elem.nombre_alumno + '<a>' +
+                     '<span class="users-list-date">' + elem.email_alumno + '</span>' +
+                     '</li>';
+                  $('#tableAlumnos tbody').append(htmlTags);
+               }
+            });
+         },
+      });
+   }
+
+   var mostrarGradoAcademico = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>gradoAcademico/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
                   var htmlTags = '<tr>' +
+                     '<td>' + elem.id_grado_academico + '</td>' +
+                     '<td>' + elem.nombre_grado_academico + '</td>' +
+                     '<td>' + elem.observacion_gradoacademico + '</td>' +
+                     '</tr>';
+               }
+            });
+         },
+      });
+   }
+
+   var mostrarGrupo = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>grupo/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_grupo + '</td>' +
+                     '<td>' + elem.id_escuela + '</td>' +
+                     '<td>' + elem.nombre_grupo + '</td>' +
+                     '<td>' + elem.turno_grupo + '</td>' +
+                     '</tr>';
+               }
+            });
+         },
+      });
+   }
+
+   var mostrarParcial = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>parcial/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_parcial + '</td>' +
+                     '<td>' + elem.id_escuela + '</td>' +
+                     '<td>' + elem.nombre_parcial + '</td>' +
+                     '<td>' + elem.fechainicio_parcial + '</td>' +
+                     '<td>' + elem.fechafin_parcial + '</td>' +
+                     '</tr>';
+               }
+            });
+         },
+      });
+   }
+
+   var mostrarIncidencia = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>incidencia/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_incidencia + '</td>' +
+                     '<td>' + elem.id_alumno + '</td>' +
+                     '<td>' + elem.id_profesor + '</td>' +
+                     '<td>' + elem.id_grupo + '</td>' +
+                     '<td>' + elem.fechaincidencia_incidencia + '</td>' +
+                     '<td>' + elem.horaincidencia_incidencia + '</td>' +
+                     '<td>' + elem.descripcion_incidencia + '</td>' +
+                     '<td>' + elem.nombre_profesor + '</td>' +
+                     '<td>' + elem.appaterno_profesor + '</td>' +
+                     '<td>' + elem.apmaterno_profesor + '</td>' +
                      '<td>' + elem.nombre_alumno + '</td>' +
                      '<td>' + elem.appaterno_alumno + '</td>' +
-                     '<td>' + elem.telefono_alumno + '</td>' +
+                     '<td>' + elem.apmaterno_alumno + '</td>' +
+                     '<td>' + elem.nombre_grupo + '</td>' +
                      '</tr>';
-                  $('#tableAlumnos tbody').append(htmlTags);
+               }
+            });
+         },
+      });
+   }
+
+   var mostrarTareas = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>tarea/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_tarea_alumno + '</td>' +
+                     '<td>' + elem.id_grupo + '</td>' +
+                     '<td>' + elem.id_materia + '</td>' +
+                     '<td>' + elem.nombre_tarea + '</td>' +
+                     '<td>' + elem.descripcion_tarea + '</td>' +
+                     '<td>' + elem.fecha_entrega + '</td>' +
+                     '<td>' + elem.nombre + '</td>' +
+                     '</tr>';
                }
             });
          },

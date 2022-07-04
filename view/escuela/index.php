@@ -658,9 +658,9 @@ $menu->footer();
                     var nombre = registro.nombre_escuela;
                     var cct = registro.cct_escuela;
                     var rfc = registro.rfc_escuela;
-                    var foto = registro.foto_escuela;
-                    var fullnameImagen = cct + '' + rfc + '' + nombre + '/' + foto;
-                    var fotoConsulta = '<?php echo constant('URL');?>public/escuela/' + fullnameImagen;
+                    var foto_escuela = registro.foto_escuela;
+                    var fullnameImagen = cct + '' + rfc + '' + nombre + '/' + foto_escuela;
+                    var fotoConsulta = '<?php echo constant('URL')?>public/escuela/' + fullnameImagen;
                     $(".id_escuela").append('<option value=' + id + '>' + fotoConsulta + '</option>');
                     $('#foto_escuelaConsultar').attr(fotoConsulta);
                 });
@@ -682,7 +682,7 @@ $menu->footer();
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.cct_escuela + '_' + JsonResultRow.rfc_escuela + '_' + JsonResultRow.nombre_escuela + '/' + JsonResultRow.foto_escuela;
-                        var img ='<?php echo constant('URL');?>public/escuela/' + fullnameImagen;
+                        var img ='<?php echo constant('URL')?>public/escuela/' + fullnameImagen;
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
                 },

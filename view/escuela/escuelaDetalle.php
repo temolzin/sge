@@ -36,7 +36,7 @@ $menu->header('Tablero');
    <div class="card mb-3">
       <div class="card-body">
       <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-12 col-xs-12">
                
                   <center>
                   <img src="<?php echo $fotoruta;?>"  height="145px" width="145px" class="img-circle img-fluid">
