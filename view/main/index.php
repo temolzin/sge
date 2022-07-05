@@ -231,7 +231,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-clipboard"></i>
             </div>
-            <a href="<?php echo constant('URL'); ?>incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>incidencia/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -663,7 +663,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-graduation-cap"></i>
             </div>
-            <a href="<?php echo constant('URL'); ?>alumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>alumno/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -691,7 +691,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-user-tie"></i>
             </div>
-            <a href="<?php echo constant('URL'); ?>directivo" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>directivo/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <div class="col-lg-3 col-3">
@@ -856,7 +856,7 @@ $menu->header('Tablero');
                <!-- /.table-responsive -->
             </div>
             <div class="card-footer clearfix">
-               <a href="<?php echo constant('URL'); ?>alumno" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
+               <a href="<?php echo constant('URL'); ?>alumno/index" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
          </div>
       </div>
@@ -905,6 +905,7 @@ $menu->header('Tablero');
       mostrarUsuarios();
       mostrarUsuariosBloqueados();
       mostrarAdministradores();
+      mostrarlistaAdministradores();
       mostrarProfesores();
       mostrarAlumnos();
       mostrarGradoAcademico();
@@ -1043,7 +1044,7 @@ $menu->header('Tablero');
          },
       });
    }
-   var mostrarAdministradores = function() {
+   var mostrarlistaAdministradores = function() {
       $.ajax({
          type: "POST",
          async: false,
@@ -1061,6 +1062,29 @@ $menu->header('Tablero');
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
                      '</li>';
                   $('#listAdministradores').append(htmlTags);
+               }
+            });
+         },
+      });
+   }
+
+   var mostrarAdministradores = function() {
+      $.ajax({
+         type: "POST",
+         async: false,
+         url: "<?php echo constant('URL'); ?>administrador/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 7) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<li>' +
+                     '<img src="<?php echo constant('URL')?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 80px; height: 80px;>' +
+                     '<br><br>'+
+                     '<a class="users-list-name">' + '<br>'+ elem.nombre_administrador + '</a>' +
+                     '<span class="users-list-date">' + elem.email_administrador + '</span>' +
+                     '</li>';
                }
             });
          },
