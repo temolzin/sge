@@ -167,7 +167,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'directivo/index" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
       Directivo (s)
@@ -183,7 +183,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="alumno" name="alumno" href="' . constant('URL') . 'alumno" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'alumno/index" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
       <p>
       Alumnos
@@ -296,7 +296,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="incidencia" name="incidencia" href="' . constant('URL') . 'incidencia" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'incidencia/index" class="nav-link">
       <i class="nav-icon fas fa-paste"></i>
       <p>
       Incidencias
@@ -305,7 +305,7 @@ class Menu
       </li>
       
       <li class="nav-item">
-      <a id="parcial" name="parcial" href="' . constant('URL') . 'parcial" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'parcial/index" class="nav-link">
       <i class="nav-icon fas fa-chalkboard"></i>
       <p>
       Parcial
@@ -351,7 +351,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="calificacion" name="calificacion" href="' . constant('URL') . 'calificacion" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'calificacion/index" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
