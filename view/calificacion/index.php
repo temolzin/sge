@@ -2,7 +2,7 @@
     session_start();
     require 'view/menu.php';
     $menu = new Menu();
-    $menu->header('Calificación');
+    $menu->header('calificacion');
     ?>
     <section class="content">
       <div class="container-fluid">
