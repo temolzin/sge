@@ -183,7 +183,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'alumno/index" class="nav-link">
+      <a id="alumno" name="alumno" href="' . constant('URL') . 'alumno" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
       <p>
       Alumnos
@@ -224,7 +224,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'gradoAcademico/index" class="nav-link">
+      <a id="gradoAcademico" name="gradoAcademico" href="' . constant('URL') . 'gradoAcademico" class="nav-link">
       <i class="nav-icon fas fa-graduation-cap"></i>
       <p>
       Grados Académicos
@@ -233,7 +233,7 @@ class Menu
       </li> 
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'calificacion/index" class="nav-link">
+      <a id="calificacion" name="calificacion" href="' . constant('URL') . 'calificacion" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
@@ -249,7 +249,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'grupo/index" class="nav-link">
+      <a id="grupo" name="grupo" href="' . constant('URL') . 'grupo" class="nav-link">
       <i class="nav-icon fas fa-chalkboard-teacher"></i>
       <p>
       Grupos
@@ -296,7 +296,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'incidencia/index" class="nav-link">
+      <a id="incidencia" name="incidencia" href="' . constant('URL') . 'incidencia" class="nav-link">
       <i class="nav-icon fas fa-paste"></i>
       <p>
       Incidencias
@@ -305,7 +305,7 @@ class Menu
       </li>
       
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'parcial/index" class="nav-link">
+      <a id="parcial" name="parcial" href="' . constant('URL') . 'parcial" class="nav-link">
       <i class="nav-icon fas fa-chalkboard"></i>
       <p>
       Parcial
@@ -351,7 +351,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'calificacion/index" class="nav-link">
+      <a id="calificacion" name="calificacion" href="' . constant('URL') . 'calificacion" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
