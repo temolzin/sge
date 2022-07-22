@@ -32,14 +32,13 @@ class MateriaDAO extends Model implements CRUD
     {
         $id_escuela = $_SESSION['id_escuela'];
         require_once 'materiaDTO.php';
-        $query = "SELECT materia.*, grupo.*, profesor.*, escuela.*, horario_materia.*, materia_profesor.* from materia_profesor materia_profesor, escuela escuela, profesor profesor, grupo grupo, horario_materia horario_materia, materia materia, director director WHERE materia_profesor.id_profesor = profesor.id_profesor AND profesor.id_escuela = escuela.id_escuela AND grupo.id_escuela = escuela.id_escuela AND materia.id_escuela = escuela.id_escuela AND materia.id_horario=horario_materia.id_horario AND director.id_escuela = escuela.id_escuela AND materia.id_escuela = director.id_escuela and director.id_escuela =  '" . $id_escuela . "' ";
-
+        $query = "SELECT materia.*, grupo.*, profesor.*, escuela.*, horario_materia.* from escuela escuela, profesor profesor, grupo grupo, horario_materia horario_materia, materia materia, director director WHERE profesor.id_escuela = escuela.id_escuela AND grupo.id_escuela = escuela.id_escuela AND materia.id_escuela = escuela.id_escuela AND materia.id_horario=horario_materia.id_horario AND director.id_escuela = escuela.id_escuela AND materia.id_escuela = director.id_escuela and director.id_escuela =  '" . $id_escuela . "' ";
+        
         $objMaterias = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
             foreach ($this->db->consultar($query) as $key => $value) {
                 $materia = new MateriaDTO();
                 $materia->id_materia = $value['id_materia'];
-                $materia->id_materia_profesor = $value['id_materia_profesor'];
                 $materia->id_escuela = $value['id_escuela'];
                 $materia->id_horario = $value['id_horario'];
                 $materia->id_profesor = $value['id_profesor'];
@@ -202,7 +201,7 @@ class MateriaDAO extends Model implements CRUD
     {
         $id_escuela = $_SESSION['id_escuela'];
         require_once 'materiaDTO.php';
-        $query = "SELECT * FROM materia_profesor INNER JOIN grupo on materia_profesor.id_grupo=grupo.id_grupo INNER JOIN profesor on materia_profesor.id_profesor=profesor.id_profesor INNER JOIN materia on materia_profesor.id_materia=materia.id_materia WHERE grupo.id_escuela = '" . $id_escuela . "'";
+        $query = "SELECT * FROM materia_profesor INNER JOIN grupo on materia_profesor.id_grupo=grupo.id_grupo INNER JOIN profesor on materia_profesor.id_profesor=profesor.id_profesor INNER JOIN materia on materia_profesor.id_materia=materia.id_materia INNER JOIN escuela on grupo.id_escuela=escuela.id_escuela INNER JOIN horario_materia on materia.id_horario=horario_materia.id_horario WHERE escuela.id_escuela = '" . $id_escuela . "'";
         $objProfesorMateria = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
 
@@ -212,7 +211,12 @@ class MateriaDAO extends Model implements CRUD
                 $materia->id_profesor = $value['id_profesor'];
                 $materia->id_grupo = $value['id_grupo'];
                 $materia->id_materia = $value['id_materia'];
+                $materia->id_escuela = $value['id_escuela'];
+                $materia->id_horario = $value['id_horario'];
 
+                
+                $materia->materia_fecha_horario = $value['materia_fecha_horario'];
+                $materia->nombre_escuela = $value['nombre_escuela'];
                 $materia->nombre_grupo = $value['nombre_grupo'];
                 $materia->nombre_profesor = $value['nombre_profesor'];
                 $materia->appaterno_profesor = $value['appaterno_profesor'];
