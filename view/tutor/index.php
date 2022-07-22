@@ -907,7 +907,7 @@ $menu->footer();
 
                         var fullnameImagen = JsonResultRow.appaterno_tutor + '_' + JsonResultRow.apmaterno_tutor + '_' + JsonResultRow.nombre_tutor + '/' + JsonResultRow.foto_tutor;
 
-                        var img = '<?php echo constant('URL');?>public/Tutor/' + fullnameImagen;
+                        var img = '<?php echo constant('URL');?>public/tutor/' + fullnameImagen;
 
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
