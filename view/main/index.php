@@ -666,7 +666,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-graduation-cap"></i>
             </div>
-            <a href="<?php echo constant('URL'); ?>alumno/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>alumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -694,7 +694,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-user-tie"></i>
             </div>
-            <a href="<?php echo constant('URL'); ?>directivo/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>directivo" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <div class="col-lg-3 col-3">
@@ -859,7 +859,7 @@ $menu->header('Tablero');
                <!-- /.table-responsive -->
             </div>
             <div class="card-footer clearfix">
-               <a href="<?php echo constant('URL'); ?>alumno/index" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
+               <a href="<?php echo constant('URL'); ?>alumno" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
          </div>
       </div>
@@ -912,10 +912,6 @@ $menu->header('Tablero');
       mostrarProfesores();
       mostrarAlumnos();
       mostrarGradoAcademico();
-      mostrarTarea();
-      mostrarGrupo();
-      mostrarIncidencia();
-      mostrarParcial();
    });
    $(function() {
       $('#datetimepicker12').datetimepicker({
@@ -930,7 +926,7 @@ $menu->header('Tablero');
          type: "POST",
 
          async: false,
-         url: "<?php echo constant('URL'); ?>calificacionDetalleAlumno/read",
+         url: "<?php echo constant('URL'); ?>calificacion/readTableCalificacionAlumno",
          dataType: 'json', // what to expect back from the PHP script, if anything
          success: function(data) {
             //console.log('CALI ', data);
@@ -1138,104 +1134,6 @@ $menu->header('Tablero');
                      '<td>' + elem.id_grado_academico + '</td>' +
                      '<td>' + elem.nombre_grado_academico + '</td>' +
                      '<td>' + elem.observacion_gradoacademico + '</td>' +
-                     '</tr>';
-               }
-            });
-         },
-      });
-   }
-   var mostrarTarea = function() {
-      $.ajax({
-         type: "POST",
-
-         async: false,
-         url: "<?php echo constant('URL'); ?>tarea/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
-         success: function(data) {
-            //console.log('CALI ', data);
-            $.each(data, function(ind, elem) {
-               if (ind <= 4) {
-                  //console.log(elem.nombre_parcial);
-                  var htmlTags = '<tr>' +
-                     '<td>' + elem.id_tarea_alumno + '</td>' +
-                     '<td>' + elem.id_grupo + '</td>' +
-                     '<td>' + elem.id_materia + '</td>' +
-                     '<td>' + elem.nombre_materia + '</td>' +
-                     '<td>' + elem.descripcion_tarea + '</td>' +
-                     '<td>' + elem.fecha_entrega + '</td>' +
-                     '</tr>';
-               }
-            });
-         },
-      });
-   }
-   var mostrarGrupo = function() {
-      $.ajax({
-         type: "POST",
-
-         async: false,
-         url: "<?php echo constant('URL'); ?>grupo/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
-         success: function(data) {
-            //console.log('CALI ', data);
-            $.each(data, function(ind, elem) {
-               if (ind <= 4) {
-                  //console.log(elem.nombre_parcial);
-                  var htmlTags = '<tr>' +
-                     '<td>' + elem.id_grupo + '</td>' +
-                     '<td>' + elem.id_escuela + '</td>' +
-                     '<td>' + elem.nombre_grupo + '</td>' +
-                     '<td>' + elem.turno_grupo + '</td>' +
-                     '</tr>';
-               }
-            });
-         },
-      });
-   }
-   var mostrarIncidencia = function() {
-      $.ajax({
-         type: "POST",
-
-         async: false,
-         url: "<?php echo constant('URL'); ?>incidencia/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
-         success: function(data) {
-            //console.log('CALI ', data);
-            $.each(data, function(ind, elem) {
-               if (ind <= 4) {
-                  //console.log(elem.nombre_parcial);
-                  var htmlTags = '<tr>' +
-                     '<td>' + elem.id_incidencia + '</td>' +
-                     '<td>' + elem.id_alumno + '</td>' +
-                     '<td>' + elem.id_profesor + '</td>' +
-                     '<td>' + elem.id_grupo + '</td>' +
-                     '<td>' + elem.fechaincidencia_incidencia + '</td>' +
-                     '<td>' + elem.horaincidencia_incidencia + '</td>' +
-                     '<td>' + elem.descripcion_incidencia + '</td>' +
-                     '</tr>';
-               }
-            });
-         },
-      });
-   }
-   var mostrarParcial = function() {
-      $.ajax({
-         type: "POST",
-
-         async: false,
-         url: "<?php echo constant('URL'); ?>parcial/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
-         success: function(data) {
-            //console.log('CALI ', data);
-            $.each(data, function(ind, elem) {
-               if (ind <= 4) {
-                  //console.log(elem.nombre_parcial);
-                  var htmlTags = '<tr>' +
-                     '<td>' + elem.id_parcial + '</td>' +
-                     '<td>' + elem.id_escuela + '</td>' +
-                     '<td>' + elem.nombre_parcial + '</td>' +
-                     '<td>' + elem.fechainicio_parcial + '</td>' +
-                     '<td>' + elem.fechafin_parcial + '</td>' +
                      '</tr>';
                }
             });
