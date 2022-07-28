@@ -167,7 +167,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'directivo/index" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'directivo" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
       Directivo (s)
@@ -462,7 +462,7 @@ class Menu
     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-    <a href="'. constant('URL') .'" class="nav-link">Inicio</a>
+    <a href="'. constant('URL') .'main" class="nav-link">Inicio</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
     <a href="'. constant('URL') .'perfil" class="nav-link">Ver Perfil</a>

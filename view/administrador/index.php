@@ -1,8 +1,11 @@
  <?php
   session_start();
+if (!isset($_SESSION['tipo'])) {
+  header("Location:usuario");
+}
   require 'view/menu.php';
   $menu = new Menu();
-  $menu->header('administrador');
+  $menu->header('Administrador');
   ?>
  <section class="content">
    <div class="container-fluid">
@@ -488,11 +491,10 @@
        "columns": [{
            defaultContent: "",
            "render": function(data, type, full, row) {
-
              var fullnameImagen = full['appaterno_administrador'] + '_' + full['apmaterno_administrador'] + '_' + full['nombre_administrador'] + '/' + full['foto_administrador'];
 
-
              var img = '<?php echo constant('URL'); ?>public/administrador/' + fullnameImagen;
+            
 
              return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
            }
@@ -502,9 +504,10 @@
            defaultContent: "",
            "render": function(data, type, full) {
              return full['nombre_administrador'] + ' ' + full['appaterno_administrador'] + ' ' + full['apmaterno_administrador'];
+            
            }
          },
-
+         
          {
            "data": "email_administrador"
          },

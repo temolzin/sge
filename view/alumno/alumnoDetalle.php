@@ -1,31 +1,12 @@
 <?php
 session_start();
+if (!isset($_SESSION['tipo'])) {
+   header("Location:usuario");
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('profesor_alumno_consulta');
 ?>
-
-<head>
-   <!-- Google Font: Source Sans Pro -->
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-   <!-- Font Awesome Icons -->
-   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/plugins/fontawesome-free/css/all.min.css">
-   <!-- overlayScrollbars -->
-   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-   <!-- Theme style -->
-   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-   <!-- Font Awesome -->
-   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/plugins/fontawesome-free/css/all.min.css">
-   <!-- Ionicons -->
-   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-   <!-- Theme style -->
-   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/dist/css/adminlte.min.css">
-   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/perfilalumno.css">
-   
-</head>
-<script src="js/sha1.js"></script>
 <section class="content">
    <div class="container-fluid">
       <br>
