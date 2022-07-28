@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['tipo'])) {
+   header("Location:usuario");
+ }
 
 $foto_escuela = $_SESSION['foto_escuela'];
 $nombre_escuela = $_SESSION['nombre_escuela'];

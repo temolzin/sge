@@ -13,7 +13,7 @@ class Calificacion extends Controller
 
     function showCalificacionTutor()
     {
-        $this->view->render('calificacion/califcacionDetalleTutor');
+        $this->view->render('calificacion/calificacionDetalleTutor');
     }
 
     function showCalificacionAlumno()

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['tipo'])) {
+    header("Location:usuario");
+  }
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('escuela');
@@ -786,8 +789,8 @@ $menu->footer();
                     cache: false,
                     processData: false,
                     beforeSend: function(){
-                        $('.submit').attr("disabled", "disabled");
-                        $('#formRegistrarEscuela').css("opacity", ".5");
+                        // $('.submit');
+                        $('#formRegistrarEscuela');
                     },
                     success: function(data) {
                         console.log("data ", data)
@@ -906,8 +909,7 @@ $menu->footer();
                     cache: false,
                     processData: false,
                     beforeSend: function(){
-                        $('.submit').attr("disabled", "disabled");
-                        $('#formActualizarEscuela').css("opacity", ".5");
+                        $('#formActualizarEscuela');
                     },
                     success: function(data) {
                         console.log("data ", data)
