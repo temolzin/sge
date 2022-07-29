@@ -806,6 +806,9 @@ $menu->footer();
         eliminarRegistro();
         llenarGradoAcademico();
         llenarEscuela();
+        mostrarAlumnos();
+        llenarGrupo();
+        mostrarCalificaciones();
         rutaImagen();
     });
 
@@ -857,6 +860,85 @@ $menu->footer();
             }
         });
     }
+
+    
+   const llenarGrupo = () => {
+     $.ajax({
+       type: "GET",
+       url: "<?php echo constant('URL'); ?>grupo/read",
+       async: false,
+       dataType: "json",
+       success: function(data) {
+         //console.log('generos: ',data)
+         $.each(data, function(key, registro) {
+           var id = registro.id_grupo;
+           var nombre = registro.nombre_grupo;
+           $(".id_grupo").append('<option value=' + id + '>' + nombre + '</option>');
+         });
+       },
+       error: function(data) {
+         console.log(data);
+       }
+     });
+   }
+
+   var mostrarAlumnos = function() {
+      $.ajax({
+         type: "POST",
+         async: false,
+         url: "<?php echo constant('URL'); ?>alumno/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 7) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<li>' +
+                     '<img src="<? echo constant('URL') ?>public/alumno/' + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '" style="width: 80px; height: 80px;>' + '<br>' +
+                     '<a class="users-list-name">' + '<br>'+elem.nombre_alumno + '</a>' +
+                     '<span class="users-list-date">' + elem.email_alumno + '</span>' +
+                     '</li>';
+               }
+            });
+         },
+      });
+   }
+
+   var mostrarCalificaciones = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>calificacion/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 9) {
+                  //console.log(elem.nombre_parcial);
+                  var colorCalificacion = "";
+                  if (elem.calificacion > 6) {
+                     colorCalificacion = "success";
+                  } else {
+                     colorCalificacion = "danger";
+                  }
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_calificacion + '</td>' +
+                     '<td>' + elem.id_profesor + '</td>' +
+                     '<td>' + elem.id_alumno + '</td>' +
+                     '<td>' + elem.nombre_alumno + '</td>' +
+                     '<td>' + elem.id_parcial + '</td>' +
+                     '<td>' + elem.nombre_parcial + '</td>' +
+                     '<td>' + elem.id_materia + '</td>' +
+                     '<td>' + elem.nombre_materia + '</td>' +
+                     '<td>' + elem.calificacion + '</td>' +
+                     '<td> <span class="badge badge-' + colorCalificacion + '">' + elem.calificacion + '</span></td>' +
+                     '</tr>';
+               }
+            });
+         },
+      });
+   }
 
     const llenarEscuela = () => {
         $.ajax({
