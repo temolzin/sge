@@ -434,31 +434,11 @@ if (!isset($_SESSION['tipo'])) {
      enviarFormularioRegistrar();
      enviarFormularioActualizar();
      eliminarRegistro();
-     llenarGrupo();
      llenarEscuela();
    });
 
    $('[data-mask]').inputmask()
 
-   const llenarGrupo = () => {
-     $.ajax({
-       type: "GET",
-       url: "<?php echo constant('URL'); ?>grupo/read",
-       async: false,
-       dataType: "json",
-       success: function(data) {
-         //console.log('generos: ',data)
-         $.each(data, function(key, registro) {
-           var id = registro.id_grupo;
-           var nombre = registro.nombre_grupo;
-           $(".id_grupo").append('<option value=' + id + '>' + nombre + '</option>');
-         });
-       },
-       error: function(data) {
-         console.log(data);
-       }
-     });
-   }
 
    const llenarEscuela = () => {
      $.ajax({
@@ -596,16 +576,9 @@ if (!isset($_SESSION['tipo'])) {
              var id_usuario = data;
              var idUsuario = id_usuario;
              var form_data = new FormData();
-             imagen = $('#foto_administrador').prop('files')[0]; // Aqui obtienes la imagen del usuario de BBDD
-             $urlImagenBasica = '<?php echo constant('URL');?>public/img/default.jpg';
-             if ($('#foto_administrador').val() == null) {
-               imagen = $urlImagenBasica // Esta la tienes que obtener anteriormente y guardarla en la variable $urlImagenBasica
-             }
              var imagen = '<?php echo constant('URL');?>public/img/default.jpg';
              if ($('#foto_administrador').val() != null) {
                imagen = $('#foto_administrador').prop('files')[0];
-             } else {
-               imagen = "images/default-profile.jpg";
              }
              form_data.append('id_usuario', idUsuario);
              form_data.append('foto_administrador', imagen);
