@@ -1,4 +1,4 @@
-  <?php
+<?php
   session_start();
   class AdministradorDAO extends Model implements CRUD
   {

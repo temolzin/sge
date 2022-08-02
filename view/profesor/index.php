@@ -1,8 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['tipo'])) {
-  header("Location:usuario");
-}
+
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('profesor');
@@ -797,10 +795,6 @@ $menu->footer();
     enviarFormularioRegistrar();
     enviarFormularioActualizar();
     eliminarRegistro();
-    mostrarTareas();
-    mostrarCalificaciones();
-    mostrarIncidencia();
-    llenarParcial();
     llenargradoAcademico();
     llenarEscuela();
   });
@@ -816,108 +810,6 @@ $menu->footer();
           var id = registro.id_grado_academico;
           var nombre = registro.nombre_grado_academico;
           $(".id_grado_academico").append('<option value=' + id + '>' + nombre + '</option>');
-        });
-      },
-      error: function(data) {
-        console.log(data);
-      }
-    });
-  }
-
-  const mostrarTareas = () => {
-    $.ajax({
-      type: "GET",
-      url: "<?php echo constant('URL'); ?>tarea/read",
-      async: false,
-      dataType: "json",
-      success: function(data) {
-        //console.log('generos: ',data)
-        $.each(data, function(key, registro) {
-          var id = registro.id_tarea_alumno;
-          var nombre = registro.nombre_tarea;
-          $(".id_tarea_alumno").append('<option value=' + id + '>' + nombre + '</option>');
-        });
-      },
-      error: function(data) {
-        console.log(data);
-      }
-    });
-  }
-
-  var mostrarCalificaciones = function() {
-      $.ajax({
-         type: "POST",
-
-         async: false,
-         url: "<?php echo constant('URL'); ?>calificacion/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
-         success: function(data) {
-            //console.log('CALI ', data);
-            $.each(data, function(ind, elem) {
-               if (ind <= 9) {
-                  //console.log(elem.nombre_parcial);
-                  var colorCalificacion = "";
-                  if (elem.calificacion > 6) {
-                     colorCalificacion = "success";
-                  } else {
-                     colorCalificacion = "danger";
-                  }
-                  var htmlTags = '<tr>' +
-                     '<td>' + elem.id_calificacion + '</td>' +
-                     '<td>' + elem.id_profesor + '</td>' +
-                     '<td>' + elem.id_alumno + '</td>' +
-                     '<td>' + elem.nombre_alumno + '</td>' +
-                     '<td>' + elem.id_parcial + '</td>' +
-                     '<td>' + elem.nombre_parcial + '</td>' +
-                     '<td>' + elem.id_materia + '</td>' +
-                     '<td>' + elem.nombre_materia + '</td>' +
-                     '<td>' + elem.calificacion + '</td>' +
-                     '<td> <span class="badge badge-' + colorCalificacion + '">' + elem.calificacion + '</span></td>' +
-                     '</tr>';
-                  $('#tableCalificacionAlumno tbody').append(htmlTags);
-               }
-            });
-         },
-      });
-   }
-
-  const llenarParcial = () => {
-        $.ajax({
-          type: "GET",
-          url: "<?php echo constant('URL'); ?>parcial/read",
-          async: false,
-          dataType: "json",
-          success: function(data) {
-            //console.log('generos: ',data)
-            $.each(data, function(key, registro) {
-              var id = registro.id_parcial;
-              var nombre = registro.nombre_parcial;
-              $(".id_parcial").append('<option value=' + id + '>' + nombre + '</option>');
-            });
-          },
-          error: function(data) {
-            console.log(data);
-          }
-        });
-      }
-
-  const mostrarIncidencia = () => {
-    $.ajax({
-      type: "GET",
-      url: "<?php echo constant('URL'); ?>incidencia/read",
-      async: false,
-      dataType: "json",
-      success: function(data) {
-        //console.log('generos: ',data)
-        $.each(data, function(key, registro) {
-          var id = registro.id_incidencia;
-          var idg = registro.id_grupo;
-          var idp = registro.id_profesor;
-          var ida = registro.id_alumno;
-          var fecha = registro.fechaincidencia_incidencia;
-          var hora = registro.horaincidencia_incidencia;
-          var descripcion = registro.descripcion_incidencia;
-          $(".id_incidencia").append('<option value=' + id + '>' + descripcion + '</option>');
         });
       },
       error: function(data) {

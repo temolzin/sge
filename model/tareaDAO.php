@@ -1,4 +1,4 @@
-  <?php
+<?php
   session_start();
   class TareaDAO extends Model implements CRUD
   {
