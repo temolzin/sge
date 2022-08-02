@@ -215,7 +215,7 @@ class DirectivoDAO extends Model implements CRUD
                     $director->email_director = $value['email_director'];
                     $director->cedulaprofesional_director = $value['cedulaprofesional_director'];
                     $director->fechanacimiento_director = $value['fechanacimiento_director'];
-                    //$director->nombre_escuela = $value['nombre_escuela'];
+                    // $director->nombre_escuela = $value['nombre_escuela'];
                     $director->username_usuario = $value['username_usuario'];
                     $director->password_usuario = $value['password_usuario'];
 

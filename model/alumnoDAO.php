@@ -1,4 +1,4 @@
-  <?php
+<?php
   session_start();
   class AlumnoDAO extends Model implements CRUD
   {
@@ -106,13 +106,13 @@
     {
       $id_escuela = $_SESSION['id_escuela'];
       require_once 'alumnoDTO.php';
-      $query = "SELECT alumno.*, usuario.*, escuela.*, director.* from alumno alumno, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = alumno.id_usuario and alumno.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and alumno.id_escuela and director.id_escuela = '" . $id_escuela . "'";
+      $query = "SELECT * FROM alumno INNER JOIN usuario on alumno.id_usuario=usuario.id_usuario INNER JOIN escuela on alumno.id_escuela=escuela.id_escuela INNER JOIN director on alumno.id_escuela=director.id_escuela WHERE escuela.id_escuela = '" . $id_escuela . "'";
       $objAlumnos = array();
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
         foreach ($this->db->consultar($query) as $key => $value) {
           $alumno = new AlumnoDTO();
           $alumno->id_alumno = $value['id_alumno'];
-          $alumno->id_grupo = $value['id_grupo'];
+          
           $alumno->id_escuela = $value['id_escuela'];
           $alumno->id_usuario = $value['id_usuario'];
           $alumno->foto_alumno = $value['foto_alumno'];
