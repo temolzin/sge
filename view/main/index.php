@@ -2,10 +2,6 @@
 
 session_start();
 
-if (!isset($_SESSION['tipo'])) {
-   header("Location:usuario");
-}
-
 
 
 $tipo = $_SESSION['tipo'];

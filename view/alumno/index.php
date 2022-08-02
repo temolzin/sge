@@ -1,4 +1,4 @@
- <?php
+<?php
    session_start();
    if (!isset($_SESSION['tipo'])) {
       header("Location:usuario");
@@ -785,7 +785,7 @@
                    var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
 
 
-                   var img = '<?php echo constant('URL');?>public/alumno/' + fullnameImagen;
+                   var img = 'public/alumno/' + fullnameImagen;
 
                    return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                 }
