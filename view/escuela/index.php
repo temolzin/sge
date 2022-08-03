@@ -663,7 +663,7 @@ $menu->footer();
                     var rfc = registro.rfc_escuela;
                     var foto_escuela = registro.foto_escuela;
                     var fullnameImagen = cct + '' + rfc + '' + nombre + '/' + foto_escuela;
-                    var fotoConsulta = '<?php echo constant('URL')?>public/escuela/' + fullnameImagen;
+                    var fotoConsulta = '<?php constant('URL')?>public/escuela/' + fullnameImagen;
                     $(".id_escuela").append('<option value=' + id + '>' + fotoConsulta + '</option>');
                     $('#foto_escuelaConsultar').attr(fotoConsulta);
                 });
