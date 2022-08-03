@@ -43,8 +43,6 @@ class Directivo extends Controller
         if ($_FILES["foto_director"]["name"] != null) {
             $imagen = $_FILES["foto_director"];
             $nombreImagen = $imagen["name"];
-            //$nombreImagen = date("Y-n-j");
-            //$nombreImagen = date("Y-n-j");
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
 
