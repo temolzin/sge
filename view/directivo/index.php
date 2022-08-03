@@ -826,7 +826,7 @@ $menu->footer();
                     var apmat = registro.apmaterno_director;
                     var foto = registro.foto_director;
                     var fullnameImagen = appat + '' + apmat + '' + nombre + '/' + foto;
-                    var fotoConsulta = '<?php echo constant('URL');?>public/director/' + fullnameImagen;
+                    var fotoConsulta = '<?php constant('URL'); ?>public/director/' + fullnameImagen;
                     $(".id_director").append('<option value=' + id + '>' + fotoConsulta + '</option>');
                     $('#imgdirectorConsultar').attr(fotoConsulta);
                 });
@@ -886,7 +886,7 @@ $menu->footer();
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
-                        var img = '<?php echo constant('URL');?>public/director/' + fullnameImagen;
+                        var img = '<?php echo constant('URL')?>public/director/' + fullnameImagen;
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
                 },
@@ -1475,6 +1475,29 @@ $menu->footer();
             });
         });
     }
+
+    var mostrarAlumnos = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>alumno/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<li>' +
+                     '<img src="<?php echo constant('URL')?>public/alumno/' + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '" style="max-width: 110px; max-height: 110px;>' +
+                     '<a class="users-list-name">' + elem.nombre_alumno + '<a>' +
+                     '<span class="users-list-date">' + elem.email_alumno + '</span>' +
+                     '</li>';
+               }
+            });
+         },
+      });
+   }
 
 
 
