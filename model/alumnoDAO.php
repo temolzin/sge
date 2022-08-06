@@ -112,7 +112,7 @@
         foreach ($this->db->consultar($query) as $key => $value) {
           $alumno = new AlumnoDTO();
           $alumno->id_alumno = $value['id_alumno'];
-          
+          $alumno->id_grupo = $value['id_grupo'];
           $alumno->id_escuela = $value['id_escuela'];
           $alumno->id_usuario = $value['id_usuario'];
           $alumno->foto_alumno = $value['foto_alumno'];
