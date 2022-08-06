@@ -785,7 +785,7 @@
                    var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
 
 
-                   var img = 'public/alumno/' + fullnameImagen;
+                   var img = '<?php constant('URL')?>public/alumno/' + fullnameImagen;
 
                    return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                 }

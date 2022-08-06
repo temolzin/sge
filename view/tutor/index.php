@@ -804,7 +804,6 @@ $menu->footer();
         eliminarRegistro();
         llenarAlumno();
         llenarEscuela();
-        rutaImagen();
 
     });
 
@@ -816,34 +815,6 @@ $menu->footer();
     function actualiza(nombre) {
         console.log(nombre);
         document.getElementById('imgTutorActualizar').value = nombre;
-    }
-
-
-
-    const rutaImagen = () => {
-        $.ajax({
-            type: "GET",
-            url: "<?php echo constant('URL'); ?>tutor/read",
-            async: false,
-            dataType: "json",
-            success: function(data) {
-                //console.log('generos: ',data)
-                $.each(data, function(key, registro) {
-                    var id = registro.id_tutor;
-                    var nombre = registro.nombre_tutor;
-                    var appat = registro.appaterno_tutor;
-                    var apmat = registro.apmaterno_tutor;
-                    var foto = registro.foto_tutor;
-                    var fullnameImagen = appat + '_' + apmat + '_' + nombre + '/' + foto;
-                    var fotoConsulta = '<?php constant('URL'); ?>public/tutor/' + fullnameImagen;
-                    $(".id_tutor").append('<option value=' + id + '>' + fotoConsulta + '</option>');
-                    $('#imgTutorConsultar').attr(fotoConsulta);
-                });
-            },
-            error: function(data) {
-                console.log(data);
-            }
-        });
     }
 
     const llenarAlumno = () => {
