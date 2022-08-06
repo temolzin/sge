@@ -804,38 +804,12 @@ $menu->footer();
         llenarGradoAcademico();
         llenarEscuela();
         mostrarAlumnos();
-        rutaImagen();
     });
 
     $(".custom-file-input").on("change", function() {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
-
-    const rutaImagen = () => {
-        $.ajax({
-            type: "GET",
-            url: "<?php echo constant('URL'); ?>directivo/read",
-            async: false,
-            dataType: "json",
-            success: function(data) {
-                $.each(data, function(key, registro) {
-                    var id = registro.id_director;
-                    var nombre = registro.nombre_director;
-                    var appat = registro.appaterno_director;
-                    var apmat = registro.apmaterno_director;
-                    var foto = registro.foto_director;
-                    var fullnameImagen = appat + '' + apmat + '' + nombre + '/' + foto;
-                    var fotoConsulta = '<?php constant('URL'); ?>public/director/' + fullnameImagen;
-                    $(".id_director").append('<option value=' + id + '>' + fotoConsulta + '</option>');
-                    $('#imgdirectorConsultar').attr(fotoConsulta);
-                });
-            },
-            error: function(data) {
-                console.log(data);
-            }
-        });
-    }
 
     const llenarGradoAcademico = () => {
         $.ajax({
@@ -886,7 +860,7 @@ $menu->footer();
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
-                        var img = '<?php echo constant('URL')?>public/director/' + fullnameImagen;
+                        var img = '<?php constant('URL'); ?>public/director/' + fullnameImagen;
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
                 },
@@ -970,7 +944,7 @@ $menu->footer();
             var id_grado_academicoConsulta = $("#id_grado_academicoConsultar option[value=" + data.id_grado_academico + "]").attr("selected", true);
             var username_usuarioConsulta = $("#username_usuarioConsultar").val(data.username_usuario);
             var password_usuarioConsulta = $("#password_usuarioConsultar").val(data.password_usuario);
-            var rutaImagenConsulta = $("#imgdirectorConsultar option[value=" + data.id_director + "]").attr("selected", true);
+            // var rutaImagenConsulta = $("#imgdirectorConsultar option[value=" + data.id_director + "]").attr("selected", true);
             var nombre_directorConsulta = $("#nombre_directorConsultar").val(data.nombre_director);
             var appaterno_directorConsulta = $("#appaterno_directorConsultar").val(data.appaterno_director);
             var apmaterno_directorConsulta = $("#apmaterno_directorConsultar").val(data.apmaterno_director);
@@ -1012,7 +986,7 @@ $menu->footer();
 
                         var idUsuario = id_usuario;
                         var form_data = new FormData();
-                        var imagen = '<?php echo constant('URL');?>public/img/default.jpg';
+                        var imagen = "";
                         if ($('#foto_director').val() != null) {
                             imagen = $('#foto_director').prop('files')[0];
                         }
