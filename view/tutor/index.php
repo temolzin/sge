@@ -1058,7 +1058,7 @@ $menu->footer();
 
                             success: function(data) {
 
-                                if (data == 'ok') {
+                                if (data.join == 'ok') {
                                     Swal.fire(
                                         "¡Éxito!",
                                         "El Tutor ha sido registrado de manera correcta",
@@ -1257,7 +1257,7 @@ $menu->footer();
                     data: form_data,
                     success: function(data) {
                         console.log("data ", data)
-                        if (data == 'ok') {
+                        if (data.join == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "El Tutor ha sido Actualizado de manera correcta",

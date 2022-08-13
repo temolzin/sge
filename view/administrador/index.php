@@ -5,7 +5,7 @@
   }
   require 'view/menu.php';
   $menu = new Menu();
-  $menu->header('Administrador');
+  $menu->header('administrador');
   ?>
  <section class="content">
    <div class="container-fluid">
@@ -435,35 +435,9 @@
      enviarFormularioActualizar();
      eliminarRegistro();
      llenarEscuela();
-     rutaImagen();
    });
 
    $('[data-mask]').inputmask()
-
-   const rutaImagen = () => {
-        $.ajax({
-            type: "GET",
-            url: "<?php echo constant('URL'); ?>administrador/read",
-            async: false,
-            dataType: "json",
-            success: function(data) {
-                $.each(data, function(key, registro) {
-                    var id = registro.id_administrador;
-                    var nombre = registro.nombre_administrador;
-                    var appat = registro.appaterno_administrador;
-                    var apmat = registro.apmaterno_administrador;
-                    var foto = registro.foto_administrador;
-                    var fullnameImagen = appat + '' + apmat + '' + nombre + '/' + foto;
-                    var fotoConsulta = 'public/administrador/' + fullnameImagen;
-                    $(".id_administrador").append('<option value=' + id + '>' + fotoConsulta + '</option>');
-                    $('#foto_administradorConsultar').attr(fotoConsulta);
-                });
-            },
-            error: function(data) {
-                console.log(data);
-            }
-        });
-    }
 
    const llenarEscuela = () => {
      $.ajax({
@@ -496,10 +470,11 @@
        "columns": [{
            defaultContent: "",
            "render": function(data, type, full, row) {
+
              var fullnameImagen = full['appaterno_administrador'] + '_' + full['apmaterno_administrador'] + '_' + full['nombre_administrador'] + '/' + full['foto_administrador'];
 
-             var img = 'public/administrador/' + fullnameImagen;
-            
+
+             var img = '<?php echo constant('URL') ?>public/administrador/' + fullnameImagen;
 
              return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
            }
@@ -509,10 +484,9 @@
            defaultContent: "",
            "render": function(data, type, full) {
              return full['nombre_administrador'] + ' ' + full['appaterno_administrador'] + ' ' + full['apmaterno_administrador'];
-            
            }
          },
-         
+
          {
            "data": "email_administrador"
          },
@@ -552,7 +526,6 @@
        var idEliminarUsuario = $('#idEliminarUsuario').val(data.id_usuario);
        var idActualizar = $("#id_administradorActualizar").val(data.id_administrador);
        var id_usuario = $("#id_usuarioActualizar").val(data.id_usuario);
-       
        var nombre_administrador = $("#nombre_administradorActualizar").val(data.nombre_administrador);
        var appaterno_administrador = $("#appaterno_administradorActualizar").val(data.appaterno_administrador);
        var apmaterno_administrador = $("#apmaterno_administradorActualizar").val(data.apmaterno_administrador);
@@ -637,7 +610,7 @@
                processData: false,
                data: form_data,
                success: function(data) {
-                 if (data == 'ok') {
+                 if (data.join == 'ok') {
                    Swal.fire(
                      "¡Error!",
                      "Ha ocurrido un error al registrar el administrador. " + data,
@@ -778,8 +751,6 @@
            data: datos,
            success: function(data) {
              console.log("data ", data)
-
-
            },
          });
 
@@ -810,7 +781,7 @@
            data: form_data,
            success: function(data) {
              console.log("data ", data)
-             if (data == 'ok') {
+             if (data.join == 'ok') {
                Swal.fire(
                  "¡Error!",
                  "Ha ocurrido un error al Actualizar el administrador. " + data,
