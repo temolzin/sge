@@ -948,7 +948,7 @@
                       success: function(data) {
 
 
-                         if (data != 'ok') {
+                         if (data.join != 'ok') {
                             Swal.fire(
                                "¡Éxito!",
                                "El Alumno ha sido registrado con exito",
@@ -1130,7 +1130,7 @@
                 data: form_data,
                 success: function(data) {
                    console.log("data ", data)
-                   if (data == 'ok') {
+                   if (data.join == 'ok') {
                       Swal.fire(
                          "¡Error!",
                          "Ha ocurrido un error al Actualizar el alumno. " + data,
