@@ -789,8 +789,7 @@ $menu->footer();
                     cache: false,
                     processData: false,
                     beforeSend: function(){
-                        // $('.submit');
-                        $('#formRegistrarEscuela');
+                        $('.submit');
                     },
                     success: function(data) {
                         console.log("data ", data)
@@ -913,7 +912,7 @@ $menu->footer();
                     },
                     success: function(data) {
                         console.log("data ", data)
-                        if (data == 'ok') {
+                        if (data.join == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "El Escuela ha sido Actualizado de manera correcta",

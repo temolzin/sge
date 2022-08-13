@@ -1106,7 +1106,7 @@ $menu->header('Tablero');
                if (ind <= 4) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src=<? echo constant('URL') ?>"public/alumno/' + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '" style="max-width: 110px; max-height: 110px;>' +
+                     '<img src="<? echo constant('URL') ?>public/alumno/' + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '" style="max-width: 110px; max-height: 110px;>' +
                      '<a class="users-list-name">' + elem.nombre_alumno + '<a>' +
                      '<span class="users-list-date">' + elem.email_alumno + '</span>' +
                      '</li>';

@@ -1006,7 +1006,7 @@ $menu->footer();
               data: form_data,
               success: function(data) {
                 console.log("data.profesor", data)
-                if (data == 'ok') {
+                if (data.join == 'ok') {
                   Swal.fire(
                     "¡Éxito!",
                     "El profesor ha sido registrado de manera correcta",
@@ -1193,7 +1193,7 @@ $menu->footer();
           data: form_data,
           success: function(data) {
             console.log("data ", data)
-            if (data == 'ok') {
+            if (data.join == 'ok') {
               Swal.fire(
                 "¡Éxito!",
                 "El profe ha sido Actualizado de manera correcta",
