@@ -888,7 +888,7 @@ $menu->footer();
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
-                        var img = '<?php echo constant('URL'); ?>public/director/' + fullnameImagen;
+                        var img = '<?php constant('URL'); ?>public/director/' + fullnameImagen;
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
                 },
@@ -1061,7 +1061,7 @@ $menu->footer();
 
                             success: function(data) {
 
-                                if (data.join == 'ok') {
+                                if (data == 'ok') {
                                     Swal.fire(
                                         "¡Éxito!",
                                         "El director ha sido registrado de manera correcta",
