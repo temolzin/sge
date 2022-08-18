@@ -45,13 +45,13 @@ class DirectivoDAO extends Model implements CRUD
         //add
         $imagen = '';
 
-        $banderafoto = 0;
+        // $banderafoto = 0;
 
         //add
         $arrayActualizar = [];
 
         if (isset($data['foto_director'])) {
-            $banderafoto = 1;
+            // $banderafoto = 1;
             //add
             $imagen = 'foto_director = :foto_director,';
 
@@ -127,14 +127,17 @@ class DirectivoDAO extends Model implements CRUD
             fechanacimiento_director = :fechanacimiento_director  
             WHERE id_director = :id_director');
 
-        if($query->execute($arrayActualizar)){
-            if($banderafoto == 1){
-                $_SESSION['foto']=$data['foto_director'];
-            }
+            $query->execute($arrayActualizar);
             echo 'ok';
-        }else{
-            echo 'Error al Actualizar';
-        }
+
+        // if($query->execute($arrayActualizar)){
+        //     if($banderafoto == 1){
+        //         $_SESSION['foto']=$data['foto_director'];
+        //     }
+        //     echo 'ok';
+        // }else{
+        //     echo 'Error al Actualizar';
+        // }
     }
 
     public function delete($id)
