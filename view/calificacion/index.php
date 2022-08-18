@@ -1,11 +1,11 @@
-<?php
+    <?php
     session_start();
-    if (!isset($_SESSION['tipo'])) {
+    if(!isset($_SESSION['tipo'])){
       header("Location:usuario");
-    }
+  }
     require 'view/menu.php';
     $menu = new Menu();
-    $menu->header('calificacion');
+    $menu->header('Calificación');
     ?>
     <section class="content">
       <div class="container-fluid">

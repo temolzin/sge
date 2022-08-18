@@ -1,11 +1,11 @@
-<?php
+ <?php
    session_start();
    if (!isset($_SESSION['tipo'])) {
       header("Location:usuario");
     }
    require 'view/menu.php';
    $menu = new Menu();
-   $menu->header('alumno');
+   $menu->header('Alumno');
    ?>
 
  <section class="content">
@@ -785,7 +785,7 @@
                    var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
 
 
-                   var img = '<?php constant('URL')?>public/alumno/' + fullnameImagen;
+                   var img = '<?php echo constant('URL');?>public/alumno/' + fullnameImagen;
 
                    return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                 }
@@ -948,7 +948,7 @@
                       success: function(data) {
 
 
-                         if (data.join != 'ok') {
+                         if (data != 'ok') {
                             Swal.fire(
                                "¡Éxito!",
                                "El Alumno ha sido registrado con exito",
@@ -1130,7 +1130,7 @@
                 data: form_data,
                 success: function(data) {
                    console.log("data ", data)
-                   if (data.join == 'ok') {
+                   if (data == 'ok') {
                       Swal.fire(
                          "¡Error!",
                          "Ha ocurrido un error al Actualizar el alumno. " + data,

@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['tipo'])) {
+if(!isset($_SESSION['tipo'])){
     header("Location:usuario");
-  }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Directivo');
@@ -828,7 +828,7 @@ $menu->footer();
                     var apmat = registro.apmaterno_director;
                     var foto = registro.foto_director;
                     var fullnameImagen = appat + '' + apmat + '' + nombre + '/' + foto;
-                    var fotoConsulta = 'public/director/' + fullnameImagen;
+                    var fotoConsulta = '<?php echo constant('URL');?>public/director/' + fullnameImagen;
                     $(".id_director").append('<option value=' + id + '>' + fotoConsulta + '</option>');
                     $('#imgdirectorConsultar').attr(fotoConsulta);
                 });
@@ -888,7 +888,7 @@ $menu->footer();
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
-                        var img = '<?php constant('URL'); ?>public/director/' + fullnameImagen;
+                        var img = '<?php echo constant('URL');?>public/director/' + fullnameImagen;
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
                 },
@@ -972,7 +972,7 @@ $menu->footer();
             var id_grado_academicoConsulta = $("#id_grado_academicoConsultar option[value=" + data.id_grado_academico + "]").attr("selected", true);
             var username_usuarioConsulta = $("#username_usuarioConsultar").val(data.username_usuario);
             var password_usuarioConsulta = $("#password_usuarioConsultar").val(data.password_usuario);
-            // var rutaImagenConsulta = $("#imgdirectorConsultar option[value=" + data.id_director + "]").attr("selected", true);
+            var rutaImagenConsulta = $("#imgdirectorConsultar option[value=" + data.id_director + "]").attr("selected", true);
             var nombre_directorConsulta = $("#nombre_directorConsultar").val(data.nombre_director);
             var appaterno_directorConsulta = $("#appaterno_directorConsultar").val(data.appaterno_director);
             var apmaterno_directorConsulta = $("#apmaterno_directorConsultar").val(data.apmaterno_director);
@@ -1280,7 +1280,7 @@ $menu->footer();
                     data: form_data,
                     success: function(data) {
                         console.log("data ", data)
-                        if (data.join == 'ok') {
+                        if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "El directivo ha sido Actualizado de manera correcta",
