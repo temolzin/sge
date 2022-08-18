@@ -1,4 +1,4 @@
-<?php
+  <?php
   session_start();
   class AdministradorDAO extends Model implements CRUD
   {
@@ -38,12 +38,10 @@
 
       $imagen = '';
 
-      // $banderafoto = 0;
-
       $arrayActualizar = [];
 
       if (isset($data['foto_administrador'])) {
-        // $banderafoto = 1;
+
         $imagen = 'foto_administrador = :foto_administrador,';
 
         $arrayActualizar = [
@@ -83,18 +81,8 @@
        fechanacimiento_administrador = :fechanacimiento_administrador
        WHERE id_administrador = :id_administrador');
 
-       $query->execute($arrayActualizar);
-       echo 'ok';
-
-      // if($query->execute($arrayActualizar)){
-      //   if($banderafoto == 1){
-      //     $_SESSION['foto']=$data['foto_administrador'];
-      //   }
-      //   echo 'ok';
-      // }else{
-      //   echo 'Error al Actualizar';
-      // }
-      
+      $query->execute($arrayActualizar);
+      echo 'ok';
     }
 
     public function delete($id)

@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['tipo'])) {
+if(!isset($_SESSION['tipo'])){
    header("Location:usuario");
- }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('calificacion_tutor_consulta');
