@@ -1,9 +1,11 @@
 <?php
 
 session_start();
+
 if (!isset($_SESSION['tipo'])) {
    header("Location:usuario");
- }
+}
+
 
 
 $tipo = $_SESSION['tipo'];
@@ -14,9 +16,6 @@ if ($tipo == 'administrador') {
    $nombre = $_SESSION['nombre'];
    $appaterno = $_SESSION['appaterno'];
    $apmaterno = $_SESSION['apmaterno'];
-   $telefono = $_SESSION['telefono'];
-   $email = $_SESSION['email'];
-   $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL').'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 } else {
@@ -758,8 +757,8 @@ $menu->header('Tablero');
                         <td><?php echo  $nombre_completo ?></td>
                      </tr>
                      <tr>
-                        <td>Correo: </td>
-                        <td><?php echo  $email ?></td>
+                        <td>Curp: </td>
+                        <td><?php echo  $curp ?></td>
                      </tr>
                   </tbody>
                </table>
@@ -902,7 +901,6 @@ $menu->header('Tablero');
 
 <script type="text/javascript">
    $(document).ready(function() {
-      mostrarCalificaciones();
       mostrarDirectivos();
       mostrarUsuarios();
       mostrarUsuariosBloqueados();
@@ -918,13 +916,36 @@ $menu->header('Tablero');
          language: 'es'
       });
    });
+   var mostrarGradoAcademico = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>gradoAcademico/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_grado_academico + '</td>' +
+                     '<td>' + elem.nombre_grado_academico + '</td>' +
+                     '<td>' + elem.observacion_gradoacademico + '</td>' +
+                     '</tr>';
+                  // $('#tableAlumnos tbody').append(htmlTags);
+               }
+            });
+         },
+      });
+   }
 
    var mostrarCalificaciones = function() {
       $.ajax({
          type: "POST",
 
          async: false,
-         url: "<?php echo constant('URL'); ?>calificacion/readTableCalificacionAlumno",
+         url: "<?php echo constant('URL'); ?>calificacionDetalleAlumno/read",
          dataType: 'json', // what to expect back from the PHP script, if anything
          success: function(data) {
             //console.log('CALI ', data);
@@ -938,15 +959,8 @@ $menu->header('Tablero');
                      colorCalificacion = "danger";
                   }
                   var htmlTags = '<tr>' +
-                     '<td>' + elem.id_calificacion + '</td>' +
-                     '<td>' + elem.id_profesor + '</td>' +
-                     '<td>' + elem.id_alumno + '</td>' +
-                     '<td>' + elem.nombre_alumno + '</td>' +
-                     '<td>' + elem.id_parcial + '</td>' +
                      '<td>' + elem.nombre_parcial + '</td>' +
-                     '<td>' + elem.id_materia + '</td>' +
                      '<td>' + elem.nombre_materia + '</td>' +
-                     '<td>' + elem.calificacion + '</td>' +
                      '<td> <span class="badge badge-' + colorCalificacion + '">' + elem.calificacion + '</span></td>' +
                      '</tr>';
                   $('#tableCalificacionAlumno tbody').append(htmlTags);
@@ -1037,7 +1051,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
+                     '<img src="<?php echo constant('URL')?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
                      '<a class="users-list-name">' + '<br>'+elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';

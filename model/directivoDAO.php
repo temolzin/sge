@@ -45,13 +45,11 @@ class DirectivoDAO extends Model implements CRUD
         //add
         $imagen = '';
 
-        // $banderafoto = 0;
-
         //add
         $arrayActualizar = [];
 
         if (isset($data['foto_director'])) {
-            // $banderafoto = 1;
+
             //add
             $imagen = 'foto_director = :foto_director,';
 
@@ -127,17 +125,8 @@ class DirectivoDAO extends Model implements CRUD
             fechanacimiento_director = :fechanacimiento_director  
             WHERE id_director = :id_director');
 
-            $query->execute($arrayActualizar);
-            echo 'ok';
-
-        // if($query->execute($arrayActualizar)){
-        //     if($banderafoto == 1){
-        //         $_SESSION['foto']=$data['foto_director'];
-        //     }
-        //     echo 'ok';
-        // }else{
-        //     echo 'Error al Actualizar';
-        // }
+        $query->execute($arrayActualizar);
+        echo 'ok';
     }
 
     public function delete($id)
@@ -165,7 +154,6 @@ class DirectivoDAO extends Model implements CRUD
                     $director->id_escuela = $value['id_escuela'];
                     $director->id_grado_academico = $value['id_grado_academico'];
                     $director->id_usuario = $value['id_usuario'];
-                    $director->id_tipo_usuario = $value['id_tipo_usuario'];
                     $director->foto_director = $value['foto_director'];
                     $director->nombre_director = $value['nombre_director'];
                     $director->appaterno_director = $value['appaterno_director'];
@@ -199,7 +187,7 @@ class DirectivoDAO extends Model implements CRUD
             $id_escuela = $_SESSION['id_escuela'];
 
             require_once 'directivoDTO.php';
-            $query = "SELECT * FROM director INNER JOIN usuario on director.id_usuario=usuario.id_usuario INNER JOIN escuela on director.id_escuela=escuela.id_escuela WHERE escuela.id_escuela = '" . $id_escuela . "'";
+            $query = "select director.*, usuario.* from escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = director.id_usuario and director.id_escuela = escuela.id_escuela and director.id_escuela = '" . $id_escuela . "'";
             $objdirectores = array();
 
             if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
@@ -209,10 +197,8 @@ class DirectivoDAO extends Model implements CRUD
                     $director->id_escuela = $value['id_escuela'];
                     $director->id_grado_academico = $value['id_grado_academico'];
                     $director->id_usuario = $value['id_usuario'];
-                    $director->id_tipo_usuario = $value['id_tipo_usuario'];
                     $director->foto_director = $value['foto_director'];
                     $director->nombre_director = $value['nombre_director'];
-                    $director->nombre_escuela = $value['nombre_escuela'];
                     $director->appaterno_director = $value['appaterno_director'];
                     $director->apmaterno_director = $value['apmaterno_director'];
                     $director->rfc_director = $value['rfc_director'];
@@ -228,6 +214,7 @@ class DirectivoDAO extends Model implements CRUD
                     $director->email_director = $value['email_director'];
                     $director->cedulaprofesional_director = $value['cedulaprofesional_director'];
                     $director->fechanacimiento_director = $value['fechanacimiento_director'];
+                    //$director->nombre_escuela = $value['nombre_escuela'];
                     $director->username_usuario = $value['username_usuario'];
                     $director->password_usuario = $value['password_usuario'];
 

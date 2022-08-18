@@ -434,10 +434,31 @@
      enviarFormularioRegistrar();
      enviarFormularioActualizar();
      eliminarRegistro();
+     llenarGrupo();
      llenarEscuela();
    });
 
    $('[data-mask]').inputmask()
+
+   const llenarGrupo = () => {
+     $.ajax({
+       type: "GET",
+       url: "<?php echo constant('URL'); ?>grupo/read",
+       async: false,
+       dataType: "json",
+       success: function(data) {
+         //console.log('generos: ',data)
+         $.each(data, function(key, registro) {
+           var id = registro.id_grupo;
+           var nombre = registro.nombre_grupo;
+           $(".id_grupo").append('<option value=' + id + '>' + nombre + '</option>');
+         });
+       },
+       error: function(data) {
+         console.log(data);
+       }
+     });
+   }
 
    const llenarEscuela = () => {
      $.ajax({
@@ -474,7 +495,7 @@
              var fullnameImagen = full['appaterno_administrador'] + '_' + full['apmaterno_administrador'] + '_' + full['nombre_administrador'] + '/' + full['foto_administrador'];
 
 
-             var img = '<?php constant('URL'); ?>public/administrador/' + fullnameImagen;
+             var img = '<?php echo constant('URL'); ?>public/administrador/' + fullnameImagen;
 
              return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
            }

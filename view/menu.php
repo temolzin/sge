@@ -167,7 +167,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'directivo" class="nav-link">
+      <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
       Directivo (s)
@@ -224,7 +224,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="gradoAcademico" name="gradoAcademico" href="' . constant('URL') . 'gradoAcademico" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'gradoAcademico/index" class="nav-link">
       <i class="nav-icon fas fa-graduation-cap"></i>
       <p>
       Grados Académicos
@@ -233,7 +233,7 @@ class Menu
       </li> 
 
       <li class="nav-item">
-      <a id="calificacion" name="calificacion" href="' . constant('URL') . 'calificacion" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'calificacion/index" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
@@ -249,7 +249,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="grupo" name="grupo" href="' . constant('URL') . 'grupo" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'grupo/index" class="nav-link">
       <i class="nav-icon fas fa-chalkboard-teacher"></i>
       <p>
       Grupos
@@ -416,7 +416,7 @@ class Menu
 
             echo '
     <!DOCTYPE html>
-    <html lang="es">
+    <html lang="en">
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

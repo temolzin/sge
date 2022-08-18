@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['tipo'])) {
+if(!isset($_SESSION['tipo'])){
    header("Location:usuario");
- }
+}
 
 $foto_escuela = $_SESSION['foto_escuela'];
 $nombre_escuela = $_SESSION['nombre_escuela'];
@@ -39,7 +39,7 @@ $menu->header('Tablero');
    <div class="card mb-3">
       <div class="card-body">
       <div class="row">
-            <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="col-lg-12">
                
                   <center>
                   <img src="<?php echo $fotoruta;?>"  height="145px" width="145px" class="img-circle img-fluid">

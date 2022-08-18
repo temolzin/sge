@@ -1,12 +1,12 @@
-<?php
-session_start();
-if (!isset($_SESSION['tipo'])) {
-  header("Location:usuario");
-}
-require 'view/menu.php';
-$menu = new Menu();
-$menu->header('Grupo');
-?>
+    <?php
+        session_start();
+        if(!isset($_SESSION['tipo'])){
+          header("Location:usuario");
+      }
+    require 'view/menu.php';
+    $menu = new Menu();
+    $menu->header('Grupo');
+    ?>
     <section class="content">
       <div class="container-fluid">
         <div class="row">

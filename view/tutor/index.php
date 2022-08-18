@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['tipo'])) {
+    header("Location:usuario");
+  }
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('tutor');
@@ -1058,7 +1061,7 @@ $menu->footer();
 
                             success: function(data) {
 
-                                if (data.join == 'ok') {
+                                if (data == 'ok') {
                                     Swal.fire(
                                         "¡Éxito!",
                                         "El Tutor ha sido registrado de manera correcta",
@@ -1257,7 +1260,7 @@ $menu->footer();
                     data: form_data,
                     success: function(data) {
                         console.log("data ", data)
-                        if (data.join == 'ok') {
+                        if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "El Tutor ha sido Actualizado de manera correcta",

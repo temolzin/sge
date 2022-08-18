@@ -154,7 +154,8 @@ class UsuarioDAO extends Model implements CRUD {
               $query = $this->db->consultar("SELECT * FROM alumno");
               $alu = count($query);
              
-              $_SESSION['can_alu'] = $alu;              
+              $_SESSION['can_alu'] = $alu;
+              
           
           echo $rows;
             
@@ -379,7 +380,7 @@ public function read()
     public function readBlock()
 {
     require_once 'usuarioDTO.php';
-    $query = "SELECT * FROM tipo_usuario INNER JOIN usuario on tipo_usuario.id_tipo_usuario=usuario.id_tipo_usuario WHERE usuario.activo_usuario = 2 ORDER BY usuario.id_usuario";
+    $query = "SELECT t.nombre_tipo_usuario, u.* FROM tipo_usuario t, usuario u where t.id_tipo_usuario = u.id_tipo_usuario and u.activo_usuario = '2' ORDER by u.id_usuario DESC";
     $objUsuarios = array();
     foreach ($this->db->consultar($query) as $key => $value) {
         $usuario = new UsuarioDTO();
