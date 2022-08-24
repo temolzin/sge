@@ -807,6 +807,7 @@ $menu->footer();
         eliminarRegistro();
         llenarAlumno();
         llenarEscuela();
+        rutaImagen();
 
     });
 
@@ -818,6 +819,34 @@ $menu->footer();
     function actualiza(nombre) {
         console.log(nombre);
         document.getElementById('imgTutorActualizar').value = nombre;
+    }
+
+
+
+    const rutaImagen = () => {
+        $.ajax({
+            type: "GET",
+            url: "<?php echo constant('URL'); ?>tutor/read",
+            async: false,
+            dataType: "json",
+            success: function(data) {
+                //console.log('generos: ',data)
+                $.each(data, function(key, registro) {
+                    var id = registro.id_tutor;
+                    var nombre = registro.nombre_tutor;
+                    var appat = registro.appaterno_tutor;
+                    var apmat = registro.apmaterno_tutor;
+                    var foto = registro.foto_tutor;
+                    var fullnameImagen = appat + '_' + apmat + '_' + nombre + '/' + foto;
+                    var fotoConsulta = '<?php constant('URL'); ?>public/tutor/' + fullnameImagen;
+                    $(".id_tutor").append('<option value=' + id + '>' + fotoConsulta + '</option>');
+                    $('#imgTutorConsultar').attr(fotoConsulta);
+                });
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
     }
 
     const llenarAlumno = () => {
@@ -881,7 +910,7 @@ $menu->footer();
 
                         var fullnameImagen = JsonResultRow.appaterno_tutor + '_' + JsonResultRow.apmaterno_tutor + '_' + JsonResultRow.nombre_tutor + '/' + JsonResultRow.foto_tutor;
 
-                        var img = '<?php echo constant('URL');?>public/tutor/' + fullnameImagen;
+                        var img = '<?php echo constant('URL');?>public/Tutor/' + fullnameImagen;
 
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }

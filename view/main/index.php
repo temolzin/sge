@@ -16,6 +16,9 @@ if ($tipo == 'administrador') {
    $nombre = $_SESSION['nombre'];
    $appaterno = $_SESSION['appaterno'];
    $apmaterno = $_SESSION['apmaterno'];
+   $telefono = $_SESSION['telefono'];
+   $email = $_SESSION['email'];
+   $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL').'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 } else {
@@ -663,7 +666,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-graduation-cap"></i>
             </div>
-            <a href="<?php echo constant('URL'); ?>alumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>alumno/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -691,7 +694,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-user-tie"></i>
             </div>
-            <a href="<?php echo constant('URL'); ?>directivo" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>directivo/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <div class="col-lg-3 col-3">
@@ -757,8 +760,8 @@ $menu->header('Tablero');
                         <td><?php echo  $nombre_completo ?></td>
                      </tr>
                      <tr>
-                        <td>Curp: </td>
-                        <td><?php echo  $curp ?></td>
+                        <td>Correo: </td>
+                        <td><?php echo  $email ?></td>
                      </tr>
                   </tbody>
                </table>
@@ -856,7 +859,7 @@ $menu->header('Tablero');
                <!-- /.table-responsive -->
             </div>
             <div class="card-footer clearfix">
-               <a href="<?php echo constant('URL'); ?>alumno" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
+               <a href="<?php echo constant('URL'); ?>alumno/index" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
          </div>
       </div>
@@ -901,6 +904,7 @@ $menu->header('Tablero');
 
 <script type="text/javascript">
    $(document).ready(function() {
+      mostrarCalificaciones();
       mostrarDirectivos();
       mostrarUsuarios();
       mostrarUsuariosBloqueados();
@@ -908,6 +912,10 @@ $menu->header('Tablero');
       mostrarProfesores();
       mostrarAlumnos();
       mostrarGradoAcademico();
+      mostrarTarea();
+      mostrarGrupo();
+      mostrarIncidencia();
+      mostrarParcial();
    });
    $(function() {
       $('#datetimepicker12').datetimepicker({
@@ -916,29 +924,6 @@ $menu->header('Tablero');
          language: 'es'
       });
    });
-   var mostrarGradoAcademico = function() {
-      $.ajax({
-         type: "POST",
-
-         async: false,
-         url: "<?php echo constant('URL'); ?>gradoAcademico/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
-         success: function(data) {
-            //console.log('CALI ', data);
-            $.each(data, function(ind, elem) {
-               if (ind <= 4) {
-                  //console.log(elem.nombre_parcial);
-                  var htmlTags = '<tr>' +
-                     '<td>' + elem.id_grado_academico + '</td>' +
-                     '<td>' + elem.nombre_grado_academico + '</td>' +
-                     '<td>' + elem.observacion_gradoacademico + '</td>' +
-                     '</tr>';
-                  // $('#tableAlumnos tbody').append(htmlTags);
-               }
-            });
-         },
-      });
-   }
 
    var mostrarCalificaciones = function() {
       $.ajax({
@@ -959,8 +944,15 @@ $menu->header('Tablero');
                      colorCalificacion = "danger";
                   }
                   var htmlTags = '<tr>' +
+                     '<td>' + elem.id_calificacion + '</td>' +
+                     '<td>' + elem.id_profesor + '</td>' +
+                     '<td>' + elem.id_alumno + '</td>' +
+                     '<td>' + elem.nombre_alumno + '</td>' +
+                     '<td>' + elem.id_parcial + '</td>' +
                      '<td>' + elem.nombre_parcial + '</td>' +
+                     '<td>' + elem.id_materia + '</td>' +
                      '<td>' + elem.nombre_materia + '</td>' +
+                     '<td>' + elem.calificacion + '</td>' +
                      '<td> <span class="badge badge-' + colorCalificacion + '">' + elem.calificacion + '</span></td>' +
                      '</tr>';
                   $('#tableCalificacionAlumno tbody').append(htmlTags);
@@ -1051,7 +1043,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL')?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
+                     '<img src=<? echo constant('URL') ?>"public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
                      '<a class="users-list-name">' + '<br>'+elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
@@ -1073,7 +1065,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL'); ?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 80px; height: 80px;>' +
+                     '<img src=<? echo constant('URL') ?>"public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 80px; height: 80px;>' +
                      '<br><br>'+
                      '<a class="users-list-name">' + '<br>'+ elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
@@ -1097,7 +1089,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL'); ?>public/profesor/' + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '" style="max-width: 110px; max-height: 110px;>' +
+                     '<img src=<? echo constant('URL') ?>"public/profesor/' + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '" style="max-width: 110px; max-height: 110px;>' +
                      '<a class="users-list-name">' + elem.nombre_profesor + '<a>' +
                      '<span class="users-list-date">' + elem.email_profesor + '</span>' +
                      '</li>';
@@ -1120,7 +1112,7 @@ $menu->header('Tablero');
                if (ind <= 4) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL'); ?>public/alumno/' + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '" style="max-width: 110px; max-height: 110px;>' +
+                     '<img src=<? echo constant('URL') ?>"public/alumno/' + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '" style="max-width: 110px; max-height: 110px;>' +
                      '<a class="users-list-name">' + elem.nombre_alumno + '<a>' +
                      '<span class="users-list-date">' + elem.email_alumno + '</span>' +
                      '</li>';
@@ -1146,6 +1138,104 @@ $menu->header('Tablero');
                      '<td>' + elem.id_grado_academico + '</td>' +
                      '<td>' + elem.nombre_grado_academico + '</td>' +
                      '<td>' + elem.observacion_gradoacademico + '</td>' +
+                     '</tr>';
+               }
+            });
+         },
+      });
+   }
+   var mostrarTarea = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>tarea/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_tarea_alumno + '</td>' +
+                     '<td>' + elem.id_grupo + '</td>' +
+                     '<td>' + elem.id_materia + '</td>' +
+                     '<td>' + elem.nombre_materia + '</td>' +
+                     '<td>' + elem.descripcion_tarea + '</td>' +
+                     '<td>' + elem.fecha_entrega + '</td>' +
+                     '</tr>';
+               }
+            });
+         },
+      });
+   }
+   var mostrarGrupo = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>grupo/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_grupo + '</td>' +
+                     '<td>' + elem.id_escuela + '</td>' +
+                     '<td>' + elem.nombre_grupo + '</td>' +
+                     '<td>' + elem.turno_grupo + '</td>' +
+                     '</tr>';
+               }
+            });
+         },
+      });
+   }
+   var mostrarIncidencia = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>incidencia/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_incidencia + '</td>' +
+                     '<td>' + elem.id_alumno + '</td>' +
+                     '<td>' + elem.id_profesor + '</td>' +
+                     '<td>' + elem.id_grupo + '</td>' +
+                     '<td>' + elem.fechaincidencia_incidencia + '</td>' +
+                     '<td>' + elem.horaincidencia_incidencia + '</td>' +
+                     '<td>' + elem.descripcion_incidencia + '</td>' +
+                     '</tr>';
+               }
+            });
+         },
+      });
+   }
+   var mostrarParcial = function() {
+      $.ajax({
+         type: "POST",
+
+         async: false,
+         url: "<?php echo constant('URL'); ?>parcial/read",
+         dataType: 'json', // what to expect back from the PHP script, if anything
+         success: function(data) {
+            //console.log('CALI ', data);
+            $.each(data, function(ind, elem) {
+               if (ind <= 4) {
+                  //console.log(elem.nombre_parcial);
+                  var htmlTags = '<tr>' +
+                     '<td>' + elem.id_parcial + '</td>' +
+                     '<td>' + elem.id_escuela + '</td>' +
+                     '<td>' + elem.nombre_parcial + '</td>' +
+                     '<td>' + elem.fechainicio_parcial + '</td>' +
+                     '<td>' + elem.fechafin_parcial + '</td>' +
                      '</tr>';
                }
             });
