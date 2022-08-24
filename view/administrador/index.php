@@ -434,31 +434,10 @@
      enviarFormularioRegistrar();
      enviarFormularioActualizar();
      eliminarRegistro();
-     llenarGrupo();
      llenarEscuela();
    });
 
    $('[data-mask]').inputmask()
-
-   const llenarGrupo = () => {
-     $.ajax({
-       type: "GET",
-       url: "<?php echo constant('URL'); ?>grupo/read",
-       async: false,
-       dataType: "json",
-       success: function(data) {
-         //console.log('generos: ',data)
-         $.each(data, function(key, registro) {
-           var id = registro.id_grupo;
-           var nombre = registro.nombre_grupo;
-           $(".id_grupo").append('<option value=' + id + '>' + nombre + '</option>');
-         });
-       },
-       error: function(data) {
-         console.log(data);
-       }
-     });
-   }
 
    const llenarEscuela = () => {
      $.ajax({
@@ -631,7 +610,7 @@
                processData: false,
                data: form_data,
                success: function(data) {
-                 if (data == 'ok') {
+                 if (data.join == 'ok') {
                    Swal.fire(
                      "¡Error!",
                      "Ha ocurrido un error al registrar el administrador. " + data,
@@ -804,7 +783,7 @@
            data: form_data,
            success: function(data) {
              console.log("data ", data)
-             if (data == 'ok') {
+             if (data.join == 'ok') {
                Swal.fire(
                  "¡Error!",
                  "Ha ocurrido un error al Actualizar el administrador. " + data,
