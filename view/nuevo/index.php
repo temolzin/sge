@@ -28,6 +28,6 @@
         </form>
 	</div>
 
-	<?php require constant('URL').'view/footer.php'; ?>
+	<?php require 'view/footer.php'; ?>
 </body>
 </html>
