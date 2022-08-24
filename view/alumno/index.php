@@ -5,7 +5,7 @@
     }
    require 'view/menu.php';
    $menu = new Menu();
-   $menu->header('Alumno');
+   $menu->header('alumno');
    ?>
 
  <section class="content">
