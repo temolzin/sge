@@ -610,7 +610,7 @@
                processData: false,
                data: form_data,
                success: function(data) {
-                 if (data.join == 'ok') {
+                 if (data == 'ok') {
                    Swal.fire(
                      "¡Error!",
                      "Ha ocurrido un error al registrar el administrador. " + data,
@@ -783,7 +783,7 @@
            data: form_data,
            success: function(data) {
              console.log("data ", data)
-             if (data.join == 'ok') {
+             if (data == 'ok') {
                Swal.fire(
                  "¡Error!",
                  "Ha ocurrido un error al Actualizar el administrador. " + data,
