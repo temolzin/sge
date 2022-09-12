@@ -2,7 +2,8 @@
 
 <?php
 session_start();
-class PagoDAO extends Model implements CRUD {
+class PagoDAO extends Model implements CRUD
+{
     public function __construct()
     {
         parent::__construct();
@@ -18,13 +19,14 @@ class PagoDAO extends Model implements CRUD {
            :monto_cobro_pago,
            :restante_pago
        )');
-        $query->execute([':id_cobro' => $data['id_cobro'],
-            ':cantidad_pago' => $data['cantidad_pago'], 
-            ':descripcion_pago' => $data['descripcion_pago'], 
+        $query->execute([
+            ':id_cobro' => $data['id_cobro'],
+            ':cantidad_pago' => $data['cantidad_pago'],
+            ':descripcion_pago' => $data['descripcion_pago'],
             ':monto_cobro_pago' => $data['monto_cobro_pago'],
             ':restante_pago' => $data['restante_pago']
-        ]); 
-        echo 'ok'; 
+        ]);
+        echo 'ok';
     }
 
     public function update($data)
@@ -36,14 +38,15 @@ class PagoDAO extends Model implements CRUD {
             monto_cobro_pago = :monto_cobro_pago, 
             restante_pago = :restante_pago 
             WHERE id_pago = :id_pago');
-        $query->execute([':id_pago' => $data['id_pago'], 
-            ':id_cobro' => $data['id_cobro'], 
-            ':cantidad_pago' => $data['cantidad_pago'], 
-            ':descripcion_pago' => $data['descripcion_pago'], 
+        $query->execute([
+            ':id_pago' => $data['id_pago'],
+            ':id_cobro' => $data['id_cobro'],
+            ':cantidad_pago' => $data['cantidad_pago'],
+            ':descripcion_pago' => $data['descripcion_pago'],
             ':monto_cobro_pago' => $data['monto_cobro_pago'],
             ':restante_pago' => $data['restante_pago']
-        ]); 
-        echo 'ok'; 
+        ]);
+        echo 'ok';
     }
 
     public function delete($id)
@@ -62,7 +65,7 @@ class PagoDAO extends Model implements CRUD {
         INNER JOIN alumno on cobro.id_alumno=alumno.id_alumno
         INNER JOIN escuela on alumno.id_escuela=escuela.id_escuela
         INNER JOIN director on escuela.id_escuela=director.id_escuela 
-        WHERE pago.id_cobro=cobro.id_cobro and cobro.id_alumno=alumno.id_alumno and alumno.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and director.id_escuela = '".$id_escuela."'";
+        WHERE pago.id_cobro=cobro.id_cobro and cobro.id_alumno=alumno.id_alumno and alumno.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and director.id_escuela = '" . $id_escuela . "'";
 
 
         $objPagos = array();

@@ -1,31 +1,24 @@
-<?php 
-    class Conexion {
+<?php
+class Conexion
+{
+    public static function getConection()
+    {
+        $con = null;
+        try {
+            // Conexión
+            $con = new PDO('mysql:host=localhost; dbname=sge', 'root', '');
 
-        public static function getConection() {
+            // Errores
+            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $con = null;
+            // Caracteres utf8
+            $con->exec("SET CHARACTER SET utf8");
+        } catch (Exception $e) {
 
-            try {
+            $con = "ERROR";
+        } finally {
 
-                // Conexión
-                $con = new PDO('mysql:host=localhost; dbname=sge', 'root', '');
-        
-                // Errores
-                $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-                // Caracteres utf8
-                $con->exec("SET CHARACTER SET utf8");
-        
-            } catch(Exception $e) {
-        
-                $con = "ERROR";
-        
-            } finally {
-        
-                return $con;
-                
-            }
+            return $con;
         }
-
     }
-?>
+}

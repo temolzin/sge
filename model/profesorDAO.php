@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-class ProfesorDAO extends Model implements CRUD {
+class ProfesorDAO extends Model implements CRUD
+{
   public function __construct()
   {
     parent::__construct();
@@ -47,7 +48,8 @@ class ProfesorDAO extends Model implements CRUD {
       ':colonia_profesor' => $data['colonia_profesor'],
       ':telefono_profesor' => $data['telefono_profesor'],
       ':email_profesor' => $data['email_profesor'],
-      ':fechanacimiento_profesor' => $data['fechanacimiento_profesor']]);
+      ':fechanacimiento_profesor' => $data['fechanacimiento_profesor']
+    ]);
     echo 'ok';
   }
 
@@ -93,7 +95,8 @@ class ProfesorDAO extends Model implements CRUD {
       ':colonia_profesor' => $data['colonia_profesor'],
       ':telefono_profesor' => $data['telefono_profesor'],
       ':email_profesor' => $data['email_profesor'],
-      ':fechanacimiento_profesor' => $data['fechanacimiento_profesor']]);
+      ':fechanacimiento_profesor' => $data['fechanacimiento_profesor']
+    ]);
     echo 'ok';
   }
 
@@ -106,11 +109,11 @@ class ProfesorDAO extends Model implements CRUD {
 
   public function read()
   {
-    
+
     $id_escuela = $_SESSION['id_escuela'];
-    
+
     require_once 'profesorDTO.php';
-    $query = "SELECT profesor.*, usuario.* from profesor profesor, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = profesor.id_usuario and profesor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and profesor.id_escuela and  director.id_escuela = '".$id_escuela."'";
+    $query = "SELECT profesor.*, usuario.* from profesor profesor, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = profesor.id_usuario and profesor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and profesor.id_escuela and  director.id_escuela = '" . $id_escuela . "'";
     $objProfesores = array();
     if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
       foreach ($this->db->consultar($query) as $key => $value) {
@@ -132,13 +135,13 @@ class ProfesorDAO extends Model implements CRUD {
         $profesor->estado_profesor  = $value['estado_profesor'];
         $profesor->municipio_profesor  = $value['municipio_profesor'];
         $profesor->colonia_profesor  = $value['colonia_profesor'];
-        $profesor->telefono_profesor = $value['telefono_profesor'];  
+        $profesor->telefono_profesor = $value['telefono_profesor'];
         $profesor->email_profesor = $value['email_profesor'];
-        $profesor->fechanacimiento_profesor= $value['fechanacimiento_profesor'];
+        $profesor->fechanacimiento_profesor = $value['fechanacimiento_profesor'];
 
 
         $profesor->username_usuario = $value['username_usuario'];
-        $profesor->password_usuario= $value['password_usuario'];
+        $profesor->password_usuario = $value['password_usuario'];
 
 
         array_push($objProfesores, $profesor);
@@ -149,13 +152,11 @@ class ProfesorDAO extends Model implements CRUD {
 
     return $objProfesores;
   }
-  
+
   public function readCrudDirectivos()
   {
-   
-    
     require_once 'profesorDTO.php';
-    $query = "SELECT profesor.*, usuario.* from profesor profesor, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = profesor.id_usuario and profesor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and profesor.id_escuela and  director.id_escuela = '".$id_escuela."'";
+    $query = "SELECT profesor.*, usuario.* from profesor profesor, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = profesor.id_usuario and profesor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and profesor.id_escuela and  director.id_escuela = '" . $id_escuela . "'";
     $objProfesores = array();
     foreach ($this->db->consultar($query) as $key => $value) {
       $profesor = new ProfesorDTO();
@@ -176,18 +177,15 @@ class ProfesorDAO extends Model implements CRUD {
       $profesor->estado_profesor  = $value['estado_profesor'];
       $profesor->municipio_profesor  = $value['municipio_profesor'];
       $profesor->colonia_profesor  = $value['colonia_profesor'];
-      $profesor->telefono_profesor = $value['telefono_profesor'];  
+      $profesor->telefono_profesor = $value['telefono_profesor'];
       $profesor->email_profesor = $value['email_profesor'];
-      $profesor->fechanacimiento_profesor= $value['fechanacimiento_profesor'];
-      
-      $profesor->username_usuario = $value['username_usuario'];
-      $profesor->password_usuario= $value['password_usuario'];
-      
+      $profesor->fechanacimiento_profesor = $value['fechanacimiento_profesor'];
 
+      $profesor->username_usuario = $value['username_usuario'];
+      $profesor->password_usuario = $value['password_usuario'];
 
       array_push($objProfesores, $profesor);
     }
     return $objProfesores;
   }
 }
-?>

@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
-  }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('director');
@@ -304,7 +304,7 @@ $menu->header('director');
                                     </div>
                                 </div>
                                 <div class="row">
-                                <div class="col-lg-12">
+                                    <div class="col-lg-12">
                                         <span><label>Fotografía director (*)</label></span>
                                         <div class="form-group input-group">
                                             <div class="custom-file">
@@ -325,7 +325,7 @@ $menu->header('director');
                                             <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
                                         </div>
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="row">
@@ -828,7 +828,7 @@ $menu->footer();
                     var apmat = registro.apmaterno_director;
                     var foto = registro.foto_director;
                     var fullnameImagen = appat + '' + apmat + '' + nombre + '/' + foto;
-                    var fotoConsulta = '<?php echo constant('URL');?>public/director/' + fullnameImagen;
+                    var fotoConsulta = '<?php echo constant('URL'); ?>public/director/' + fullnameImagen;
                     $(".id_director").append('<option value=' + id + '>' + fotoConsulta + '</option>');
                     $('#imgdirectorConsultar').attr(fotoConsulta);
                 });
@@ -888,7 +888,7 @@ $menu->footer();
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
-                        var img = '<?php echo constant('URL');?>public/director/' + fullnameImagen;
+                        var img = '<?php echo constant('URL'); ?>public/director/' + fullnameImagen;
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
                 },
@@ -1014,7 +1014,7 @@ $menu->footer();
 
                         var idUsuario = id_usuario;
                         var form_data = new FormData();
-                        var imagen = '<?php echo constant('URL');?>public/img/default.jpg';
+                        var imagen = '<?php echo constant('URL'); ?>public/img/default.jpg';
                         if ($('#foto_director').val() != null) {
                             imagen = $('#foto_director').prop('files')[0];
                         }

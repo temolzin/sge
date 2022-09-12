@@ -2,7 +2,7 @@
    session_start();
    if (!isset($_SESSION['tipo'])) {
       header("Location:usuario");
-    }
+   }
    require 'view/menu.php';
    $menu = new Menu();
    $menu->header('alumno');
@@ -100,12 +100,6 @@
                                   <input onkeypress="return soloLetras(event)" type="name" class="form-control" id="nombre_alumno" name="nombre_alumno" placeholder="Introduce el Nombre" />
                                </div>
                             </div>
-                            <!--  <div class="col-lg-12">
-                              <div class="form-group">
-                                <label>Nombre(s)</label>
-                                <input  onkeypress="return soloLetras(event)" type="name" class="form-control" id="nombre_alumno" name="nombre_alumno" placeholder="Introduce el Nombre"/>
-                              </div>
-                              </div> -->
                             <div class="col-lg-4">
                                <div class="form-group">
                                   <label>Apellido Paterno (*)</label>
@@ -781,45 +775,39 @@
           "columns": [{
                 defaultContent: "",
                 "render": function(data, type, full, row) {
-
                    var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
 
 
-                   var img = '<?php echo constant('URL');?>public/alumno/' + fullnameImagen;
+                   var img = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
 
                    return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
-                }
+                  }
 
-             },
+               },
 
-             {
+               {
                 defaultContent: "",
                 "render": function(data, type, full) {
                    return full['nombre_alumno'] + ' ' + full['appaterno_alumno'] + ' ' + full['apmaterno_alumno'];
-                }
-             },
-
-
-
-             {
+                  }
+               },
+               {
                 "data": "email_alumno"
-             },
-
-
-             {
+               },
+               {
                 data: null,
                 "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleAlumno' title="Ver Detalles"><i class="fa fa-eye"></i></button>
-      <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarAlumno' title="Editar Datos"><i class="fa fa-edit"></i></button>
-      <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarAlumno' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
-             }
-          ],
+                  <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarAlumno' title="Editar Datos"><i class="fa fa-edit"></i></button>
+                  <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarAlumno' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
+               }
+            ],
           "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
              if (aiDisplay.length > 0) {
                 $('body').removeClass('no-record');
-             } else {
+               } else {
                 $('body').addClass('no-record');
-             }
-          },
+               }
+            },
           responsive: true,
           autoWidth: false,
           language: idiomaDataTable,
@@ -860,13 +848,6 @@
           var id_escuela = $("#id_escuelaActualizar option[value=" + data.id_escuela + "]").attr("selected", true);
           var username_usuario = $("#username_usuarioActualizar").val(data.username_usuario);
           var password_usuario = $("#password_usuarioActualizar").val(data.password_usuario);
-          //var foto_alumnoActualizar = $("#foto_alumnoActualizar").val(data.foto_alumno);
-          //var fullnameImagen = appaterno_alumno + '_' + apmaterno_alumno + '_' + nombre_alumno + '/';
-          //$('#foto_alumnoActualizar').attr('src', url2 + '/public/alumno/' + fullnameImagen + foto_alumno);
-          // $("#foto_alumnoActualizar").empty();
-          // var foto_alumnoActualizar = $("#foto_alumnoActualizar").val(data.foto_alumno);
-          // alert(data.nombre_alumno);
-          //alert(data.foto_alumno);
           // MODAL CONSULTAR
 
           var idConsulta = $("#id_alumnoConsultar").val(data.id_alumno);
@@ -888,14 +869,8 @@
           var estado_alumnoConsulta = $("#selectEstadoConsultar").val(data.estado_alumno);
           var municipio_alumnoConsulta = $("#selectMunicipioConsultar").val(data.municipio_alumno);
           var colonia_alumnoConsulta = $("#selectColoniaConsultar").val(data.colonia_alumno);
-          // var fullnameImagen = appaterno_alumno + '_' + apmaterno_alumno + '_' + nombre_alumno;
-          // var fotoConsulta = $("#imgAlumnoConsultar").attr('src' + 'public/alumno/' + Flores  + '_' + Vargas + '_' + Esteban);
-
-
        });
     }
-
-
     var enviarFormularioRegistrar = function() {
        $.validator.setDefaults({
           submitHandler: function() {
@@ -913,7 +888,7 @@
                    var imagen = "";
                    if ($('#foto_alumno').val() != null) {
                       imagen = $('#foto_alumno').prop('files')[0];
-                   }
+                     }
                    form_data.append('id_usuario', idUsuario);
                    form_data.append('foto_alumno', imagen);
                    form_data.append('nombre_alumno', document.getElementById('nombre_alumno').value);
@@ -931,11 +906,9 @@
                    form_data.append('selectEstado', document.getElementById('selectEstado').value);
                    form_data.append('selectMunicipio', document.getElementById('selectMunicipio').value);
                    form_data.append('selectColonia', document.getElementById('selectColonia').value);
-
                    form_data.append('username_usuario', document.getElementById('username_usuario').value);
                    form_data.append('password_usuario', document.getElementById('password_usuario').value);
                    form_data.append('id_tipo_usuario', document.getElementById('id_tipo_usuario').value);
-
                    $.ajax({
                       type: "POST",
                       url: "<?php echo constant('URL'); ?>alumno/insert",
@@ -946,154 +919,147 @@
                       processData: false,
                       data: form_data,
                       success: function(data) {
-
-
                          if (data != 'ok') {
                             Swal.fire(
-                               "¡Éxito!",
-                               "El Alumno ha sido registrado con exito",
-                               "success"
+                              "¡Éxito!",
+                              "El Alumno ha sido registrado con exito",
+                              "success"
                             ).then(function() {
-                               window.location = "<?php echo constant('URL'); ?>alumno";
+                              window.location = "<?php echo constant('URL'); ?>alumno";
                             })
                          } else {
                             Swal.fire(
-                               "¡Error!",
-                               "Ha ocurrido un error al registrar el alumno. " + data,
-                               "error"
-                            );
-                         }
+                              "¡Error!",
+                              "Ha ocurrido un error al registrar el alumno. " + data,
+                              "error"
+                           );
+                        }
 
-                      },
-                   });
+                     },
+                  });
 
-                },
-             });
-
-
-          }
-       });
-       $('#formRegistrarAlumno').validate({
+               },
+            });
+         }
+      });
+         $('#formRegistrarAlumno').validate({
           rules: {
-             id_alumno: {
-                required: true,
-                number: true
-             },
-             id_grupo: {
-                required: true,
-                number: true
-             },
-             id_escuela: {
-                required: true,
-                number: true
-             },
-             id_usuario: {
-                required: true,
-                number: true
-             },
+            id_alumno: {
+               required: true,
+               number: true
+            },
+            id_grupo: {
+               required: true,
+               number: true
+            },
+            id_escuela: {
+               required: true,
+               number: true
+            },
+            id_usuario: {
+               required: true,
+               number: true
+            },
+            nombre_alumno: {
+               required: true
+            },
+            appaterno_alumno: {
+               required: true
+            },
+            apmaterno_alumno: {
+               required: true
+            },
+            calle_alumno: {
+               required: true
+            },
+            noexterior_alumno: {
+               required: true
+            },
+            nointerior_alumno: {
+               required: true
+            },
+            telefono_alumno: {
+               required: true
+            },
+            email_alumno: {
+               required: true
+            },
+            fechanacimiento_alumno: {
+               required: true
+            }
+         },
+            messages: {
+            id_alumno: {
+               required: "Ingresa una matrícula",
+               umber: "Sólo números"
+            },
+            id_grupo: {
+               required: "Ingresa un id_grupo"
+            },
+            id_escuela: {
+               required: "Ingresa un id_escuela"
+            },
+            id_usuario: {
+               required: "Ingresa un id_usuario"
+            },
+            nombre_alumno: {
+               required: "Ingresa tu Nombre"
+            },
+            appaterno_alumno: {
+               required: "Ingresa tu Apellido Paterno"
+            },
+            apmaterno_alumno: {
+               required: "Ingresa un Apellido  Materno"
+            },
+            calle_alumno: {
+               required: "Ingresa tu calle"
+            },
+            noexterior_alumno: {
+               required: "Ingresa tu Nº Exterior"
+            },
+            nointerior_alumno: {
+               required: "Ingresa tu Nº Interior"
+            },
+            telefono_alumno: {
+               required: "Ingresa un telefono"
+            },
+            email_alumno: {
+               required: "Ingresa tu correo electronico"
+            },
+            fechanacimiento_alumno: {
+               required: "Ingresa tu  fecha de nacimiento"
+            }
 
-             nombre_alumno: {
-                required: true
-             },
-             appaterno_alumno: {
-                required: true
-             },
-             apmaterno_alumno: {
-                required: true
-             },
-             calle_alumno: {
-                required: true
-             },
-             noexterior_alumno: {
-                required: true
-             },
-             nointerior_alumno: {
-                required: true
-             },
-             telefono_alumno: {
-                required: true
-             },
-             email_alumno: {
-                required: true
-             },
-             fechanacimiento_alumno: {
-                required: true
-             }
-          },
-          messages: {
-             id_alumno: {
-                required: "Ingresa una matrícula",
-                number: "Sólo números"
-             },
-             id_grupo: {
-                required: "Ingresa un id_grupo"
-             },
-             id_escuela: {
-                required: "Ingresa un id_escuela"
-             },
-             id_usuario: {
-                required: "Ingresa un id_usuario"
-             },
-
-             nombre_alumno: {
-                required: "Ingresa tu Nombre"
-             },
-             appaterno_alumno: {
-                required: "Ingresa tu Apellido Paterno"
-             },
-             apmaterno_alumno: {
-                required: "Ingresa un Apellido  Materno"
-             },
-             calle_alumno: {
-                required: "Ingresa tu calle"
-             },
-             noexterior_alumno: {
-                required: "Ingresa tu Nº Exterior"
-             },
-             nointerior_alumno: {
-                required: "Ingresa tu Nº Interior"
-             },
-
-             telefono_alumno: {
-                required: "Ingresa un telefono"
-             },
-             email_alumno: {
-                required: "Ingresa tu correo electronico"
-             },
-             fechanacimiento_alumno: {
-                required: "Ingresa tu  fecha de nacimiento"
-             }
-
-          },
-          errorElement: 'span',
-          errorPlacement: function(error, element) {
-             error.addClass('invalid-feedback');
-             element.closest('.form-group').append(error);
-          },
+         },
+         errorElement: 'span',
+         errorPlacement: function(error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
+         },
           highlight: function(element, errorClass, validClass) {
-             $(element).addClass('is-invalid');
-          },
+            $(element).addClass('is-invalid');
+         },
           unhighlight: function(element, errorClass, validClass) {
-             $(element).removeClass('is-invalid');
-          }
-       });
-    }
+            $(element).removeClass('is-invalid');
+         }
+      });
+   }
 
     var enviarFormularioActualizar = function() {
        $.validator.setDefaults({
           submitHandler: function() {
-             var datos = $('#formActualizarAlumno').serialize();
-             $.ajax({
+            var datos = $('#formActualizarAlumno').serialize();
+               $.ajax({
                 type: "POST",
                 url: "<?php echo constant('URL'); ?>usuario/update",
                 async: false,
                 data: datos,
                 success: function(data) {
-                   console.log("data ", data)
+                  console.log("data ", data)
 
 
-                },
-             });
+               },
+            });
 
              var form_data = new FormData();
              var imagen = "";

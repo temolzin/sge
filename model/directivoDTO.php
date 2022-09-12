@@ -22,9 +22,7 @@ class DirectivoDTO implements JsonSerializable
     private $email_director;
     private $cedulaprofesional_director;
     private $fechanacimiento_director;
-
     private $nombre_escuela;
-
     private $id_tipo_usuario;
     private $username_usuario;
     private $password_usuario;
@@ -41,14 +39,6 @@ class DirectivoDTO implements JsonSerializable
             $this->$property = $value;
         }
     }
-
-    /**
-     * Specify data which should be serialized to JSON
-     * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     * @since 5.4.0
-     */
     public function jsonSerialize()
     {
         $vars = get_object_vars($this);

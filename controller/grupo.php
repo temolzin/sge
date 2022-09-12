@@ -6,23 +6,26 @@ class Grupo extends Controller
         parent::__construct();
     }
 
-    function index(){
+    function index()
+    {
         $this->view->render('grupo/index');
     }
 
-    function insert() {
+    function insert()
+    {
         $id_grupo  = $_POST['id_grupo'];
         $id_escuela = $_POST['id_escuela'];
         $nombre_grupo = $_POST['nombre_grupo'];
         $turno_grupo = $_POST['turno_grupo'];
-        
-        
+
+
 
         $data = array(
             'id_grupo' =>  $id_grupo,
             'id_escuela' => $id_escuela,
             'nombre_grupo' => $nombre_grupo,
-            'turno_grupo' => $turno_grupo);
+            'turno_grupo' => $turno_grupo
+        );
 
         require 'model/grupoDAO.php';
         $this->loadModel('GrupoDAO');
@@ -30,18 +33,19 @@ class Grupo extends Controller
         $grupoDAO->insert($data);
     }
 
-    function update() {
+    function update()
+    {
         $id_grupo  = $_POST['id_grupoActualizar'];
         $id_escuela = $_POST['id_escuelaActualizar'];
         $nombre_grupo = $_POST['nombre_grupoActualizar'];
         $turno_grupo = $_POST['turno_grupoActualizar'];
-        
+
         $data = array(
-         'id_grupo' => $id_grupo,
-         'id_escuela' => $id_escuela, 
-         'nombre_grupo' => $nombre_grupo,
-         'turno_grupo' => $turno_grupo
-     );
+            'id_grupo' => $id_grupo,
+            'id_escuela' => $id_escuela,
+            'nombre_grupo' => $nombre_grupo,
+            'turno_grupo' => $turno_grupo
+        );
 
         require 'model/grupoDAO.php';
         $this->loadModel('GrupoDAO');
@@ -49,7 +53,8 @@ class Grupo extends Controller
         $grupoDAO->update($data);
     }
 
-    function delete(){
+    function delete()
+    {
         $id_grupo  = $_POST['idEliminarGrupo'];
 
         require 'model/grupoDAO.php';
@@ -58,23 +63,24 @@ class Grupo extends Controller
         $grupoDAO->delete($id_grupo);
     }
 
-    function read() {
+    function read()
+    {
         require 'model/grupoDAO.php';
         $this->loadModel('GrupoDAO');
         $grupoDAO = new GrupoDAO();
         $grupoDAO = $grupoDAO->read();
         echo json_encode($grupoDAO);
     }
-    
-    function readTable() {
+
+    function readTable()
+    {
         require 'model/grupoDAO.php';
         $this->loadModel('GrupoDAO');
         $grupoDAO = new GrupoDAO();
         $grupoDAO = $grupoDAO->read();
 
         $obj = null;
-        if (is_array($grupoDAO) || is_object($grupoDAO))
-        {
+        if (is_array($grupoDAO) || is_object($grupoDAO)) {
             foreach ($grupoDAO as $key => $value) {
                 $obj["data"][] = $value;
             }

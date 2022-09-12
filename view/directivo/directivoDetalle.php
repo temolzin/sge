@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
-  }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('directivo_mostrar');
@@ -620,9 +620,6 @@ $menu->footer();
         });
     }
 
-
-
-
     var mostrarDirectivos = function() {
         var tableDirectivo = $('#dataTableDirectivoMostrar').DataTable({
             "processing": true,
@@ -731,8 +728,6 @@ $menu->footer();
     $.validator.addMethod("selectRequired", function(value, element, arg) {
         return arg !== value;
     }, "Selecciona un valor");
-
-
 
     var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
@@ -1004,10 +999,6 @@ $menu->footer();
                 form_data.append('email_directorActualizar', document.getElementById('email_directorActualizar').value);
                 form_data.append('cedulaprofesional_directorActualizar', document.getElementById('cedulaprofesional_directorActualizar').value);
                 form_data.append('fechanacimiento_directorActualizar', document.getElementById('fechanacimiento_directorActualizar').value);
-
-
-
-
                 $.ajax({
                     type: "POST",
                     url: "<?php echo constant('URL'); ?>directivo/update",

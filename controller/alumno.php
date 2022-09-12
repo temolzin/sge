@@ -21,11 +21,6 @@ class Alumno extends Controller
         $this->view->render('alumno/alumnoDetalleTutor');
     }
 
-    // function showMateriaTutor()
-    // {
-    //     $this->view->render('alumno_materia_consulta/index');
-    // }
-
     function insert()
     {
         $id_grupo = $_POST['id_grupo'];
@@ -51,7 +46,7 @@ class Alumno extends Controller
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
             $fullname = $appaterno_alumno . "_" . $apmaterno_alumno . "_" . $nombre_alumno;
-            $carpeta = constant('URL')."public/alumno/" . $fullname . "/";
+            $carpeta = constant('URL') . "public/alumno/" . $fullname . "/";
 
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
@@ -119,7 +114,7 @@ class Alumno extends Controller
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
             $fullname = $appaterno_alumno . "_" . $apmaterno_alumno . "_" . $nombre_alumno;
-            $carpeta = constant('URL')."public/alumno/" . $fullname . "/";
+            $carpeta = constant('URL') . "public/alumno/" . $fullname . "/";
 
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';

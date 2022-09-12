@@ -109,14 +109,11 @@
                         </div>
                       </div>
                       <div class="col-sm-12">
-
                         <div class="form-group">
                           <label>Descripción</label>
                           <textarea disabled type="text" id="descripcion_incidenciaConsultar" name="descripcion_incidenciaConsultar" class="form-control" placeholder="Enter ..."></textarea>
                         </div>
                       </div>
-
-
                     </div>
                   </div>
 
@@ -131,9 +128,6 @@
       </div>
     </div>
     </div>
-
-
-
     <?php
     $menu->footer();
     ?>
@@ -143,10 +137,6 @@
         mostrarAlumnoIncidencia();
 
       });
-
-
-
-
       var mostrarAlumnoIncidencia = function() {
         var TableAlumnoIncidencia = $('#dataTableAlumnoIncidencia').DataTable({
           "processing": true,

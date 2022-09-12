@@ -27,16 +27,9 @@ class HorarioDAO extends Model implements CRUD
         $query->execute([':id_horario' => $id]);
         echo 'ok';
     }
-
-
-
-
-
     public function read()
     {
         $tipo = $_SESSION['tipo'];
-
-
         if ($tipo == 'director') {
             $id_escuela = $_SESSION['id_escuela'];
             require_once 'horarioDTO.php';
@@ -64,7 +57,6 @@ class HorarioDAO extends Model implements CRUD
             }
 
             return $objHorarios;
-
         } else {
 
             require_once 'horarioDTO.php';
@@ -80,7 +72,6 @@ class HorarioDAO extends Model implements CRUD
                     $horario->materia_horafin_horario = $value['materia_horafin_horario'];
                     array_push($objHorarios, $horario);
                 }
-                
             } else {
                 $objHorarios = null;
             }

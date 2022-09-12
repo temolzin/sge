@@ -6,11 +6,13 @@ class Cobro extends Controller
         parent::__construct();
     }
 
-    function index(){
+    function index()
+    {
         $this->view->render('cobro/index');
     }
 
-    function insert() {
+    function insert()
+    {
         $id_alumno = $_POST['id_alumno'];
         $cantidad_cobro = $_POST['cantidad_cobro'];
         $iva_cobro =  $_POST['iva_cobro'];
@@ -32,7 +34,8 @@ class Cobro extends Controller
     }
 
 
-    function update() {
+    function update()
+    {
         $id_cobro = $_POST['id_cobroActualizar'];
         $id_alumno = $_POST['id_alumnoActualizar'];
         $cantidad_cobro = $_POST['cantidad_cobroActualizar'];
@@ -55,7 +58,8 @@ class Cobro extends Controller
         $cobroDAO->update($data);
     }
 
-    function delete(){
+    function delete()
+    {
         $id_cobro = $_POST['idEliminarCobro'];
 
         require 'model/cobroDAO.php';
@@ -64,32 +68,30 @@ class Cobro extends Controller
         $cobroDAO->delete($id_cobro);
     }
 
-    function read() {
-     require 'model/cobroDAO.php';
-     $this->loadModel('CobroDAO');
-     $cobroDAO = new CobroDAO();
-     $cobroDAO = $cobroDAO->read();
-     echo json_encode($cobroDAO);
- }
-
- function readTable() {
-    require 'model/cobroDAO.php';
-    $this->loadModel('CobroDAO');
-    $cobroDAO = new CobroDAO();
-    $cobroDAO = $cobroDAO->read();
-
-    $obj = null;
-    if (is_array($cobroDAO) || is_object($cobroDAO))
+    function read()
     {
-        foreach ($cobroDAO as $key => $value) {
-            $obj["data"][] = $value;
-        }
-    } else {
-        $obj = array();
+        require 'model/cobroDAO.php';
+        $this->loadModel('CobroDAO');
+        $cobroDAO = new CobroDAO();
+        $cobroDAO = $cobroDAO->read();
+        echo json_encode($cobroDAO);
     }
-    echo json_encode($obj);
-    
-}
 
+    function readTable()
+    {
+        require 'model/cobroDAO.php';
+        $this->loadModel('CobroDAO');
+        $cobroDAO = new CobroDAO();
+        $cobroDAO = $cobroDAO->read();
 
+        $obj = null;
+        if (is_array($cobroDAO) || is_object($cobroDAO)) {
+            foreach ($cobroDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
 }

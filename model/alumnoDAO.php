@@ -145,7 +145,6 @@
 
     public function readAlumnoProfesor()
     {
-      // $id_escuela = $_SESSION['id_escuela'];
       $id_profesor = $_SESSION['id'];
       require_once 'alumnoDTO.php';
       $query = "SELECT alumno.*, escuela.*, profesor.*, grupo.* 
@@ -155,7 +154,6 @@
                 and profesor.id_escuela = alumno.id_escuela 
                 and grupo.id_grupo = alumno.id_grupo 
                 AND profesor.id_profesor = '" . $id_profesor . "'";
-
       $objAlumnos = array();
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
         foreach ($this->db->consultar($query) as $key => $value) {
@@ -179,4 +177,4 @@
       return $objAlumnos;
     }
   }
-  ?>
+?>

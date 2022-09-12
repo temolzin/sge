@@ -20,7 +20,6 @@ $menu->header('Tablero');
               <table id="dataTableTareaEntregada" name="dataTableTareaEntregada" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                 <thead>
                   <tr>
-
                     <th>Tarea</th>
                     <th>Grupo</th>
                     <th>Materia</th>
@@ -111,10 +110,6 @@ $menu->footer();
     llenarGrupo();
     llenarMateria();
   });
-
-
-
-
   var mostrarTareasEntregada = function() {
     var tableTareaEntregada = $('#dataTableTareaEntregada').DataTable({
       "processing": true,
@@ -136,7 +131,7 @@ $menu->footer();
         {
           "defaultContent": "",
           render: function(data, type, row) {
-            return `<a download="${row.archivo_tarea_entregada}" href="<?php constant('URL');?>public/tareas_entregadas/${row.nombre_tarea}/${row.archivo_tarea_entregada}"><button class='consulta btn btn-danger' title="Descargar PDF"><i class="fa fa-file-pdf"></i></button></a>`;
+            return `<a download="${row.archivo_tarea_entregada}" href="<?php constant('URL'); ?>public/tareas_entregadas/${row.nombre_tarea}/${row.archivo_tarea_entregada}"><button class='consulta btn btn-danger' title="Descargar PDF"><i class="fa fa-file-pdf"></i></button></a>`;
           }
         },
         {
@@ -178,8 +173,6 @@ $menu->footer();
       var calificacion_tareaConsulta = $("#calificacion_tareaConsultar").val(data.calificacion_tarea);
       var id_grupoConsulta = $("#id_grupoConsultar").val(data.id_grupo);
       var id_materiaConsulta = $("#id_materiaConsultar").val(data.id_materia);
-
-
 
     });
   }

@@ -6,11 +6,13 @@ class Tutor extends Controller
         parent::__construct();
     }
 
-    function index(){
+    function index()
+    {
         $this->view->render('tutor/index');
     }
 
-    function insert() {
+    function insert()
+    {
         $id_alumno = $_POST['id_alumno'];
         $id_escuela = $_POST['id_escuela'];
         $id_usuario = $_POST['id_usuario'];
@@ -27,29 +29,23 @@ class Tutor extends Controller
         $estado_tutor = $_POST['selectEstado'];
         $municipio_tutor = $_POST['selectMunicipio'];
         $colonia_tutor = $_POST['selectColonia'];
-            //$id_tipo_usuario = 5;
+        //$id_tipo_usuario = 5;
         $nombreImagen = "";
-        if($_FILES["foto_tutor"]["name"] != null) {
+        if ($_FILES["foto_tutor"]["name"] != null) {
             $imagen = $_FILES["foto_tutor"];
             $nombreImagen = $imagen["name"];
-        //$nombreImagen = date("Y-n-j");
-            //$nombreImagen = date("Y-n-j");
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
-
-            $fullname = $appaterno_tutor ."_" . $apmaterno_tutor . "_" . $nombre_tutor;
-            $carpeta = constant('URL')."public/tutor/" .$fullname. "/";
-
-            if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif')       {
+            $fullname = $appaterno_tutor . "_" . $apmaterno_tutor . "_" . $nombre_tutor;
+            $carpeta = constant('URL') . "public/tutor/" . $fullname . "/";
+            if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
             } else {
                 if (!file_exists($carpeta)) {
                     mkdir($carpeta, 0777, true);
                 }
-                copy($ruta_provisional, $carpeta.$nombreImagen);
-
-                $data = array('id_alumno' => $id_alumno, 'id_escuela' => $id_escuela, 'id_usuario' => $id_usuario, 'foto_tutor' => $nombreImagen, 'nombre_tutor' => $nombre_tutor, 'appaterno_tutor' => $appaterno_tutor, 'apmaterno_tutor'=>$apmaterno_tutor, 'fechanacimiento_tutor'=>$fechanacimiento_tutor, 'telefono_tutor'=>$telefono_tutor, 'email_tutor'=>$email_tutor, 'calle_tutor'=>$calle_tutor, 'noexterior_tutor'=>$noexterior_tutor, 'nointerior_tutor'=>$nointerior_tutor, 'cp_tutor'=>$cp_tutor, 'estado_tutor'=>$estado_tutor, 'municipio_tutor'=>$municipio_tutor, 'colonia_tutor'=>$colonia_tutor);
-
+                copy($ruta_provisional, $carpeta . $nombreImagen);
+                $data = array('id_alumno' => $id_alumno, 'id_escuela' => $id_escuela, 'id_usuario' => $id_usuario, 'foto_tutor' => $nombreImagen, 'nombre_tutor' => $nombre_tutor, 'appaterno_tutor' => $appaterno_tutor, 'apmaterno_tutor' => $apmaterno_tutor, 'fechanacimiento_tutor' => $fechanacimiento_tutor, 'telefono_tutor' => $telefono_tutor, 'email_tutor' => $email_tutor, 'calle_tutor' => $calle_tutor, 'noexterior_tutor' => $noexterior_tutor, 'nointerior_tutor' => $nointerior_tutor, 'cp_tutor' => $cp_tutor, 'estado_tutor' => $estado_tutor, 'municipio_tutor' => $municipio_tutor, 'colonia_tutor' => $colonia_tutor);
                 require 'model/tutorDAO.php';
                 $this->loadModel('TutorDAO');
                 $tutorDAO = new TutorDAO();
@@ -58,7 +54,8 @@ class Tutor extends Controller
         }
     }
 
-    function update() {
+    function update()
+    {
         $id_tutor = $_POST['id_tutorActualizar'];
         $id_alumno = $_POST['id_alumnoActualizar'];
         $id_escuela = $_POST['id_escuelaActualizar'];
@@ -76,45 +73,43 @@ class Tutor extends Controller
         $estado_tutor = $_POST['selectEstadoActualizar'];
         $municipio_tutor = $_POST['selectMunicipioActualizar'];
         $colonia_tutor = $_POST['selectColoniaActualizar'];
-
         $nombreImagen = "";
-        if($_FILES["imgTutorActualizar"]["name"] != null) {
+        if ($_FILES["imgTutorActualizar"]["name"] != null) {
             $imagen = $_FILES["imgTutorActualizar"];
             $nombreImagen = $imagen["name"];
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
 
-            $fullname = $appaterno_tutor ."_" . $apmaterno_tutor . "_" . $nombre_tutor;
-            $carpeta = constant('URL')."public/tutor/" .$fullname. "/";
+            $fullname = $appaterno_tutor . "_" . $apmaterno_tutor . "_" . $nombre_tutor;
+            $carpeta = constant('URL') . "public/tutor/" . $fullname . "/";
 
-            if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif')       {
+            if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
             } else {
                 if (!file_exists($carpeta)) {
                     mkdir($carpeta, 0777, true);
                 }
-                copy($ruta_provisional, $carpeta.$nombreImagen);
-
-
+                copy($ruta_provisional, $carpeta . $nombreImagen);
                 $data = array(
-                    'id_tutor' => $id_tutor, 
-                    'id_alumno' => $id_alumno, 
-                    'id_escuela' => $id_escuela, 
-                    'id_usuario' => $id_usuario, 
+                    'id_tutor' => $id_tutor,
+                    'id_alumno' => $id_alumno,
+                    'id_escuela' => $id_escuela,
+                    'id_usuario' => $id_usuario,
                     'foto_tutor' => $nombreImagen,
-                    'nombre_tutor' => $nombre_tutor, 
-                    'appaterno_tutor' => $appaterno_tutor, 
-                    'apmaterno_tutor'=>$apmaterno_tutor, 
-                    'fechanacimiento_tutor'=>$fechanacimiento_tutor, 
-                    'telefono_tutor'=>$telefono_tutor, 
-                    'email_tutor'=>$email_tutor, 
-                    'calle_tutor'=>$calle_tutor, 
-                    'noexterior_tutor'=>$noexterior_tutor, 
-                    'nointerior_tutor'=>$nointerior_tutor, 
-                    'cp_tutor'=>$cp_tutor, 
-                    'estado_tutor'=>$estado_tutor, 
-                    'municipio_tutor'=>$municipio_tutor, 
-                    'colonia_tutor'=>$colonia_tutor);
+                    'nombre_tutor' => $nombre_tutor,
+                    'appaterno_tutor' => $appaterno_tutor,
+                    'apmaterno_tutor' => $apmaterno_tutor,
+                    'fechanacimiento_tutor' => $fechanacimiento_tutor,
+                    'telefono_tutor' => $telefono_tutor,
+                    'email_tutor' => $email_tutor,
+                    'calle_tutor' => $calle_tutor,
+                    'noexterior_tutor' => $noexterior_tutor,
+                    'nointerior_tutor' => $nointerior_tutor,
+                    'cp_tutor' => $cp_tutor,
+                    'estado_tutor' => $estado_tutor,
+                    'municipio_tutor' => $municipio_tutor,
+                    'colonia_tutor' => $colonia_tutor
+                );
 
                 require 'model/tutorDAO.php';
                 $this->loadModel('TutorDAO');
@@ -124,7 +119,8 @@ class Tutor extends Controller
         }
     }
 
-    function delete(){
+    function delete()
+    {
         $id_tutor = $_POST['idEliminarTutor'];
 
         require 'model/tutorDAO.php';
@@ -133,7 +129,8 @@ class Tutor extends Controller
         $tutorDAO->delete($id_tutor);
     }
 
-    function read() {
+    function read()
+    {
         require 'model/tutorDAO.php';
         $this->loadModel('TutorDAO');
         $tutorDAO = new TutorDAO();
@@ -142,15 +139,15 @@ class Tutor extends Controller
         echo json_encode($tutorDAO);
     }
 
-    function readTable() {
+    function readTable()
+    {
         require 'model/tutorDAO.php';
         $this->loadModel('TutorDAO');
         $tutorDAO = new TutorDAO();
         $tutorDAO = $tutorDAO->read();
 
         $obj = null;
-        if (is_array($tutorDAO) || is_object($tutorDAO))
-        {
+        if (is_array($tutorDAO) || is_object($tutorDAO)) {
             foreach ($tutorDAO as $key => $value) {
                 $obj["data"][] = $value;
             }

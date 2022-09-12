@@ -46,8 +46,6 @@ class IncidenciaDAO extends Model implements CRUD
             ':fechaincidencia_incidencia' => $data['fechaincidencia_incidencia'],
             ':horaincidencia_incidencia' => $data['horaincidencia_incidencia'],
             ':descripcion_incidencia' => $data['descripcion_incidencia']
-
-
         ]);
         echo 'ok';
     }
@@ -76,11 +74,9 @@ class IncidenciaDAO extends Model implements CRUD
                 $incidencia->id_profesor = $value['id_profesor'];
                 $incidencia->id_grupo = $value['id_grupo'];
 
-
                 $incidencia->fechaincidencia_incidencia = $value['fechaincidencia_incidencia'];
                 $incidencia->horaincidencia_incidencia = $value['horaincidencia_incidencia'];
                 $incidencia->descripcion_incidencia = $value['descripcion_incidencia'];
-
 
                 $incidencia->nombre_profesor = $value['nombre_profesor'];
                 $incidencia->appaterno_profesor = $value['appaterno_profesor'];
@@ -90,7 +86,6 @@ class IncidenciaDAO extends Model implements CRUD
                 $incidencia->appaterno_alumno = $value['appaterno_alumno'];
                 $incidencia->apmaterno_alumno = $value['apmaterno_alumno'];
                 $incidencia->nombre_grupo = $value['nombre_grupo'];
-
 
                 array_push($objIncidencias, $incidencia);
             }
@@ -126,8 +121,6 @@ class IncidenciaDAO extends Model implements CRUD
                 $incidencia->appaterno_alumno = $value['appaterno_alumno'];
                 $incidencia->apmaterno_alumno = $value['apmaterno_alumno'];
                 $incidencia->nombre_grupo = $value['nombre_grupo'];
-
-                //$objAlumnoIncidencias['data'][] = $incidencia;
                 array_push($objAlumnoIncidencias, $incidencia);
             }
         } else {
@@ -169,8 +162,6 @@ class IncidenciaDAO extends Model implements CRUD
                 $incidencia->appaterno_alumno = $value['appaterno_alumno'];
                 $incidencia->apmaterno_alumno = $value['apmaterno_alumno'];
                 $incidencia->nombre_grupo = $value['nombre_grupo'];
-
-                //$objAlumnoIncidencias['data'][] = $incidencia;
 
                 array_push($objAlumnoIncidencias, $incidencia);
             }

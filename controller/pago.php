@@ -6,16 +6,18 @@ class Pago extends Controller
         parent::__construct();
     }
 
-    function index(){
+    function index()
+    {
         $this->view->render('pago/index');
     }
 
-    function insert() {
+    function insert()
+    {
         $id_cobro = $_POST['id_cobro'];
         $cantidad_pago = $_POST['cantidad_pago'];
         $descripcion_pago = $_POST['descripcion_pago'];
         $monto_cobro_pago = $_POST['monto_cobro_pago'];
-        $restante_pago = $monto_cobro_pago-$cantidad_pago; 
+        $restante_pago = $monto_cobro_pago - $cantidad_pago;
 
         $data = array(
             'id_cobro' => $id_cobro,
@@ -32,13 +34,14 @@ class Pago extends Controller
     }
 
 
-    function update() {
+    function update()
+    {
         $id_pago = $_POST['id_pagoActualizar'];
         $id_cobro = $_POST['id_cobroActualizar'];
         $cantidad_pago = $_POST['cantidad_pagoActualizar'];
         $descripcion_pago = $_POST['descripcion_pagoActualizar'];
         $monto_cobro_pago = $_POST['monto_cobro_pagoActualizar'];
-        $restante_pago = $monto_cobro_pago-$cantidad_pago; 
+        $restante_pago = $monto_cobro_pago - $cantidad_pago;
 
         $data = array(
             'id_pago' => $id_pago,
@@ -55,7 +58,8 @@ class Pago extends Controller
         $pagoDAO->update($data);
     }
 
-    function delete(){
+    function delete()
+    {
         $id_pago = $_POST['idEliminarPago'];
 
         require 'model/pagoDAO.php';
@@ -64,32 +68,30 @@ class Pago extends Controller
         $pagoDAO->delete($id_pago);
     }
 
-    function read() {
-       require 'model/pagoDAO.php';
-       $this->loadModel('PagoDAO');
-       $pagoDAO = new PagoDAO();
-       $pagoDAO = $pagoDAO->read();
-       echo json_encode($pagoDAO);
-   }
-
-   function readTable() {
-    require 'model/pagoDAO.php';
-    $this->loadModel('PagoDAO');
-    $pagoDAO = new PagoDAO();
-    $pagoDAO = $pagoDAO->read();
-
-    $obj = null;
-    if (is_array($pagoDAO) || is_object($pagoDAO))
+    function read()
     {
-        foreach ($pagoDAO as $key => $value) {
-            $obj["data"][] = $value;
-        }
-    } else {
-        $obj = array();
+        require 'model/pagoDAO.php';
+        $this->loadModel('PagoDAO');
+        $pagoDAO = new PagoDAO();
+        $pagoDAO = $pagoDAO->read();
+        echo json_encode($pagoDAO);
     }
-    echo json_encode($obj);
-    
-}
 
+    function readTable()
+    {
+        require 'model/pagoDAO.php';
+        $this->loadModel('PagoDAO');
+        $pagoDAO = new PagoDAO();
+        $pagoDAO = $pagoDAO->read();
 
+        $obj = null;
+        if (is_array($pagoDAO) || is_object($pagoDAO)) {
+            foreach ($pagoDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
 }

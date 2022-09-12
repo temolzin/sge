@@ -20,7 +20,7 @@ $telefono_alumno = $_SESSION['telefono_alumno'];
 $email_alumno = $_SESSION['email_alumno'];
 $fecha_nacimiento_alumno =    $_SESSION['fecha_nacimiento_alumno'];
 $nombre_completo_al = $nombre_alumno . " " . $appaterno_alumno . " " . $apmaterno_alumno;
-$fotorutaalumno = constant('URL').'public/alumno/' . $appaterno_alumno . '_' . $apmaterno_alumno . '_' . $nombre_alumno . '/' . $foto_alumno;
+$fotorutaalumno = constant('URL') . 'public/alumno/' . $appaterno_alumno . '_' . $apmaterno_alumno . '_' . $nombre_alumno . '/' . $foto_alumno;
 
 require 'view/menu.php';
 $menu = new Menu();
@@ -29,136 +29,136 @@ $menu->header('Tablero');
 ?>
 
 <head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="<?php echo constant('URL')?>public/dist/css/adminlte.min.css">
-<link rel="stylesheet" href="<?php echo constant('URL')?>css/perfilalumno.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="<?php echo constant('URL') ?>public/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo constant('URL') ?>css/perfilalumno.css">
 </head>
 
 <section class="content" style="margin: 20px 20px 20px 20px">
-<div class="container emp-profile" >
-<form method="post" style="background-color: #fff" ><br><br><br><br>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="profile-img"   >
-        <br>
-         <img src="<?php echo $fotorutaalumno;?>"  alt="user-avatar"  height="145px" width="145px" class="img-circle img-fluid">
+  <div class="container emp-profile">
+    <form method="post" style="background-color: #fff"><br><br><br><br>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-img">
+            <br>
+            <img src="<?php echo $fotorutaalumno; ?>" alt="user-avatar" height="145px" width="145px" class="img-circle img-fluid">
 
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="profile-head"><br>
-        <h5>
-         Información Del Alumno
-       </h5>
-       <h6>
-         Datos Generales
-       </h6>
-       <br><br>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-head"><br>
+            <h5>
+              Información Del Alumno
+            </h5>
+            <h6>
+              Datos Generales
+            </h6>
+            <br><br>
 
-     </div>
-     <div class="tab-content profile-tab" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="row">
-          <div class="col-md-6">
-            <label>Nombre Completo:</label>
           </div>
-          <div class="col-md-6">
-            <p> <?php echo $nombre_completo_al; ?> </p>
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Nombre Completo:</label>
+                </div>
+                <div class="col-md-6">
+                  <p> <?php echo $nombre_completo_al; ?> </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Fecha De Nacimiento:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $fecha_nacimiento_alumno; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Teléfono:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $telefono_alumno; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Email:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $email_alumno; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Calle:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $calle_alumno; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>N° Interior:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $num_interior_alumno; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>N° Exterior:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $num_exterior_alumno; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>CP:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $cp_alumno; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Estado:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $estado_alumno; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Municipio:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $municipio_alumno; ?></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Colonia:</label>
+                </div>
+                <div class="col-md-6">
+                  <p><?php echo $colonia_alumno; ?></p>
+                </div>
+              </div>
+              <br>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Fecha De Nacimiento:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $fecha_nacimiento_alumno; ?></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Teléfono:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $telefono_alumno; ?></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Email:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $email_alumno; ?></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Calle:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $calle_alumno; ?></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>N° Interior:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $num_interior_alumno; ?></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>N° Exterior:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $num_exterior_alumno; ?></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>CP:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $cp_alumno; ?></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Estado:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $estado_alumno; ?></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Municipio:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $municipio_alumno; ?></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Colonia:</label>
-          </div>
-          <div class="col-md-6">
-            <p><?php echo $colonia_alumno; ?></p>
-          </div>
-        </div>
-        <br>
       </div>
+
     </div>
+
+
+  </form>
   </div>
-</div>
-
-</div>
-
-
-</form>           
-</div>
 
 </section>
 <?php

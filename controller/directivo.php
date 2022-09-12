@@ -43,13 +43,11 @@ class Directivo extends Controller
         if ($_FILES["foto_director"]["name"] != null) {
             $imagen = $_FILES["foto_director"];
             $nombreImagen = $imagen["name"];
-            //$nombreImagen = date("Y-n-j");
-            //$nombreImagen = date("Y-n-j");
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
 
             $fullname = $appaterno_director . "_" . $apmaterno_director . "_" . $nombre_director;
-            $carpeta = constant('URL')."public/director/" . $fullname . "/";
+            $carpeta = constant('URL') . "public/director/" . $fullname . "/";
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
             } else {
@@ -129,7 +127,7 @@ class Directivo extends Controller
                 $ruta_provisional = $imagen["tmp_name"];
 
                 $fullname = $appaterno_director . "_" . $apmaterno_director . "_" . $nombre_director;
-                $carpeta = constant('URL')."public/director/" . $fullname . "/";
+                $carpeta = constant('URL') . "public/director/" . $fullname . "/";
 
                 if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                     echo 'errorimagen';

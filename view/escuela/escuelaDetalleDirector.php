@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
-  }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Escuela');
@@ -666,8 +666,7 @@ $menu->footer();
             "ajax": {
                 "url": "<?php echo constant('URL'); ?>escuela/readTable"
             },
-            "columns": [
-                {
+            "columns": [{
                     "data": "nombre_escuela"
                 },
                 {
@@ -961,16 +960,4 @@ $menu->footer();
             });
         });
     }
-
-    /*var dataTableFunction = function () {
-        var table = $("#dataTableEscuela").DataTable({
-            responsive: true,
-            language: idiomaDataTable,
-            lengthChange: true,
-            buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis'],
-            dom: 'Bfltip'
-        });
-
-        table.buttons().container().appendTo('#dataTableEscuela_wrapper .col-md-6:eq(0)');
-    }*/
 </script>

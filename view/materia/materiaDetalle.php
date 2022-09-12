@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
-  }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('materia_profesor_consulta');
@@ -95,10 +95,6 @@ $menu->header('materia_profesor_consulta');
                                 </div>
                             </div>
                         </div>
-
-
-
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         </div>
@@ -121,8 +117,6 @@ $menu->footer();
         llenarMateria();
         llenarProfesor();
         llenarGrupo();
-
-
     });
 
     const llenarMateria = () => {

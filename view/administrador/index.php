@@ -534,15 +534,6 @@
        var fechanacimiento_administrador = $("#fechanacimiento_administradorActualizar").val(data.fechanacimiento_administrador);;
        var username_usuario = $("#username_usuarioActualizar").val(data.username_usuario);
        var password_usuario = $("#password_usuarioActualizar").val(data.password_usuario);
-       //var foto_administradorActualizar = $("#foto_administradorActualizar").val(data.foto_administrador);
-       //var fullnameImagen = appaterno_administrador + '_' + apmaterno_administrador + '_' + nombre_administrador + '/';
-       //$('#foto_administradorActualizar').attr('src', url2 + '/public/administrador/' + fullnameImagen + foto_administrador);
-       // $("#foto_administradorActualizar").empty();
-       // var foto_administradorActualizar = $("#foto_administradorActualizar").val(data.foto_administrador);
-       // alert(data.nombre_administrador);
-       //alert(data.foto_administrador);
-       // MODAL CONSULTAR
-
        var idConsulta = $("#id_administradorConsultar").val(data.id_administrador);
        var id_usuarioConsulta = $("#id_usuarioConsultar").val(data.id_usuario);
        var username_usuarioConsulta = $("#username_usuarioConsultar").val(data.username_usuario);
@@ -553,11 +544,6 @@
        var telefono_administradorConsulta = $("#telefono_administradorConsultar").val(data.telefono_administrador);
        var email_administradorConsulta = $("#email_administradorConsultar").val(data.email_administrador);
        var fechanacimiento_administradorConsulta = $("#fechanacimiento_administradorConsultar").val(data.fechanacimiento_administrador);
-
-       // var fullnameImagen = appaterno_administrador + '_' + apmaterno_administrador + '_' + nombre_administrador;
-       // var fotoConsulta = $("#imgadministradorConsultar").attr('src' + 'public/administrador/' + Flores  + '_' + Vargas + '_' + Esteban);
-
-
      });
    }
 
@@ -576,11 +562,11 @@
              var idUsuario = id_usuario;
              var form_data = new FormData();
              imagen = $('#foto_administrador').prop('files')[0]; // Aqui obtienes la imagen del usuario de BBDD
-             $urlImagenBasica = '<?php echo constant('URL');?>public/img/default.jpg';
+             $urlImagenBasica = '<?php echo constant('URL'); ?>public/img/default.jpg';
              if ($('#foto_administrador').val() == null) {
                imagen = $urlImagenBasica // Esta la tienes que obtener anteriormente y guardarla en la variable $urlImagenBasica
              }
-             var imagen = '<?php echo constant('URL');?>public/img/default.jpg';
+             var imagen = '<?php echo constant('URL'); ?>public/img/default.jpg';
              if ($('#foto_administrador').val() != null) {
                imagen = $('#foto_administrador').prop('files')[0];
              } else {
