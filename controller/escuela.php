@@ -48,11 +48,11 @@ class Escuela extends Controller
                     mkdir($carpeta, 0777, true);
                 }
                 copy($ruta_provisional, $carpeta.$nombreImagen);
-        
+
         $data = array(
             'nombre_escuela' => $nombre_escuela,
             'rfc_escuela' => $rfc_escuela,
-            'cct_escuela' => $cct_escuela, 
+            'cct_escuela' => $cct_escuela,
             'calle_escuela' => $calle_escuela,
             'numxterior_escuela' => $numxterior_escuela,
             'numinterior_escuela' => $numinterior_escuela,
@@ -64,7 +64,7 @@ class Escuela extends Controller
             'email_escuela' => $email_escuela,
             'observacion_escuela' => $observacion_escuela,
             'foto_escuela' => $nombreImagen
-            
+
         );
 
         require 'model/escuelaDAO.php';
@@ -74,11 +74,11 @@ class Escuela extends Controller
         }
     }
 }
-               
+
     function update()
     {
         $id_escuela = $_POST['id_escuelaActualizar'];
-        $nombre_escuela = $_POST['nombre_escuelaActualizar'];        
+        $nombre_escuela = $_POST['nombre_escuelaActualizar'];
         $rfc_escuela = $_POST['rfc_escuelaActualizar'];
         $cct_escuela = $_POST['cct_escuelaActualizar'];
         $calle_escuela = $_POST['calle_escuelaActualizar'];
@@ -94,7 +94,22 @@ class Escuela extends Controller
 
         $nombreImagen = "";
 
-        $arrayAcualizar = array();
+        $arrayActualizar = array(
+            'id_escuela' => $id_escuela,
+            'nombre_escuela' => $nombre_escuela,
+            'rfc_escuela' => $rfc_escuela,
+            'cct_escuela' => $cct_escuela,
+            'calle_escuela' => $calle_escuela,
+            'numxterior_escuela' => $numxterior_escuela,
+            'numinterior_escuela' => $numinterior_escuela,
+            'cp_escuela' => $cp_escuela,
+            'estado_escuela' => $estado_escuela,
+            'municipio_escuela' => $municipio_escuela,
+            'colonia_escuela' => $colonia_escuela,
+            'telefono_escuela' => $telefono_escuela,
+            'email_escuela' => $email_escuela,
+            'observacion_escuela' => $observacion_escuela,
+        );
 
         if (isset($_FILES["foto_escuelaActualizar"])) {
 
@@ -106,7 +121,7 @@ class Escuela extends Controller
                 $ruta_provisional = $imagen["tmp_name"];
 
                 $fullname = $cct_escuela . "_" . $rfc_escuela . "_" . $nombre_escuela;
-                $carpeta = constant('URL')."public/escuela/" . $fullname . "/";
+                $carpeta = "public/escuela/" . $fullname . "/";
 
                 if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                     echo 'errorimagen';
@@ -116,48 +131,15 @@ class Escuela extends Controller
                     }
                     copy($ruta_provisional, $carpeta . $nombreImagen);
 
-                    $arrayAcualizar = array(
-                        'id_escuela' => $id_escuela,
-                        'foto_escuela' => $nombreImagen,
-                        'nombre_escuela' => $nombre_escuela,
-                        'rfc_escuela' => $rfc_escuela,
-                        'cct_escuela' => $cct_escuela,
-                        'calle_escuela' => $calle_escuela,
-                        'numxterior_escuela' => $numxterior_escuela,
-                        'numinterior_escuela' => $numinterior_escuela,
-                        'cp_escuela' => $cp_escuela,
-                        'estado_escuela' => $estado_escuela,
-                        'municipio_escuela' => $municipio_escuela,
-                        'colonia_escuela' => $colonia_escuela,
-                        'telefono_escuela' => $telefono_escuela,
-                        'email_escuela' => $email_escuela,
-                        'observacion_escuela' => $observacion_escuela,
-                    );
+                    $arrayActualizar['foto_escuela'] =  $nombreImagen;
                 }
             }
-        } else {
-            $arrayAcualizar = array(
-                        'id_escuela' => $id_escuela,
-                        'nombre_escuela' => $nombre_escuela,
-                        'rfc_escuela' => $rfc_escuela,
-                        'cct_escuela' => $cct_escuela,
-                        'calle_escuela' => $calle_escuela,
-                        'numxterior_escuela' => $numxterior_escuela,
-                        'numinterior_escuela' => $numinterior_escuela,
-                        'cp_escuela' => $cp_escuela,
-                        'estado_escuela' => $estado_escuela,
-                        'municipio_escuela' => $municipio_escuela,
-                        'colonia_escuela' => $colonia_escuela,
-                        'telefono_escuela' => $telefono_escuela,
-                        'email_escuela' => $email_escuela,
-                        'observacion_escuela' => $observacion_escuela,
-            );
         }
 
         require 'model/escuelaDAO.php';
         $this->loadModel('EscuelaDAO');
         $escuelaDAO = new EscuelaDAO();
-        $escuelaDAO->update($arrayAcualizar);
+        $escuelaDAO->update($arrayActualizar);
         }
 
     function delete()
