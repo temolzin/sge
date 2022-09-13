@@ -10,12 +10,10 @@ class TareaDTO implements JsonSerializable
     private $archivo_tarea;
     private $nombre_materia;
     private $nombre_grupo;
-
     private $id_tarea_entregada;
     private $archivo_tarea_entregada;
     private $comentarios_tarea;
     private $calificacion_tarea;
-
     private $id_tarea_alumnoDetalle;
 
     public function __get($property)
@@ -30,14 +28,6 @@ class TareaDTO implements JsonSerializable
             $this->$property = $value;
         }
     }
-
-    /**
-     * Specify data which should be serialized to JSON
-     * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     * @since 5.4.0
-     */
     public function jsonSerialize()
     {
         $vars = get_object_vars($this);

@@ -1,11 +1,11 @@
 <?php
 session_start();
-class GrupoDAO extends Model implements CRUD {
+class GrupoDAO extends Model implements CRUD
+{
     public function __construct()
     {
         parent::__construct();
     }
-
     public function insert($data)
     {
         $query = $this->db->conectar()->prepare('INSERT INTO grupo values (null,  
@@ -13,13 +13,13 @@ class GrupoDAO extends Model implements CRUD {
             :nombre_grupo,
             :turno_grupo)');
         $query->execute([
-          
+
             ':id_escuela' => $data['id_escuela'],
             ':nombre_grupo' => $data['nombre_grupo'],
-            ':turno_grupo' => $data['turno_grupo']]);
+            ':turno_grupo' => $data['turno_grupo']
+        ]);
         echo 'ok';
     }
-
     public function update($data)
     {
         $query = $this->db->conectar()->prepare('UPDATE grupo SET id_escuela = :id_escuela, 
@@ -33,7 +33,6 @@ class GrupoDAO extends Model implements CRUD {
         ]);
         echo 'ok';
     }
-
     public function delete($id)
     {
         $query = $this->db->conectar()->prepare('DELETE FROM grupo where id_grupo = :id_grupo');
@@ -45,7 +44,7 @@ class GrupoDAO extends Model implements CRUD {
     {
         $id_escuela = $_SESSION['id_escuela'];
         require_once 'grupoDTO.php';
-        $query = "SELECT * FROM grupo where id_escuela = '".$id_escuela."'";
+        $query = "SELECT * FROM grupo where id_escuela = '" . $id_escuela . "'";
         $objGrupo = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
             foreach ($this->db->consultar($query) as $key => $value) {
@@ -63,4 +62,3 @@ class GrupoDAO extends Model implements CRUD {
         return $objGrupo;
     }
 }
-?>

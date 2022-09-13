@@ -6,11 +6,13 @@ class GradoAcademico extends Controller
         parent::__construct();
     }
 
-    function index(){
+    function index()
+    {
         $this->view->render('gradoAcademico/index');
     }
 
-    function insert() {
+    function insert()
+    {
         $id_grado_academico = $_POST['id_grado_academico'];
         $nombre_grado_academico = $_POST['nombre_grado_academico'];
         $observacion_gradoacademico = $_POST['observacion_gradoacademico'];
@@ -22,7 +24,8 @@ class GradoAcademico extends Controller
         $gradoAcademicoDAO->insert($data);
     }
 
-    function update() {
+    function update()
+    {
         $id_grado_academico = $_POST['id_grado_academicoActualizar'];
         $nombre_grado_academico = $_POST['nombre_grado_academicoActualizar'];
         $observacion_gradoacademico = $_POST['observacion_gradoacademicoActualizar'];
@@ -34,7 +37,8 @@ class GradoAcademico extends Controller
         $gradoAcademicoDAO->update($data);
     }
 
-    function delete(){
+    function delete()
+    {
         $id_grado_academico = $_POST['idEliminarGradoAcademico'];
 
         require 'model/gradoAcademicoDAO.php';
@@ -44,7 +48,8 @@ class GradoAcademico extends Controller
     }
 
 
-    function read() {
+    function read()
+    {
         require 'model/gradoAcademicoDAO.php';
         $this->loadModel('GradoAcademicoDAO');
         $gradoAcademicoDAO = new GradoAcademicoDAO();
@@ -53,24 +58,21 @@ class GradoAcademico extends Controller
         echo json_encode($gradoAcademicoDAO);
     }
 
-    function readTable() {
-     require 'model/gradoAcademicoDAO.php';
-     $this->loadModel('GradoAcademicoDAO');
-     $gradoAcademicoDAO = new GradoAcademicoDAO();
-     $gradoAcademicoDAO = $gradoAcademicoDAO->read();
+    function readTable()
+    {
+        require 'model/gradoAcademicoDAO.php';
+        $this->loadModel('GradoAcademicoDAO');
+        $gradoAcademicoDAO = new GradoAcademicoDAO();
+        $gradoAcademicoDAO = $gradoAcademicoDAO->read();
 
-     $obj = null;
-     if (is_array($gradoAcademicoDAO) || is_object($gradoAcademicoDAO))
-     {
-        foreach ($gradoAcademicoDAO as $key => $value) {
-            $obj["data"][] = $value;
+        $obj = null;
+        if (is_array($gradoAcademicoDAO) || is_object($gradoAcademicoDAO)) {
+            foreach ($gradoAcademicoDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
         }
-    } else {
-        $obj = array();
+        echo json_encode($obj);
     }
-    echo json_encode($obj);
-    
-}
-
-
 }

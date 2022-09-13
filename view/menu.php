@@ -15,7 +15,7 @@ class Menu
             $apmaterno = $_SESSION['apmaterno'];
             // $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
 
-            $fotoruta = constant('URL').'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+            $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 
 
             //$tutor = 'tutor';
@@ -462,10 +462,10 @@ class Menu
     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-    <a href="'. constant('URL') .'" class="nav-link">Inicio</a>
+    <a href="' . constant('URL') . '" class="nav-link">Inicio</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-    <a href="'. constant('URL') .'perfil" class="nav-link">Ver Perfil</a>
+    <a href="' . constant('URL') . 'perfil" class="nav-link">Ver Perfil</a>
     </li>
     </ul>
 
@@ -513,7 +513,7 @@ class Menu
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="'. constant('URL') .'" class="brand-link">
+    <a href="' . constant('URL') . '" class="brand-link">
     <center><span class="brand-text font-weight-light">Bienvenido ' . $tipo . '</span></center>
     </a>
 
@@ -525,7 +525,7 @@ class Menu
     <img src="' . $fotoruta . '" class="img-circle elevation-2" alt="User Image" height="50px" width="50px">
     </div>
     <div class="info">
-    <a href="'. constant('URL') .'perfil" class="d-block">' . $nombre . '</a>
+    <a href="' . constant('URL') . 'perfil" class="d-block">' . $nombre . '</a>
     
     </div>
     </div>

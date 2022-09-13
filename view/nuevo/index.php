@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title></title>
+    <title></title>
 </head>
+
 <body>
-	<?php require 'view/header.php'; ?>
-	<div id="main">
-		<h1 class="center">
-			VISTA APARTADO NUEVO
-		</h1>
-        <form action="<?php echo constant('URL')?>nuevo/registrarAlumno" method="post">
+    <?php require 'view/header.php'; ?>
+    <div id="main">
+        <h1 class="center">
+            VISTA APARTADO NUEVO
+        </h1>
+        <form action="<?php echo constant('URL') ?>nuevo/registrarAlumno" method="post">
             <p>
                 <label for="matricula">Matrícula</label><br>
                 <input type="text" name="matricula" id="matricula" required>
@@ -26,8 +28,9 @@
                 <input type="submit" value="Registrar Alumno">
             </p>
         </form>
-	</div>
+    </div>
 
-	<?php require 'view/footer.php'; ?>
+    <?php require 'view/footer.php'; ?>
 </body>
+
 </html>

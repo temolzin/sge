@@ -86,4 +86,3 @@ class CobroDAO extends Model implements CRUD {
         return $objCobros;
     }
 }
-?>

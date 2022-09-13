@@ -68,7 +68,7 @@ $menu->header('Tarea');
               <!-- /.card-header -->
               <div class="card-body border-primary">
                 <div class="row">
-                <div class="col-lg-12">
+                  <div class="col-lg-12">
                     <span><label>Subir Archivo (*)</label></span>
                     <div class="form-group input-group">
                       <div class="custom-file">
@@ -91,7 +91,7 @@ $menu->header('Tarea');
                       </select>
                     </div>
                   </div>
-                  
+
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label>Seleccione Grupo (*)</label>
@@ -272,8 +272,8 @@ $menu->header('Tarea');
                       </select>
                     </div>
                   </div>
-                  
-                  
+
+
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label>Fecha de entrega</label>
@@ -287,7 +287,7 @@ $menu->header('Tarea');
                     </div>
                   </div>
 
-                  
+
                 </div>
               </div>
             </div>
@@ -374,7 +374,7 @@ $menu->footer();
       }
     });
   }
-  
+
   var mostrarTareas = function() {
     var tableTarea = $('#dataTableTarea').DataTable({
       "processing": true,
@@ -427,7 +427,7 @@ $menu->footer();
   var obtenerdatosDT = function(table) {
     $('#dataTableTarea tbody').on('click', 'tr', function() {
       var data = table.row(this).data();
-      console.log("hola ",data);
+      console.log("hola ", data);
 
       var idEliminar = $('#idEliminarTarea').val(data.id_tarea_alumno);
 

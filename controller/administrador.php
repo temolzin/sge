@@ -28,7 +28,7 @@ class Administrador extends Controller
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
             $fullname = $appaterno_administrador . "_" . $apmaterno_administrador . "_" . $nombre_administrador;
-            $carpeta = constant('URL')."public/administrador/" . $fullname . "/";
+            $carpeta = constant('URL') . "public/administrador/" . $fullname . "/";
 
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
@@ -85,7 +85,7 @@ class Administrador extends Controller
                 $ruta_provisional = $imagen["tmp_name"];
 
                 $fullname = $appaterno_administrador . "_" . $apmaterno_administrador . "_" . $nombre_administrador;
-                $carpeta = constant('URL')."public/administrador/" . $fullname . "/";
+                $carpeta = constant('URL') . "public/administrador/" . $fullname . "/";
 
                 if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                     echo 'errorimagen';

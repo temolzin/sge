@@ -9,7 +9,6 @@
     ?>
     <section class="content">
       <div class="container-fluid">
-
         <br>
         <div class="row">
           <div class="col-12">
@@ -194,13 +193,9 @@
         obtenerdatosDT(TableAlumnoIncidencia);
       }
 
-
-
       var obtenerdatosDT = function(table) {
         $('#dataTableAlumnoIncidencia tbody').on('click', 'tr', function() {
           var data = table.row(this).data();
-
-
           var id_alumnoConsulta = $("#id_alumnoConsultar").val(data.nombre_alumno + ' ' + data.appaterno_alumno + ' ' + data.apmaterno_alumno);
           var id_profesorConsulta = $("#id_profesorConsultar").val(data.nombre_profesor + ' ' + data.appaterno_profesor + ' ' + data.apmaterno_profesor);
           var id_grupoConsulta = $("#id_grupoConsultar").val(data.nombre_grupo);

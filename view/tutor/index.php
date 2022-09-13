@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
-  }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('tutor');
@@ -72,16 +72,16 @@ $menu->header('tutor');
                             <!-- /.card-header -->
                             <div class="card-body border-primary">
                                 <div class="row">
-                                <div class="col-lg-12">
-                                    <span><label>Fotografía Tutor (*)</label></span>
-                                    <div class="form-group input-group">
-                                        <div class="custom-file">
-                                            <input type="file" accept="image/*" class="custom-file-input" name="foto_tutor" id="foto_tutor" lang="es">
-                                            <label class="custom-file-label" for="imagen">Seleccione Fotografía</label>
+                                    <div class="col-lg-12">
+                                        <span><label>Fotografía Tutor (*)</label></span>
+                                        <div class="form-group input-group">
+                                            <div class="custom-file">
+                                                <input type="file" accept="image/*" class="custom-file-input" name="foto_tutor" id="foto_tutor" lang="es">
+                                                <label class="custom-file-label" for="imagen">Seleccione Fotografía</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Usuario (*)</label>
                                             <input type="text" class="form-control" id="username_usuario" name="username_usuario" placeholder="Usuario" />
@@ -93,9 +93,9 @@ $menu->header('tutor');
                                             <input type="password" class="form-control" id="password_usuario" name="password_usuario" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
                                         </div>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
@@ -295,16 +295,16 @@ $menu->header('tutor');
                             <!-- /.card-header -->
                             <div class="card-body border-primary">
                                 <div class="row">
-                                <div class="col-lg-12">
-                                    <span><label>Fotografía Tutor (*)</label></span>
-                                    <div class="form-group input-group">
-                                        <div class="custom-file">
-                                            <input type="file" accept="image/*" class="custom-file-input" onChange="actualiza(this.value)" name="imgTutorActualizar" id="imgTutorActualizar" lang="es">
-                                            <label class="custom-file-label" for="imagen">Selecciona imagen</label>
+                                    <div class="col-lg-12">
+                                        <span><label>Fotografía Tutor (*)</label></span>
+                                        <div class="form-group input-group">
+                                            <div class="custom-file">
+                                                <input type="file" accept="image/*" class="custom-file-input" onChange="actualiza(this.value)" name="imgTutorActualizar" id="imgTutorActualizar" lang="es">
+                                                <label class="custom-file-label" for="imagen">Selecciona imagen</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Usuario (*)</label>
                                             <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario" />
@@ -316,9 +316,9 @@ $menu->header('tutor');
                                             <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
                                         </div>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <input type="text" hidden class="form-control" id="id_tutorActualizar" name="id_tutorActualizar" />
@@ -529,19 +529,6 @@ $menu->header('tutor');
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body border-primary">
-                                <!--  <div class="row">
-                                     <div class="figure">
-                                        <div class="form-group">
-                                        
-                                           <select disabled type="img" name="imgTutorConsultar" id="imgTutorConsultar" class="form-control id_tutor">
-                                
-                            </select>
-                                         <img  src="$imgTutorConsultar" name="imgTutorConsultar" id="imgTutorConsultar"
-                                            width="150"
-                                            height="150"/>  
-                                        </div>
-                                    </div>
-                                </div> -->
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
@@ -605,12 +592,9 @@ $menu->header('tutor');
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="card border-red">
                                 <div class="card-header py-1 bg-secondary ">
                                     <h3 class="card-title">Datos Domicilio </h3>
-
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-secondary" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                     </div>
@@ -820,9 +804,6 @@ $menu->footer();
         console.log(nombre);
         document.getElementById('imgTutorActualizar').value = nombre;
     }
-
-
-
     const rutaImagen = () => {
         $.ajax({
             type: "GET",
@@ -890,10 +871,6 @@ $menu->footer();
             }
         });
     }
-
-
-
-
     var mostrarTutores = function() {
         var tableTutor = $('#dataTableTutor').DataTable({
             "processing": true,
@@ -902,7 +879,6 @@ $menu->footer();
                 "url": "<?php echo constant('URL'); ?>tutor/readtable"
             },
             "columns": [
-
                 {
                     defaultContent: "",
 
@@ -910,7 +886,7 @@ $menu->footer();
 
                         var fullnameImagen = JsonResultRow.appaterno_tutor + '_' + JsonResultRow.apmaterno_tutor + '_' + JsonResultRow.nombre_tutor + '/' + JsonResultRow.foto_tutor;
 
-                        var img = '<?php echo constant('URL');?>public/Tutor/' + fullnameImagen;
+                        var img = '<?php echo constant('URL'); ?>public/Tutor/' + fullnameImagen;
 
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
@@ -963,10 +939,8 @@ $menu->footer();
         $('#dataTableTutor tbody').on('click', 'tr', function() {
             var data = table.row(this).data();
             console.log(data);
-
             var idEliminarTutor = $('#idEliminarTutor').val(data.id_tutor);
             var idEliminarUsuario = $('#idEliminarUsuario').val(data.id_usuario);
-
             var id_tutor = $("#id_tutorActualizar").val(data.id_tutor);
             var id_usuario = $("#id_usuarioActualizar").val(data.id_usuario);
             var nombre_tutor = $("#nombre_tutorActualizar").val(data.nombre_tutor);
@@ -976,7 +950,6 @@ $menu->footer();
             var id_escuela = $("#id_escuelaActualizar option[value=" + data.id_escuela + "]").attr("selected", true);
             var username_usuario = $("#username_usuarioActualizar").val(data.username_usuario);
             var password_usuario = $("#password_usuarioActualizar").val(data.password_usuario);
-
             var fechanacimiento_tutor = $("#fechanacimiento_tutorActualizar").val(data.fechanacimiento_tutor);
             var telefono_tutor = $("#telefono_tutorActualizar").val(data.telefono_tutor);
             var email_tutor = $("#email_tutorActualizar").val(data.email_tutor);
@@ -984,23 +957,14 @@ $menu->footer();
             var noexterior_tutor = $("#noexterior_tutorActualizar").val(data.noexterior_tutor);
             var nointerior_tutor = $("#nointerior_tutorActualizar").val(data.nointerior_tutor);
             var cp_tutor = $("#codigoPostalActualizar").val(data.cp_tutor);
-
             $("#selectEstadoActualizar").empty();
             var estado_tutor = $("#selectEstadoActualizar").append('<option selected>' + data.estado_tutor + '</option>');
-
-
             $("#selectMunicipioActualizar").empty();
             var municipio_tutor = $("#selectMunicipioActualizar").append('<option selected>' + data.municipio_tutor + '</option>');
-
-
             $("#selectColoniaActualizar").empty();
             var colonia_tutor = $("#selectColoniaActualizar").append('<option selected>' + data.colonia_tutor + '</option>');
-
             $("#imgTutorActualizar").empty();
             var foto_tutor = $("#imgTutorActualizar").append(data.foto_tutor);
-
-            //var fullnameImagen = appaterno_tutor + '_' + apmaterno_tutor + '_' + nombre_tutor + '/';
-            // $('#imgTutorActualizar').attr('src', '/SGE/public/tutor/' + fullnameImagen + foto_tutor);
 
             var idConsulta = $("#id_tutorConsultar").val(data.id_tutor);
             var nombreConsulta = $("#nombre_tutorConsultar").val(data.nombre_tutor);
@@ -1021,10 +985,6 @@ $menu->footer();
             var estado_tutorConsulta = $("#selectEstadoConsultar").val(data.estado_tutor);
             var municipio_tutorConsulta = $("#selectMunicipioConsultar").val(data.municipio_tutor);
             var colonia_tutorConsulta = $("#selectColoniaConsultar").val(data.colonia_tutor);
-
-            // var fullnameImagen = appaterno_tutor + '_' + apmaterno_tutor + '_' + nombre_tutor + '/';
-            //$('#imgTutorConsultar').attr('src', '/public/tutor/' + fullnameImagen + foto_tutor);
-            //var fotoConsulta = $("#imgTutorConsultar").attr('src' + 'public/tutor/' + fullnameImagen);
 
             var rutaImagenConsulta = $("#imgTutorConsultar option[value=" + data.id_tutor + "]").attr("selected", true);
         });
@@ -1074,9 +1034,6 @@ $menu->footer();
                         form_data.append('username_usuario', document.getElementById('username_usuario').value);
                         form_data.append('password_usuario', document.getElementById('password_usuario').value);
                         form_data.append('id_tipo_usuario', document.getElementById('id_tipo_usuario').value);
-
-
-
                         $.ajax({
                             type: "POST",
                             url: "<?php echo constant('URL'); ?>tutor/insert",
@@ -1276,8 +1233,6 @@ $menu->footer();
                 form_data.append('selectEstadoActualizar', document.getElementById('selectEstadoActualizar').value);
                 form_data.append('selectMunicipioActualizar', document.getElementById('selectMunicipioActualizar').value);
                 form_data.append('selectColoniaActualizar', document.getElementById('selectColoniaActualizar').value);
-                //form_data.append('username_usuarioActualizar', document.getElementById('username_usuarioActualizar').value);
-                // form_data.append('password_usuarioActualizar', document.getElementById('password_usuarioActualizar').value);
                 $.ajax({
                     type: "POST",
                     url: "<?php echo constant('URL'); ?>tutor/update",

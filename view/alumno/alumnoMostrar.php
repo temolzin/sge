@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
-  }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('alumno_mostrar');
@@ -284,7 +284,7 @@ $menu->header('alumno_mostrar');
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-success">Registrar</button>
                     </div>
-            </div>
+                 </div>
             </form>
         </div>
     </div>
@@ -383,8 +383,6 @@ $menu->footer();
                 if ($('#archivo_tarea_entregada').val() != null) {
                     archivo = $('#archivo_tarea_entregada').prop('files')[0];
                 }
-
-
                 form_data.append('id_tarea_alumnoDetalle', document.getElementById('id_tarea_alumnoDetalle').value);
 
                 form_data.append('archivo_tarea_entregada', archivo);
@@ -617,16 +615,4 @@ $menu->footer();
             });
         });
     }
-
-    /*var dataTableFunction = function () {
-        var table = $("#dataTableTareaAlumno").DataTable({
-            responsive: true,
-            language: idiomaDataTable,
-            lengthChange: true,
-            buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis'],
-            dom: 'Bfltip'
-        });
-
-        table.buttons().container().appendTo('#dataTableTareaAlumno_wrapper .col-md-6:eq(0)');
-    }*/
 </script>

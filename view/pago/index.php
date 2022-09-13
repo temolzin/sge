@@ -2,10 +2,10 @@
 session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
-  }
-    require 'view/menu.php';
-    $menu = new Menu();
-    $menu->header('Pago');
+}
+require 'view/menu.php';
+$menu = new Menu();
+$menu->header('Pago');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -30,7 +30,7 @@ if (!isset($_SESSION['tipo'])) {
                                     <th>Cantidad</th>
                                     <th>Fecha</th>
                                     <th>Hora</th>
-                                    <th>Opciones</th> 
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                         </table>
@@ -48,7 +48,7 @@ if (!isset($_SESSION['tipo'])) {
         <div class="modal-content">
             <div class="card-success">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Pago <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -69,39 +69,39 @@ if (!isset($_SESSION['tipo'])) {
                                 </div>
                             </div>
                             <div class="col-sm-5">
-                              <label>Cantidad (*)</label>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                              </div>
-                              <input type="number" class="form-control" id="cantidad_pago" name="cantidad_pago" placeholder="Cantidad pago"/>
-                          </div>
-                      </div>
+                                <label>Cantidad (*)</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="number" class="form-control" id="cantidad_pago" name="cantidad_pago" placeholder="Cantidad pago" />
+                                </div>
+                            </div>
 
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Concepto (*)</label>
-                                   <select name="descripcion_pago" id="descripcion_pago" class="form-control descripcion_pago">
+                                    <select name="descripcion_pago" id="descripcion_pago" class="form-control descripcion_pago">
                                         <option value="default">Seleccione el concepto de pago</option>
-                                        <option >Inscripción</option>
-                                        <option >Reinscripción</option>
-                                        <option >Constancia de estudios</option>
-                                        <option >Mantenimiento</option>
-                                        <option >Titulación</option>
+                                        <option>Inscripción</option>
+                                        <option>Reinscripción</option>
+                                        <option>Constancia de estudios</option>
+                                        <option>Mantenimiento</option>
+                                        <option>Titulación</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                              <label>Monto total cobro (*)</label>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                              </div>
-                              <input type="number" class="form-control" id="monto_cobro_pago" name="monto_cobro_pago" placeholder="Monto cobro"/>
-                          </div>
-                      </div>
+                                <label>Monto total cobro (*)</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="number" class="form-control" id="monto_cobro_pago" name="monto_cobro_pago" placeholder="Monto cobro" />
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -120,7 +120,7 @@ if (!isset($_SESSION['tipo'])) {
         <div class="modal-content">
             <div class="card-warning">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Pago <small> &nbsp;(*) Campos requeridos</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -131,7 +131,7 @@ if (!isset($_SESSION['tipo'])) {
                 <form role="form" id="formActualizarPago" name="formActualizarPago">
                     <div class="card-body">
                         <div class="row">
-                            <input hidden type="number" class="form-control" id="id_pagoActualizar" name="id_pagoActualizar"/>
+                            <input hidden type="number" class="form-control" id="id_pagoActualizar" name="id_pagoActualizar" />
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label>Cobro (*)</label>
@@ -141,40 +141,40 @@ if (!isset($_SESSION['tipo'])) {
                                 </div>
                             </div>
                             <div class="col-sm-5">
-                              <label>Cantidad (*)</label>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                              </div>
-                              <input type="number" class="form-control" id="cantidad_pagoActualizar" name="cantidad_pagoActualizar" placeholder="Cantidad pago"/>
-                          </div>
-                      </div>
+                                <label>Cantidad (*)</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="number" class="form-control" id="cantidad_pagoActualizar" name="cantidad_pagoActualizar" placeholder="Cantidad pago" />
+                                </div>
+                            </div>
 
                         </div>
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label>Concepto (*)</label>
-                                   <!--  <input type="text" class="form-control" id="descripcion_pagoActualizar" name="descripcion_pagoActualizar" placeholder="Concepto pago"/> -->
-                                     <select name="descripcion_pagoActualizar" id="descripcion_pagoActualizar" class="form-control descripcion_pago">
+                                    <!--  <input type="text" class="form-control" id="descripcion_pagoActualizar" name="descripcion_pagoActualizar" placeholder="Concepto pago"/> -->
+                                    <select name="descripcion_pagoActualizar" id="descripcion_pagoActualizar" class="form-control descripcion_pago">
                                         <option value="default">Seleccione el concepto de pago</option>
-                                        <option >Inscripción</option>
-                                        <option >Reinscripción</option>
-                                        <option >Constancia de estudios</option>
-                                        <option >Mantenimiento</option>
-                                        <option >Titulación</option>
+                                        <option>Inscripción</option>
+                                        <option>Reinscripción</option>
+                                        <option>Constancia de estudios</option>
+                                        <option>Mantenimiento</option>
+                                        <option>Titulación</option>
                                     </select>
                                 </div>
                             </div>
-                             <div class="col-sm-5">
-                              <label>Monto total cobro (*)</label>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                              </div>
-                              <input type="number" class="form-control" id="monto_cobro_pagoActualizar" name="monto_cobro_pagoActualizar" placeholder="Monto cobro"/>
-                          </div>
-                      </div>
+                            <div class="col-sm-5">
+                                <label>Monto total cobro (*)</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="number" class="form-control" id="monto_cobro_pagoActualizar" name="monto_cobro_pagoActualizar" placeholder="Monto cobro" />
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -193,7 +193,7 @@ if (!isset($_SESSION['tipo'])) {
         <div class="modal-content">
             <div class="card-primary">
                 <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between " >
+                    <div class="d-sm-flex align-items-center justify-content-between ">
                         <h4 class="card-title">Pago <small> &nbsp;</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
@@ -204,26 +204,26 @@ if (!isset($_SESSION['tipo'])) {
                 <form role="form" id="formConsultaPago" name="formConsultaPago">
                     <div class="card-body">
                         <div class="row">
-                         <div class="col-lg-4">
+                            <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Clave Pago</label>
-                                    <input type="number" disabled class="form-control" id="id_pagoConsultar" name="id_pagoConsultar"/>
+                                    <input type="number" disabled class="form-control" id="id_pagoConsultar" name="id_pagoConsultar" />
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Concepto</label>
-                                    <input type="text" disabled class="form-control" id="descripcion_pagoConsultar" name="descripcion_pagoConsultar"/>
+                                    <input type="text" disabled class="form-control" id="descripcion_pagoConsultar" name="descripcion_pagoConsultar" />
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label>Fecha pago</label>
-                                    <input type="date" disabled class="form-control" id="fecha_pagoConsultar" name="fecha_pagoConsultar"/>
+                                    <input type="date" disabled class="form-control" id="fecha_pagoConsultar" name="fecha_pagoConsultar" />
                                 </div>
                             </div>
                         </div>
-                       <div class="row">
+                        <div class="row">
                             <div class="col-lg-8">
                                 <div class="form-group">
                                     <label>Cobro</label>
@@ -232,39 +232,39 @@ if (!isset($_SESSION['tipo'])) {
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                              <label>Cantidad</label>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                              </div>
-                              <input type="number" disabled class="form-control" id="cantidad_pagoConsultar" name="cantidad_pagoConsultar"/>
-                          </div>
-                      </div>
-                    
+                                <label>Cantidad</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="number" disabled class="form-control" id="cantidad_pagoConsultar" name="cantidad_pagoConsultar" />
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-sm-5">
-                              <label>Monto total cobro</label>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                              </div>
-                              <input type="number" disabled class="form-control" id="monto_cobro_pagoConsultar" name="monto_cobro_pagoConsultar"/>
-                          </div>
-                      </div>
+                                <label>Monto total cobro</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="number" disabled class="form-control" id="monto_cobro_pagoConsultar" name="monto_cobro_pagoConsultar" />
+                                </div>
+                            </div>
                             <div class="col-sm-4">
-                              <label>Monto restante pago</label>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                              </div>
-                              <input type="number" disabled class="form-control" id="restante_pagoConsultar" name="restante_pagoConsultar"/>
-                          </div>
-                      </div>
+                                <label>Monto restante pago</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="number" disabled class="form-control" id="restante_pagoConsultar" name="restante_pagoConsultar" />
+                                </div>
+                            </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Hora</label>
-                                    <input type="time" disabled class="form-control" id="hora_pagoConsultar" name="hora_pagoConsultar"/>
+                                    <input type="time" disabled class="form-control" id="hora_pagoConsultar" name="hora_pagoConsultar" />
                                 </div>
                             </div>
                         </div>
@@ -301,12 +301,11 @@ if (!isset($_SESSION['tipo'])) {
 </div>
 
 <?php
-    $menu->footer();
+$menu->footer();
 ?>
 
 <script>
-
-    $(document).ready(function (){
+    $(document).ready(function() {
         mostrarPagos();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
@@ -317,19 +316,19 @@ if (!isset($_SESSION['tipo'])) {
     const llenarCobro = () => {
         $.ajax({
             type: "GET",
-            url: "<?php echo constant('URL');?>cobro/read",
+            url: "<?php echo constant('URL'); ?>cobro/read",
             async: false,
             dataType: "json",
-            success: function(data){
+            success: function(data) {
                 //console.log('generos: ',data)
-                $.each(data,function(key, registro) {
+                $.each(data, function(key, registro) {
                     var id = registro.id_cobro;
                     var nombre = registro.nombre_alumno;
                     var appat = registro.appaterno_alumno;
                     var apmat = registro.apmaterno_alumno;
                     var cantidad = registro.cantidad_cobro;
                     var concepto = registro.concepto_cobro;
-                    $(".id_cobro").append('<option value='+id+'>'+nombre+' '+appat+' '+apmat+' --> '+cantidad+' --> '+concepto+'</option>');
+                    $(".id_cobro").append('<option value=' + id + '>' + nombre + ' ' + appat + ' ' + apmat + ' --> ' + cantidad + ' --> ' + concepto + '</option>');
                 });
             },
             error: function(data) {
@@ -343,28 +342,34 @@ if (!isset($_SESSION['tipo'])) {
             "processing": true,
             "serverSide": false,
             "ajax": {
-                "url": "<?php echo constant('URL');?>pago/readTable"
+                "url": "<?php echo constant('URL'); ?>pago/readTable"
             },
-            "columns": [
-                { "data": "descripcion_pago" }, 
-                { "data": "cantidad_pago" },
-                { "data": "fecha_pago" },
-                { "data": "hora_pago" },
-                {data:null,
-                    "defaultContent":
-                        `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetallePago' title="Ver Detalles"><i class="fa fa-eye"></i></button>
+            "columns": [{
+                    "data": "descripcion_pago"
+                },
+                {
+                    "data": "cantidad_pago"
+                },
+                {
+                    "data": "fecha_pago"
+                },
+                {
+                    "data": "hora_pago"
+                },
+                {
+                    data: null,
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetallePago' title="Ver Detalles"><i class="fa fa-eye"></i></button>
                          <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarPago' title="Editar Datos"><i class="fa fa-edit"></i></button>
                          <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarPago' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
                 }
             ],
-            "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
-             if (aiDisplay.length > 0) {
-               $('body').removeClass('no-record');
-             }
-             else {
-               $('body').addClass('no-record');
-             }
-           },
+            "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
+                if (aiDisplay.length > 0) {
+                    $('body').removeClass('no-record');
+                } else {
+                    $('body').addClass('no-record');
+                }
+            },
             responsive: true,
             autoWidth: false,
             language: idiomaDataTable,
@@ -375,24 +380,24 @@ if (!isset($_SESSION['tipo'])) {
         obtenerdatosDT(tablePago);
     }
 
-    $.validator.addMethod("selectRequired", function(value, element, arg){
+    $.validator.addMethod("selectRequired", function(value, element, arg) {
         return arg !== value;
     }, "Selecciona un valor");
 
-    var obtenerdatosDT = function (table) {
+    var obtenerdatosDT = function(table) {
         $('#dataTablePago tbody').on('click', 'tr', function() {
             var data = table.row(this).data();
             //console.log(data);
             var idEliminar = $('#idEliminarPago').val(data.id_pago);
 
             var id_pago = $("#id_pagoActualizar").val(data.id_pago);
-            var id_cobro = $("#id_cobroActualizar option[value=" + data.id_cobro + "]").attr("selected",true);
+            var id_cobro = $("#id_cobroActualizar option[value=" + data.id_cobro + "]").attr("selected", true);
             var cantidad_pago = $("#cantidad_pagoActualizar").val(data.cantidad_pago);
             var descripcion_pago = $("#descripcion_pagoActualizar").val(data.descripcion_pago);
             var monto_cobro_pago = $("#monto_cobro_pagoActualizar").val(data.monto_cobro_pago);
 
             var idConsulta = $("#id_pagoConsultar").val(data.id_pago);
-            var id_cobroConsulta = $("#id_cobroConsultar option[value=" + data.id_cobro + "]").attr("selected",true);
+            var id_cobroConsulta = $("#id_cobroConsultar option[value=" + data.id_cobro + "]").attr("selected", true);
             var cantidad_pagoConsulta = $("#cantidad_pagoConsultar").val(data.cantidad_pago);
             var descripcion_pagoConsulta = $("#descripcion_pagoConsultar").val(data.descripcion_pago);
             var fecha_pagoConsulta = $("#fecha_pagoConsultar").val(data.fecha_pago);
@@ -402,31 +407,31 @@ if (!isset($_SESSION['tipo'])) {
         });
     }
 
-    var enviarFormularioRegistrar = function () {
+    var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
-            submitHandler: function () {
+            submitHandler: function() {
                 var datos = $('#formRegistrarPago').serialize();
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo constant('URL');?>pago/insert",
+                    url: "<?php echo constant('URL'); ?>pago/insert",
                     data: datos,
-                    success: function (data) {
-              if (data == 'ok') {
-                Swal.fire(
-                  "¡Error!",
-                  "Ha ocurrido un error al registrar el pago. " + data,
-                  "error"
-                );
-              } else {
-                Swal.fire(
-                  "¡Éxito!",
-                  "El pago ha sido registrado de manera correcta",
-                  "success"
-                ).then(function () {
-                  window.location = "<?php echo constant('URL');?>pago";
-                })
-              }
-            },
+                    success: function(data) {
+                        if (data == 'ok') {
+                            Swal.fire(
+                                "¡Error!",
+                                "Ha ocurrido un error al registrar el pago. " + data,
+                                "error"
+                            );
+                        } else {
+                            Swal.fire(
+                                "¡Éxito!",
+                                "El pago ha sido registrado de manera correcta",
+                                "success"
+                            ).then(function() {
+                                window.location = "<?php echo constant('URL'); ?>pago";
+                            })
+                        }
+                    },
                 });
             }
         });
@@ -449,10 +454,10 @@ if (!isset($_SESSION['tipo'])) {
             },
             messages: {
                 id_cobro: {
-                   selectRequired: "Seleccione un cobro"
+                    selectRequired: "Seleccione un cobro"
                 },
                 cantidad_pago: {
-                   required: "Ingrese cantidad de pago",
+                    required: "Ingrese cantidad de pago",
                     number: "Sólo números"
                 },
                 descripcion_pago: {
@@ -464,35 +469,35 @@ if (!isset($_SESSION['tipo'])) {
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
         });
     }
 
-    var enviarFormularioActualizar = function () {
+    var enviarFormularioActualizar = function() {
         $.validator.setDefaults({
-            submitHandler: function () {
+            submitHandler: function() {
                 var datos = $('#formActualizarPago').serialize();
                 $.ajax({
                     type: "POST",
-                    url: "<?php echo constant('URL');?>pago/update",
+                    url: "<?php echo constant('URL'); ?>pago/update",
                     data: datos,
-                    success: function (data) {
+                    success: function(data) {
                         if (data == 'ok') {
                             Swal.fire(
                                 "¡Éxito!",
                                 "El Cobro ha sido registrado de manera correcta",
                                 "success"
-                            ).then(function () {
-                                window.location = "<?php echo constant('URL');?>pago";
+                            ).then(function() {
+                                window.location = "<?php echo constant('URL'); ?>pago";
                             })
                         } else {
                             Swal.fire(
@@ -515,7 +520,7 @@ if (!isset($_SESSION['tipo'])) {
                     number: true
                 },
                 descripcion_pagoActualizar: {
-                   selectRequired: "default"
+                    selectRequired: "default"
                 },
                 monto_cobro_pagoActualizar: {
                     required: true,
@@ -524,10 +529,10 @@ if (!isset($_SESSION['tipo'])) {
             },
             messages: {
                 id_cobroActualizar: {
-                   selectRequired: "Seleccione un cobro"
+                    selectRequired: "Seleccione un cobro"
                 },
                 cantidad_pagoActualizar: {
-                   required: "Ingrese cantidad de pago",
+                    required: "Ingrese cantidad de pago",
                     number: "Sólo números"
                 },
                 descripcion_pagoActualizar: {
@@ -539,38 +544,38 @@ if (!isset($_SESSION['tipo'])) {
                 }
             },
             errorElement: 'span',
-            errorPlacement: function (error, element) {
+            errorPlacement: function(error, element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
             },
-            highlight: function (element, errorClass, validClass) {
+            highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
-            unhighlight: function (element, errorClass, validClass) {
+            unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
         });
     }
 
-    var eliminarRegistro = function () {
-        $( "#formEliminarPago" ).submit(function( event ) {
+    var eliminarRegistro = function() {
+        $("#formEliminarPago").submit(function(event) {
             event.preventDefault();
             var datos = $('#formEliminarPago').serialize();
             $.ajax({
                 type: "POST",
-                url: "<?php echo constant('URL');?>pago/delete",
+                url: "<?php echo constant('URL'); ?>pago/delete",
                 data: datos,
-                success: function (data) {
+                success: function(data) {
                     if (data == 'ok') {
                         Swal.fire(
                             "¡Éxito!",
                             "El Pago ha sido eliminado correctamente",
                             "success"
-                        ).then(function () {
-                            window.location = "<?php echo constant('URL');?>pago";
+                        ).then(function() {
+                            window.location = "<?php echo constant('URL'); ?>pago";
                         })
                     } else {
-                        Swal.fire (
+                        Swal.fire(
                             "¡Error!",
                             "Ha ocurrido un error al eliminar el Pago. " + data,
                             "error"
@@ -580,5 +585,4 @@ if (!isset($_SESSION['tipo'])) {
             });
         });
     }
-
 </script>

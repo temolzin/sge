@@ -67,9 +67,6 @@
                     </div>
                   </div>
                 </div>
-
-
-
                 <div class="card border-red">
                   <div class="col-lg-12">
                     <h3 class="card-title">Calificación</h3>
@@ -80,8 +77,6 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body border-secondary">
-
-
                     <div class="row">
                       <div class="col-lg-4">
                         <div class="form-group">
@@ -137,18 +132,13 @@
                     </div>
                   </div>
                 </div>
-
-
               </div>
-
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-success">Registrar</button>
           </div>
         </div>
-
-
       </div>
       </form>
     </div>
@@ -179,12 +169,6 @@
                     </div>
                   </div>
                 </div>
-
-                <!--  
-           -->
-
-
-
                 <div class="card border-red">
                   <div class="card-header py-1 bg-warning">
                     <h3 class="card-title">Calificación</h3>
@@ -196,10 +180,6 @@
                   <!-- /.card-header -->
                   <div class="card-body border-secondary">
                     <div class="row">
-
-
-
-
                       <div class="col-lg-4">
                         <div class="form-group">
                           <label> Profesor </label>
@@ -245,7 +225,6 @@
                         </div>
                       </div>
                       <div class="col-lg-12">
-
                         <div class="form-group">
                           <label>Observación (*)</label>
                           <textarea type="text" id="observacion_calificacionActualizar" name="observacion_calificacionActualizar" class="form-control" placeholder="Enter ..."></textarea>
@@ -254,7 +233,6 @@
                     </div>
                   </div>
                 </div>
-
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -266,7 +244,6 @@
       </div>
     </div>
     </div>
-
     <!--------------------------------------------------------- Modal DetalleProfesor----------------------------------------------->
     <div class="modal fade" id="modalDetalleCalificacion" tabindex="-1" role="dialog" aria-labelledby="modalDetalleCalificacion" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -292,10 +269,6 @@
                   <div class="card-body border-primary">
                     <div class="row">
                       <input type="text" hidden class="form-control" id="id_calificacionConsultar" name="id_calificacionConsultar" />
-
-
-
-
                       <div class="col-lg-4">
                         <div class="form-group">
                           <label>Profesor</label>
@@ -461,8 +434,6 @@
           }
         });
       }
-
-
       const llenarAlumno = () => {
         $.ajax({
           type: "GET",
@@ -476,7 +447,6 @@
               var appat = registro.appaterno_alumno;
               var apmat = registro.apmaterno_alumno;
               $(".id_alumno").append('<option value=' + id + '>' + nombre + ' ' + appat + ' ' + apmat + '</option>');
-
             });
           },
           error: function(data) {
@@ -484,8 +454,6 @@
           }
         });
       }
-
-
       var mostrarCalificaciones = function() {
         var tableCalificacion = $('#dataTableCalificacion').DataTable({
           "processing": true,
@@ -532,14 +500,10 @@
         });
         obtenerdatosDT(tableCalificacion);
       }
-
-
-
       var obtenerdatosDT = function(table) {
         $('#dataTableCalificacion tbody').on('click', 'tr', function() {
           var data = table.row(this).data();
           var idEliminar = $('#idEliminarCalificacion').val(data.id_calificacion);
-
           var idActualizar = $("#id_calificacionActualizar").val(data.id_calificacion);
           var id_profesor = $("#id_profesorActualizar").val(data.id_profesor);
           var id_alumno = $("#id_alumnoActualizar").val(data.id_alumno);
@@ -559,7 +523,6 @@
           var fecha_calificacionConsulta = $("#fecha_calificacionConsultar").val(data.fecha_calificacion);
         });
       }
-
       var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
           submitHandler: function() {

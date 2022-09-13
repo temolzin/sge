@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
-  }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('TareaAlumno');
@@ -148,9 +148,6 @@ $menu->header('TareaAlumno');
                                     <input readonly type="text" class="form-control border-0" id="tarea_alumnoDetalle" name="tarea_alumnoDetalle" placeholder="Nombre Tarea" />
                                 </div>
                             </div>
-
-
-
                             <div clas="col-lg-6">
                                 <div class="form-group">
                                     <label>Subir archivos</label>
@@ -176,9 +173,6 @@ $menu->header('TareaAlumno');
             </form>
         </div>
     </div>
-
-
-
 </div>
 </div>
 
@@ -193,9 +187,6 @@ $menu->footer();
         eliminarRegistro();
         enviarFormularioRegistrar();
     });
-
-
-
 
     var mostrarTareaAlumno = function() {
         var tableTareaAlumno = $('#dataTableTareaAlumno').DataTable({
@@ -221,7 +212,7 @@ $menu->footer();
                 {
                     "defaultContent": "",
                     render: function(data, type, row) {
-                        return `<a download="${row.archivo_tarea}" href="<?php constant('URL');?>public/tareas/${row.nombre_tarea}/${row.archivo_tarea}"><button class='consulta btn btn-danger' title="Descargar PDF"><i class="fa fa-file-pdf"></i></button></a>`;
+                        return `<a download="${row.archivo_tarea}" href="<?php constant('URL'); ?>public/tareas/${row.nombre_tarea}/${row.archivo_tarea}"><button class='consulta btn btn-danger' title="Descargar PDF"><i class="fa fa-file-pdf"></i></button></a>`;
                     }
                 },
                 {
@@ -250,10 +241,6 @@ $menu->footer();
     var obtenerdatosDT = function(table) {
         $('#dataTableTareaAlumno tbody').on('click', 'tr', function() {
             var data = table.row(this).data();
-
-
-
-
             var idConsultar = $("#id_tarea_alumnoConsultar").val(data.id_tarea_alumno);
             var grupoalumno = $("#grupo_alumnoConsultar").val(data.id_grupo);
             var materilaAlumno = $("#materia_alumnoConsultar").val(data.id_materia);
@@ -264,8 +251,6 @@ $menu->footer();
 
             var idDetalle = $("#id_tarea_alumnoDetalle").val(data.id_tarea_alumno);
             var tarea_alumnoDetalle = $("#tarea_alumnoDetalle").val(data.nombre_tarea);
-
-
         });
     }
 
@@ -279,8 +264,6 @@ $menu->footer();
                 if ($('#archivo_tarea_entregada').val() != null) {
                     archivo = $('#archivo_tarea_entregada').prop('files')[0];
                 }
-
-
                 form_data.append('id_tarea_alumnoDetalle', document.getElementById('id_tarea_alumnoDetalle').value);
 
                 form_data.append('archivo_tarea_entregada', archivo);
@@ -290,8 +273,6 @@ $menu->footer();
                 form_data.append('comentarios_tarea', document.getElementById('comentarios_tarea').value);
 
                 form_data.append('calificacion_tarea', document.getElementById('calificacion_tarea').value);
-
-
                 $.ajax({
                     type: "POST",
 

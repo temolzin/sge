@@ -136,9 +136,6 @@ class MateriaDAO extends Model implements CRUD
                 $alumnomateria->nombre_escuela = $value['nombre_escuela'];
                 $alumnomateria->materia_fecha_horario = $value['materia_fecha_horario'];
                 $alumnomateria->materia_horainicio_horario = $value['materia_horainicio_horario'];
-
-                //$objAlumnoMaterias['data'][] = $alumnomateria;
-
                 array_push($objAlumnoMaterias, $alumnomateria);
             }
         } else {
@@ -164,8 +161,6 @@ class MateriaDAO extends Model implements CRUD
         ]);
         echo 'ok';
     }
-
-
     public function updateDetalleProfesor($data)
     {
         $query = $this->db->conectar()->prepare('UPDATE materia_profesor SET  
@@ -203,7 +198,6 @@ class MateriaDAO extends Model implements CRUD
                 $materia->id_profesor = $value['id_profesor'];
                 $materia->id_grupo = $value['id_grupo'];
                 $materia->id_materia = $value['id_materia'];
-
                 $materia->nombre_grupo = $value['nombre_grupo'];
                 $materia->nombre_profesor = $value['nombre_profesor'];
                 $materia->appaterno_profesor = $value['appaterno_profesor'];

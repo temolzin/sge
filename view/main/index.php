@@ -20,7 +20,7 @@ if ($tipo == 'administrador') {
    $email = $_SESSION['email'];
    $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
-   $fotoruta = constant('URL').'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 } else {
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
@@ -39,18 +39,12 @@ if ($tipo == 'administrador') {
    $nombre_escuela = $_SESSION['nombre_escuela'];
    $id_escuela = $_SESSION['id_escuela'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
-   $fotoruta = constant('URL').'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
 }
-
-
 
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Tablero');
-
-
-
-
 
 ?>
 
@@ -75,8 +69,8 @@ $menu->header('Tablero');
       <div class="row">
          <!-- /.DASHBOARD ALUMNO -->
          <?php if ($tipo == 'alumno') {
-            $nombre_grupo = isset($_SESSION['nombre_grupo'])? $_SESSION['nombre_grupo'] : 0;
-            $turno_grupo = isset($_SESSION['turno_grupo'])? $_SESSION['turno_grupo'] : 0;
+            $nombre_grupo = isset($_SESSION['nombre_grupo']) ? $_SESSION['nombre_grupo'] : 0;
+            $turno_grupo = isset($_SESSION['turno_grupo']) ? $_SESSION['turno_grupo'] : 0;
 
             //$id_calificacion = $_SESSION['id_calificacion'];
 
@@ -114,7 +108,7 @@ $menu->header('Tablero');
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="<?php echo constant('URL')?>tarea/showTareaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL') ?>tarea/showTareaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
             <div class="col-lg-3">
@@ -125,7 +119,7 @@ $menu->header('Tablero');
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="<?php echo constant('URL')?>incidencia/showIncidenciaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL') ?>incidencia/showIncidenciaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
       </div>
@@ -190,9 +184,9 @@ $menu->header('Tablero');
    <?php } ?>
    <!-- /.DASHBOARD PROFESOR -->
    <?php if ($tipo == 'profesor') {
-      $rfc_escuela = isset($_SESSION['rfc_escuela'])? $_SESSION['rfc_escuela'] : 0;
-      $cct_escuela = isset($_SESSION['cct_escuela'])? $_SESSION['cct_escuela'] : 0;
-      $cedula = isset($_SESSION['cedula'])? $_SESSION['cedula'] : 0;
+      $rfc_escuela = isset($_SESSION['rfc_escuela']) ? $_SESSION['rfc_escuela'] : 0;
+      $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
+      $cedula = isset($_SESSION['cedula']) ? $_SESSION['cedula'] : 0;
 
 
    ?>
@@ -324,10 +318,10 @@ $menu->header('Tablero');
    <?php } ?>
 
    <?php if ($tipo == 'administrador') {
-      $con_escuela = isset($_SESSION['can_esc'])? $_SESSION['can_esc'] : 0;
-      $con_directores = isset($_SESSION['can_dir'])? $_SESSION['can_dir'] : 0;
+      $con_escuela = isset($_SESSION['can_esc']) ? $_SESSION['can_esc'] : 0;
+      $con_directores = isset($_SESSION['can_dir']) ? $_SESSION['can_dir'] : 0;
       $con_alumnos = isset($_SESSION['can_alu']) ? $_SESSION['can_alu'] : 0;
-      $con_usuarios = isset($_SESSION['can_usu'])? $_SESSION['can_usu'] : 0;
+      $con_usuarios = isset($_SESSION['can_usu']) ? $_SESSION['can_usu'] : 0;
    ?>
 
 
@@ -527,8 +521,8 @@ $menu->header('Tablero');
 
    <!-- /.DASHBOARD TUTOR -->
    <?php if ($tipo == 'tutor') {
-      $nombre_grupo = isset($_SESSION['nombre_grupo'])? $_SESSION['nombre_grupo'] : 0;
-      $turno_grupo = isset($_SESSION['turno_grupo'])? $_SESSION['turno_grupo'] : 0;
+      $nombre_grupo = isset($_SESSION['nombre_grupo']) ? $_SESSION['nombre_grupo'] : 0;
+      $turno_grupo = isset($_SESSION['turno_grupo']) ? $_SESSION['turno_grupo'] : 0;
       $nombre_alumno = $_SESSION['nombre_alumno'];
       $appaterno_alumno = $_SESSION['appaterno_alumno'];
       $apmaterno_alumno = $_SESSION['apmaterno_alumno'];
@@ -548,7 +542,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="<?php echo constant('URL')?>tarea/showTareaTutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>tarea/showTareaTutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <div class="col-lg-6">
@@ -559,7 +553,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="<?php echo constant('URL')?>incidencia/showIncidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>incidencia/showIncidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
    </div>
@@ -653,9 +647,10 @@ $menu->header('Tablero');
    <?php } ?>
    <!-- /.DASHBOARD DIRECTIVO -->
    <?php if ($tipo == 'director') {
-      $rfc_escuela = isset($_SESSION['rfc_escuela'])? $_SESSION['rfc_escuela'] : 0;
-      $cct_escuela = isset($_SESSION['cct_escuela'])? $_SESSION['cct_escuela'] : 0;
-      // $curp = $_SESSION['curp'];  ?>
+      $rfc_escuela = isset($_SESSION['rfc_escuela']) ? $_SESSION['rfc_escuela'] : 0;
+      $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
+      // $curp = $_SESSION['curp'];  
+   ?>
       <div class="col-lg-3 col-3">
          <!-- small box -->
          <div class="small-box bg-info">
@@ -933,10 +928,8 @@ $menu->header('Tablero');
          url: "<?php echo constant('URL'); ?>calificacionDetalleAlumno/read",
          dataType: 'json', // what to expect back from the PHP script, if anything
          success: function(data) {
-            //console.log('CALI ', data);
             $.each(data, function(ind, elem) {
                if (ind <= 9) {
-                  //console.log(elem.nombre_parcial);
                   var colorCalificacion = "";
                   if (elem.calificacion > 6) {
                      colorCalificacion = "success";
@@ -1029,8 +1022,6 @@ $menu->header('Tablero');
          },
       });
    }
-   //<span class="badge badge-' + colorCalificacion + '">'
-
    var mostrarDirectivos = function() {
       $.ajax({
          type: "POST",
@@ -1044,7 +1035,7 @@ $menu->header('Tablero');
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
                      '<img src="<?php echo constant('URL') ?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
-                     '<a class="users-list-name">' + '<br>'+elem.nombre_director + '</a>' +
+                     '<a class="users-list-name">' + '<br>' + elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
                   $('#listNuevosDirectivos').append(htmlTags);
@@ -1066,8 +1057,8 @@ $menu->header('Tablero');
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
                      '<img src="<?php echo constant('URL') ?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 80px; height: 80px;>' +
-                     '<br><br>'+
-                     '<a class="users-list-name">' + '<br>'+ elem.nombre_administrador + '</a>' +
+                     '<br><br>' +
+                     '<a class="users-list-name">' + '<br>' + elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
                      '</li>';
                   $('#listAdministradores').append(htmlTags);

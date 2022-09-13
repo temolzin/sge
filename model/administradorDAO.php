@@ -31,11 +31,8 @@
       ]);
       echo 'ok';
     }
-
-
     public function update($data)
     {
-
       $imagen = '';
 
       $arrayActualizar = [];
@@ -67,9 +64,6 @@
           ':fechanacimiento_administrador' => $data['fechanacimiento_administrador']
         ];
       }
-
-      
-
       $query = $this->db->conectar()->prepare('UPDATE administrador SET
        id_usuario = :id_usuario,
        nombre_administrador = :nombre_administrador,
@@ -123,4 +117,4 @@
       return $objAdministradors;
     }
   }
-  ?>
+?>

@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
-  }
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('escuela');
@@ -67,7 +67,7 @@ $menu->header('escuela');
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                <div class="col-lg-12">
+                                    <div class="col-lg-12">
                                         <span><label>Foto Escuela (*)</label></span>
                                         <div class="form-group input-group">
                                             <div class="custom-file">
@@ -242,7 +242,7 @@ $menu->header('escuela');
                                     </div>
                                 </div>
                                 <div class="row">
-                                <div class="col-lg-12">
+                                    <div class="col-lg-12">
                                         <span><label>Foto Escuela (*)</label></span>
                                         <div class="form-group input-group">
                                             <div class="custom-file">
@@ -663,7 +663,7 @@ $menu->footer();
                     var rfc = registro.rfc_escuela;
                     var foto_escuela = registro.foto_escuela;
                     var fullnameImagen = cct + '' + rfc + '' + nombre + '/' + foto_escuela;
-                    var fotoConsulta = '<?php echo constant('URL')?>public/escuela/' + fullnameImagen;
+                    var fotoConsulta = '<?php echo constant('URL') ?>public/escuela/' + fullnameImagen;
                     $(".id_escuela").append('<option value=' + id + '>' + fotoConsulta + '</option>');
                     $('#foto_escuelaConsultar').attr(fotoConsulta);
                 });
@@ -680,12 +680,11 @@ $menu->footer();
             "ajax": {
                 "url": "<?php echo constant('URL'); ?>escuela/readTable"
             },
-            "columns": [
-                {
+            "columns": [{
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.cct_escuela + '_' + JsonResultRow.rfc_escuela + '_' + JsonResultRow.nombre_escuela + '/' + JsonResultRow.foto_escuela;
-                        var img ='<?php echo constant('URL')?>public/escuela/' + fullnameImagen;
+                        var img = '<?php echo constant('URL') ?>public/escuela/' + fullnameImagen;
                         return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
                     }
                 },
@@ -779,39 +778,39 @@ $menu->footer();
         $.validator.setDefaults({
             submitHandler: function(e) {
                 // var datos = $('#formRegistrarEscuela').serialize();
-                $('#formRegistrarEscuela').on('submit', function(e){
-                e.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo constant('URL'); ?>escuela/insert",
-                    data: new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    beforeSend: function(){
-                        $('.submit').attr("disabled", "disabled");
-                        $('#formRegistrarEscuela').css("opacity", ".5");
-                    },
-                    success: function(data) {
-                        console.log("data ", data)
-                        if (data == 'ok') {
-                            Swal.fire(
-                                "¡Éxito!",
-                                "La escuela ha sido registrado de manera correcta",
-                                "success"
-                            ).then(function() {
-                                window.location = "<?php echo constant('URL'); ?>escuela";
-                            })
-                        } else {
-                            Swal.fire(
-                                "¡Error!",
-                                "Ha ocurrido un error al registrar la escuela. " + data,
-                                "error"
-                            );
-                        }
-                    },
+                $('#formRegistrarEscuela').on('submit', function(e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo constant('URL'); ?>escuela/insert",
+                        data: new FormData(this),
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        beforeSend: function() {
+                            $('.submit').attr("disabled", "disabled");
+                            $('#formRegistrarEscuela').css("opacity", ".5");
+                        },
+                        success: function(data) {
+                            console.log("data ", data)
+                            if (data == 'ok') {
+                                Swal.fire(
+                                    "¡Éxito!",
+                                    "La escuela ha sido registrado de manera correcta",
+                                    "success"
+                                ).then(function() {
+                                    window.location = "<?php echo constant('URL'); ?>escuela";
+                                })
+                            } else {
+                                Swal.fire(
+                                    "¡Error!",
+                                    "Ha ocurrido un error al registrar la escuela. " + data,
+                                    "error"
+                                );
+                            }
+                        },
+                    });
                 });
-            });
             }
         });
         $('#formRegistrarEscuela').validate({
@@ -899,39 +898,39 @@ $menu->footer();
         $.validator.setDefaults({
             submitHandler: function(e) {
                 // var datos = $('#formActualizarEscuela').serialize();
-                $('#formActualizarEscuela').on('submit', function(e){
-                e.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo constant('URL'); ?>escuela/update",
-                    data: new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    beforeSend: function(){
-                        $('.submit').attr("disabled", "disabled");
-                        $('#formActualizarEscuela').css("opacity", ".5");
-                    },
-                    success: function(data) {
-                        console.log("data ", data)
-                        if (data == 'ok') {
-                            Swal.fire(
-                                "¡Éxito!",
-                                "El Escuela ha sido Actualizado de manera correcta",
-                                "success"
-                            ).then(function() {
-                                window.location = "<?php echo constant('URL'); ?>escuela";
-                            })
-                        } else {
-                            Swal.fire(
-                                "¡Error!",
-                                "Ha ocurrido un error al Actualizar el escuela." + data,
-                                "error"
-                            );
-                        }
-                    },
+                $('#formActualizarEscuela').on('submit', function(e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo constant('URL'); ?>escuela/update",
+                        data: new FormData(this),
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        beforeSend: function() {
+                            $('.submit').attr("disabled", "disabled");
+                            $('#formActualizarEscuela').css("opacity", ".5");
+                        },
+                        success: function(data) {
+                            console.log("data ", data)
+                            if (data == 'ok') {
+                                Swal.fire(
+                                    "¡Éxito!",
+                                    "El Escuela ha sido Actualizado de manera correcta",
+                                    "success"
+                                ).then(function() {
+                                    window.location = "<?php echo constant('URL'); ?>escuela";
+                                })
+                            } else {
+                                Swal.fire(
+                                    "¡Error!",
+                                    "Ha ocurrido un error al Actualizar el escuela." + data,
+                                    "error"
+                                );
+                            }
+                        },
+                    });
                 });
-            });
             }
         });
         $('#formActualizarEscuela').validate({
@@ -1043,16 +1042,4 @@ $menu->footer();
             });
         });
     }
-
-    /*var dataTableFunction = function () {
-        var table = $("#dataTableEscuela").DataTable({
-            responsive: true,
-            language: idiomaDataTable,
-            lengthChange: true,
-            buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis'],
-            dom: 'Bfltip'
-        });
-
-        table.buttons().container().appendTo('#dataTableEscuela_wrapper .col-md-6:eq(0)');
-    }*/
 </script>

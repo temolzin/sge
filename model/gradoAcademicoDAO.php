@@ -1,29 +1,32 @@
 <?php
-class GradoAcademicoDAO extends Model implements CRUD {
+class GradoAcademicoDAO extends Model implements CRUD
+{
     public function __construct()
     {
         parent::__construct();
     }
-
     public function insert($data)
     {
         $query = $this->db->conectar()->prepare('INSERT INTO grado_academico values (null, 
            :nombre_grado_academico,
            :observacion_gradoacademico)');
-        $query->execute([':nombre_grado_academico' => $data['nombre_grado_academico'],
-            ':observacion_gradoacademico' => $data['observacion_gradoacademico']]);
+        $query->execute([
+            ':nombre_grado_academico' => $data['nombre_grado_academico'],
+            ':observacion_gradoacademico' => $data['observacion_gradoacademico']
+        ]);
         echo 'ok';
     }
-
     public function update($data)
     {
         $query = $this->db->conectar()->prepare('UPDATE grado_academico SET  
           nombre_grado_academico = :nombre_grado_academico,
           observacion_gradoacademico = :observacion_gradoacademico
           WHERE id_grado_academico = :id_grado_academico');
-        $query->execute([':id_grado_academico' => $data['id_grado_academico'],
+        $query->execute([
+            ':id_grado_academico' => $data['id_grado_academico'],
             ':nombre_grado_academico' => $data['nombre_grado_academico'],
-            ':observacion_gradoacademico' => $data['observacion_gradoacademico']]);
+            ':observacion_gradoacademico' => $data['observacion_gradoacademico']
+        ]);
         echo 'ok';
     }
 
@@ -55,4 +58,3 @@ class GradoAcademicoDAO extends Model implements CRUD {
         return $objGrados;
     }
 }
-?>

@@ -68,7 +68,7 @@ $menu->header('profesor');
               <!-- /.card-header -->
               <div class="card-body border-primary">
                 <div class="row">
-                <div class="col-lg-12">
+                  <div class="col-lg-12">
                     <span><label>Foto(*)</label></span>
                     <div class="form-group input-group">
                       <div class="custom-file">
@@ -90,7 +90,7 @@ $menu->header('profesor');
                       <input type="password" class="form-control" id="password_usuario" name="password_usuario" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
                     </div>
                   </div>
-                  
+
 
                   <div class="col-lg-4">
                     <div class="form-group">
@@ -323,7 +323,7 @@ $menu->header('profesor');
                       <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña" minlength="8" maxlength="12" pattern="[A-Za-z]{8,12}" title="Introduce 8 caracteres mayúsculas/minúsculas/números" />
                     </div>
                   </div>
-                  
+
                   <div class="col-lg-4">
                     <div class="form-group">
                       <label>Nombre(s)</label>
