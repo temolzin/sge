@@ -43,7 +43,7 @@ $menu->header('Tablero');
         <div class="col-md-4">
           <div class="profile-img">
             <br>
-            <img src="<?php echo $fotorutaalumno; ?>" alt="user-avatar" height="145px" width="145px" class="img-circle img-fluid">
+            <img src="public/img/default.jpg" alt="user-avatar" height="145px" width="145px" class="img-circle img-fluid">
 
           </div>
         </div>

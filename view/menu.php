@@ -5,7 +5,7 @@ class Menu
 
       function header($title)
 
-      {
+      { 
             $tipo = $_SESSION['tipo'];
 
 
@@ -16,8 +16,10 @@ class Menu
             // $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
 
             $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-
-
+            
+            if ($foto == null) {
+                  $foto = "public/img/default.jpg";
+            }
             //$tutor = 'tutor';
 
 
@@ -25,9 +27,12 @@ class Menu
 
             if ($tipo == 'tutor') {
 
-                  $menu = '
+                  $menu = ' 
+
+                  
       <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
+      <img src="public/img/default.jpg" alt="" srcset="">
       <i class="nav-icon fa fa-home"></i> 
       <p>
       Inicio
@@ -522,7 +527,7 @@ class Menu
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-    <img src="' . $fotoruta . '" class="img-circle elevation-2" alt="User Image" height="50px" width="50px">
+    <img src="' . constant('URL') . 'public/img/default.jpg" alt="User Image" height="50px" width="50px" class="img-circle img-fluid">
     </div>
     <div class="info">
     <a href="' . constant('URL') . 'perfil" class="d-block">' . $nombre . '</a>
