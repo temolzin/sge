@@ -73,7 +73,16 @@ class Administrador extends Controller
 
         $nombreImagen = "";
 
-        $arrayAcualizar = array();
+        $arrayActualizar = array(
+            'id_administrador' => $id_administrador,
+            'id_usuario' => $id_usuario,
+            'nombre_administrador' => $nombre_administrador,
+            'appaterno_administrador' => $appaterno_administrador,
+            'apmaterno_administrador' => $apmaterno_administrador,
+            'telefono_administrador' => $telefono_administrador,
+            'email_administrador' => $email_administrador,
+            'fechanacimiento_administrador' => $fechanacimiento_administrador
+        );
 
         if (isset($_FILES["foto_administradorActualizar"])) {
 
@@ -85,7 +94,7 @@ class Administrador extends Controller
                 $ruta_provisional = $imagen["tmp_name"];
 
                 $fullname = $appaterno_administrador . "_" . $apmaterno_administrador . "_" . $nombre_administrador;
-                $carpeta = constant('URL') . "public/administrador/" . $fullname . "/";
+                $carpeta = "public/administrador/" . $fullname . "/";
 
                 if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                     echo 'errorimagen';
@@ -95,36 +104,15 @@ class Administrador extends Controller
                     }
                     copy($ruta_provisional, $carpeta . $nombreImagen);
 
-                    $arrayAcualizar = array(
-                        'id_administrador' => $id_administrador,
-                        'id_usuario' => $id_usuario,
-                        'foto_administrador' => $nombreImagen,
-                        'nombre_administrador' => $nombre_administrador,
-                        'appaterno_administrador' => $appaterno_administrador,
-                        'apmaterno_administrador' => $apmaterno_administrador,
-                        'telefono_administrador' => $telefono_administrador,
-                        'email_administrador' => $email_administrador,
-                        'fechanacimiento_administrador' => $fechanacimiento_administrador
-                    );
+                    $arrayActualizar['foto_administrador'] = $nombreImagen;
                 }
             }
-        } else {
-            $arrayAcualizar = array(
-                'id_administrador' => $id_administrador,
-                'id_usuario' => $id_usuario,
-                'nombre_administrador' => $nombre_administrador,
-                'appaterno_administrador' => $appaterno_administrador,
-                'apmaterno_administrador' => $apmaterno_administrador,
-                'telefono_administrador' => $telefono_administrador,
-                'email_administrador' => $email_administrador,
-                'fechanacimiento_administrador' => $fechanacimiento_administrador
-            );
         }
 
         require 'model/administradorDAO.php';
         $this->loadModel('administradorDAO');
         $administradorDAO = new AdministradorDAO();
-        $administradorDAO->update($arrayAcualizar);
+        $administradorDAO->update($arrayActualizar);
     }
 
     function delete()

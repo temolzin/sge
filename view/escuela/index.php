@@ -561,7 +561,7 @@ $menu->header('escuela');
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <form role="form" id="formEliminarEscuela" name="formActualizarEscuela">
+            <form role="form" id="formEliminarEscuela" name="formEliminarEscuela">
                 <input type="text" hidden id="idEliminarEscuela" name="idEliminarEscuela">
                 <div class="modal-body text-center text-danger">¿Realmente deseas eliminar este Escuela?</div>
                 <div class="modal-footer">
@@ -774,42 +774,44 @@ $menu->footer();
         });
     }
 
+    var datosInsertar = null;
+    $('#formRegistrarEscuela').on('submit', function(e) {
+       datosInsertar = new FormData(this);
+    });
     var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
             submitHandler: function(e) {
                 // var datos = $('#formRegistrarEscuela').serialize();
-                $('#formRegistrarEscuela').on('submit', function(e) {
-                    e.preventDefault();
-                    $.ajax({
-                        type: "POST",
-                        url: "<?php echo constant('URL'); ?>escuela/insert",
-                        data: new FormData(this),
-                        contentType: false,
-                        cache: false,
-                        processData: false,
-                        beforeSend: function() {
-                            $('.submit').attr("disabled", "disabled");
-                            $('#formRegistrarEscuela').css("opacity", ".5");
-                        },
-                        success: function(data) {
-                            console.log("data ", data)
-                            if (data == 'ok') {
-                                Swal.fire(
-                                    "¡Éxito!",
-                                    "La escuela ha sido registrado de manera correcta",
-                                    "success"
-                                ).then(function() {
-                                    window.location = "<?php echo constant('URL'); ?>escuela";
-                                })
-                            } else {
-                                Swal.fire(
-                                    "¡Error!",
-                                    "Ha ocurrido un error al registrar la escuela. " + data,
-                                    "error"
-                                );
-                            }
-                        },
-                    });
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo constant('URL'); ?>escuela/insert",
+                    data: datosInsertar,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    beforeSend: function() {
+                        $('.submit').attr("disabled", "disabled");
+                        $('#formRegistrarEscuela').css("opacity", ".5");
+                    },
+                    success: function(data) {
+                        console.log("data ", data)
+                        if (data == 'ok') {
+                            Swal.fire(
+                                "¡Éxito!",
+                                "La escuela ha sido registrado de manera correcta",
+                                "success"
+                            ).then(function() {
+                                window.location = "<?php echo constant('URL'); ?>escuela";
+                            })
+                        } else {
+                            Swal.fire(
+                                "¡Error!",
+                                "Ha ocurrido un error al registrar la escuela. " + data,
+                                "error"
+                            );
+                        }
+                    },
                 });
             }
         });
@@ -894,16 +896,18 @@ $menu->footer();
     }
 
     // ACTUALIZAR
+    var datosActualizar = null;
+    $('#formActualizarEscuela').on('submit', function(e) {
+        datosActualizar = new FormData(this);
+    });
     var enviarFormularioActualizar = function() {
         $.validator.setDefaults({
             submitHandler: function(e) {
-                // var datos = $('#formActualizarEscuela').serialize();
-                $('#formActualizarEscuela').on('submit', function(e) {
-                    e.preventDefault();
+
                     $.ajax({
                         type: "POST",
                         url: "<?php echo constant('URL'); ?>escuela/update",
-                        data: new FormData(this),
+                        data: datosActualizar,
                         contentType: false,
                         cache: false,
                         processData: false,
@@ -930,7 +934,6 @@ $menu->footer();
                             }
                         },
                     });
-                });
             }
         });
         $('#formActualizarEscuela').validate({
@@ -958,7 +961,6 @@ $menu->footer();
                     required: true
                 },
                 telefono_escuela: {
-
                     required: true,
                     number: true
                 },
