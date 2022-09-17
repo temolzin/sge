@@ -408,8 +408,8 @@ class Menu
 
 ';
             } else {
-
-                  echo $menu;
+                header("Location:usuario");
+                //echo $menu;
             }
 
             echo '
