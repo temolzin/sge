@@ -380,8 +380,6 @@ $menu->header('Tablero');
          </div>
       </div>
 
-
-
       <div class="col-md-6">
          <!-- USERS LIST -->
          <div class="card">
@@ -511,13 +509,7 @@ $menu->header('Tablero');
 
          </div>
       </div>
-
-
-
    <?php } ?>
-
-
-
 
    <!-- /.DASHBOARD TUTOR -->
    <?php if ($tipo == 'tutor') {
@@ -649,7 +641,7 @@ $menu->header('Tablero');
    <?php if ($tipo == 'director') {
       $rfc_escuela = isset($_SESSION['rfc_escuela']) ? $_SESSION['rfc_escuela'] : 0;
       $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
-      // $curp = $_SESSION['curp'];  
+      // $curp = $_SESSION['curp'];
    ?>
       <div class="col-lg-3 col-3">
          <!-- small box -->
@@ -880,22 +872,8 @@ $menu->header('Tablero');
             </div>
          </div>
       </div>
-
-
    <?php } ?>
 </section>
-
-<!-- jQuery -->
-<script src="<?php echo constant('URL'); ?>public/plugins/jquery/jquery.min.js"></script>
-<!-- ChartJS -->
-<script src="<?php echo constant('URL'); ?>public/plugins/chart.js/Chart.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo constant('URL'); ?>public/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo constant('URL'); ?>public/dist/js/demo.js"></script>
-<!-- Page specific script -->
-<script src="<?php echo constant('URL'); ?>public/plugins/moment/moment.min.js"></script>
-<script src="<?php echo constant('URL'); ?>public/plugins/fullcalendar/main.js"></script>
 
 <script type="text/javascript">
    $(document).ready(function() {

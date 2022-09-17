@@ -667,25 +667,26 @@ class Menu
         <script src="' . constant('URL') . 'public/js/strength.min.js"></script>
 
         <script>
-        $(document).ready(function (){
-         dataModuloActive();
-         });
-         const dataModuloActive = () => {
+        $( document ).ready(function (){
+            dataModuloActive();
+        });
+         function dataModuloActive() {
           var URLactual = window.location.href;
                         //****************************** Apartado para mostrar el item activo en el menú ***************************
           var modulo = URLactual.split("/")[4];
           var submodulo = URLactual.split("/")[5];
-                        //console.log("modulo: "+modulo)
+          console.log("modulo: "+modulo)
                         //console.log("submodulo: "+submodulo);
           $(".nav-link").removeClass("active");
-
+          if(modulo == null || modulo == undefined || modulo == ""){
+            modulo = "main";
+          }
           $("#" + modulo ).addClass("active");
           if(submodulo != ""){
             $("#" + submodulo ).addClass("active");
             $("#" + modulo + "" + submodulo).addClass("active");
           }
-
-                        //**************************************************************************************************
+          //**************************************************************************************************
           $("#modulo").val(URLactual);
           $("#modulo2").val(URLactual);
         }
