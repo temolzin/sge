@@ -1,8 +1,5 @@
- <?php @session_start();?>
- <?php
-  if(session_id() == ''){
-      session_start();
-  }
+<?php
+session_start();
   if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
   }
