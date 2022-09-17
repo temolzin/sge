@@ -1,5 +1,4 @@
   <?php
-  session_start();
   class AlumnoDAO extends Model implements CRUD
   {
     public function __construct()
