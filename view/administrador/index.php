@@ -1,8 +1,16 @@
  <?php
+ session_reset();
 session_start();
   if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
   }
+
+ $sessid = $_GET['sessid'];
+ if (isset($sessid) && $sessid != "" && $sessid != NULL) {
+     $_SESSION['sessid'] = $sessid;
+ }
+ print_r($_SESSION);
+
   require 'view/menu.php';
   $menu = new Menu();
   $menu->header('administrador');
