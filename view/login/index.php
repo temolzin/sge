@@ -23,7 +23,7 @@
 		<div class="login_title">
 			<span>INGRESA TUS DATOS PARA ACCEDER AL SISTEMA</span>
 		</div>
-		<form action="#" class="signin-form" id="formEnviarLogin" name="formEnviarLogin" role="document">
+		<form class="signin-form" id="formEnviarLogin" name="formEnviarLogin" role="form">
 			<div class="login_fields">
 				<div class="login_fields__user form-group">
 					<div class="icon">
@@ -71,7 +71,6 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo constant('URL'); ?>public/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-<script src="<?php echo constant('URL'); ?>public/plugins/jquery-validation/jquery.validate.js"></script>
 <!-- SWEETALERT2 -->
 <script src="<?php echo constant('URL'); ?>public/plugins/sweetalert2/sweetalert2.js"></script>
 
@@ -84,7 +83,6 @@
 <script>
 	$(document).ready(function() {
 		loginIngresar();
-
 	});
 
 	var loginIngresar = function() {
@@ -96,63 +94,60 @@
 					url: "<?php echo constant('URL'); ?>usuario/login",
 					data: datos,
 					success: function(data) {
-
 						if (data > 0) {
-							$('input[type="submit"]').click(function() {
-								$(".login").addClass("test");
-								setTimeout(function() {
-									$(".login").addClass("testtwo");
-								}, 300);
-								setTimeout(function() {
-									$(".authent")
-										.show()
-										.animate({
-											right: -320
-										}, {
-											easing: "easeOutQuint",
-											duration: 600,
-											queue: false
-										});
-									$(".authent")
-										.animate({
-											opacity: 1
-										}, {
-											duration: 200,
-											queue: false
-										})
-										.addClass("visible");
-								}, 500);
-								setTimeout(function() {
-									$(".authent")
-										.show()
-										.animate({
-											right: 90
-										}, {
-											easing: "easeOutQuint",
-											duration: 600,
-											queue: false
-										});
-									$(".authent")
-										.animate({
-											opacity: 0
-										}, {
-											duration: 200,
-											queue: false
-										})
-										.addClass("visible");
-									$(".login").removeClass("testtwo");
-								}, 2500);
-								setTimeout(function() {
-									$(".login").removeClass("test");
-									$(".login div").fadeOut(123);
-								}, 2800);
-								setTimeout(function() {
-									$(".success").fadeIn();
-								}, 3200);
-								setTimeout(function() {
-									window.location = "<?php echo constant('URL'); ?>main";
-								}, 4500);
-							});
+                            $(".login").addClass("test");
+                            setTimeout(function() {
+                                $(".login").addClass("testtwo");
+                            }, 300);
+                            setTimeout(function() {
+                                $(".authent")
+                                    .show()
+                                    .animate({
+                                        right: -320
+                                    }, {
+                                        easing: "easeOutQuint",
+                                        duration: 600,
+                                        queue: false
+                                    });
+                                $(".authent")
+                                    .animate({
+                                        opacity: 1
+                                    }, {
+                                        duration: 200,
+                                        queue: false
+                                    })
+                                    .addClass("visible");
+                            }, 500);
+                            setTimeout(function() {
+                                $(".authent")
+                                    .show()
+                                    .animate({
+                                        right: 90
+                                    }, {
+                                        easing: "easeOutQuint",
+                                        duration: 600,
+                                        queue: false
+                                    });
+                                $(".authent")
+                                    .animate({
+                                        opacity: 0
+                                    }, {
+                                        duration: 200,
+                                        queue: false
+                                    })
+                                    .addClass("visible");
+                                $(".login").removeClass("testtwo");
+                            }, 2500);
+                            setTimeout(function() {
+                                $(".login").removeClass("test");
+                                $(".login div").fadeOut(123);
+                            }, 2800);
+                            setTimeout(function() {
+                                $(".success").fadeIn();
+                            }, 3200);
+                            setTimeout(function() {
+                                window.location = "<?php echo constant('URL'); ?>main";
+                            }, 4500);
 
 							$('input[type="text"],input[type="password"]').focus(function() {
 								$(this).prev().animate({
@@ -279,7 +274,7 @@
 		p.setAttribute('type', 'password');
 	}
 
-	var pwShown = 0;
+	/*var pwShown = 0;
 	document.getElementById("eye").addEventListener("click", function() {
 		if (pwShown == 0) {
 			pwShown = 1;
@@ -288,5 +283,6 @@
 			pwShown = 0;
 			hide();
 		}
-	}, false);
+	}, false);*/
 </script>
+</html>

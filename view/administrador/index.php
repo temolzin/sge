@@ -1,5 +1,5 @@
- <?php
-  session_start();
+<?php
+session_start();
   if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
   }
@@ -616,8 +616,6 @@
 
            },
          });
-
-
        }
      });
      $('#formRegistrarAdministrador').validate({
@@ -914,6 +912,7 @@
        }
      });
    }
+
    var eliminarRegistro = function() {
      $("#formEliminarAdministrador").submit(function(event) {
        event.preventDefault();
@@ -954,7 +953,6 @@
        });
      });
    }
-
 
    $(".custom-file-input").on("change", function() {
      var fileName = $(this).val().split("\\").pop();

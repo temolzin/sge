@@ -18,8 +18,6 @@ class Grupo extends Controller
         $nombre_grupo = $_POST['nombre_grupo'];
         $turno_grupo = $_POST['turno_grupo'];
 
-
-
         $data = array(
             'id_grupo' =>  $id_grupo,
             'id_escuela' => $id_escuela,

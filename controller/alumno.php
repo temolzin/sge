@@ -46,7 +46,7 @@ class Alumno extends Controller
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
             $fullname = $appaterno_alumno . "_" . $apmaterno_alumno . "_" . $nombre_alumno;
-            $carpeta = constant('URL') . "public/alumno/" . $fullname . "/";
+            $carpeta = "public/alumno/" . $fullname . "/";
 
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';

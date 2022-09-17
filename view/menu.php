@@ -7,8 +7,6 @@ class Menu
 
       {
             $tipo = $_SESSION['tipo'];
-
-
             $nombre = $_SESSION['nombre'];
             $foto = $_SESSION['foto'];
             $appaterno = $_SESSION['appaterno'];
@@ -167,7 +165,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'directivo/index" class="nav-link">
+      <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo/index" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
       Directivo (s)
@@ -183,7 +181,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'alumno/index" class="nav-link">
+      <a id="alumno" name="alumno" href="' . constant('URL') . 'alumno/index" class="nav-link">
       <i class="nav-icon fas fa-user-graduate"></i>
       <p>
       Alumnos
@@ -224,7 +222,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'gradoAcademico/index" class="nav-link">
+      <a id="gradoAcademico" name="gradoAcademico" href="' . constant('URL') . 'gradoAcademico/index" class="nav-link">
       <i class="nav-icon fas fa-graduation-cap"></i>
       <p>
       Grados Académicos
@@ -233,7 +231,7 @@ class Menu
       </li> 
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'calificacion/index" class="nav-link">
+      <a id="calificacion" name="calificacion" href="' . constant('URL') . 'calificacion/index" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
@@ -249,7 +247,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'grupo/index" class="nav-link">
+      <a id="grupo" name="grupo" href="' . constant('URL') . 'grupo/index" class="nav-link">
       <i class="nav-icon fas fa-chalkboard-teacher"></i>
       <p>
       Grupos
@@ -410,8 +408,8 @@ class Menu
 
 ';
             } else {
-
-                  echo $menu;
+                header("Location:usuario");
+                //echo $menu;
             }
 
             echo '
@@ -669,25 +667,35 @@ class Menu
         <script src="' . constant('URL') . 'public/js/strength.min.js"></script>
 
         <script>
-        $(document).ready(function (){
-         dataModuloActive();
-         });
-         const dataModuloActive = () => {
+        $( document ).ready(function (){
+            dataModuloActive();
+        });
+         function dataModuloActive() {
           var URLactual = window.location.href;
-                        //****************************** Apartado para mostrar el item activo en el menú ***************************
-          var modulo = URLactual.split("/")[4];
-          var submodulo = URLactual.split("/")[5];
-                        //console.log("modulo: "+modulo)
+          var server = "'.$_SERVER["SERVER_NAME"].'";
+          //****************************** Apartado para mostrar el item activo en el menú ***************************
+          var modulo = "";
+          var submodulo = "";
+          if(server == "localhost") {
+            modulo = URLactual.split("/")[4];
+            submodulo = URLactual.split("/")[5];
+          } else {
+            modulo = URLactual.split("/")[3];
+            submodulo = URLactual.split("/")[4];
+          }
+
+          console.log("modulo: "+modulo)
                         //console.log("submodulo: "+submodulo);
           $(".nav-link").removeClass("active");
-
+          if(modulo == null || modulo == undefined || modulo == ""){
+            modulo = "main";
+          }
           $("#" + modulo ).addClass("active");
           if(submodulo != ""){
             $("#" + submodulo ).addClass("active");
             $("#" + modulo + "" + submodulo).addClass("active");
           }
-
-                        //**************************************************************************************************
+          //**************************************************************************************************
           $("#modulo").val(URLactual);
           $("#modulo2").val(URLactual);
         }
