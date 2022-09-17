@@ -90,7 +90,7 @@ class UsuarioDAO extends Model implements CRUD
                         $_SESSION['email'] = $value['email_alumno'];
                         $_SESSION['fecha_nacimiento'] = $value['fechanacimiento_alumno'];
 
-                        //info escuela 
+                        //info escuela
 
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['foto_escuela'] = $value['foto_escuela'];
@@ -133,33 +133,29 @@ class UsuarioDAO extends Model implements CRUD
                     }
                     //Contar Escuelas
                     $query = $this->db->consultar("SELECT * FROM escuela");
-                    $esc = count($query);
-
+                    $query == null ? $esc = 0 : $esc = count($query);
                     $_SESSION['can_esc'] = $esc;
+
                     //Contar directores
                     $query = $this->db->consultar("SELECT * FROM director");
-                    $dir = count($query);
-
+                    $query == null ? $dir = 0 : $dir = count($query);
                     $_SESSION['can_dir'] = $dir;
+
                     //Contar Usuarios
                     $query = $this->db->consultar("SELECT * FROM usuario");
-                    $usu = count($query);
-
+                    $query == null ? $usu = 0 : $usu = count($query);
                     $_SESSION['can_usu'] = $usu;
+
                     //Contar Alumnos
                     $query = $this->db->consultar("SELECT * FROM alumno");
-                    $alu = count($query);
-
+                    $query == null ? $alu = 0 : $alu = count($query);
                     $_SESSION['can_alu'] = $alu;
-
 
                     echo $rows;
                 } else if ($tipo == 'tutor') {
-
                     $query = $this->db->consultar("SELECT es.*,al.*,tu.*,gp.* from escuela es, alumno al, tutor tu, grupo gp where al.id_alumno = tu.id_alumno and al.id_escuela = tu.id_escuela and al.id_escuela = es.id_escuela and al.id_grupo = gp.id_grupo and tu.id_usuario = '" . $id . "'");
 
                     foreach (($query) as $key => $value) {
-
                         //Info Escuela
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['foto_escuela'] = $value['foto_escuela'];
@@ -295,7 +291,7 @@ class UsuarioDAO extends Model implements CRUD
                         $_SESSION['fecha_nacimiento'] = $value['fechanacimiento_director'];
 
 
-                        //info escuela 
+                        //info escuela
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['foto_escuela'] = $value['foto_escuela'];
                         $_SESSION['nombre_escuela'] = $value['nombre_escuela'];
@@ -339,6 +335,7 @@ class UsuarioDAO extends Model implements CRUD
         }
         return $objUsuarios;
     }
+
     public function readBlock()
     {
         require_once 'usuarioDTO.php';
