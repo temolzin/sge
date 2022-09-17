@@ -672,9 +672,18 @@ class Menu
         });
          function dataModuloActive() {
           var URLactual = window.location.href;
-                        //****************************** Apartado para mostrar el item activo en el menú ***************************
-          var modulo = URLactual.split("/")[4];
-          var submodulo = URLactual.split("/")[5];
+          var server = "'.$_SERVER["SERVER_NAME"].'";
+          //****************************** Apartado para mostrar el item activo en el menú ***************************
+          var modulo = "";
+          var submodulo = "";
+          if(server == "localhost") {
+            modulo = URLactual.split("/")[4];
+            submodulo = URLactual.split("/")[5];
+          } else {
+            modulo = URLactual.split("/")[3];
+            submodulo = URLactual.split("/")[4];
+          }
+
           console.log("modulo: "+modulo)
                         //console.log("submodulo: "+submodulo);
           $(".nav-link").removeClass("active");
