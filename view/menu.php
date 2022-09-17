@@ -7,8 +7,6 @@ class Menu
 
       {
             $tipo = $_SESSION['tipo'];
-
-
             $nombre = $_SESSION['nombre'];
             $foto = $_SESSION['foto'];
             $appaterno = $_SESSION['appaterno'];
