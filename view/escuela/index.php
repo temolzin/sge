@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo $_SESSION['tipo'];
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
 }
