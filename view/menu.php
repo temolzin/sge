@@ -349,7 +349,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'calificacion/index" class="nav-link">
+      <a id="calificacion" name="calificacion" href="' . constant('URL') . 'calificacion/index" class="nav-link">
       <i class="nav-icon fas fa-chart-bar"></i>
       <p>
       Calificaciones
