@@ -1,5 +1,4 @@
- <?php
-   session_start();
+<?php session_start();
    if (!isset($_SESSION['tipo'])) {
       header("Location:usuario");
    }
@@ -722,7 +721,6 @@
        llenarEscuela();
     });
 
-    $('[data-mask]').inputmask()
     const llenarGrupo = () => {
        $.ajax({
           type: "GET",
@@ -743,7 +741,6 @@
        });
     }
 
-
     const llenarEscuela = () => {
        $.ajax({
           type: "GET",
@@ -763,14 +760,12 @@
        });
     }
 
-
     var mostrarAlumnos = function() {
        var tableAlumno = $('#dataTableAlumno').DataTable({
           "processing": true,
           "serverSide": false,
           "ajax": {
              "url": "<?php echo constant('URL'); ?>alumno/readTable"
-
           },
           "columns": [{
                 defaultContent: "",
@@ -1056,8 +1051,6 @@
                 data: datos,
                 success: function(data) {
                   console.log("data ", data)
-
-
                },
             });
 
