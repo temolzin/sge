@@ -108,7 +108,7 @@ $menu->header('Tablero');
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="<?php echo constant('URL') ?>tarea/showTareaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL') ?>tarea/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
             <div class="col-lg-3">
@@ -119,7 +119,7 @@ $menu->header('Tablero');
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="<?php echo constant('URL') ?>incidencia/showIncidenciaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL') ?>incidencia/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
       </div>
@@ -146,6 +146,11 @@ $menu->header('Tablero');
                               <th>Materia</th>
                               <th>Calificación</th>
                            </tr>
+                           <tr>
+                              <td>Parcial</td>
+                              <td>Materia</td>
+                              <td>Calificación</td>
+                           </tr>
                         </thead>
                         <tbody>
                         </tbody>
@@ -154,7 +159,7 @@ $menu->header('Tablero');
                   <!-- /.table-responsive -->
                </div>
                <div class="card-footer clearfix">
-                  <a href="<?php echo constant('URL') ?>calificacion/showCalificacionAlumno" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
+                  <a href="<?php echo constant('URL') ?>calificacion/index" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
                </div>
             </div>
          </div>
@@ -200,7 +205,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-university"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>escuela/showEscuela" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>escuela/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -214,7 +219,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-folder"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>tarea" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>tarea/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -228,11 +233,11 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-clipboard"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>incidencia/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-7">
+      <div class="col-md-5">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Escolar</h3>
@@ -292,7 +297,7 @@ $menu->header('Tablero');
             </div>
          </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-6">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Calendario</h3>
@@ -326,7 +331,7 @@ $menu->header('Tablero');
 
 
       <!-- /.col -->
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-primary">
             <div class="inner">
@@ -340,7 +345,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-warning">
             <div class="inner">
@@ -353,7 +358,7 @@ $menu->header('Tablero');
 
          </div>
       </div>
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-success">
             <div class="inner">
@@ -367,7 +372,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-danger">
             <div class="inner">
@@ -405,7 +410,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL') ?>administrador">Ver Todos</a>
+               <a href="<?php echo constant('URL') ?>administrador/index">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -437,7 +442,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL') ?>directivo">Ver Todos</a>
+               <a href="<?php echo constant('URL') ?>directivo/index">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -534,7 +539,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>tarea/showTareaTutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>tarea/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <div class="col-lg-6">
@@ -545,7 +550,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>incidencia/showIncidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>incidencia/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
    </div>
@@ -591,7 +596,7 @@ $menu->header('Tablero');
                      </div>
                   </div>
                </div>
-               <a href="<?php echo constant('URL'); ?>escuela/showEscuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
+               <a href="<?php echo constant('URL'); ?>escuela/index" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
             </div>
          </div>
       </div>
@@ -641,6 +646,8 @@ $menu->header('Tablero');
    <?php if ($tipo == 'director') {
       $rfc_escuela = isset($_SESSION['rfc_escuela']) ? $_SESSION['rfc_escuela'] : 0;
       $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
+      $nombre_alumno = isset($_SESSION['nombre_alumno']) ? $_SESSION['nombre_alumno'] : 0;
+      $nombre_profesor = isset ($_SESSION['nombre_profesor']) ? $_SESSION['nombre_profesor'] : 0;
       // $curp = $_SESSION['curp'];
    ?>
       <div class="col-lg-3 col-3">
@@ -667,7 +674,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-chalkboard-teacher"></i>
             </div>
-            <a href="<?php echo constant('URL'); ?>profesor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>profesor/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -694,11 +701,11 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-id-card"></i>
             </div>
-            <a href="<?php echo constant('URL'); ?>tutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL'); ?>tutor/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-5">
+      <div class="col-md-4">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Escolar</h3>
@@ -739,7 +746,7 @@ $menu->header('Tablero');
                </div>
             </div>
             <div class="card-body">
-               <table class="table table-hover">
+               <table class=" table-responsive">
                   <tbody>
                      <br><br>
                      <tr>
@@ -756,7 +763,7 @@ $menu->header('Tablero');
             <br><br>
          </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Cobro Y Pago</h3>
@@ -770,14 +777,14 @@ $menu->header('Tablero');
                </div>
             </div>
             <br><br>
-            <div class="row" style="margin-left: 25px;">
-               <div class="col-lg-6">
-                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>cobro">
+            <div class="row" style="margin-left: 47px;">
+               <div class="col-lg-5">
+                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>cobro/index">
                      <i class="fas fa-hand-holding-usd"></i> Cobro
                   </a>
                </div>
                <div class="col-lg-6">
-                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>pago">
+                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>pago/index">
                      <i class="fas fa-money-check-alt"></i> Pago
                   </a>
                </div>
@@ -785,7 +792,7 @@ $menu->header('Tablero');
             <br><br>
          </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
          <!-- USERS LIST -->
          <div class="card">
             <div class="card-header" style="background-color:#f52c41; color:white">
@@ -802,21 +809,33 @@ $menu->header('Tablero');
                </div>
             </div>
 
-            <div class="card-body p-0">
-               <ul id="listProfesores" class="users-list clearfix">
-
-               </ul>
-               <!-- /.users-list -->
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table id="tableProfesor" class="table m-0">
+                     <thead>
+                        <tr>
+                           <th>Foto</th>
+                           <th>Nombre</th>
+                        </tr>
+                        <tr>
+                           <td>Foto: <?php echo  $foto ?></td>
+                           <td>Nombre: <?php echo  $nombre_profesor ?></td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                     </tbody>
+                  </table>
+               </div>
+               <!-- /.table-responsive -->
             </div>
-            <!-- /.card-body -->
-            <div class="card-footer text-center">
-               <a href="<?php echo constant('URL'); ?>profesor">Ver Todos</a>
+            <div class="card-footer clearfix">
+               <a href="<?php echo constant('URL'); ?>profesor/index" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
          <!--/.card -->
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
          <div class="card card-primary">
             <div class="card-header">
                <h3 class="card-title">Alumnos</h3>
@@ -838,6 +857,11 @@ $menu->header('Tablero');
                            <th>Apellido</th>
                            <th>Contacto</th>
                         </tr>
+                        <tr>
+                           <td>Foto: <?php echo  $foto ?></td>
+                           <td>Nombre: <?php echo  $nombre_alumno ?></td>
+                           <td>Nombre: <?php echo  $telefono ?></td>
+                        </tr>
                      </thead>
                      <tbody>
                      </tbody>
@@ -850,7 +874,7 @@ $menu->header('Tablero');
             </div>
          </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Calendario</h3>
