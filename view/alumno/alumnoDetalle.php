@@ -219,14 +219,14 @@ $menu->footer();
          "processing": true,
          "serverSide": false,
          "ajax": {
-            "url": "<?php echo constant('URL'); ?>alumno/readTableAlumnoProfesor"
+            "url": "<?php echo constant('URL'); ?>alumno/readTableAlumno"
 
          },
          "columns": [{
                defaultContent: "",
                "render": function(data, type, full, row) {
 
-                  var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
+                  return full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
 
 
                   var img = '<?php echo constant('URL') ?>public/alumno/' + fullnameImagen;
