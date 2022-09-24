@@ -2924,34 +2924,34 @@ fieldset:disabled a.btn {
 }
 
 .btn-warning {
-  color: #1f2d3d;
+  color: #fff;
   background-color: #ffc107;
   border-color: #ffc107;
   box-shadow: none;
 }
 
 .btn-warning:hover {
-  color: #1f2d3d;
+  color: #fff;
   background-color: #e0a800;
   border-color: #d39e00;
 }
 
 .btn-warning:focus, .btn-warning.focus {
-  color: #1f2d3d;
+  color: #fff;
   background-color: #e0a800;
   border-color: #d39e00;
   box-shadow: 0 0 0 0 rgba(221, 171, 15, 0.5);
 }
 
 .btn-warning.disabled, .btn-warning:disabled {
-  color: #1f2d3d;
+  color: #fff;
   background-color: #ffc107;
   border-color: #ffc107;
 }
 
 .btn-warning:not(:disabled):not(.disabled):active, .btn-warning:not(:disabled):not(.disabled).active,
 .show > .btn-warning.dropdown-toggle {
-  color: #1f2d3d;
+  color: #fff;
   background-color: #d39e00;
   border-color: #c69500;
 }
@@ -32491,10 +32491,10 @@ html.maximized-card {
   border: 1px solid #ddd;
   color: #6c757d;
   font-size: 12px;
-  height: 60px;
+  height: 50px;
   margin: 0 0 10px 10px;
-  min-width: 80px;
-  padding: 15px 5px;
+  min-width: 50px;
+  padding: 5px 5px;
   position: relative;
   text-align: center;
 }
@@ -33726,6 +33726,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   text-align: center;
   text-decoration: none;
   z-index: 10;
+  font-size: 2.2vw;
 }
 
 .small-box > .small-box-footer:hover {
@@ -33734,7 +33735,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 }
 
 .small-box h3 {
-  font-size: 2.2rem;
+  font-size: 2.2vw;
   font-weight: 700;
   margin: 0 0 10px;
   padding: 0;
@@ -33745,12 +33746,12 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   .col-xl-2 .small-box h3,
   .col-lg-2 .small-box h3,
   .col-md-2 .small-box h3 {
-    font-size: 1.6rem;
+    font-size: 1.6vw;
   }
   .col-xl-3 .small-box h3,
   .col-lg-3 .small-box h3,
   .col-md-3 .small-box h3 {
-    font-size: 1.6rem;
+    font-size: 1.6vw;
   }
 }
 
@@ -33758,12 +33759,12 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   .col-xl-2 .small-box h3,
   .col-lg-2 .small-box h3,
   .col-md-2 .small-box h3 {
-    font-size: 2.2rem;
+    font-size: 2.2vw;
   }
   .col-xl-3 .small-box h3,
   .col-lg-3 .small-box h3,
   .col-md-3 .small-box h3 {
-    font-size: 2.2rem;
+    font-size: 2.2vw;
   }
 }
 
@@ -33835,7 +33836,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
     display: none;
   }
   .small-box p {
-    font-size: 12px;
+    font-size: 2.2vw;
   }
 }
 
@@ -46280,7 +46281,7 @@ blockquote.quote-gray-dark h6 {
 
 .bg-warning,
 .bg-warning > a {
-  color: #1f2d3d !important;
+  color: #fff !important;
 }
 
 .bg-warning.btn:hover {
