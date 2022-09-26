@@ -641,9 +641,16 @@ $menu->header('Tablero');
    <?php if ($tipo == 'director') {
       $rfc_escuela = isset($_SESSION['rfc_escuela']) ? $_SESSION['rfc_escuela'] : 0;
       $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
+      $nombre_alumno = isset($_SESSION['nombre_alumno']) ? $_SESSION['nombre_alumno'] : 0;
+      $appaterno_alumno = isset($_SESSION['appaterno_alumno']) ? $_SESSION['appaterno_alumno'] : 0;
+      $telefono_alumno = isset($_SESSION['telefono_alumno']) ? $_SESSION['telefono_alumno'] : 0;
+      $email_alumno = isset($_SESSION['email_alumno']) ? $_SESSION['email_alumno'] : 0;
+      $nombre_profesor = isset($_SESSION['email_alumno']) ? $_SESSION['email_alumno'] : 0;
+      $telefono_profesor = isset($_SESSION['telefono_profesor']) ? $_SESSION['telefono_profesor'] : 0;
+      $email_profesor = isset($_SESSION['email_profesor']) ? $_SESSION['email_profesor'] : 0;
       // $curp = $_SESSION['curp'];
    ?>
-      <div class="col-lg-3 col-3">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-info">
             <div class="inner">
@@ -657,7 +664,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-3">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-success">
             <div class="inner">
@@ -671,7 +678,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-3">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-warning">
             <div class="inner">
@@ -684,7 +691,7 @@ $menu->header('Tablero');
             <a href="<?php echo constant('URL'); ?>directivo/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
-      <div class="col-lg-3 col-3">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-danger">
             <div class="inner">
@@ -698,7 +705,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-5">
+      <div class="col-md-4">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Escolar</h3>
@@ -756,7 +763,7 @@ $menu->header('Tablero');
             <br><br>
          </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Cobro Y Pago</h3>
@@ -770,14 +777,14 @@ $menu->header('Tablero');
                </div>
             </div>
             <br><br>
-            <div class="row" style="margin-left: 25px;">
-               <div class="col-lg-6">
-                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>cobro">
+            <div class="row" style="margin-left: 55px;">
+               <div class="col-lg-6 col-6">
+                  <a class="btn btn-outline-success" href="<?php echo constant('URL'); ?>cobro">
                      <i class="fas fa-hand-holding-usd"></i> Cobro
                   </a>
                </div>
-               <div class="col-lg-6">
-                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>pago">
+               <div class="col-lg-6 col-6">
+                  <a class="btn btn-outline-success" href="<?php echo constant('URL'); ?>pago">
                      <i class="fas fa-money-check-alt"></i> Pago
                   </a>
                </div>
@@ -785,14 +792,12 @@ $menu->header('Tablero');
             <br><br>
          </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
          <!-- USERS LIST -->
          <div class="card">
             <div class="card-header" style="background-color:#f52c41; color:white">
                <h3 class="card-title">Profesores</h3>
-
                <div class="card-tools">
-
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                      <i class="fas fa-minus"></i>
                   </button>
@@ -801,22 +806,36 @@ $menu->header('Tablero');
                   </button>
                </div>
             </div>
-
-            <div class="card-body p-0">
-               <ul id="listProfesores" class="users-list clearfix">
-
-               </ul>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table id="listProfesores" class="table m-0">
+                           <thead>
+                              <tr>
+                                 <th>Nombre</th>
+                                 <th>Apellido</th>
+                                 <th>Contacto</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td><?php echo  $nombre_profesor ?></td>
+                                 <td><?php echo  $telefono_profesor ?></td>
+                                 <td><?php echo  $email_profesor ?></td>
+                              </tr>
+                           </tbody>
+                  </table>
+               </div>
                <!-- /.users-list -->
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL'); ?>profesor">Ver Todos</a>
+            <a href="<?php echo constant('URL'); ?>profesor/index" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
          <!--/.card -->
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
          <div class="card card-primary">
             <div class="card-header">
                <h3 class="card-title">Alumnos</h3>
@@ -840,6 +859,11 @@ $menu->header('Tablero');
                         </tr>
                      </thead>
                      <tbody>
+                     <tr>
+                        <td><?php echo  $nombre_alumno ?></td>
+                        <td><?php echo  $appaterno_alumno ?></td>
+                        <td><?php echo  $telefono_alumno ?></td>
+                        </tr>
                      </tbody>
                   </table>
                </div>
@@ -850,7 +874,7 @@ $menu->header('Tablero');
             </div>
          </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Calendario</h3>
@@ -866,7 +890,7 @@ $menu->header('Tablero');
             <div class="card-body">
                <div style="overflow:hidden;">
                   <div class="form-group">
-                     <div id="datetimepicker12"></div>
+                     <input size="16" type="text" class="form-control" id="datetime" readonly>
                   </div>
                </div>
             </div>
@@ -891,10 +915,8 @@ $menu->header('Tablero');
       mostrarParcial();
    });
    $(function() {
-      $('#datetimepicker12').datetimepicker({
-         inline: true,
-         sideBySide: false,
-         language: 'es'
+      $("#datetime").datetimepicker({
+      format: 'yyyy-mm-dd hh:ii'
       });
    });
 
