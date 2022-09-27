@@ -476,7 +476,7 @@ session_start();
 
              var img = '<?php echo constant('URL'); ?>public/administrador/' + fullnameImagen;
 
-             return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
+             return '<center><img src="' + img + '" class="img-circle img-fluid" height="145px" width="145px" /></center>';
            }
 
          },
