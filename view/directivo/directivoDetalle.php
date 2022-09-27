@@ -644,7 +644,7 @@ $menu->footer();
 
                         var img = '<?php echo constant('URL'); ?>public/director/' + fullnameImagen;
 
-                        return '<center><img src="' + img + '" class="img-circle"  height="150px" width="150px"/></center>';
+                        return '<center><img src="' + img + 'rounded-circle img-thumbnail  height="180px" width="180px"/></center>';
                     }
 
                 },

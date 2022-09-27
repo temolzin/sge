@@ -26,7 +26,7 @@ session_start();
              <table id="dataTableAdministrador" name="dataTableAdministrador" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                <thead>
                  <tr>
-                   <th style="width: 20px;">Foto </th>
+                   <th style="width: 50px;">Foto </th>
                    <th>Nombre</th>
                    <th>Email</th>
                    <th>Opciones</th>

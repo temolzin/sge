@@ -53,7 +53,7 @@ $menu->header('Tablero');
       <div class="card-box pd-20 height-100-p mb-30" style="background: #fff;">
          <div class="row align-items-center">
             <div class="col-md-2" style="margin: 8px 0px 8px 8px">
-               <img src="<?php echo $fotoruta; ?>" alt="user-avatar" height="145px" width="145px" class="img-circle img-fluid">
+               <img src="<?php echo $fotoruta; ?>" alt="user-avatar" height="145px" width="145px" class="rounded-circle img-thumbnail">
             </div>
             <div class="col-md-8">
                <h4 class="font-45 weight-500 mb-10 text-capitalize" style="font-size: 30px">
@@ -1012,7 +1012,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 80px; height: 80px;>' + '<br>' +
+                     '<img src="<?php echo constant('URL') ?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 50px; height: 50px;>' + '<br>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
@@ -1034,7 +1034,7 @@ $menu->header('Tablero');
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 80px; height: 80px;>' +
+                     '<img src="<?php echo constant('URL') ?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 50px; height: 50px;>' +
                      '<br><br>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
