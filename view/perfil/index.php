@@ -3,12 +3,8 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
    header("Location:usuario");
 }
-
 $tipo = $_SESSION['tipo'];
-
-
 if ($tipo == 'administrador') {
-
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
    $appaterno = $_SESSION['appaterno'];
@@ -18,8 +14,10 @@ if ($tipo == 'administrador') {
    $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   if ($foto == null){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+    }
 } else {
-
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
    $appaterno = $_SESSION['appaterno'];
@@ -36,6 +34,9 @@ if ($tipo == 'administrador') {
    $colonia = $_SESSION['colonia'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   if ($foto == null){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+   }
 }
 
 require 'view/menu.php';

@@ -1,17 +1,11 @@
 <?php
-
 session_start();
-
 if (!isset($_SESSION['tipo'])) {
    header("Location:usuario");
 }
-
-
-
 $tipo = $_SESSION['tipo'];
 
 if ($tipo == 'administrador') {
-
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
    $appaterno = $_SESSION['appaterno'];
@@ -21,6 +15,9 @@ if ($tipo == 'administrador') {
    $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   if ($foto == null){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+   }
 } else {
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
@@ -40,14 +37,14 @@ if ($tipo == 'administrador') {
    $id_escuela = $_SESSION['id_escuela'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   if ($foto == null){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+   }
 }
-
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Tablero');
-
 ?>
-
 <section class="content">
    <div class="container-fluid">
       <div class="card-box pd-20 height-100-p mb-30" style="background: #fff;">
@@ -71,12 +68,6 @@ $menu->header('Tablero');
          <?php if ($tipo == 'alumno') {
             $nombre_grupo = isset($_SESSION['nombre_grupo']) ? $_SESSION['nombre_grupo'] : 0;
             $turno_grupo = isset($_SESSION['turno_grupo']) ? $_SESSION['turno_grupo'] : 0;
-
-            //$id_calificacion = $_SESSION['id_calificacion'];
-
-
-
-
          ?>
             <div class="col-lg-3">
                <div class="small-box bg-warning">
@@ -187,8 +178,6 @@ $menu->header('Tablero');
       $rfc_escuela = isset($_SESSION['rfc_escuela']) ? $_SESSION['rfc_escuela'] : 0;
       $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
       $cedula = isset($_SESSION['cedula']) ? $_SESSION['cedula'] : 0;
-
-
    ?>
       <div class="col-lg-4 col-4">
          <!-- small box -->
@@ -314,17 +303,13 @@ $menu->header('Tablero');
             </div>
          </div>
       </div>
-
    <?php } ?>
-
    <?php if ($tipo == 'administrador') {
       $con_escuela = isset($_SESSION['can_esc']) ? $_SESSION['can_esc'] : 0;
       $con_directores = isset($_SESSION['can_dir']) ? $_SESSION['can_dir'] : 0;
       $con_alumnos = isset($_SESSION['can_alu']) ? $_SESSION['can_alu'] : 0;
       $con_usuarios = isset($_SESSION['can_usu']) ? $_SESSION['can_usu'] : 0;
    ?>
-
-
       <!-- /.col -->
       <div class="col-lg-3 col-12">
          <!-- small box -->
@@ -363,7 +348,6 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="fas fa-user-graduate"></i>
             </div>
-
          </div>
       </div>
       <!-- ./col -->
@@ -379,15 +363,12 @@ $menu->header('Tablero');
             </div>
          </div>
       </div>
-
       <div class="col-md-6">
          <!-- USERS LIST -->
          <div class="card">
             <div class="card-header" style="background-color:#f52c41; color:white">
                <h3 class="card-title">Administradores</h3>
-
                <div class="card-tools">
-
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                      <i class="fas fa-minus"></i>
                   </button>
@@ -396,10 +377,8 @@ $menu->header('Tablero');
                   </button>
                </div>
             </div>
-
             <div class="card-body p-0">
                <ul id="listAdministradores" class="users-list clearfix">
-
                </ul>
                <!-- /.users-list -->
             </div>
@@ -411,13 +390,11 @@ $menu->header('Tablero');
          </div>
          <!--/.card -->
       </div>
-
       <div class="col-md-6">
          <!-- USERS LIST -->
          <div class="card">
             <div class="card-header" style="background-color:purple; color:white">
                <h3 class="card-title">Nuevos directivos</h3>
-
                <div class="card-tools">
                   <span class="badge badge-dark">Ultimos registros</span>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -428,10 +405,8 @@ $menu->header('Tablero');
                   </button>
                </div>
             </div>
-
             <div class="card-body p-0">
                <ul id="listNuevosDirectivos" class="users-list clearfix">
-
                </ul>
                <!-- /.users-list -->
             </div>
@@ -476,7 +451,6 @@ $menu->header('Tablero');
 
          </div>
       </div>
-
       <div class="col-md-6">
          <div class="card card-danger">
             <div class="card-header">
@@ -506,11 +480,9 @@ $menu->header('Tablero');
                </div>
                <!-- /.table-responsive -->
             </div>
-
          </div>
       </div>
    <?php } ?>
-
    <!-- /.DASHBOARD TUTOR -->
    <?php if ($tipo == 'tutor') {
       $nombre_grupo = isset($_SESSION['nombre_grupo']) ? $_SESSION['nombre_grupo'] : 0;
@@ -522,8 +494,6 @@ $menu->header('Tablero');
       $telefono_alumno = $_SESSION['telefono_alumno'];
       $nombre_completo_al = $nombre_alumno . " " . $appaterno_alumno . " " . $apmaterno_alumno;
       //Profesor
-
-
    ?>
       <!-- Grid column -->
       <div class="col-lg-6">

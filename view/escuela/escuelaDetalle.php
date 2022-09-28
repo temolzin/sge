@@ -3,7 +3,6 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
    header("Location:usuario");
 }
-
 $foto_escuela = $_SESSION['foto_escuela'];
 $nombre_escuela = $_SESSION['nombre_escuela'];
 $rfc_escuela = $_SESSION['rfc_escuela'];
@@ -19,7 +18,9 @@ $telefono_escuela = $_SESSION['telefono_escuela'];
 $email_escuela = $_SESSION['email_escuela'];
 $observacion_escuela = $_SESSION['observacion_escuela'];
 $fotoruta = constant('URL') . 'public/escuela/' . $cct_escuela . '_' . $rfc_escuela . '_' . $nombre_escuela . '/' . $foto_escuela;
-
+if ($foto_escuela == null){
+   $fotoruta= constant('URL') . 'public/img/default.jpg';
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Tablero');

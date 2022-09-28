@@ -21,7 +21,9 @@ $email_alumno = $_SESSION['email_alumno'];
 $fecha_nacimiento_alumno =    $_SESSION['fecha_nacimiento_alumno'];
 $nombre_completo_al = $nombre_alumno . " " . $appaterno_alumno . " " . $apmaterno_alumno;
 $fotorutaalumno = constant('URL') . 'public/alumno/' . $appaterno_alumno . '_' . $apmaterno_alumno . '_' . $nombre_alumno . '/' . $foto_alumno;
-
+if ($foto_alumno == null){
+  $fotorutaalumno= constant('URL') . 'public/img/default.jpg';
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Tablero');
