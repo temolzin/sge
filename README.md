@@ -28,9 +28,7 @@
 15. Copia y pega el archivo *config.php.dist* en la misma carpeta.
 16. Renombra el archivo como *config.php*.
 17. Es necesario que sean modificadas las variables dentro del archivo.
-18. Pulsa en el **URL**.
-`http://localhost/sge/`
-[Acceder sistema]( http://localhost/sge/usuario)
+
 
 
 <<<<<<< HEAD
