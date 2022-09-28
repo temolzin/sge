@@ -322,11 +322,15 @@ $menu->header('Tablero');
       $con_directores = isset($_SESSION['can_dir']) ? $_SESSION['can_dir'] : 0;
       $con_alumnos = isset($_SESSION['can_alu']) ? $_SESSION['can_alu'] : 0;
       $con_usuarios = isset($_SESSION['can_usu']) ? $_SESSION['can_usu'] : 0;
+      $nombre_administrador = isset($_SESSION['nombre_administrador']) ? $_SESSION['nombre_administrador'] : 0;
+      $nombre_director = isset($_SESSION['nombre_director']) ? $_SESSION['nombre_director'] : 0;
+      $id_tipo_usuario = isset($_SESSION['id_tipo_usuario'] ? $_SESSION['id_tipo_usuario'] : 0);
+      $id_usuario =  isset($_SESSION['id_usuario'] ? $_SESSION['id_tipo_usuario'] : 0) ;
    ?>
 
 
       <!-- /.col -->
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-primary">
             <div class="inner">
@@ -340,7 +344,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-warning">
             <div class="inner">
@@ -353,7 +357,7 @@ $menu->header('Tablero');
 
          </div>
       </div>
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-success">
             <div class="inner">
@@ -367,7 +371,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-12">
+      <div class="col-lg-3 col-6">
          <!-- small box -->
          <div class="small-box bg-danger">
             <div class="inner">
@@ -399,7 +403,7 @@ $menu->header('Tablero');
 
             <div class="card-body p-0">
                <ul id="listAdministradores" class="users-list clearfix">
-
+                  <li><?php echo $nombre_administrador?></li>
                </ul>
                <!-- /.users-list -->
             </div>
@@ -431,7 +435,7 @@ $menu->header('Tablero');
 
             <div class="card-body p-0">
                <ul id="listNuevosDirectivos" class="users-list clearfix">
-
+                  <li><?php echo $nombre_director?></li>
                </ul>
                <!-- /.users-list -->
             </div>
@@ -468,6 +472,11 @@ $menu->header('Tablero');
                         </tr>
                      </thead>
                      <tbody>
+                        <tr>
+                           <td><?php echo $id_usuario; ?></td>
+                           <td><?php echo $id_tipo_usuario; ?></td>
+                           <td><?php echo $id_usuario; ?></td>
+                        </tr>
                      </tbody>
                   </table>
                </div>
@@ -501,6 +510,11 @@ $menu->header('Tablero');
                         </tr>
                      </thead>
                      <tbody>
+                         <tr>
+                           <td><?php echo $id_usuario; ?></td>
+                           <td><?php echo $id_tipo_usuario; ?></td>
+                           <td><?php echo $id_usuario; ?></td>
+                        </tr>
                      </tbody>
                   </table>
                </div>
