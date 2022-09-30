@@ -71,14 +71,11 @@ $menu->header('Tablero');
          <?php if ($tipo == 'alumno') {
             $nombre_grupo = isset($_SESSION['nombre_grupo']) ? $_SESSION['nombre_grupo'] : 0;
             $turno_grupo = isset($_SESSION['turno_grupo']) ? $_SESSION['turno_grupo'] : 0;
-
-            //$id_calificacion = $_SESSION['id_calificacion'];
-
-
-
-
+            $id_parcial = isset($_SESSION['id_parcial']) ? $_SESSION['turno_grupo'] : 0;
+            $id_materia  = isset($_SESSION['id_materia']) ? $_SESSION['turno_grupo'] : 0;
+            $calificacion = isset($_SESSION['calificacion']) ? $_SESSION['turno_grupo'] : 0;
          ?>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-6">
                <div class="small-box bg-warning">
                   <div class="inner">
                      <h3>Turno y Grupo </h3>
@@ -89,7 +86,7 @@ $menu->header('Tablero');
                   </div>
                </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-6">
                <div class="small-box bg-danger">
                   <div class="inner">
                      <h3>Escuela</h3>
@@ -98,33 +95,34 @@ $menu->header('Tablero');
                   <div class="icon">
                      <i class="ion ion-university"></i>
                   </div>
+                  <a href="<?php echo constant('URL') ?>escuela/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-6">
                <div class="small-box bg-success">
                   <div class="inner">
-                     <h3>Ver tareas<sup style="font-size: 20px"></sup></h3>
+                     <h3>Tareas<sup style="font-size: 20px"></sup></h3>
                   </div>
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="<?php echo constant('URL') ?>tarea/showTareaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL') ?>tarea/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-6">
                <div class="small-box bg-success">
                   <div class="inner">
-                     <h3>Ver Incidencias<sup style="font-size: 20px"></sup></h3>
+                     <h3>Incidencias<sup style="font-size: 20px"></sup></h3>
                   </div>
                   <div class="icon">
                      <i class=" fa fa-folder-open-o"></i>
                   </div>
-                  <a href="<?php echo constant('URL') ?>incidencia/showIncidenciaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL') ?>incidencia/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
       </div>
       <div class="row">
-         <div class="col-md-8">
+         <div class="col-md-6">
             <div class="card card-success">
                <div class="card-header">
                   <h3 class="card-title">Calificaciones Recientes</h3>
@@ -148,17 +146,22 @@ $menu->header('Tablero');
                            </tr>
                         </thead>
                         <tbody>
+                           <tr>
+                              <th><?php echo $id_parcial; ?></th>
+                              <th><?php echo $id_materia; ?></th>
+                              <th><?php echo $calificacion; ?></th>
+                           </tr>
                         </tbody>
                      </table>
                   </div>
                   <!-- /.table-responsive -->
                </div>
                <div class="card-footer clearfix">
-                  <a href="<?php echo constant('URL') ?>calificacion/showCalificacionAlumno" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
+                  <a href="<?php echo constant('URL') ?>calificacion/index" class="btn btn-sm btn-secondary float-right">Ver Todas Mis Calificaciones</a>
                </div>
             </div>
          </div>
-         <div class="col-md-4">
+         <div class="col-md-6">
             <div class="card card-info">
                <div class="card-header">
                   <h3 class="card-title">Calendario</h3>
@@ -174,7 +177,7 @@ $menu->header('Tablero');
                <div class="card-body">
                   <div style="overflow:hidden;">
                      <div class="form-group">
-                        <div id="datetimepicker12"></div>
+                        <input size="16" type="text" class="form-control" id="datetime" readonly>
                      </div>
                   </div>
                </div>
@@ -187,8 +190,9 @@ $menu->header('Tablero');
       $rfc_escuela = isset($_SESSION['rfc_escuela']) ? $_SESSION['rfc_escuela'] : 0;
       $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
       $cedula = isset($_SESSION['cedula']) ? $_SESSION['cedula'] : 0;
-
-
+      $nombre_profesor = isset($_SESSION['nombre_profesor']) ? $_SESSION['nombre_profesor'] : 0;
+      $telefono_profesor = isset($_SESSION['telefono_profesor']) ? $_SESSION['telefono_profesor'] : 0;
+      $email_profesor = isset($_SESSION['email_profesor']) ? $_SESSION['email_profesor'] : 0;
    ?>
       <div class="col-lg-4 col-4">
          <!-- small box -->
@@ -200,7 +204,7 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-university"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>escuela/showEscuela" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>escuela/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
@@ -214,11 +218,11 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-folder"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>tarea" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>tarea/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-4 col-5">
+      <div class="col-lg-4 col-4">
          <!-- small box -->
          <div class="small-box bg-warning">
             <div class="inner">
@@ -228,11 +232,11 @@ $menu->header('Tablero');
             <div class="icon">
                <i class="ion ion-clipboard"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>incidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>incidencia/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-7">
+      <div class="col-md-4">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Escolar</h3>
@@ -259,7 +263,7 @@ $menu->header('Tablero');
             <br>
          </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Tus Datos Generales </h3>
@@ -277,7 +281,7 @@ $menu->header('Tablero');
                   <tbody>
                      <tr>
                         <td>Nombre Completo: </td>
-                        <td><?php echo  $nombre_completo ?></td>
+                        <td><?php echo  $nombre_profesor?></td>
                      </tr>
                      <tr>
                         <td>Cedula Profesional: </td>
@@ -285,14 +289,14 @@ $menu->header('Tablero');
                      </tr>
                      <tr>
                         <td>Email: </td>
-                        <td><?php echo  $email ?></td>
+                        <td><?php echo  $email_profesor ?></td>
                      </tr>
                   </tbody>
                </table>
             </div>
          </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-4">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Calendario</h3>
@@ -308,7 +312,7 @@ $menu->header('Tablero');
             <div class="card-body">
                <div style="overflow:hidden;">
                   <div class="form-group">
-                     <div id="datetimepicker12"></div>
+                     <input size="16" type="text" class="form-control" id="datetime" readonly>
                   </div>
                </div>
             </div>
@@ -535,12 +539,9 @@ $menu->header('Tablero');
       $email_alumno = $_SESSION['email_alumno'];
       $telefono_alumno = $_SESSION['telefono_alumno'];
       $nombre_completo_al = $nombre_alumno . " " . $appaterno_alumno . " " . $apmaterno_alumno;
-      //Profesor
-
-
    ?>
       <!-- Grid column -->
-      <div class="col-lg-6">
+      <div class="col-lg-6 col-6">
          <div class="small-box " style="background: rgb(47,191,71);">
             <div class="inner">
                <h3 class="text-white" style="font-size: 30px">Tareas Del Alumno</h3>
@@ -548,10 +549,10 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>tarea/showTareaTutor" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>tarea/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 col-6">
          <div class="small-box " style="background: rgb(47,191,71);">
             <div class="inner">
                <h3 class="text-white" style="font-size: 30px">Incidencias Del Alumno</h3>
@@ -559,12 +560,12 @@ $menu->header('Tablero');
             <div class="icon">
                <i class=" fa fa-folder-open-o"></i>
             </div>
-            <a href="<?php echo constant('URL') ?>incidencia/showIncidencia" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?php echo constant('URL') ?>incidencia/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
    </div>
    <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Del Alumno </h3>
@@ -605,11 +606,11 @@ $menu->header('Tablero');
                      </div>
                   </div>
                </div>
-               <a href="<?php echo constant('URL'); ?>escuela/showEscuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
+               <a href="<?php echo constant('URL'); ?>escuela/index" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
             </div>
          </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-6">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Escolar</h3>
