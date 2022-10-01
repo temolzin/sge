@@ -19,7 +19,9 @@ $telefono_escuela = $_SESSION['telefono_escuela'];
 $email_escuela = $_SESSION['email_escuela'];
 $observacion_escuela = $_SESSION['observacion_escuela'];
 $fotoruta = constant('URL') . 'public/escuela/' . $cct_escuela . '_' . $rfc_escuela . '_' . $nombre_escuela . '/' . $foto_escuela;
-
+if ($foto == null){
+   $fotoruta= constant('URL') . 'public/img/default.jpg';
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Tablero');
@@ -42,7 +44,12 @@ $menu->header('Tablero');
             <div class="col-lg-12 col-md-12 col-xs-12">
 
                <center>
-                  <img src="<?php echo $fotoruta; ?>" height="180px" width="180px" class="rounded-circle img-thumbnail">
+                  <img 
+                  srcset="<?php echo $fotoruta; ?> 180w,
+                     <?php echo $fotoruta; ?> 140w"
+                  sizes="(max-width: 180px) 180px,
+                     (min-width: 140px) 140px"
+                  src="<?php echo $fotoruta; ?>" height="180px" width="180px" class="rounded-circle img-thumbnail">
                </center>
 
             </div>

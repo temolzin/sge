@@ -21,6 +21,9 @@ if ($tipo == 'administrador') {
    $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   if ($foto == null){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+   }
 } else {
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
@@ -40,6 +43,9 @@ if ($tipo == 'administrador') {
    $id_escuela = $_SESSION['id_escuela'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   if ($foto == null){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+   }
 }
 
 require 'view/menu.php';
@@ -53,7 +59,12 @@ $menu->header('Tablero');
       <div class="card-box pd-20 height-100-p mb-30" style="background: #fff;">
          <div class="row align-items-center">
             <div class="col-md-2" style="margin: 8px 0px 8px 8px">
-               <img src="<?php echo $fotoruta; ?>" alt="user-avatar" height="145px" width="145px" class="rounded-circle img-thumbnail">
+               <img 
+               srcset="<?php echo $fotoruta; ?> 180w,
+                        <?php echo $fotoruta; ?> 140w"
+               sizes="(max-width: 180px) 180px,
+                     (min-width: 140px) 140px"
+               src="<?php echo $fotoruta; ?>" alt="user-avatar" height="145px" width="145px" class="rounded-circle img-thumbnail">
             </div>
             <div class="col-md-8">
                <h4 class="font-45 weight-500 mb-10 text-capitalize" style="font-size: 30px">

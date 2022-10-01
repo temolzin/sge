@@ -2,28 +2,20 @@
 
 class Menu
 {
-
-      function header($title)
-
-      {
-            $tipo = $_SESSION['tipo'];
-            $nombre = $_SESSION['nombre'];
-            $foto = $_SESSION['foto'];
-            $appaterno = $_SESSION['appaterno'];
-            $apmaterno = $_SESSION['apmaterno'];
-            // $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
-
-            $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-
-
-            //$tutor = 'tutor';
-
-
-            $menu = '';
-
-            if ($tipo == 'tutor') {
-
-                  $menu = '
+  function header($title)
+  {
+    $tipo = $_SESSION['tipo'];
+    $nombre = $_SESSION['nombre'];
+    $foto = $_SESSION['foto'];
+    $appaterno = $_SESSION['appaterno'];
+    $apmaterno = $_SESSION['apmaterno'];
+    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+    if ($foto == null){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+    }        
+      $menu = '';
+      if ($tipo == 'tutor') {
+    $menu = '
       <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
