@@ -39,7 +39,7 @@ class Escuela extends Controller
             $ruta_provisional = $imagen["tmp_name"];
 
         $fullname = $cct_escuela ."_" . $rfc_escuela . "_" . $nombre_escuela;
-            $carpeta = constant('URL')."public/escuela/" .$fullname. "/";
+            $carpeta ="public/escuela/" .$fullname. "/";
 
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif')       {
                 echo 'errorimagen';
@@ -47,7 +47,7 @@ class Escuela extends Controller
                 if (!file_exists($carpeta)) {
                     mkdir($carpeta, 0777, true);
                 }
-                copy($ruta_provisional, $carpeta.$nombreImagen);
+                copy($ruta_provisional, $carpeta . $nombreImagen);
 
         $data = array(
             'nombre_escuela' => $nombre_escuela,
@@ -63,7 +63,8 @@ class Escuela extends Controller
             'telefono_escuela' => $telefono_escuela,
             'email_escuela' => $email_escuela,
             'observacion_escuela' => $observacion_escuela,
-            'foto_escuela' => $nombreImagen
+            'foto_escuela' => $nombreImagen,
+            'nombreImagen'  => $nombreImagen
 
         );
 
@@ -91,7 +92,6 @@ class Escuela extends Controller
         $telefono_escuela = $_POST['telefono_escuelaActualizar'];
         $email_escuela = $_POST['email_escuelaActualizar'];
         $observacion_escuela = $_POST['observacion_escuelaActualizar'];
-
         $nombreImagen = "";
 
         $arrayActualizar = array(
@@ -130,7 +130,6 @@ class Escuela extends Controller
                         mkdir($carpeta, 0777, true);
                     }
                     copy($ruta_provisional, $carpeta . $nombreImagen);
-
                     $arrayActualizar['foto_escuela'] =  $nombreImagen;
                 }
             }

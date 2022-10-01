@@ -26,7 +26,7 @@ $menu->header('escuela');
                         <table id="dataTableEscuela" name="dataTableEscuela" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 15px;">Foto</th>
+                                    <th style="width: 50px;">Foto</th>
                                     <th>Nombre Escuela</th>
                                     <th>RFC</th>
                                     <th>CCT</th>

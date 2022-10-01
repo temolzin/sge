@@ -21,7 +21,9 @@ $email_alumno = $_SESSION['email_alumno'];
 $fecha_nacimiento_alumno =    $_SESSION['fecha_nacimiento_alumno'];
 $nombre_completo_al = $nombre_alumno . " " . $appaterno_alumno . " " . $apmaterno_alumno;
 $fotorutaalumno = constant('URL') . 'public/alumno/' . $appaterno_alumno . '_' . $apmaterno_alumno . '_' . $nombre_alumno . '/' . $foto_alumno;
-
+if ($foto_alumno == null){
+  $fotorutaalumno= constant('URL') . 'public/img/default.jpg';
+}
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Tablero');
@@ -43,7 +45,7 @@ $menu->header('Tablero');
         <div class="col-md-4">
           <div class="profile-img">
             <br>
-            <img src="<?php echo $fotorutaalumno; ?>" alt="user-avatar" height="145px" width="145px" class="img-circle img-fluid">
+            <img src="<?php echo $fotorutaalumno; ?>" alt="user-avatar" height="180px" width="180px" class="rounded-circle img-thumbnail">
 
           </div>
         </div>

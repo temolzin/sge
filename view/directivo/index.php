@@ -26,7 +26,7 @@ $menu->header('director');
                         <table id="dataTableDirectivo" name="dataTableDirectivo" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 15px;">Foto</th>
+                                    <th style="width: 50px;">Foto</th>
                                     <th>Nombre</th>
                                     <th>Teléfono</th>
                                     <th>Cédula profesional</th>
