@@ -13,8 +13,8 @@ class Menu
     if ($foto == null){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
     }        
-      $menu = '';
-      if ($tipo == 'tutor') {
+    $menu = '';
+    if ($tipo == 'tutor') {
     $menu = '
       <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
@@ -512,7 +512,7 @@ class Menu
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-    <img src="' . $fotoruta . '" class="img-circle elevation-2" alt="User Image" height="50px" width="50px">
+    <img src="' . $fotoruta . '" class="img-circle elevation-2 img-fluid" alt="User Image" height="50px" width="50px">
     </div>
     <div class="info">
     <a href="' . constant('URL') . 'perfil" class="d-block">' . $nombre . '</a>

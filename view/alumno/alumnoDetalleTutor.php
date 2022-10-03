@@ -45,12 +45,7 @@ $menu->header('Tablero');
         <div class="col-md-4">
           <div class="profile-img">
             <br>
-            <img 
-            srcset="<?php echo $fotoruta; ?> 180w,
-              <?php echo $fotoruta; ?> 140w"
-            sizes="(max-width: 180px) 180px,
-              (min-width: 140px) 140px"
-            src="<?php echo $fotorutaalumno; ?>" alt="user-avatar" height="180px" width="180px" class="rounded-circle img-thumbnail">
+            <img src="<?php echo $fotorutaalumno; ?>" alt="user-avatar" height="180px" width="180px" class="img-fluid img-thumbnail">
           </div>
         </div>
         <div class="col-md-6">

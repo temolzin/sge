@@ -26,9 +26,8 @@ $menu->header('profesor');
             <table id="dataTableProfesor" name="dataTableProfesor" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
               <thead>
                 <tr>
-                  <th style="width: 50px;">Foto</th>
+                  <th class="img-fluid"style="width: 50px; height:50px">Foto</th>
                   <th>Nombre</th>
-
                   <th>Opciones</th>
                 </tr>
               </thead>
@@ -855,7 +854,7 @@ $menu->footer();
             var fullnameImagen = full['appaterno_profesor'] + '_' + full['apmaterno_profesor'] + '_' + full['nombre_profesor'] + '/' + full['foto_profesor'];
             var img = '<?php constant('URL'); ?>public/profesor/' + fullnameImagen;
 
-            return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
+            return '<center><img src="' + img + '" class="img-circle img-fluid"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
           }
 
         },
