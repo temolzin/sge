@@ -15,11 +15,13 @@ if ($tipo == 'administrador') {
    $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-   if ($foto == null){
+   if ($foto != null){
+      $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   }else if($foto == null){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
    }else if(!file_exists($fotoruta)){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
-   } 
+   }
 } else {
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
@@ -39,7 +41,9 @@ if ($tipo == 'administrador') {
    $id_escuela = $_SESSION['id_escuela'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-   if ($foto == null){
+   if ($foto != null){
+      $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   }else if($foto == null){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
    }else if(!file_exists($fotoruta)){
       $fotoruta= constant('URL') . 'public/img/default.jpg';

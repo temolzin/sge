@@ -10,11 +10,13 @@ class Menu
     $appaterno = $_SESSION['appaterno'];
     $apmaterno = $_SESSION['apmaterno'];
     $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;   
-    if ($foto == null){
+    if ($foto != null){
+      $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+    }else if($foto == null){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
     }else if(!file_exists($fotoruta)){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
-    } 
+    }
     $menu = '';
     if ($tipo == 'tutor') {
       $menu = '
