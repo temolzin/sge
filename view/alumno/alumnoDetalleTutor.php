@@ -23,9 +23,10 @@ $nombre_completo_al = $nombre_alumno . " " . $appaterno_alumno . " " . $apmatern
 $fotorutaalumno = constant('URL') . 'public/alumno/' . $appaterno_alumno . '_' . $apmaterno_alumno . '_' . $nombre_alumno . '/' . $foto_alumno;
 if ($foto_alumno != null){
   $fotorutaalumno = constant('URL') . 'public/alumno/' . $appaterno_alumno . '_' . $apmaterno_alumno . '_' . $nombre_alumno . '/' . $foto_alumno;
+  if(!file_exists($fotorutaalumno)){
+    $fotorutaalumno= constant('URL') . 'public/img/default.jpg';
+  }
 }else if($foto_alumno == null){
-  $fotorutaalumno= constant('URL') . 'public/img/default.jpg';
-}else if(!file_exists($fotorutaalumno)){
   $fotorutaalumno= constant('URL') . 'public/img/default.jpg';
 }
 require 'view/menu.php';

@@ -309,7 +309,7 @@ $menu->header('director');
                                         <div class="form-group input-group">
                                             <div class="custom-file">
                                                 <input type="file" accept="image/*" class="custom-file-input" name="imgdirectorActualizar" id="imgdirectorActualizar" lang="es">
-                                                <label name="imgdirectorActualizar" id="imgdirectorActualizar" class="custom-file-label" for="imagen">Selecciona imagen</label>
+                                                <label class="custom-file-label" for="imagen">Selecciona imagen</label>
                                             </div>
                                         </div>
                                     </div>
