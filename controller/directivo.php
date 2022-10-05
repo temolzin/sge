@@ -22,7 +22,6 @@ class Directivo extends Controller
         $id_escuela = $_POST['id_escuela'];
         $id_grado_academico = $_POST['id_grado_academico'];
         $id_usuario = $_POST['id_usuario'];
-
         $nombre_director = $_POST['nombre_director'];
         $appaterno_director = $_POST['appaterno_director'];
         $apmaterno_director = $_POST['apmaterno_director'];
@@ -47,7 +46,7 @@ class Directivo extends Controller
             $ruta_provisional = $imagen["tmp_name"];
 
             $fullname = $appaterno_director . "_" . $apmaterno_director . "_" . $nombre_director;
-            $carpeta = constant('URL') . "public/director/" . $fullname . "/";
+            $carpeta ="public/director/" . $fullname . "/";
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
             } else {
@@ -76,7 +75,8 @@ class Directivo extends Controller
                     'telefono_director' => $telefono_director,
                     'email_director' => $email_director,
                     'cedulaprofesional_director' => $cedulaprofesional_director,
-                    'fechanacimiento_director' => $fechanacimiento_director
+                    'fechanacimiento_director' => $fechanacimiento_director,
+                    'nombreImagen'  => $nombreImagen
                 );
 
                 require 'model/directivoDAO.php';
@@ -109,7 +109,6 @@ class Directivo extends Controller
         $email_director = $_POST['email_directorActualizar'];
         $cedulaprofesional_director = $_POST['cedulaprofesional_directorActualizar'];
         $fechanacimiento_director = $_POST['fechanacimiento_directorActualizar'];
-
         $nombreImagen = "";
         $arrayActualizar = array(
             'id_director' => $id_director,
@@ -134,15 +133,14 @@ class Directivo extends Controller
             'fechanacimiento_director' => $fechanacimiento_director
         );
 
-        if (isset($_FILES["imgdirectorActualizar"])) {
+        if (isset($_FILES["foto_directorActualizar"])) {
 
-            if ($_FILES["imgdirectorActualizar"]["name"] != null) {
+            if ($_FILES["foto_directorActualizar"]["name"] != null) {
 
-                $imagen = $_FILES["imgdirectorActualizar"];
+                $imagen = $_FILES["foto_directorActualizar"];
                 $nombreImagen = $imagen["name"];
                 $tipoImagen = $imagen["type"];
                 $ruta_provisional = $imagen["tmp_name"];
-
                 $fullname = $appaterno_director . "_" . $apmaterno_director . "_" . $nombre_director;
                 $carpeta = "public/director/" . $fullname . "/";
 

@@ -9,6 +9,7 @@ class Menu
     $foto = $_SESSION['foto'];
     $appaterno = $_SESSION['appaterno'];
     $apmaterno = $_SESSION['apmaterno'];
+<<<<<<< HEAD
     $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
     if ($foto == null){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
@@ -16,6 +17,17 @@ class Menu
     $menu = '';
     if ($tipo == 'tutor') {
     $menu = '
+=======
+    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;   
+    if ($foto == null){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+    }else if(!file_exists($fotoruta)){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+    } 
+    $menu = '';
+    if ($tipo == 'tutor') {
+      $menu = '
+>>>>>>> 266973398d83d6fbc24b9826392fc6e6b1ba6d8c
       <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 

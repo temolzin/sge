@@ -3,12 +3,8 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
    header("Location:usuario");
 }
-
 $tipo = $_SESSION['tipo'];
-
-
 if ($tipo == 'administrador') {
-
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
    $appaterno = $_SESSION['appaterno'];
@@ -18,8 +14,12 @@ if ($tipo == 'administrador') {
    $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+   if ($foto == null){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+   }else if(!file_exists($fotoruta)){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+   } 
 } else {
-
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
    $appaterno = $_SESSION['appaterno'];
@@ -38,7 +38,13 @@ if ($tipo == 'administrador') {
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
    if ($foto == null){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
+<<<<<<< HEAD
    }
+=======
+   }else if(!file_exists($fotoruta)){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+   } 
+>>>>>>> 266973398d83d6fbc24b9826392fc6e6b1ba6d8c
 }
 
 require 'view/menu.php';
