@@ -1,17 +1,11 @@
 <?php
-
 session_start();
-
 if (!isset($_SESSION['tipo'])) {
    header("Location:usuario");
 }
-
-
-
 $tipo = $_SESSION['tipo'];
 
 if ($tipo == 'administrador') {
-
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
    $appaterno = $_SESSION['appaterno'];
