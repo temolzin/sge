@@ -12,7 +12,9 @@ class Menu
     $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;   
     if ($foto == null){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
-    }
+    }else if(!file_exists($fotoruta)){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+    } 
     $menu = '';
     if ($tipo == 'tutor') {
       $menu = '
