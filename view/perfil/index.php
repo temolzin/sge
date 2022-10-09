@@ -37,11 +37,15 @@ if ($tipo == 'administrador') {
    $municipio = $_SESSION['municipio'];
    $colonia = $_SESSION['colonia'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
+   
    if ($foto != null){
-      $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-   }else if($foto == null){
-      $fotoruta= constant('URL') . 'public/img/default.jpg';
-   }else if(!file_exists($fotoruta)){
+      $fotoruta = 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      if(!file_exists($fotoruta)){
+        $fotoruta= constant('URL') . 'public/img/default.jpg';
+      }else{
+        $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      }
+   }else{
       $fotoruta= constant('URL') . 'public/img/default.jpg';
    }
 }

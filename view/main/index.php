@@ -15,11 +15,15 @@ if ($tipo == 'administrador') {
    $fecha_nacimiento = $_SESSION['fecha_nacimiento'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+
    if ($foto != null){
-      $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-   }else if($foto == null){
-      $fotoruta= constant('URL') . 'public/img/default.jpg';
-   }else if(!file_exists($fotoruta)){
+      $fotoruta = 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      if(!file_exists($fotoruta)){
+        $fotoruta= constant('URL') . 'public/img/default.jpg';
+      }else{
+        $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      }
+   }else{
       $fotoruta= constant('URL') . 'public/img/default.jpg';
    }
 } else {
@@ -41,13 +45,17 @@ if ($tipo == 'administrador') {
    $id_escuela = $_SESSION['id_escuela'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+
    if ($foto != null){
-      $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-   }else if($foto == null){
+      $fotoruta = 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      if(!file_exists($fotoruta)){
+        $fotoruta= constant('URL') . 'public/img/default.jpg';
+      }else{
+        $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      }
+   }else{
       $fotoruta= constant('URL') . 'public/img/default.jpg';
-   }else if(!file_exists($fotoruta)){
-      $fotoruta= constant('URL') . 'public/img/default.jpg';
-   } 
+   }
 }
 require 'view/menu.php';
 $menu = new Menu();
