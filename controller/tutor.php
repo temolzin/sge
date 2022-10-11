@@ -37,12 +37,7 @@ class Tutor extends Controller
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
             $fullname = $appaterno_tutor . "_" . $apmaterno_tutor . "_" . $nombre_tutor;
-<<<<<<< HEAD
             $carpeta ="public/tutor/" . $fullname . "/";
-=======
-            $carpeta = "public/tutor/" . $fullname . "/";
-
->>>>>>> 266973398d83d6fbc24b9826392fc6e6b1ba6d8c
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
             } else {

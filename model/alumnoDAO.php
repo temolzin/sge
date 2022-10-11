@@ -1,4 +1,5 @@
   <?php
+  session_start();
   class AlumnoDAO extends Model implements CRUD
   {
     public function __construct()
@@ -103,7 +104,6 @@
 
     public function read()
     {
-      session_start();
       $id_escuela = $_SESSION['id_escuela'];
       require_once 'alumnoDTO.php';
       $query = "SELECT alumno.*, usuario.* from alumno alumno, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = alumno.id_usuario and alumno.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and alumno.id_escuela and director.id_escuela = '" . $id_escuela . "'";
