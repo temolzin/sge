@@ -889,7 +889,7 @@ $menu->footer();
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.appaterno_director + '_' + JsonResultRow.apmaterno_director + '_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
                         var img = '<?php echo constant('URL'); ?>public/director/' + fullnameImagen;
-                        return '<center><img src="' + img + '" class="img-circle img-fluid"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
+                        return '<center><img src="' + img + '" class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                     }
                 },
                 {

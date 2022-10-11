@@ -9,7 +9,6 @@ class Menu
     $foto = $_SESSION['foto'];
     $appaterno = $_SESSION['appaterno'];
     $apmaterno = $_SESSION['apmaterno'];
-<<<<<<< HEAD
     $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
     if ($foto == null){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
@@ -17,17 +16,6 @@ class Menu
     $menu = '';
     if ($tipo == 'tutor') {
     $menu = '
-=======
-    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;   
-    if ($foto == null){
-      $fotoruta= constant('URL') . 'public/img/default.jpg';
-    }else if(!file_exists($fotoruta)){
-      $fotoruta= constant('URL') . 'public/img/default.jpg';
-    } 
-    $menu = '';
-    if ($tipo == 'tutor') {
-      $menu = '
->>>>>>> 266973398d83d6fbc24b9826392fc6e6b1ba6d8c
       <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
@@ -524,7 +512,7 @@ class Menu
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-    <img src="' . $fotoruta . '" class="img-circle elevation-2 img-fluid" alt="User Image" height="50px" width="50px">
+    <img src="' . $fotoruta . '" class="rounded-circle elevation-2 img-fluid" alt="User Image"  style="width: 50px; height: 50px;">
     </div>
     <div class="info">
     <a href="' . constant('URL') . 'perfil" class="d-block">' . $nombre . '</a>

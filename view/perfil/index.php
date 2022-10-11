@@ -16,9 +16,7 @@ if ($tipo == 'administrador') {
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
    if ($foto == null){
       $fotoruta= constant('URL') . 'public/img/default.jpg';
-   }else if(!file_exists($fotoruta)){
-      $fotoruta= constant('URL') . 'public/img/default.jpg';
-   } 
+   }
 } else {
    $foto = $_SESSION['foto'];
    $nombre = $_SESSION['nombre'];
@@ -36,15 +34,16 @@ if ($tipo == 'administrador') {
    $colonia = $_SESSION['colonia'];
    $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-   if ($foto == null){
+   if ($foto != null){
+      $fotoruta ='public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      if(!file_exists($fotoruta)){
+         $fotoruta= constant('URL') . 'public/img/default.jpg';
+      }else{
+         $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      }
+   }else{
       $fotoruta= constant('URL') . 'public/img/default.jpg';
-<<<<<<< HEAD
    }
-=======
-   }else if(!file_exists($fotoruta)){
-      $fotoruta= constant('URL') . 'public/img/default.jpg';
-   } 
->>>>>>> 266973398d83d6fbc24b9826392fc6e6b1ba6d8c
 }
 
 require 'view/menu.php';
@@ -61,7 +60,7 @@ $menu->header('Tablero');
                <div class="row m-l-0 m-r-0">
                   <div class="col-sm-4 bg-c-lite-green user-profile" style="  background: linear-gradient(to bottom, #003399 0%, #33cccc 100%);">
                      <div class="card-block text-center text-white">
-                        <img src="<?php echo $fotoruta; ?>" alt="user-avatar" class="img-circle img-fluid" style="width: 180px; height: 180px;"><br><br>
+                        <img src="<?php echo $fotoruta; ?>" alt="user-avatar" class="rounded-circle img-fluid " style="width: 180px; height: 180px;"><br><br>
                         <h6 style="font-size: 25px"><?php echo $nombre_completo; ?></h6>
                         <p style="font-size: 20px">Administrador</p>
                         <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
@@ -127,12 +126,7 @@ $menu->header('Tablero');
                      </div>
                      <div class="row user-detail">
                         <div class="col-lg-12 col-sm-12 col-12">
-                           <img 
-                           srcset="<?php echo $fotoruta; ?> 180w,
-                           <?php echo $fotoruta; ?> 140w"
-                              sizes="(max-width: 180px) 180px,
-                              (max-width: 140px) 140px"
-                           src="<?php echo $fotoruta; ?>" class="rounded-circle img-thumbnail">
+                           <img src="<?php echo $fotoruta; ?>" class="rounded-circle img-thumbnail img-fluid" style="width: 180px; height: 180px;">
                            <h5><?php echo $nombre_completo; ?></h5>
                            <p><i class="fa fa-map-marked-alt" aria-hidden="true"></i> <?php echo $estado; ?>, <?php echo $municipio; ?>.</p>
                            <table class="table table-sm">
