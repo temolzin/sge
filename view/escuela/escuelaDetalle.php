@@ -51,7 +51,7 @@ $menu->header('Tablero');
             <div class="col-lg-12 col-md-12 col-xs-12">
 
                <center>
-                  <img src="<?php echo $fotoruta; ?>" height="180px" width="180px" class="rounded-circle img-thumbnail">
+                  <img src="<?php echo $fotoruta; ?>" class="rounded-circle img-fluid img-thumbnail" style="width: 180px; height: 180px;">
                </center>
 
             </div>

@@ -775,7 +775,7 @@
 
                    var img = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
 
-                   return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
+                   return '<center><img src="' + img + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                   }
 
                },
