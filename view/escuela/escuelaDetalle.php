@@ -18,7 +18,15 @@ $telefono_escuela = $_SESSION['telefono_escuela'];
 $email_escuela = $_SESSION['email_escuela'];
 $observacion_escuela = $_SESSION['observacion_escuela'];
 $fotoruta = constant('URL') . 'public/escuela/' . $cct_escuela . '_' . $rfc_escuela . '_' . $nombre_escuela . '/' . $foto_escuela;
-if ($foto_escuela == null){
+
+if ($foto_escuela != null){
+   $fotoruta ='public/escuela/' . $cct_escuela . '_' . $rfc_escuela . '_' . $nombre_escuela . '/' . $foto_escuela;
+   if(!file_exists($fotoruta)){
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+   }else{
+      $fotoruta = constant('URL') . 'public/escuela/' . $cct_escuela . '_' . $rfc_escuela . '_' . $nombre_escuela . '/' . $foto_escuela;
+   }
+}else{
    $fotoruta= constant('URL') . 'public/img/default.jpg';
 }
 require 'view/menu.php';

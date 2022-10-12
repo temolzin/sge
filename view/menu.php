@@ -9,10 +9,18 @@ class Menu
     $foto = $_SESSION['foto'];
     $appaterno = $_SESSION['appaterno'];
     $apmaterno = $_SESSION['apmaterno'];
-    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-    if ($foto == null){
+    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto; 
+      
+    if ($foto != null){
+      $fotoruta = 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      if(!file_exists($fotoruta)){
+        $fotoruta= constant('URL') . 'public/img/default.jpg';
+      }else{
+        $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      }
+    }else{
       $fotoruta= constant('URL') . 'public/img/default.jpg';
-    }        
+    }
     $menu = '';
     if ($tipo == 'tutor') {
     $menu = '

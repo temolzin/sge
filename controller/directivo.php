@@ -133,11 +133,11 @@ class Directivo extends Controller
             'fechanacimiento_director' => $fechanacimiento_director
         );
 
-        if (isset($_FILES["foto_directorActualizar"])) {
+        if (isset($_FILES["imgdirectorActualizar"])) {
 
-            if ($_FILES["foto_directorActualizar"]["name"] != null) {
+            if ($_FILES["imgdirectorActualizar"]["name"] != null) {
 
-                $imagen = $_FILES["foto_directorActualizar"];
+                $imagen = $_FILES["imgdirectorActualizar"];
                 $nombreImagen = $imagen["name"];
                 $tipoImagen = $imagen["type"];
                 $ruta_provisional = $imagen["tmp_name"];
