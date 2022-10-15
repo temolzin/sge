@@ -84,8 +84,12 @@ class Parcial extends Controller
         $parcialDAO = $parcialDAO->read();
 
         $obj = null;
-        foreach ($parcialDAO as $key => $value) {
-            $obj["data"][] = $value;
+        if (is_array($parcialDAO) || is_object($parcialDAO)) {
+            foreach ($parcialDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        }else{
+            $obj=array();
         }
 
         echo json_encode($obj);
