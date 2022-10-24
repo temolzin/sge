@@ -797,7 +797,10 @@ $menu->header('Tablero');
                      <thead>
                         <tr>
                            <th>Foto</th>
+                           <th></th>
                            <th>Nombre</th>
+                           <th></th>
+                           <th>Contacto</th>
                         </tr>
                      </thead>
                      <tbody>
@@ -808,7 +811,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL'); ?>profesor">Ver Todos</a>
+            <a href="<?php echo constant('URL'); ?>profesor/index" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -832,21 +835,20 @@ $menu->header('Tablero');
                   <table id="tableAlumnos" class="table m-0">
                      <thead>
                         <tr>
+                           <th>Foto</th>
+                           <th></th>
                            <th>Nombre</th>
-                           <th>Apellido</th>
+                           <th></th>
+                           <th>Contacto</th>
                         </tr>
                      </thead>
-                     <tbody>
-                     <tr>
-                              <th><?php echo $nombre_alumno ?></th>                                                    
-                              <th><?php echo $appaterno_alumno ?></th>
-                           </tr>
+                     <tbody>          
                      </tbody>
                   </table>
                </div>
                <!-- /.table-responsive -->
             </div>
-            <div class="card-footer clearfix">
+            <div class="card-footer text-center">
                <a href="<?php echo constant('URL'); ?>alumno/index" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
          </div>
@@ -878,7 +880,7 @@ $menu->header('Tablero');
 <?php
 $menu->footer();
 ?>
-<script>
+<script type="text/javascript">
    $(document).ready(function() {
       mostrarCalificaciones();
       mostrarDirectivos();
@@ -1007,7 +1009,8 @@ $menu->footer();
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 50px; height: 50px;>' + '<br>' +
+                     '<img src="<?php echo constant('URL') ?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' 
+                     + elem.nombre_director + '/' + elem.foto_director + '" style="width: 50px; height: 50px;>' + '<br>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
@@ -1029,7 +1032,8 @@ $menu->footer();
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 50px; height: 50px;>' +
+                     '<img src="<?php echo constant('URL') ?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' 
+                     + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 50px; height: 50px;>' +
                      '<br><br>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
@@ -1050,13 +1054,14 @@ $menu->footer();
          success: function(data) {
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  //console.log(elem.nombre_parcial);
-                  var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/profesor/' + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '" style="max-width: 110px; max-height: 110px;>' +
-                     '<a class="users-list-name">' + elem.nombre_profesor + '<a>' +
-                     '<span class="users-list-date">' + elem.email_profesor + '</span>' +
-                     '</li>';
-                  $('#listProfesores').append(htmlTags);
+                  //console.log(elem.nombre_parcial);          
+                  var htmlTags = '<tr>' +
+                     '<td><img class="rounded-circle img-fluid" style="max-width: 90px; max-height: 90px" src="<?php echo constant('URL') ?>public/profesor/' 
+                     + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '"</img><td>' +
+                     '<td>' + elem.nombre_profesor + '<td>' +
+                     '<td>' + elem.email_profesor + '<td>' +
+                     '</tr>';
+                  $('#tableProfesores').append(htmlTags);
                }
             });
          },
@@ -1065,7 +1070,6 @@ $menu->footer();
    var mostrarAlumnos = function() {
       $.ajax({
          type: "POST",
-
          async: false,
          url: "<?php echo constant('URL'); ?>alumno/read",
          dataType: 'json', // what to expect back from the PHP script, if anything
@@ -1074,11 +1078,12 @@ $menu->footer();
             $.each(data, function(ind, elem) {
                if (ind <= 4) {
                   //console.log(elem.nombre_parcial);
-                  var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/alumno/' + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '" style="max-width: 110px; max-height: 110px;>' +
-                     '<a class="users-list-name">' + elem.nombre_alumno + '<a>' +
-                     '<span class="users-list-date">' + elem.email_alumno + '</span>' +
-                     '</li>';
+                  var htmlTags = '<tr>' +
+                     '<td><img class="rounded-circle img-fluid" style="max-width: 90px; max-height: 90px" src="<?php echo constant('URL') ?>public/alumno/' 
+                     + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '"</img><td>' +
+                     '<td>' + elem.nombre_alumno + '<td>' +
+                     '<td>' + elem.email_alumno + '<td>' +
+                     '</tr>';
                   $('#tableAlumnos').append(htmlTags);
                }
             });
