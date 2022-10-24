@@ -762,24 +762,21 @@
 
     var mostrarAlumnos = function() {
        var tableAlumno = $('#dataTableAlumno').DataTable({
-          "processing": true,
-          "serverSide": false,
           "ajax": {
-             "url": "<?php echo constant('URL'); ?>alumno/readTable"
+            "processing": true,
+            "serverSide": false,
+            "type": "POST",
+            "url":"<?php echo constant('URL'); ?>alumno/readTableByIdEscuela",
+            "data": {id_escuela: '<?php echo $_SESSION['id_escuela']; ?>'},
           },
           "columns": [{
                 defaultContent: "",
                 "render": function(data, type, full, row) {
                    var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
-
-
                    var img = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
-
                    return '<center><img src="' + img + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                   }
-
                },
-
                {
                 defaultContent: "",
                 "render": function(data, type, full) {
