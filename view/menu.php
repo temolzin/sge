@@ -512,6 +512,7 @@ class Menu
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="' . constant('URL') . '" class="brand-link">
+    <center><img src="' . constant('URL').'public/img/escuela.jpg" class="rounded-circle elevation-2 img-fluid" alt="User Image" style="width: 50px; height: 50px;"></center>
     <center><span class="brand-text font-weight-light">Bienvenido ' . $tipo . '</span></center>
     </a>
 
@@ -569,6 +570,7 @@ class Menu
     <strong>Copyright &copy; <a href="https://www.rootheim.com/">Root Heim Company</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
+    <center><img src="' . constant('URL').'public/img/escuela.jpg" class="rounded-circle elevation-2 img-fluid" alt="User Image" style="width: 50px; height: 50px;"></center>
     <b>Version</b> 3.1.0-rc
     </div>
     </footer>

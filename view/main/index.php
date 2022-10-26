@@ -1032,7 +1032,8 @@ $menu->footer();
                if (ind <= 7) {
                   //console.log(elem.nombre_parcial);
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' 
+                     '<img src="<?php echo constant('URL') ?>public/administrador/' + elem.appaterno_administrador + '_' 
+                     + elem.apmaterno_administrador + '_' 
                      + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 50px; height: 50px;>' +
                      '<br><br>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_administrador + '</a>' +

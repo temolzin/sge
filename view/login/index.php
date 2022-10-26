@@ -20,6 +20,9 @@
 		</a>
 	</div>
 	<div class="login">
+	<center><img src="<?php constant('URL'); ?>public/img/escuela.jpg" class="rounded-circle elevation-2 img-fluid" alt="User Image" 
+	style="width: 70px; height: 70px;"></center>
+	<br>
 		<div class="login_title">
 			<span>INGRESA TUS DATOS PARA ACCEDER AL SISTEMA</span>
 		</div>
