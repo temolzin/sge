@@ -1,10 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Gudea:400,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
  body {
 	 perspective: 800px;
 	 height: 100vh;
 	 margin: 0;
 	 overflow: hidden;
-	 font-family: 'Gudea', sans-serif;
+	 font-family: 'Montserrat', sans-serif;
 	 background: #ea5c54;
 	/* Old browsers */
 	 background: -moz-linear-gradient(-45deg, #01d318 0%, #002c89 100%);
@@ -142,7 +142,7 @@ body .fail p {
 	 width: 250px;
 }
  body .login_title {
-	 color: #afb1be;
+	 color: #ffffff;
 	 height: 60px;
 	 text-align: left;
 	 font-size: 16px;
@@ -156,11 +156,12 @@ body .fail p {
 	 position: absolute;
 	 z-index: 1;
 	 left: 36px;
-	 top: 8px;
+	 top: 10px;
 	 opacity: 0.5;
+	 color: #ffffff;
 }
  body .login_fields input[type='password'] {
-	 color: #dc6180 !important;
+	 color: #ffffff !important;
 
 	 /*Fix autofill input */
 }
@@ -172,10 +173,10 @@ input:-webkit-autofill:active {
 	/*Fix Color White autofill input */
 }
 input:-webkit-autofill{
-    -webkit-text-fill-color: #afb1be;;
+    -webkit-text-fill-color: #ffffff;;
 }
  body .login_fields input[type='text'], body .login_fields input[type='password'] {
-	 color: #afb1be;
+	 color: #ffffff;
 	 width: 190px;
 	 margin-top: -2px;
 	 background: #111478;
@@ -186,7 +187,7 @@ input:-webkit-autofill{
 	 border-right: none;
 	 border-left: none;
 	 outline: none;
-	 font-family: 'Gudea', sans-serif;
+	 font-family: 'Montserrat', sans-serif;
 	 box-shadow: none;
 }
  body .login_fields__user, body .login_fields__password {
@@ -226,7 +227,7 @@ input:-webkit-autofill{
 }
  body .login_fields__submit input:hover {
 	 color: white;
-	 background: #dc6180;
+	 background: #1633ef;
 	 cursor: pointer;
 	 transition-property: background, color;
 	 transition-duration: 0.2s;
