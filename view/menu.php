@@ -285,7 +285,7 @@ class Menu
       </li>
       
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'tarea/index" class="nav-link">
+      <a id="tarea" name="index" href="' . constant('URL') . 'tarea/index" class="nav-link">
       <i class="nav-icon fas fa fa-paper-plane"></i>
       <p>
       Tareas
@@ -294,7 +294,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'incidencia/index" class="nav-link">
+      <a id="incidencia" name="index" href="' . constant('URL') . 'incidencia/index" class="nav-link">
       <i class="nav-icon fas fa-paste"></i>
       <p>
       Incidencias
@@ -303,7 +303,7 @@ class Menu
       </li>
       
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'parcial/index" class="nav-link">
+      <a id="parcial" name="index" href="' . constant('URL') . 'parcial/index" class="nav-link">
       <i class="nav-icon fas fa-chalkboard"></i>
       <p>
       Parcial
@@ -685,7 +685,7 @@ class Menu
           }
 
           console.log("modulo: "+modulo)
-                        //console.log("submodulo: "+submodulo);
+                        console.log("submodulo: "+submodulo);
           $(".nav-link").removeClass("active");
           if(modulo == null || modulo == undefined || modulo == ""){
             modulo = "main";

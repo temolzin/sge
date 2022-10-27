@@ -69,11 +69,11 @@ $menu->header('Tarea');
               <div class="card-body border-primary">
                 <div class="row">
                   <div class="col-lg-12">
-                    <span><label>Subir Archivo (*)</label></span>
+                    <span><label >Subir Archivo (*)</label></span>
                     <div class="form-group input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="archivo_tarea" id="archivo_tarea" lang="es">
-                        <label class="custom-file-label" for="archivo">Seleccione Archivo</label>
+                        <input type="file" class="custom-file-input" name="archivo_tarea" id="archivo_tarea" multiple">
+                        <label class="custom-file-label" for="file">Seleccione Archivo</label>
                       </div>
                     </div>
                   </div>
