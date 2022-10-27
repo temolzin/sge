@@ -119,10 +119,9 @@ class ProfesorDAO extends Model implements CRUD
     $id_escuela = $_SESSION['id_escuela'];
 
     require_once 'profesorDTO.php';
-    $query = "SELECT profesor.*, usuario.* from profesor profesor, escuela escuela, usuario usuario, director director 
-    WHERE usuario.id_usuario = profesor.id_usuario and profesor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela 
-    and director.id_escuela and profesor.id_escuela 
-    and  director.id_escuela = '" . $id_escuela . "'";
+    $query = "SELECT profesor.*, usuario.* from profesor, escuela, usuario, director
+    WHERE usuario.id_usuario = profesor.id_usuario and profesor.id_escuela = escuela.id_escuela 
+    and director.id_escuela = '" . $id_escuela . "'";
     $objProfesores = array();
     if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
       foreach ($this->db->consultar($query) as $key => $value) {

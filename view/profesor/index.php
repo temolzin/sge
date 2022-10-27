@@ -1016,9 +1016,6 @@ var mostrarProfesores = function() {
     });
     obtenerform_dataDT(tableProfesor);
 }
-
-
-
 var obtenerform_dataDT = function(table) {
     $('#dataTableProfesor tbody').on('click', 'tr', function() {
         var data = table.row(this).data();
