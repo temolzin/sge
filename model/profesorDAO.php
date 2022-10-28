@@ -54,9 +54,7 @@ class ProfesorDAO extends Model implements CRUD
 
   public function update($data)
   {
-    //add
     $imagen = '';
-    //add
     $arrayActualizar = [
       ':id_profesor' => $data['id_profesor'],
       ':id_grado_academico' => $data['id_grado_academico'],
@@ -78,7 +76,6 @@ class ProfesorDAO extends Model implements CRUD
       ':fechanacimiento_profesor' => $data['fechanacimiento_profesor']
     ];
     if (isset($data['foto_profesor'])) {
-        //add
         $imagen = 'foto_profesor = :foto_profesor,';
         $arrayActualizar[':foto_profesor'] = $data['foto_profesor'];
     }

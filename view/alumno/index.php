@@ -773,9 +773,6 @@
                    var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' 
                    + full['nombre_alumno'] + '/' + full['foto_alumno'];
                    var urlImg = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
-                   var img = new Image();
-                   img.src = urlImg;
-
                     if (full['foto_alumno'] == null || full['foto_alumno'] == '') {
                         var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
                     } else {

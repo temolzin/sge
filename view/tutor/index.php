@@ -978,9 +978,6 @@ var mostrarTutores = function() {
                     var fullnameImagen = JsonResultRow.appaterno_tutor + '_' + JsonResultRow.apmaterno_tutor + '_' 
                     + JsonResultRow.nombre_tutor + '/' + JsonResultRow.foto_tutor;
                     var urlImg = '<?php echo constant('URL'); ?>public/tutor/' + fullnameImagen;
-                    var img = new Image();
-                    img.src = urlImg;
-
                 if (JsonResultRow.foto_tutor == null || JsonResultRow.foto_tutor == '') {
                     var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
                 } else {

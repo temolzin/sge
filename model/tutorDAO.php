@@ -54,9 +54,7 @@ class TutorDAO extends Model implements CRUD
 
     public function update($data)
     {
-        //add
         $imagen = '';
-        //add
         $arrayActualizar = [
             ':id_tutor' => $data['id_tutor'],
             ':id_alumno' => $data['id_alumno'],
@@ -77,7 +75,6 @@ class TutorDAO extends Model implements CRUD
             ':colonia_tutor' => $data['colonia_tutor'],
         ];
         if (isset($data['foto_tutor'])) {
-            //add
             $imagen = 'foto_tutor = :foto_tutor,';
             $arrayActualizar[':foto_tutor'] = $data['foto_tutor'];
         }
@@ -117,10 +114,12 @@ class TutorDAO extends Model implements CRUD
         $id_escuela = $_SESSION['id_escuela'];
 
         require_once 'tutorDTO.php';
-        $query = "SELECT tutor.*,alumno.nombre_alumno,alumno.appaterno_alumno,alumno.apmaterno_alumno, escuela.nombre_escuela, usuario.* 
+        $query = "SELECT tutor.*, usuario.*, alumno.nombre_alumno,alumno.appaterno_alumno,alumno.apmaterno_alumno, escuela.nombre_escuela
         FROM escuela escuela, alumno alumno,tutor tutor, usuario usuario, director director 
-        WHERE usuario.id_usuario = tutor.id_usuario and tutor.id_alumno = alumno.id_alumno and tutor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela 
-        and director.id_escuela = tutor.id_escuela and alumno.id_escuela = tutor.id_escuela and alumno.id_escuela= escuela.id_escuela and director.id_escuela = alumno.id_escuela 
+        WHERE usuario.id_usuario = tutor.id_usuario and tutor.id_alumno = alumno.id_alumno 
+        and tutor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela 
+        and director.id_escuela = tutor.id_escuela and alumno.id_escuela = tutor.id_escuela 
+        and alumno.id_escuela= escuela.id_escuela and director.id_escuela = alumno.id_escuela 
         and director.id_escuela = '" . $id_escuela . "'";
         $objTutores = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
@@ -145,8 +144,6 @@ class TutorDAO extends Model implements CRUD
                 $tutor->estado_tutor = $value['estado_tutor'];
                 $tutor->municipio_tutor = $value['municipio_tutor'];
                 $tutor->colonia_tutor = $value['colonia_tutor'];
-
-
                 $tutor->nombre_escuela = $value['nombre_escuela'];
                 $tutor->nombre_alumno = $value['nombre_alumno'];
                 $tutor->appaterno_alumno = $value['appaterno_alumno'];

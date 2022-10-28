@@ -970,13 +970,9 @@ var mostrarProfesores = function() {
             {
                 defaultContent: "",
                 "render": function(data, type, full, row) {
-
                     var fullnameImagen = full['appaterno_profesor'] + '_' 
                     + full['apmaterno_profesor'] + '_' + full['nombre_profesor'] + '/' + full['foto_profesor'];
                     var urlImg = '<?php echo constant('URL'); ?>public/profesor/' + fullnameImagen;
-                    var img = new Image();
-                    img.src = urlImg;
-
                     if (full['foto_profesor'] == null || full['foto_profesor'] == '') {
                         var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
                     } else {
