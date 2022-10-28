@@ -20,6 +20,10 @@
 		</a>
 	</div>
 	<div class="login">
+	<div class="login_image">
+		<center><img src="<?php constant('URL'); ?>public/img/escuela.png" class="rounded-circle elevation-2 img-fluid" 
+		style="height: 105px;"></center>
+	</div>
 		<div class="login_title">
 			<span>INGRESA TUS DATOS PARA ACCEDER AL SISTEMA</span>
 		</div>
@@ -45,7 +49,7 @@
 					</div>
 				</div>
 				<div class="login_fields__submit">
-					<input type="submit" value="Ingresar"></input>
+				<center><input type="submit" value="Ingresar"></input></center>
 				</div>
 			</div>
 		</form>
