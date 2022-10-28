@@ -5,10 +5,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<title>Login SGE</title>
+<title>Login EDU CTRL</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="shortcut icon" href="<?php constant('URL'); ?>favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="public/img/escuela-login.png" type="image/x-icon">
 <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/loginstyle.css">
 
 </head>
@@ -21,7 +21,7 @@
 	</div>
 	<div class="login">
 	<div class="login_image">
-		<center><img src="<?php constant('URL'); ?>public/img/escuela.png" class="rounded-circle elevation-2 img-fluid" 
+		<center><img src="<?php constant('URL'); ?>public/img/escuela-login.png" class="rounded-circle elevation-2 img-fluid" 
 		style="height: 105px;"></center>
 	</div>
 		<div class="login_title">
