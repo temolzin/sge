@@ -173,15 +173,9 @@ class Alumno extends Controller
         $alumnoDAO = $alumnoDAO->read();
         echo json_encode($alumnoDAO);
     }
-    function readByIdEscuela(){
-        $id_escuela = $_POST['id_escuela'];
-    	require 'model/alumnoDAO.php';
-        $this->loadModel('AlumnoDAO');
-        $alumnoDAO = new AlumnoDAO();
-        $alumnoDAO = $alumnoDAO->readByIdEscuela($id_escuela);
-        echo json_encode($alumnoDAO);
 
-    } function readTableByIdEscuela(){
+    function readByIdEscuela()
+    {
         $id_escuela = $_POST['id_escuela'];
     	require 'model/alumnoDAO.php';
         $this->loadModel('AlumnoDAO');
@@ -198,7 +192,6 @@ class Alumno extends Controller
         }
         echo json_encode($obj);
     } 
-
 
     function  readDashDirectivo()
     {
@@ -228,7 +221,6 @@ class Alumno extends Controller
     }
 
     //************************************************** Alumno Detalle Profesor **************************************************
-
     function readAlumnoByIdProfesor()
     {
         $id_profesor = $_POST['id_profesor'];
@@ -236,17 +228,7 @@ class Alumno extends Controller
         $this->loadModel('AlumnoDAO');
         $profesor_alumno_consultaDAO = new AlumnoDAO();
         $profesor_alumno_consultaDAO = $profesor_alumno_consultaDAO->readAlumnoByIdProfesor($id_profesor);
-        echo json_encode($profesor_alumno_consultaDAO);
-    }
-
-    function readTableAlumnoByIdProfesor()
-    {
-        $id_profesor = $_POST['id_profesor'];
-        require 'model/alumnoDAO.php';
-        $this->loadModel('AlumnoDAO');
-        $profesor_alumno_consultaDAO = new AlumnoDAO();
-        $profesor_alumno_consultaDAO = $profesor_alumno_consultaDAO->readAlumnoByIdProfesor($id_profesor);
-
+        
         $obj = null;
         if (is_array($profesor_alumno_consultaDAO) || is_object($profesor_alumno_consultaDAO)) {
             foreach ($profesor_alumno_consultaDAO as $key => $value) {

@@ -766,7 +766,7 @@
             "processing": true,
             "serverSide": false,
             "type": "POST",
-            "url":"<?php echo constant('URL'); ?>alumno/readTableByIdEscuela",
+            "url":"<?php echo constant('URL'); ?>alumno/readByIdEscuela",
             "data": {id_escuela: '<?php echo $_SESSION['id_escuela']; ?>'},
           },
           "columns": [{

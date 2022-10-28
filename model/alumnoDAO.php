@@ -104,7 +104,7 @@
     public function read()
     {
       require_once 'alumnoDTO.php';
-      $query = "SELECT alumno.*, usuario.* from alumno alumno, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = alumno.id_usuario and alumno.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and alumno.id_escuela and director.id_escuela= '" . $id_escuela . "'";
+      $query = "SELECT * from alumno";
       $objAlumnos = array();
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
         foreach ($this->db->consultar($query) as $key => $value) {

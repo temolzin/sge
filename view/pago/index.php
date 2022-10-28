@@ -344,7 +344,7 @@ $menu->footer();
             "processing": true,
             "serverSide": false,
             "type": "POST",
-            "url":"<?php echo constant('URL'); ?>pago/readTableByIdEscuela",
+            "url":"<?php echo constant('URL'); ?>pago/readByIdEscuela",
             "data": {id_escuela: '<?php echo $_SESSION['id_escuela']; ?>'},
             },
             "columns": [{

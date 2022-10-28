@@ -220,7 +220,7 @@ $menu->footer();
             "processing": true,
             "serverSide": false,
             "type": "POST",
-            "url":"<?php echo constant('URL'); ?>alumno/readTableAlumnoByIdProfesor",
+            "url":"<?php echo constant('URL'); ?>alumno/readAlumnoByIdProfesor",
             "data": {id_profesor: '<?php echo $_SESSION['id']; ?>'},
          },
          "columns": [{
