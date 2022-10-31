@@ -105,8 +105,7 @@ class PagoDAO extends Model implements CRUD
         WHERE pago.id_cobro=cobro.id_cobro 
         and cobro.id_alumno=alumno.id_alumno 
         and alumno.id_escuela = escuela.id_escuela 
-        and director.id_escuela = escuela.id_escuela
-        and director.id_escuela 
+        and director.id_escuela = alumno.id_escuela
         and director.id_escuela = '" . $id_escuela . "'";
         $objPagos = array();
 
