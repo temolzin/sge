@@ -455,14 +455,13 @@
       }
       var mostrarCalificaciones = function() {
         var tableCalificacion = $('#dataTableCalificacion').DataTable({
-
+        
           "ajax": {
             "processing": true,
             "serverSide": false,
             "type": "POST",
-            "url": "<?php echo constant('URL'); ?>calificacion/readByIdEscuela",
-            "data": {id_escuela: '<?php echo $_SESSION['id_escuela']; ?>'},
-            
+            "url": "<?php echo constant('URL'); ?>calificacion/readCalificacionIdProfesor",
+            "data": {id_profesor: '<?php echo $_SESSION['id']; ?>'},
           },
           "columns": [{
               defaultContent: "",

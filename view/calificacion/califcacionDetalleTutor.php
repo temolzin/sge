@@ -227,10 +227,12 @@ $menu->footer();
 
    var mostrarCalificaciones = function() {
       var tableCalificacion = $('#dataTableCalificacionAlumnoTutor').DataTable({
-         "processing": true,
-         "serverSide": false,
          "ajax": {
-            "url": "<?php echo constant('URL'); ?>calificacion/readTableCalificacionTutor"
+            "processing": true,
+            "serverSide": false,
+            "type": "POST",
+            "url": "<?php echo constant('URL'); ?>calificacion/readCalificacionIdTutor",
+            "data": {id_tutor: '<?php echo $_SESSION['id']; ?>'},
          },
          "columns": [{
                defaultContent: "",

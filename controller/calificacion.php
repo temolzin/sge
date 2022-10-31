@@ -116,22 +116,13 @@ class Calificacion extends Controller
     }
 
     //********************************************************************************* CALIFICACION TUTOR *********************************************
-
-    function readCalificacionTutor()
+    function readCalificacionIdTutor()
     {
+        $id_tutor = $_POST['id_tutor'];
         require 'model/calificacionDAO.php';
         $this->loadModel('CalificacionDAO');
         $calificacion_tutor_consultaDAO = new CalificacionDAO();
-        $calificacion_tutor_consultaDAO = $calificacion_tutor_consultaDAO->readCalificacionTutor();
-        echo json_encode($calificacion_tutor_consultaDAO);
-    }
-
-    function readTableCalificacionTutor()
-    {
-        require 'model/calificacionDAO.php';
-        $this->loadModel('CalificacionDAO');
-        $calificacion_tutor_consultaDAO = new CalificacionDAO();
-        $calificacion_tutor_consultaDAO = $calificacion_tutor_consultaDAO->readCalificacionTutor();
+        $calificacion_tutor_consultaDAO = $calificacion_tutor_consultaDAO->readCalificacionIdTutor($id_tutor);
 
         $obj = null;
         if (is_array($calificacion_tutor_consultaDAO) || is_object($calificacion_tutor_consultaDAO)) {
@@ -146,25 +137,57 @@ class Calificacion extends Controller
 
     //************************************************************* CALIFICACION ALUMNO ***************************************
 
-    function readCalificacionAlumno()
+    function readCalificacionByIdAlumno()
     {
+        $id_alumno = $_POST['id_alumno'];
         require 'model/calificacionDAO.php';
         $this->loadModel('CalificacionDAO');
         $calificacion_consultaDAO = new CalificacionDAO();
-        $calificacion_consultaDAO = $calificacion_consultaDAO->readCalificacionAlumno();
-        echo json_encode($calificacion_consultaDAO);
-    }
-
-    function readTableCalificacionAlumno()
-    {
-        require 'model/calificacionDAO.php';
-        $this->loadModel('CalificacionDAO');
-        $calificacion_consultaDAO = new CalificacionDAO();
-        $calificacion_consultaDAO = $calificacion_consultaDAO->readCalificacionAlumno();
+        $calificacion_consultaDAO = $calificacion_consultaDAO->readCalificacionByIdAlumno($id_alumno);
 
         $obj = null;
         if (is_array($calificacion_consultaDAO) || is_object($calificacion_consultaDAO)) {
             foreach ($calificacion_consultaDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
+    //************************************************************* CALIFICACION Profesor ***************************************
+
+    function readCalificacionIdProfesor()
+    {
+        $id_profesor = $_POST['id_profesor'];
+        require 'model/calificacionDAO.php';
+        $this->loadModel('CalificacionDAO');
+        $calificacion_consultaDAO = new CalificacionDAO();
+        $calificacion_consultaDAO = $calificacion_consultaDAO->readCalificacionIdProfesor($id_profesor);
+
+        $obj = null;
+        if (is_array($calificacion_consultaDAO) || is_object($calificacion_consultaDAO)) {
+            foreach ($calificacion_consultaDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
+    //************************************************************* CALIFICACION Director ***************************************
+
+    function readByIdEscuela()
+    {
+        $id_escuela = $_POST['id_escuela'];
+        require 'model/calificacionDAO.php';
+        $this->loadModel('CalificacionDAO');
+        $calificacionDAO = new CalificacionDAO();
+        $calificacionDAO = $calificacionDAO->readByIdEscuela($id_escuela);
+
+        $obj = null;
+        if (is_array($calificacionDAO) || is_object($calificacionDAO)) {
+            foreach ($calificacionDAO as $key => $value) {
                 $obj["data"][] = $value;
             }
         } else {
