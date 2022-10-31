@@ -114,7 +114,8 @@ class TutorDAO extends Model implements CRUD
         $id_escuela = $_SESSION['id_escuela'];
 
         require_once 'tutorDTO.php';
-        $query = "SELECT tutor.*, usuario.*, alumno.nombre_alumno,alumno.appaterno_alumno,alumno.apmaterno_alumno, escuela.nombre_escuela
+        $query = "SELECT tutor.*, usuario.*, alumno.nombre_alumno, 
+        alumno.appaterno_alumno, alumno.apmaterno_alumno, escuela.nombre_escuela 
         FROM escuela escuela, alumno alumno,tutor tutor, usuario usuario, director director 
         WHERE usuario.id_usuario = tutor.id_usuario and tutor.id_alumno = alumno.id_alumno 
         and tutor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela 
