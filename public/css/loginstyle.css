@@ -1,10 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Gudea:400,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
  body {
 	 perspective: 800px;
 	 height: 100vh;
 	 margin: 0;
 	 overflow: hidden;
-	 font-family: 'Gudea', sans-serif;
+	 font-family: 'Montserrat', sans-serif;
 	 background: #ea5c54;
 	/* Old browsers */
 	 background: -moz-linear-gradient(-45deg, #01d318 0%, #002c89 100%);
@@ -17,7 +17,7 @@
 	/* Opera 11.10+ */
 	 background: -ms-linear-gradient(-45deg, #01d318 0%, #002c89 100%);
 	/* IE10+ */
-	 background: linear-gradient(135deg, #01d318 0%, #002c89 100%);
+	 background: linear-gradient(135deg, #ebebf5 0%, #1053e3 100%);
 	/* W3C */
 	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EA5C54 ', endColorstr='#bb6dec',GradientType=1);
 	/* IE6-9 fallback on horizontal gradient */
@@ -102,7 +102,7 @@ body .fail p {
 	 transform: rotateX(0deg);
 	 position: relative;
 	 width: 240px;
-	 border-top: 2px solid #d8312a;
+	 border-top: 2px solid #90c6ed;
 	 height: 300px;
 	 position: absolute;
 	 left: 0;
@@ -123,7 +123,7 @@ body .fail p {
 	/* Opera 11.10+ */
 	 background: -ms-linear-gradient(45deg, #35394a 0%, #1f222e 100%);
 	/* IE10+ */
-	 background: linear-gradient(45deg, #35394a 0%, #1f222e 100%);
+	 background: linear-gradient(45deg, #364587 0%, #1234c5 100%);
 	/* W3C */
 	 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#35394a', endColorstr='#1f222e',GradientType=1);
 	/* IE6-9 fallback on horizontal gradient */
@@ -142,7 +142,7 @@ body .fail p {
 	 width: 250px;
 }
  body .login_title {
-	 color: #afb1be;
+	 color: #ffffff;
 	 height: 60px;
 	 text-align: left;
 	 font-size: 16px;
@@ -160,21 +160,33 @@ body .fail p {
 	 opacity: 0.5;
 }
  body .login_fields input[type='password'] {
-	 color: #dc6180 !important;
+	 color: #ffffff !important;
+
+	 /*Fix autofill input */
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+	/*Fix Color White autofill input */
+}
+input:-webkit-autofill{
+    -webkit-text-fill-color: #ffffff;;
 }
  body .login_fields input[type='text'], body .login_fields input[type='password'] {
 	 color: #afb1be;
 	 width: 190px;
 	 margin-top: -2px;
-	 background: #32364a;
+	 background: #111478;
 	 left: 0;
 	 padding: 10px 65px;
-	 border-top: 2px solid #393d52;
-	 border-bottom: 2px solid #393d52;
+	 border-top: 2px solid #1633ef;
+	 border-bottom: 2px solid #1633ef;
 	 border-right: none;
 	 border-left: none;
 	 outline: none;
-	 font-family: 'Gudea', sans-serif;
+	 font-family: 'Montserrat', sans-serif;
 	 box-shadow: none;
 }
  body .login_fields__user, body .login_fields__password {
@@ -195,14 +207,14 @@ body .fail p {
 	 text-decoration: underline;
 }
  body .login_fields__submit .forgot a {
-	 color: #606479;
+	 color: #ffffff;
 }
  body .login_fields__submit input {
 	 border-radius: 50px;
 	 background: transparent;
 	 padding: 10px 50px;
-	 border: 2px solid #dc6180;
-	 color: #dc6180;
+	 border: 2px solid #cdcdcd;
+	 color: #efdbe0;
 	 text-transform: uppercase;
 	 font-size: 11px;
 	 transition-property: background, color;
@@ -214,7 +226,7 @@ body .fail p {
 }
  body .login_fields__submit input:hover {
 	 color: white;
-	 background: #dc6180;
+	 background: #1633ef;
 	 cursor: pointer;
 	 transition-property: background, color;
 	 transition-duration: 0.2s;
