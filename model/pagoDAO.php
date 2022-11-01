@@ -84,7 +84,7 @@ class PagoDAO extends Model implements CRUD
                 $pago->nombre_alumno = $value['nombre_alumno'];
                 $pago->appaterno_alumno = $value['appaterno_alumno'];
                 $pago->apmaterno_alumno = $value['apmaterno_alumno'];
-
+                
                 array_push($objPagos, $pago);
             }
         } else {
