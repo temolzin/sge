@@ -771,11 +771,8 @@
                 defaultContent: "",
                 "render": function(data, type, full, row) {
                   var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
-
-
-                  var img = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
-
-                  return '<center><img src="' + img + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
+                   var img = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
+                   return '<center><img src="' + img + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                   }
 
                },
