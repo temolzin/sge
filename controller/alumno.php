@@ -174,6 +174,25 @@ class Alumno extends Controller
         echo json_encode($alumnoDAO);
     }
 
+    function readByIdEscuela()
+    {
+        $id_escuela = $_POST['id_escuela'];
+    	require 'model/alumnoDAO.php';
+        $this->loadModel('AlumnoDAO');
+        $alumnoDAO = new AlumnoDAO();
+        $alumnoDAO = $alumnoDAO->readByIdEscuela($id_escuela);
+        
+        $obj = null;
+        if (is_array($alumnoDAO) || is_object($alumnoDAO)) {
+            foreach ($alumnoDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    } 
+
     function  readDashDirectivo()
     {
         require 'model/alumnoDAO.php';
@@ -202,23 +221,14 @@ class Alumno extends Controller
     }
 
     //************************************************** Alumno Detalle Profesor **************************************************
-
-    function readAlumnoProfesor()
+    function readAlumnoByIdProfesor()
     {
+        $id_profesor = $_POST['id_profesor'];
         require 'model/alumnoDAO.php';
         $this->loadModel('AlumnoDAO');
         $profesor_alumno_consultaDAO = new AlumnoDAO();
-        $profesor_alumno_consultaDAO = $profesor_alumno_consultaDAO->readAlumnoProfesor();
-        echo json_encode($profesor_alumno_consultaDAO);
-    }
-
-    function readTableAlumnoProfesor()
-    {
-        require 'model/alumnoDAO.php';
-        $this->loadModel('AlumnoDAO');
-        $profesor_alumno_consultaDAO = new AlumnoDAO();
-        $profesor_alumno_consultaDAO = $profesor_alumno_consultaDAO->readAlumnoProfesor();
-
+        $profesor_alumno_consultaDAO = $profesor_alumno_consultaDAO->readAlumnoByIdProfesor($id_profesor);
+        
         $obj = null;
         if (is_array($profesor_alumno_consultaDAO) || is_object($profesor_alumno_consultaDAO)) {
             foreach ($profesor_alumno_consultaDAO as $key => $value) {
@@ -229,4 +239,5 @@ class Alumno extends Controller
         }
         echo json_encode($obj);
     }
+
 }
