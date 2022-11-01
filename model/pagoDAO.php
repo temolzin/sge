@@ -84,6 +84,45 @@ class PagoDAO extends Model implements CRUD
                 $pago->nombre_alumno = $value['nombre_alumno'];
                 $pago->appaterno_alumno = $value['appaterno_alumno'];
                 $pago->apmaterno_alumno = $value['apmaterno_alumno'];
+
+                array_push($objPagos, $pago);
+            }
+        } else {
+            $objPagos = null;
+        }
+
+        return $objPagos;
+    }
+
+    public function readByIdEscuela($id_escuela)
+    {
+        require_once 'pagoDTO.php';
+        $query = "SELECT * FROM pago
+        INNER JOIN cobro on pago.id_cobro=cobro.id_cobro
+        INNER JOIN alumno on cobro.id_alumno=alumno.id_alumno
+        INNER JOIN escuela on alumno.id_escuela=escuela.id_escuela
+        INNER JOIN director on escuela.id_escuela=director.id_escuela 
+        WHERE pago.id_cobro=cobro.id_cobro 
+        and cobro.id_alumno=alumno.id_alumno 
+        and alumno.id_escuela = escuela.id_escuela 
+        and director.id_escuela = alumno.id_escuela
+        and director.id_escuela = '" . $id_escuela . "'";
+        $objPagos = array();
+
+        if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
+            foreach ($this->db->consultar($query) as $key => $value) {
+                $pago = new PagoDTO();
+                $pago->id_pago = $value['id_pago'];
+                $pago->id_cobro = $value['id_cobro'];
+                $pago->cantidad_pago = $value['cantidad_pago'];
+                $pago->descripcion_pago = $value['descripcion_pago'];
+                $pago->fecha_pago = $value['fecha_pago'];
+                $pago->hora_pago = $value['hora_pago'];
+                $pago->monto_cobro_pago = $value['monto_cobro_pago'];
+                $pago->restante_pago = $value['restante_pago'];
+                $pago->nombre_alumno = $value['nombre_alumno'];
+                $pago->appaterno_alumno = $value['appaterno_alumno'];
+                $pago->apmaterno_alumno = $value['apmaterno_alumno'];
                 
                 array_push($objPagos, $pago);
             }

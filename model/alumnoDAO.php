@@ -1,5 +1,4 @@
   <?php
-  session_start();
   class AlumnoDAO extends Model implements CRUD
   {
     public function __construct()
@@ -104,9 +103,51 @@
 
     public function read()
     {
-      $id_escuela = $_SESSION['id_escuela'];
       require_once 'alumnoDTO.php';
-      $query = "SELECT alumno.*, usuario.* from alumno alumno, escuela escuela, usuario usuario, director director WHERE usuario.id_usuario = alumno.id_usuario and alumno.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and alumno.id_escuela and director.id_escuela = '" . $id_escuela . "'";
+      $query = "SELECT * from alumno";
+      $objAlumnos = array();
+      if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
+        foreach ($this->db->consultar($query) as $key => $value) {
+          $alumno = new AlumnoDTO();
+          $alumno->id_alumno = $value['id_alumno'];
+          $alumno->id_grupo = $value['id_grupo'];
+          $alumno->id_escuela = $value['id_escuela'];
+          $alumno->id_usuario = $value['id_usuario'];
+          $alumno->foto_alumno = $value['foto_alumno'];
+          $alumno->nombre_alumno = $value['nombre_alumno'];
+          $alumno->appaterno_alumno = $value['appaterno_alumno'];
+          $alumno->apmaterno_alumno = $value['apmaterno_alumno'];
+          $alumno->calle_alumno = $value['calle_alumno'];
+          $alumno->noexterior_alumno = $value['noexterior_alumno'];
+          $alumno->nointerior_alumno = $value['nointerior_alumno'];
+          $alumno->cp_alumno  = $value['cp_alumno'];
+          $alumno->estado_alumno  = $value['estado_alumno'];
+          $alumno->municipio_alumno  = $value['municipio_alumno'];
+          $alumno->colonia_alumno  = $value['colonia_alumno'];
+          $alumno->telefono_alumno = $value['telefono_alumno'];
+          $alumno->email_alumno = $value['email_alumno'];
+          $alumno->id_tipo_usuario = $value['id_tipo_usuario'];
+          $alumno->fechanacimiento_alumno = $value['fechanacimiento_alumno'];
+          $alumno->username_usuario = $value['username_usuario'];
+          $alumno->password_usuario = $value['password_usuario'];
+          array_push($objAlumnos, $alumno);
+        }
+      } else {
+        $objAlumnos = null;
+      }
+
+      return $objAlumnos;
+    }
+
+    public function readByIdEscuela($id_escuela)
+    {
+      require_once 'alumnoDTO.php';
+      $query = "SELECT alumno.*, usuario.* 
+      from alumno alumno, escuela escuela, usuario usuario, director director 
+      WHERE usuario.id_usuario = alumno.id_usuario 
+      and alumno.id_escuela = escuela.id_escuela 
+      and director.id_escuela = alumno.id_escuela 
+      and director.id_escuela = '" . $id_escuela . "'";
       $objAlumnos = array();
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
         foreach ($this->db->consultar($query) as $key => $value) {
@@ -143,9 +184,8 @@
 
     //*********************************** ALUMNO DETALLE PROFESOR **************************************************
 
-    public function readAlumnoProfesor()
+    public function readAlumnoByIdProfesor($id_profesor)
     {
-      $id_profesor = $_SESSION['id'];
       require_once 'alumnoDTO.php';
       $query = "SELECT alumno.*, escuela.*, profesor.*, grupo.* 
                 FROM alumno alumno, escuela escuela, profesor profesor, grupo grupo 
@@ -153,7 +193,7 @@
                 and profesor.id_escuela = escuela.id_escuela 
                 and profesor.id_escuela = alumno.id_escuela 
                 and grupo.id_grupo = alumno.id_grupo 
-                AND profesor.id_profesor = '" . $id_profesor . "'";
+                AND profesor.id_profesor= '" . $id_profesor . "'";
       $objAlumnos = array();
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
         foreach ($this->db->consultar($query) as $key => $value) {
@@ -176,5 +216,6 @@
 
       return $objAlumnos;
     }
+    
   }
 ?>

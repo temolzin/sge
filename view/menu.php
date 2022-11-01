@@ -418,7 +418,7 @@ class Menu
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SGE | Root Heim</title>
+    <title>EDU CTRL | Root Heim</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -512,6 +512,9 @@ class Menu
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="' . constant('URL') . '" class="brand-link">
+    <center><img src="' . constant('URL').'public/img/escuela.png" 
+    class="rounded-circle elevation-2 img-fluid" alt="User Image" 
+    style="width: 50px; height: 50px;"></center>
     <center><span class="brand-text font-weight-light">Bienvenido ' . $tipo . '</span></center>
     </a>
 
@@ -569,6 +572,9 @@ class Menu
     <strong>Copyright &copy; <a href="https://www.rootheim.com/">Root Heim Company</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
+    <center><img src="' . constant('URL').'public/img/escuela-footer.png" 
+    class="rounded-circle elevation-2 img-fluid" alt="User Image" 
+    style="width: 50px; height: 50px;"></center>
     <b>Version</b> 3.1.0-rc
     </div>
     </footer>

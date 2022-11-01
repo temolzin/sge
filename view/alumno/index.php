@@ -762,10 +762,12 @@
 
     var mostrarAlumnos = function() {
        var tableAlumno = $('#dataTableAlumno').DataTable({
-          "processing": true,
-          "serverSide": false,
           "ajax": {
-             "url": "<?php echo constant('URL'); ?>alumno/readTable"
+            "processing": true,
+            "serverSide": false,
+            "type": "POST",
+            "url":"<?php echo constant('URL'); ?>alumno/readByIdEscuela",
+            "data": {id_escuela: '<?php echo $_SESSION['id_escuela']; ?>'},
           },
           "columns": [{
                 defaultContent: "",
@@ -775,7 +777,6 @@
                    return '<center><img src="' + img + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                   }
                },
-
                {
                 defaultContent: "",
                 "render": function(data, type, full) {
