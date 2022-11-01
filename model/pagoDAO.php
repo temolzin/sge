@@ -1,7 +1,4 @@
-
-
 <?php
-session_start();
 class PagoDAO extends Model implements CRUD
 {
     public function __construct()
@@ -58,7 +55,6 @@ class PagoDAO extends Model implements CRUD
 
     public function read()
     {
-        $id_escuela = $_SESSION['id_escuela'];
         require_once 'pagoDTO.php';
         $query = "SELECT * FROM pago
         INNER JOIN cobro on pago.id_cobro=cobro.id_cobro
@@ -70,7 +66,9 @@ class PagoDAO extends Model implements CRUD
         and alumno.id_escuela = escuela.id_escuela 
         and director.id_escuela = escuela.id_escuela
         and director.id_escuela = '" . $id_escuela . "'";
+
         $objPagos = array();
+
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
             foreach ($this->db->consultar($query) as $key => $value) {
                 $pago = new PagoDTO();
@@ -82,9 +80,11 @@ class PagoDAO extends Model implements CRUD
                 $pago->hora_pago = $value['hora_pago'];
                 $pago->monto_cobro_pago = $value['monto_cobro_pago'];
                 $pago->restante_pago = $value['restante_pago'];
+
                 $pago->nombre_alumno = $value['nombre_alumno'];
                 $pago->appaterno_alumno = $value['appaterno_alumno'];
                 $pago->apmaterno_alumno = $value['apmaterno_alumno'];
+
                 array_push($objPagos, $pago);
             }
         } else {
