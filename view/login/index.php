@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<title>Login EDU CTRL</title>
+<title>EduCtrl | Root Heim Company</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="shortcut icon" href="<?php constant('URL'); ?>favicon.png" type="image/x-icon">
@@ -39,7 +39,7 @@
 					</div>
 					</input>
 				</div>
-				<div class="login_fields__password">
+				<div class="login_fields__password form-group">
 					<div class="icon">
 						<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png" />
 					</div>
@@ -248,10 +248,10 @@
 			},
 			messages: {
 				username_usuario: {
-					required: "Ingrese su usuario"
+					required: "Ingrese su usuario*"
 				},
 				password_usuario: {
-					required: "Ingrese su contraseña"
+					required: "Ingrese su contraseña*"
 				}
 			},
 			errorElement: 'span',
@@ -265,7 +265,7 @@
 			unhighlight: function(element, errorClass, validClass) {
 				$(element).removeClass('is-invalid');
 			}
-		});
+		});		
 	}
 
 	function show() {
