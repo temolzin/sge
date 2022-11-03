@@ -9,11 +9,6 @@ $menu->header('Pago');
 ?>
 <section class="content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 text-right">
-                <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarPago'> <i class="fas fa-plus-circle"></i> Registrar Pago </button>
-            </div>
-        </div>
         <br>
         <div class="row">
             <div class="col-12">
@@ -358,9 +353,7 @@ $menu->footer();
                 },
                 {
                     data: null,
-                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetallePago' title="Ver Detalles"><i class="fa fa-eye"></i></button>
-                         <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarPago' title="Editar Datos"><i class="fa fa-edit"></i></button>
-                         <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarPago' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetallePago' title="Ver Detalles"><i class="fa fa-eye"></i></button>`
                 }
             ],
             "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {

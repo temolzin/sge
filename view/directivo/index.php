@@ -11,12 +11,6 @@ $menu->header('director');
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12 text-right">
-                <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarDirectivo'> <i class="fas fa-plus-circle"></i> Registrar Directivo </button>
-            </div>
-        </div>
-        <br>
-        <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
@@ -906,9 +900,7 @@ $menu->footer();
                 },
                 {
                     data: null,
-                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleDirectivo' title="Ver Detalles"><i class="fa fa-eye"></i></button>
-                <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarDirectivo' title="Editar Datos"><i class="fa fa-edit"></i></button>
-                <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarDirectivo' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleDirectivo' title="Ver Detalles"><i class="fa fa-eye"></i></button>`
                 }
             ],
             "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
