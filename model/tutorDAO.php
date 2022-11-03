@@ -9,40 +9,98 @@ class TutorDAO extends Model implements CRUD
 
     public function insert($data)
     {
+        
+        $query = $this->db->conectar()->prepare('INSERT INTO tutor values (NULL, 
+        :id_alumno, 
+        :id_escuela, 
+        :id_usuario, 
+        :foto_tutor, 
+        :nombre_tutor, 
+        :appaterno_tutor, 
+        :apmaterno_tutor, 
+        :fechanacimiento_tutor, 
+        :telefono_tutor, 
+        :email_tutor, 
+        :calle_tutor, 
+        :noexterior_tutor, 
+        :nointerior_tutor, 
+        :cp_tutor, 
+        :estado_tutor, 
+        :municipio_tutor, 
+        :colonia_tutor)');
 
-        $query = $this->db->conectar()->prepare('INSERT INTO tutor values (null, :id_alumno, :id_escuela, :id_usuario, :foto_tutor, :nombre_tutor, :appaterno_tutor, :apmaterno_tutor, :fechanacimiento_tutor, :telefono_tutor, :email_tutor, :calle_tutor, :noexterior_tutor, :nointerior_tutor, :cp_tutor, :estado_tutor, :municipio_tutor, :colonia_tutor)');
-
-
-        $query->execute([':id_alumno' => $data['id_alumno'], ':id_escuela' => $data['id_escuela'], ':id_usuario' => $data['id_usuario'], ':foto_tutor' => $data['foto_tutor'], ':nombre_tutor' => $data['nombre_tutor'], ':appaterno_tutor' => $data['appaterno_tutor'], ':apmaterno_tutor' => $data['apmaterno_tutor'], ':fechanacimiento_tutor' => $data['fechanacimiento_tutor'], ':telefono_tutor' => $data['telefono_tutor'], ':email_tutor' => $data['email_tutor'], ':calle_tutor' => $data['calle_tutor'], ':noexterior_tutor' => $data['noexterior_tutor'], ':nointerior_tutor' => $data['nointerior_tutor'], ':cp_tutor' => $data['cp_tutor'], ':estado_tutor' => $data['estado_tutor'], ':municipio_tutor' => $data['municipio_tutor'], ':colonia_tutor' => $data['colonia_tutor']]);
+    $query->execute([
+        ':id_alumno' => $data['id_alumno'], 
+        ':id_escuela' => $data['id_escuela'], 
+        ':id_usuario' => $data['id_usuario'], 
+        ':foto_tutor' => $data['foto_tutor'], 
+        ':nombre_tutor' => $data['nombre_tutor'], 
+        ':appaterno_tutor' => $data['appaterno_tutor'], 
+        ':apmaterno_tutor' => $data['apmaterno_tutor'], 
+        ':fechanacimiento_tutor' => $data['fechanacimiento_tutor'], 
+        ':telefono_tutor' => $data['telefono_tutor'], 
+        ':email_tutor' => $data['email_tutor'], 
+        ':calle_tutor' => $data['calle_tutor'], 
+        ':noexterior_tutor' => $data['noexterior_tutor'], 
+        ':nointerior_tutor' => $data['nointerior_tutor'], 
+        ':cp_tutor' => $data['cp_tutor'], 
+        ':estado_tutor' => $data['estado_tutor'], 
+        ':municipio_tutor' => $data['municipio_tutor'], 
+        ':colonia_tutor' => $data['colonia_tutor']
+        ]);
 
         echo 'ok';
     }
 
     public function update($data)
     {
-        $query = $this->db->conectar()->prepare('UPDATE tutor SET 
-            id_alumno = :id_alumno, 
-            id_escuela = :id_escuela, 
-            id_usuario = :id_usuario, 
-            foto_tutor = :foto_tutor,
-            nombre_tutor = :nombre_tutor, 
-            appaterno_tutor = :appaterno_tutor, 
-            apmaterno_tutor = :apmaterno_tutor, 
-            fechanacimiento_tutor = :fechanacimiento_tutor, 
-            telefono_tutor = :telefono_tutor, 
-            email_tutor = :email_tutor, 
-            calle_tutor = :calle_tutor, 
-            noexterior_tutor = :noexterior_tutor, 
-            nointerior_tutor = :nointerior_tutor, 
-            cp_tutor = :cp_tutor, 
-            estado_tutor = :estado_tutor, 
-            municipio_tutor = :municipio_tutor, 
-            colonia_tutor = :colonia_tutor 
-            WHERE id_tutor = :id_tutor');
-
-        $query->execute([':id_tutor' => $data['id_tutor'], ':id_alumno' => $data['id_alumno'], ':id_escuela' => $data['id_escuela'], ':id_usuario' => $data['id_usuario'], ':foto_tutor' => $data['foto_tutor'], ':nombre_tutor' => $data['nombre_tutor'], ':appaterno_tutor' => $data['appaterno_tutor'], ':apmaterno_tutor' => $data['apmaterno_tutor'], ':fechanacimiento_tutor' => $data['fechanacimiento_tutor'], ':telefono_tutor' => $data['telefono_tutor'], ':email_tutor' => $data['email_tutor'], ':calle_tutor' => $data['calle_tutor'], ':noexterior_tutor' => $data['noexterior_tutor'], ':nointerior_tutor' => $data['nointerior_tutor'], ':cp_tutor' => $data['cp_tutor'], ':estado_tutor' => $data['estado_tutor'], ':municipio_tutor' => $data['municipio_tutor'], ':colonia_tutor' => $data['colonia_tutor']]);
-        echo 'ok';
-    }
+        $imagen = '';
+        $arrayActualizar = [
+            ':id_tutor' => $data['id_tutor'],
+            ':id_alumno' => $data['id_alumno'],
+            ':id_escuela' => $data['id_escuela'],
+            ':id_usuario' => $data['id_usuario'],
+            ':nombre_tutor' => $data['nombre_tutor'],
+            ':appaterno_tutor' => $data['appaterno_tutor'],
+            ':apmaterno_tutor' => $data['apmaterno_tutor'],
+            ':fechanacimiento_tutor' => $data['fechanacimiento_tutor'],
+            ':telefono_tutor' => $data['telefono_tutor'],
+            ':email_tutor' => $data['email_tutor'],
+            ':calle_tutor' => $data['calle_tutor'],
+            ':noexterior_tutor' => $data['noexterior_tutor'],
+            ':nointerior_tutor' => $data['nointerior_tutor'],
+            ':cp_tutor' => $data['cp_tutor'],
+            ':estado_tutor' => $data['estado_tutor'],
+            ':municipio_tutor' => $data['municipio_tutor'],
+            ':colonia_tutor' => $data['colonia_tutor'],
+        ];
+        if (isset($data['foto_tutor'])) {
+            $imagen = 'foto_tutor = :foto_tutor,';
+            $arrayActualizar[':foto_tutor'] = $data['foto_tutor'];
+        }
+      $query = $this->db->conectar()->prepare('UPDATE tutor SET 
+      id_alumno = :id_alumno, 
+      id_escuela = :id_escuela, 
+      id_usuario = :id_usuario, 
+      ' . $imagen . '
+      nombre_tutor = :nombre_tutor, 
+      appaterno_tutor = :appaterno_tutor, 
+      apmaterno_tutor = :apmaterno_tutor, 
+      fechanacimiento_tutor = :fechanacimiento_tutor, 
+      telefono_tutor = :telefono_tutor, 
+      email_tutor = :email_tutor, 
+      calle_tutor = :calle_tutor, 
+      noexterior_tutor = :noexterior_tutor, 
+      nointerior_tutor = :nointerior_tutor, 
+      cp_tutor = :cp_tutor, 
+      estado_tutor = :estado_tutor, 
+      municipio_tutor = :municipio_tutor, 
+      colonia_tutor = :colonia_tutor 
+      WHERE id_tutor = :id_tutor');
+      
+      $query->execute($arrayActualizar);
+      echo 'ok';
+  }
 
     public function delete($id)
     {
@@ -56,7 +114,18 @@ class TutorDAO extends Model implements CRUD
         $id_escuela = $_SESSION['id_escuela'];
 
         require_once 'tutorDTO.php';
-        $query = "SELECT tutor.*,alumno.nombre_alumno,alumno.appaterno_alumno,alumno.apmaterno_alumno, escuela.nombre_escuela, usuario.* from escuela escuela, alumno alumno,tutor tutor, usuario usuario, director director WHERE usuario.id_usuario = tutor.id_usuario and tutor.id_alumno = alumno.id_alumno and tutor.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela = tutor.id_escuela and alumno.id_escuela = tutor.id_escuela and alumno.id_escuela= escuela.id_escuela and director.id_escuela = alumno.id_escuela and director.id_escuela = '" . $id_escuela . "'";
+        $query = "SELECT tutor.*, usuario.*, alumno.nombre_alumno, 
+        alumno.appaterno_alumno, alumno.apmaterno_alumno, escuela.nombre_escuela 
+        FROM escuela escuela, alumno alumno,tutor tutor, usuario usuario, director director 
+        WHERE usuario.id_usuario = tutor.id_usuario 
+        AND tutor.id_alumno = alumno.id_alumno 
+        AND tutor.id_escuela = escuela.id_escuela 
+        AND director.id_escuela = escuela.id_escuela 
+        AND director.id_escuela = tutor.id_escuela 
+        AND alumno.id_escuela = tutor.id_escuela 
+        AND alumno.id_escuela= escuela.id_escuela 
+        AND director.id_escuela = alumno.id_escuela 
+        AND director.id_escuela = '" . $id_escuela . "'";
         $objTutores = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
             foreach ($this->db->consultar($query) as $key => $value) {
@@ -80,8 +149,6 @@ class TutorDAO extends Model implements CRUD
                 $tutor->estado_tutor = $value['estado_tutor'];
                 $tutor->municipio_tutor = $value['municipio_tutor'];
                 $tutor->colonia_tutor = $value['colonia_tutor'];
-
-
                 $tutor->nombre_escuela = $value['nombre_escuela'];
                 $tutor->nombre_alumno = $value['nombre_alumno'];
                 $tutor->appaterno_alumno = $value['appaterno_alumno'];
