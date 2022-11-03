@@ -165,7 +165,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo/index" class="nav-link">
+      <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo/directivo" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
       Directivo (s)
@@ -263,7 +263,7 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
-      <a id="pago" name="pago" href="' . constant('URL') . 'pago" class="nav-link">
+      <a id="pago" name="pago" href="' . constant('URL') . 'pago/detallePago" class="nav-link">
       <i class="nav-icon fas fa-money-check-alt"></i>
       <p>
       Pagos

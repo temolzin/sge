@@ -16,6 +16,11 @@ class Directivo extends Controller
         $this->view->render('directivo/DirectivoDetalle');
     }
 
+    function directivo()
+    {
+        $this->view->render('directivo/directivo');
+    }
+
     function insert()
     {
 

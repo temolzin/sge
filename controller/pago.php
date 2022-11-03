@@ -11,6 +11,11 @@ class Pago extends Controller
         $this->view->render('pago/index');
     }
 
+    function detallePago()
+    {
+        $this->view->render('pago/detallePago');
+    }
+
     function insert()
     {
         $id_cobro = $_POST['id_cobro'];
