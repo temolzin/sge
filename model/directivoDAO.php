@@ -11,27 +11,7 @@ class DirectivoDAO extends Model implements CRUD
 
     public function insert($data)
     {
-        $query = $this->db->conectar()->prepare('INSERT INTO director values (null, 
-        :id_escuela, 
-        :id_grado_academico, 
-        :id_usuario, 
-        :foto_director, 
-        :nombre_director, 
-        :appaterno_director, 
-        :apmaterno_director, 
-        :rfc_director, 
-        :curp_director, 
-        :calle_director, 
-        :numexterior_director, 
-        :numinterior_director, 
-        :cp_director, 
-        :estado_director, 
-        :municipio_director, 
-        :colonia_director, 
-        :telefono_director, 
-        :email_director, 
-        :cedulaprofesional_director, 
-        :fechanacimiento_director)');
+        $query = $this->db->conectar()->prepare('INSERT INTO director values (null, :id_escuela, :id_grado_academico, :id_usuario, :foto_director, :nombre_director, :appaterno_director, :apmaterno_director, :rfc_director, :curp_director, :calle_director, :numexterior_director, :numinterior_director, :cp_director, :estado_director, :municipio_director, :colonia_director, :telefono_director, :email_director, :cedulaprofesional_director, :fechanacimiento_director)');
 
 
         $query->execute([
@@ -62,7 +42,9 @@ class DirectivoDAO extends Model implements CRUD
 
     public function update($data)
     {
+        //add
         $imagen = '';
+        //add
         $arrayActualizar = [
             ':id_director' => $data['id_director'],
             ':id_escuela' => $data['id_escuela'],
@@ -87,6 +69,7 @@ class DirectivoDAO extends Model implements CRUD
         ];
 
         if (isset($data['foto_director'])) {
+            //add
             $imagen = 'foto_director = :foto_director,';
             $arrayActualizar[':foto_director'] = $data['foto_director'];
         }
@@ -133,11 +116,7 @@ class DirectivoDAO extends Model implements CRUD
         if ($tipo == 'administrador') {
 
             require_once 'directivoDTO.php';
-            $query = "SELECT * FROM director INNER JOIN escuela 
-            on director.id_escuela =escuela.id_escuela 
-            INNER JOIN usuario 
-            on director.id_usuario=usuario.id_usuario 
-            order by id_director desc";
+            $query = "SELECT * FROM director INNER JOIN escuela on director.id_escuela =escuela.id_escuela INNER JOIN usuario on director.id_usuario=usuario.id_usuario order by id_director desc";
             $objdirectores = array();
 
             if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {

@@ -72,8 +72,8 @@ $menu->header('Tarea');
                     <span><label>Subir Archivo (*)</label></span>
                     <div class="form-group input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="archivo_tarea" id="archivo_tarea" multiple>
-                        <label class="custom-file-label" for="file">Seleccione Archivo</label>
+                        <input type="file" class="custom-file-input" name="archivo_tarea" id="archivo_tarea" lang="es">
+                        <label class="custom-file-label" for="archivo">Seleccione Archivo</label>
                       </div>
                     </div>
                   </div>
