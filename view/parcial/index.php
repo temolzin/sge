@@ -29,7 +29,6 @@
                       <th>Nombre Parcial</th>
                       <th>Fecha Inicio</th>
                       <th>Fecha Fin</th>
-
                       <th>Opciones</th>
                     </tr>
                   </thead>
@@ -93,21 +92,15 @@
                           <input type="date" class="form-control" id="fechainicio_parcial" name="fechainicio_parcial" placeholder="Fecha Inicio" />
                         </div>
                       </div>
-
-
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label>Fecha Fin*</label>
                           <input type="date" class="form-control" id="fechafin_parcial" name="fechafin_parcial" placeholder="Fecha Fin" />
                         </div>
                       </div>
-
-
                     </div>
                   </div>
                 </div>
-
-
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                   <button type="submit" class="btn btn-success">Registrar</button>
@@ -120,7 +113,6 @@
     </div>
     </div>
     </div>
-
     <!--------------------------------------------------------- Modal Actualizar----------------------------------------------->
     <div class="modal fade" id="modalActualizarParcial" tabindex="-1" role="dialog" aria-labelledby="modalActualizarParcial" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -170,26 +162,21 @@
                           <input type="date" class="form-control" id="fechainicio_parcialActualizar" name="fechainicio_parcialActualizar" placeholder="Fecha Inicio" />
                         </div>
                       </div>
-
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label>Fecha Fin*</label>
                           <input type="date" class="form-control" id="fechafin_parcialActualizar" name="fechafin_parcialActualizar" placeholder="Fecha Fin" />
                         </div>
                       </div>
-
                     </div>
                   </div>
                 </div>
-
-
               </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-warning">Actualizar</button>
           </div>
-
         </div>
         </form>
       </div>
@@ -197,7 +184,6 @@
     </div>
     </div>
     </div>
-
     <!--------------------------------------------------------- Modal DetalleProfesor----------------------------------------------->
     <div class="modal fade" id="modalDetalleParcial" tabindex="-1" role="dialog" aria-labelledby="modalDetalleParcial" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -209,7 +195,6 @@
                 <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
             </div>
-
             <form role="form" id="formConsulta" name="formConsulta">
               <div class="card-body">
                 <div class="card">
@@ -228,7 +213,6 @@
                       <div class="col-lg-12">
                         <div class="form-group">
                           <label>Escuela *</label>
-
                           <select disabled name="id_escuelaConsultar" id="id_escuelaConsultar" class="form-control id_escuela"></select>
                         </div>
                       </div>
@@ -238,7 +222,6 @@
                           <input disabled type="text" class="form-control" id="nombre_parcialConsultar" name="nombre_parcialConsultar" placeholder="Nombre Parcial" />
                         </div>
                       </div>
-
                       <div class="col-lg-3">
                         <div class="form-group">
                           <label>Fecha inicio </label>
@@ -246,8 +229,6 @@
                           </input>
                         </div>
                       </div>
-
-
                       <div class="col-lg-3">
                         <div class="form-group">
                           <label>Fecha fin </label>
@@ -255,30 +236,15 @@
                           </input>
                         </div>
                       </div>
-
-
                     </div>
                   </div>
-
-
-
-
                 </div>
-
-
               </div>
           </div>
-
           </form>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
-
-
-
-
-
-
         </div>
       </div>
     </div>
@@ -344,7 +310,7 @@
 
 
       var mostrarParcial = function() {
-        var tableIncidencia = $('#dataTableParcial').DataTable({
+        var tableParcial = $('#dataTableParcial').DataTable({
           "processing": true,
           "ajax": {
             "url": "<?php echo constant('URL'); ?>parcial/readTable"
@@ -373,7 +339,7 @@
           buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis'],
           dom: 'Bfltip'
         });
-        obtenerdatosDT(tableIncidencia);
+        obtenerdatosDT(tableParcial);
       }
 
 

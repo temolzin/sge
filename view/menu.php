@@ -2,28 +2,28 @@
 
 class Menu
 {
-
-      function header($title)
-
-      {
-            $tipo = $_SESSION['tipo'];
-            $nombre = $_SESSION['nombre'];
-            $foto = $_SESSION['foto'];
-            $appaterno = $_SESSION['appaterno'];
-            $apmaterno = $_SESSION['apmaterno'];
-            // $nombre_completo = $nombre . " " . $appaterno . " " . $apmaterno;
-
-            $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
-
-
-            //$tutor = 'tutor';
-
-
-            $menu = '';
-
-            if ($tipo == 'tutor') {
-
-                  $menu = '
+  function header($title)
+  {
+    $tipo = $_SESSION['tipo'];
+    $nombre = $_SESSION['nombre'];
+    $foto = $_SESSION['foto'];
+    $appaterno = $_SESSION['appaterno'];
+    $apmaterno = $_SESSION['apmaterno'];
+    $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto; 
+      
+    if ($foto != null){
+      $fotoruta = 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      if(!file_exists($fotoruta)){
+        $fotoruta= constant('URL') . 'public/img/default.jpg';
+      }else{
+        $fotoruta = constant('URL') . 'public/' . $tipo . '/' . $appaterno . '_' . $apmaterno . '_' . $nombre . '/' . $foto;
+      }
+    }else{
+      $fotoruta= constant('URL') . 'public/img/default.jpg';
+    }
+    $menu = '';
+    if ($tipo == 'tutor') {
+    $menu = '
       <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
@@ -436,7 +436,7 @@ class Menu
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SGE | Root Heim</title>
+    <title>EDU CTRL | Root Heim</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -530,6 +530,9 @@ class Menu
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="' . constant('URL') . '" class="brand-link">
+    <center><img src="' . constant('URL').'public/img/escuela.png" 
+    class="rounded-circle elevation-2 img-fluid" alt="User Image" 
+    style="width: 50px; height: 50px;"></center>
     <center><span class="brand-text font-weight-light">Bienvenido ' . $tipo . '</span></center>
     </a>
 
@@ -538,7 +541,7 @@ class Menu
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-    <img src="' . $fotoruta . '" class="img-circle elevation-2" alt="User Image" height="50px" width="50px">
+    <img src="' . $fotoruta . '" class="rounded-circle elevation-2 img-fluid" alt="User Image"  style="width: 50px; height: 50px;">
     </div>
     <div class="info">
     <a href="' . constant('URL') . 'perfil" class="d-block">' . $nombre . '</a>
@@ -587,6 +590,9 @@ class Menu
     <strong>Copyright &copy; <a href="https://www.rootheim.com/">Root Heim Company</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
+    <center><img src="' . constant('URL').'public/img/escuela-footer.png" 
+    class="rounded-circle elevation-2 img-fluid" alt="User Image" 
+    style="width: 50px; height: 50px;"></center>
     <b>Version</b> 3.1.0-rc
     </div>
     </footer>

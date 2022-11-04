@@ -37,7 +37,7 @@ class Tutor extends Controller
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
             $fullname = $appaterno_tutor . "_" . $apmaterno_tutor . "_" . $nombre_tutor;
-            $carpeta = constant('URL') . "public/tutor/" . $fullname . "/";
+            $carpeta ="public/tutor/" . $fullname . "/";
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
             } else {
@@ -45,7 +45,7 @@ class Tutor extends Controller
                     mkdir($carpeta, 0777, true);
                 }
                 copy($ruta_provisional, $carpeta . $nombreImagen);
-                $data = array('id_alumno' => $id_alumno, 'id_escuela' => $id_escuela, 'id_usuario' => $id_usuario, 'foto_tutor' => $nombreImagen, 'nombre_tutor' => $nombre_tutor, 'appaterno_tutor' => $appaterno_tutor, 'apmaterno_tutor' => $apmaterno_tutor, 'fechanacimiento_tutor' => $fechanacimiento_tutor, 'telefono_tutor' => $telefono_tutor, 'email_tutor' => $email_tutor, 'calle_tutor' => $calle_tutor, 'noexterior_tutor' => $noexterior_tutor, 'nointerior_tutor' => $nointerior_tutor, 'cp_tutor' => $cp_tutor, 'estado_tutor' => $estado_tutor, 'municipio_tutor' => $municipio_tutor, 'colonia_tutor' => $colonia_tutor);
+                $data = array('id_alumno' => $id_alumno, 'id_escuela' => $id_escuela, 'id_usuario' => $id_usuario, 'foto_tutor' => $nombreImagen, 'nombre_tutor' => $nombre_tutor, 'appaterno_tutor' => $appaterno_tutor, 'apmaterno_tutor' => $apmaterno_tutor, 'fechanacimiento_tutor' => $fechanacimiento_tutor, 'telefono_tutor' => $telefono_tutor, 'email_tutor' => $email_tutor, 'calle_tutor' => $calle_tutor, 'noexterior_tutor' => $noexterior_tutor, 'nointerior_tutor' => $nointerior_tutor, 'cp_tutor' => $cp_tutor, 'estado_tutor' => $estado_tutor, 'municipio_tutor' => $municipio_tutor, 'colonia_tutor' => $colonia_tutor, 'nombreImagen'  => $nombreImagen);
                 require 'model/tutorDAO.php';
                 $this->loadModel('TutorDAO');
                 $tutorDAO = new TutorDAO();
@@ -94,9 +94,9 @@ class Tutor extends Controller
             'municipio_tutor' => $municipio_tutor,
             'colonia_tutor' => $colonia_tutor
         );
-        if (isset($_FILES["imgTutorActualizar"])) {
-            if ($_FILES["imgTutorActualizar"]["name"] != null) {
-                $imagen = $_FILES["imgTutorActualizar"];
+        if (isset($_FILES["foto_tutorActualizar"])) {
+            if ($_FILES["foto_tutorActualizar"]["name"] != null) {
+                $imagen = $_FILES["foto_tutorActualizar"];
                 $nombreImagen = $imagen["name"];
                 $tipoImagen = $imagen["type"];
                 $ruta_provisional = $imagen["tmp_name"];

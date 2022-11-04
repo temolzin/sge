@@ -48,14 +48,18 @@ class ParcialDAO extends Model implements CRUD
         require_once 'parcialDTO.php';
         $query = "SELECT * FROM parcial";
         $objParcial = array();
-        foreach ($this->db->consultar($query) as $key => $value) {
-            $parcial = new ParcialDTO();
-            $parcial->id_parcial = $value['id_parcial'];
-            $parcial->id_escuela = $value['id_escuela'];
-            $parcial->nombre_parcial = $value['nombre_parcial'];
-            $parcial->fechainicio_parcial = $value['fechainicio_parcial'];
-            $parcial->fechafin_parcial = $value['fechafin_parcial'];
-            array_push($objParcial, $parcial);
+        if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
+            foreach ($this->db->consultar($query) as $key => $value) {
+                $parcial = new ParcialDTO();
+                $parcial->id_parcial = $value['id_parcial'];
+                $parcial->id_escuela = $value['id_escuela'];
+                $parcial->nombre_parcial = $value['nombre_parcial'];
+                $parcial->fechainicio_parcial = $value['fechainicio_parcial'];
+                $parcial->fechafin_parcial = $value['fechafin_parcial'];
+                array_push($objParcial, $parcial);
+            }   
+        }else{
+            $objParcial=null;
         }
         return $objParcial;
     }
