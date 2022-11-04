@@ -29,7 +29,6 @@ class ProfesorDAO extends Model implements CRUD
       :telefono_profesor,
       :email_profesor,
       :fechanacimiento_profesor)');
-
     $query->execute([
       ':id_grado_academico' => $data['id_grado_academico'],
       ':id_escuela' => $data['id_escuela'],
@@ -53,14 +52,38 @@ class ProfesorDAO extends Model implements CRUD
     echo 'ok';
   }
 
-
   public function update($data)
   {
+    $imagen = '';
+    $arrayActualizar = [
+      ':id_profesor' => $data['id_profesor'],
+      ':id_grado_academico' => $data['id_grado_academico'],
+      ':id_escuela' => $data['id_escuela'],
+      ':id_usuario' => $data['id_usuario'],
+      ':nombre_profesor' => $data['nombre_profesor'],
+      ':appaterno_profesor' => $data['appaterno_profesor'],
+      ':apmaterno_profesor' => $data['apmaterno_profesor'],
+      ':cedula_profesor' => $data['cedula_profesor'],
+      ':calle_profesor' => $data['calle_profesor'],
+      ':numexterior_profesor' => $data['numexterior_profesor'],
+      ':numinterior_profesor' => $data['numinterior_profesor'],
+      ':cp_profesor' => $data['cp_profesor'],
+      ':estado_profesor' => $data['estado_profesor'],
+      ':municipio_profesor' => $data['municipio_profesor'],
+      ':colonia_profesor' => $data['colonia_profesor'],
+      ':telefono_profesor' => $data['telefono_profesor'],
+      ':email_profesor' => $data['email_profesor'],
+      ':fechanacimiento_profesor' => $data['fechanacimiento_profesor']
+    ];
+    if (isset($data['foto_profesor'])) {
+        $imagen = 'foto_profesor = :foto_profesor,';
+        $arrayActualizar[':foto_profesor'] = $data['foto_profesor'];
+    }
     $query = $this->db->conectar()->prepare('UPDATE profesor SET
      id_grado_academico = :id_grado_academico,
      id_escuela = :id_escuela,
      id_usuario = :id_usuario,
-     foto_profesor = :foto_profesor,
+     ' . $imagen . '
      nombre_profesor = :nombre_profesor,
      appaterno_profesor = :appaterno_profesor,
      apmaterno_profesor = :apmaterno_profesor,
@@ -76,29 +99,9 @@ class ProfesorDAO extends Model implements CRUD
      email_profesor = :email_profesor,
      fechanacimiento_profesor = :fechanacimiento_profesor
      WHERE id_profesor = :id_profesor');
-    $query->execute([
-      ':id_profesor' => $data['id_profesor'],
-      ':id_grado_academico' => $data['id_grado_academico'],
-      ':id_escuela' => $data['id_escuela'],
-      ':id_usuario' => $data['id_usuario'],
-      ':foto_profesor' => $data['foto_profesor'],
-      ':nombre_profesor' => $data['nombre_profesor'],
-      ':appaterno_profesor' => $data['appaterno_profesor'],
-      ':apmaterno_profesor' => $data['apmaterno_profesor'],
-      ':cedula_profesor' => $data['cedula_profesor'],
-      ':calle_profesor' => $data['calle_profesor'],
-      ':numexterior_profesor' => $data['numexterior_profesor'],
-      ':numinterior_profesor' => $data['numinterior_profesor'],
-      ':cp_profesor' => $data['cp_profesor'],
-      ':estado_profesor' => $data['estado_profesor'],
-      ':municipio_profesor' => $data['municipio_profesor'],
-      ':colonia_profesor' => $data['colonia_profesor'],
-      ':telefono_profesor' => $data['telefono_profesor'],
-      ':email_profesor' => $data['email_profesor'],
-      ':fechanacimiento_profesor' => $data['fechanacimiento_profesor']
-    ]);
-    echo 'ok';
-  }
+     $query->execute($arrayActualizar);
+     echo 'ok';
+ }
 
   public function delete($id)
   {
@@ -113,9 +116,9 @@ class ProfesorDAO extends Model implements CRUD
     $id_escuela = $_SESSION['id_escuela'];
 
     require_once 'profesorDTO.php';
-    $query = "SELECT profesor.*, usuario.* 
-    FROM profesor, escuela, usuario
+    $query = "SELECT profesor.*, usuario.* FROM profesor, escuela, usuario
     WHERE usuario.id_usuario = profesor.id_usuario 
+    AND profesor.id_escuela = escuela.id_escuela 
     AND escuela.id_escuela = '" . $id_escuela . "'";
     $objProfesores = array();
     if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
@@ -141,12 +144,8 @@ class ProfesorDAO extends Model implements CRUD
         $profesor->telefono_profesor = $value['telefono_profesor'];
         $profesor->email_profesor = $value['email_profesor'];
         $profesor->fechanacimiento_profesor = $value['fechanacimiento_profesor'];
-
-
         $profesor->username_usuario = $value['username_usuario'];
         $profesor->password_usuario = $value['password_usuario'];
-
-
         array_push($objProfesores, $profesor);
       }
     } else {
@@ -183,10 +182,8 @@ class ProfesorDAO extends Model implements CRUD
       $profesor->telefono_profesor = $value['telefono_profesor'];
       $profesor->email_profesor = $value['email_profesor'];
       $profesor->fechanacimiento_profesor = $value['fechanacimiento_profesor'];
-
       $profesor->username_usuario = $value['username_usuario'];
       $profesor->password_usuario = $value['password_usuario'];
-
       array_push($objProfesores, $profesor);
     }
     return $objProfesores;
