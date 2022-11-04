@@ -32,11 +32,7 @@ class MateriaDAO extends Model implements CRUD
     {
         $id_escuela = $_SESSION['id_escuela'];
         require_once 'materiaDTO.php';
-        $query = "SELECT materia.*, escuela.*, horario_materia.* 
-        FROM escuela, horario_materia, materia
-        WHERE materia.id_escuela = escuela.id_escuela 
-        AND materia.id_horario = horario_materia.id_horario 
-        AND escuela.id_escuela =  '" . $id_escuela . "' ";
+        $query = "SELECT materia.*, escuela.*, horario_materia.* from escuela escuela, horario_materia horario_materia, materia materia, director director WHERE materia.id_escuela = escuela.id_escuela AND materia.id_horario=horario_materia.id_horario AND director.id_escuela = escuela.id_escuela AND materia.id_escuela = director.id_escuela and director.id_escuela =  '" . $id_escuela . "' ";
         $objMaterias = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
             foreach ($this->db->consultar($query) as $key => $value) {
