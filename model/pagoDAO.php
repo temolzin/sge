@@ -97,16 +97,17 @@ class PagoDAO extends Model implements CRUD
     public function readByIdEscuela($id_escuela)
     {
         require_once 'pagoDTO.php';
-        $query = "SELECT * FROM pago
-        INNER JOIN cobro on pago.id_cobro=cobro.id_cobro
-        INNER JOIN alumno on cobro.id_alumno=alumno.id_alumno
-        INNER JOIN escuela on alumno.id_escuela=escuela.id_escuela
-        INNER JOIN director on escuela.id_escuela=director.id_escuela 
+        $query = "SELECT * FROM pago 
+        INNER JOIN cobro 
+        on pago.id_cobro=cobro.id_cobro 
+        INNER JOIN alumno 
+        on cobro.id_alumno=alumno.id_alumno 
+        INNER JOIN escuela 
+        on alumno.id_escuela=escuela.id_escuela 
         WHERE pago.id_cobro=cobro.id_cobro 
         and cobro.id_alumno=alumno.id_alumno 
         and alumno.id_escuela = escuela.id_escuela 
-        and director.id_escuela = alumno.id_escuela
-        and director.id_escuela = '" . $id_escuela . "'";
+        and escuela.id_escuela = '" . $id_escuela . "'";
         $objPagos = array();
 
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
