@@ -153,7 +153,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="horario" name="horario" href="' . constant('URL') . 'horario" class="nav-link">
+      <a id="horario" name="horario" href="' . constant('URL') . 'horario/showHorarioConsulta" class="nav-link">
       <i class="nav-icon fas fa-calendar-alt"></i>
       <p>
       Horarios
@@ -162,7 +162,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'parcial/index" class="nav-link">
+      <a id="index" name="index" href="' . constant('URL') . 'parcial/parcialDetalle" class="nav-link">
       <i class="nav-icon fas fa-chalkboard"></i>
       <p>
       Parcial

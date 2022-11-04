@@ -9,17 +9,13 @@ $menu->header('horario_consulta');
 ?>
 <section class="content">
     <div class="container-fluid">
-        <div class="row">
-
-        </div>
         <br>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Tu Horario</h3>
+                        <h3 class="card-header">Tu Horario</h3>
                     </div>
-                    <!-- /.card-header -->
                     <div class="card-body">
                         <table id="dataTableHorario" name="dataTableHorario" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
