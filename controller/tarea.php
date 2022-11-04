@@ -121,22 +121,14 @@ class Tarea extends Controller
         $tareaDAO = new TareaDAO();
         $tareaDAO->delete($id_tarea_alumno);
     }
-
-    function read()
+    
+    function readByIdProfesor()
     {
+        $id_profesor = $_POST['id_profesor'];
         require 'model/tareaDAO.php';
         $this->loadModel('TareaDAO');
         $tareaDAO = new TareaDAO();
-        $tareaDAO = $tareaDAO->read();
-        echo json_encode($tareaDAO);
-    }
-
-    function readTable()
-    {
-        require 'model/tareaDAO.php';
-        $this->loadModel('TareaDAO');
-        $tareaDAO = new TareaDAO();
-        $tareaDAO = $tareaDAO->read();
+        $tareaDAO = $tareaDAO->readByIdProfesor($id_profesor);
 
         $obj = null;
         if (is_array($tareaDAO) || is_object($tareaDAO)) {
@@ -168,22 +160,13 @@ class Tarea extends Controller
         $tareaEntregadaDAO->updateTareaEntregada($data);
     }
 
-    function readTareaEntregada()
+    function readTareaEntregadaByIdProfesor()
     {
-
+        $id_profesor = $_POST['id_profesor'];
         require 'model/tareaDAO.php';
         $this->loadModel('TareaDAO');
         $tareaEntregadaDAO = new TareaDAO();
-        $tareaEntregadaDAO = $tareaEntregadaDAO->readTareaEntregada();
-        echo json_encode($tareaEntregadaDAO);
-    }
-
-    function readTableTareaEntregada()
-    {
-        require 'model/tareaDAO.php';
-        $this->loadModel('TareaDAO');
-        $tareaEntregadaDAO = new TareaDAO();
-        $tareaEntregadaDAO = $tareaEntregadaDAO->readTareaEntregada();
+        $tareaEntregadaDAO = $tareaEntregadaDAO->readTareaEntregadaByIdProfesor($id_profesor);
 
         $obj = null;
         if (is_array($tareaEntregadaDAO) || is_object($tareaEntregadaDAO)) {
@@ -198,21 +181,13 @@ class Tarea extends Controller
 
     //**************************************************** TAREA MOSTRAR TUTOR **********************************************
 
-    function readTareaTutor()
+    function readTareaByIdTutor()
     {
+        $id_grupo = $_POST['id_grupo'];
         require 'model/tareaDAO.php';
         $this->loadModel('TareaDAO');
         $tareaalumno_consultaDAO = new TareaDAO();
-        $tareaalumno_consultaDAO = $tareaalumno_consultaDAO->readTareaTutor();
-        echo json_encode($tareaalumno_consultaDAO);
-    }
-
-    function readTableTareaTutor()
-    {
-        require 'model/tareaDAO.php';
-        $this->loadModel('TareaDAO');
-        $tareaalumno_consultaDAO = new TareaDAO();
-        $tareaalumno_consultaDAO = $tareaalumno_consultaDAO->readTareaTutor();
+        $tareaalumno_consultaDAO = $tareaalumno_consultaDAO->readTareaByIdTutor($id_grupo);
 
         $obj = null;
         if (is_array($tareaalumno_consultaDAO) || is_object($tareaalumno_consultaDAO)) {
@@ -264,23 +239,13 @@ class Tarea extends Controller
         }
     }
 
-
-    function readTareaAlumno()
+    function readTareaByIdAlumno()
     {
+        $id_grupo = $_POST['id_grupo'];
         require 'model/tareaDAO.php';
         $this->loadModel('TareaDAO');
         $tareaalumnoDAO = new TareaDAO();
-        $tareaalumnoDAO = $tareaalumnoDAO->readTareaAlumno();
-        echo json_encode($tareaalumnoDAO);
-    }
-
-    function readTableTareaAlumno()
-    {
-        require 'model/tareaDAO.php';
-        $this->loadModel('TareaDAO');
-        $tareaalumnoDAO = new TareaDAO();
-        $tareaalumnoDAO = $tareaalumnoDAO->readTareaAlumno();
-
+        $tareaalumnoDAO = $tareaalumnoDAO->readTareaByIdAlumno($id_grupo);
         $obj = null;
         if (is_array($tareaalumnoDAO) || is_object($tareaalumnoDAO)) {
             foreach ($tareaalumnoDAO as $key => $value) {
@@ -294,21 +259,13 @@ class Tarea extends Controller
 
     //******************************************************** TAREA CALIFICADA ************************************************
 
-    function readTareaCalificada()
+    function readTareaCalificadaByIdGrupo()
     {
+        $id_grupo = $_POST['id_grupo'];
         require 'model/tareaDAO.php';
         $this->loadModel('TareaDAO');
         $tareaCalificadaDAO = new TareaDAO();
-        $tareaCalificadaDAO = $tareaCalificadaDAO->readTareaCalificada();
-        echo json_encode($tareaCalificadaDAO);
-    }
-
-    function readTableTareaCalificada()
-    {
-        require 'model/tareaDAO.php';
-        $this->loadModel('TareaDAO');
-        $tareaCalificadaDAO = new TareaDAO();
-        $tareaCalificadaDAO = $tareaCalificadaDAO->readTareaCalificada();
+        $tareaCalificadaDAO = $tareaCalificadaDAO->readTareaCalificadaByIdGrupo($id_grupo);
 
         $obj = null;
         if (is_array($tareaCalificadaDAO) || is_object($tareaCalificadaDAO)) {

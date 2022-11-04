@@ -190,10 +190,12 @@ $menu->footer();
 
     var mostrarTareaAlumno = function() {
         var tableTareaAlumno = $('#dataTableTareaAlumno').DataTable({
-            "processing": true,
-            "serverSide": false,
             "ajax": {
-                "url": "<?php echo constant('URL'); ?>tarea/readTableTareaAlumno"
+                "processing": true,
+                "serverSide": false,
+                "type": "POST",
+                "url":"<?php echo constant('URL'); ?>tarea/readTareaByIdAlumno",
+                "data": {id_grupo: '<?php echo $_SESSION['id_grupo']; ?>'},
             },
             "columns": [{
                     "data": "nombre_tarea"
