@@ -162,7 +162,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="index" name="index" href="' . constant('URL') . 'parcial/parcialDetalle" class="nav-link">
+      <a id="parcial" name="parcial" href="' . constant('URL') . 'parcial/parcialDetalle" class="nav-link">
       <i class="nav-icon fas fa-chalkboard"></i>
       <p>
       Parcial
