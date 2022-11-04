@@ -72,6 +72,25 @@ class Pago extends Controller
         $pagoDAO = new PagoDAO();
         $pagoDAO->delete($id_pago);
     }
+    
+    function readByIdEscuela()
+    {
+        $id_escuela = $_POST['id_escuela'];
+        require 'model/pagoDAO.php';
+        $this->loadModel('PagoDAO');
+        $pagoDAO = new PagoDAO();
+        $pagoDAO = $pagoDAO->readByIdEscuela($id_escuela);
+
+        $obj = null;
+        if (is_array($pagoDAO) || is_object($pagoDAO)) {
+            foreach ($pagoDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
 
     function read()
     {

@@ -28,7 +28,7 @@ class Administrador extends Controller
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
             $fullname = $appaterno_administrador . "_" . $apmaterno_administrador . "_" . $nombre_administrador;
-            $carpeta = constant('URL') . "public/administrador/" . $fullname . "/";
+            $carpeta = "public/administrador/" . $fullname . "/";
 
             if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif') {
                 echo 'errorimagen';
@@ -70,7 +70,6 @@ class Administrador extends Controller
         $telefono_administrador = $_POST['telefono_administradorActualizar'];
         $email_administrador = $_POST['email_administradorActualizar'];
         $fechanacimiento_administrador = $_POST['fechanacimiento_administradorActualizar'];
-
         $nombreImagen = "";
 
         $arrayActualizar = array(

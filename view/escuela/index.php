@@ -26,7 +26,7 @@ $menu->header('escuela');
                         <table id="dataTableEscuela" name="dataTableEscuela" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 15px;">Foto</th>
+                                    <th style="width: 50px;">Foto</th>
                                     <th>Nombre Escuela</th>
                                     <th>RFC</th>
                                     <th>CCT</th>
@@ -685,7 +685,7 @@ $menu->footer();
                     'render': function(data, type, JsonResultRow, meta) {
                         var fullnameImagen = JsonResultRow.cct_escuela + '_' + JsonResultRow.rfc_escuela + '_' + JsonResultRow.nombre_escuela + '/' + JsonResultRow.foto_escuela;
                         var img = '<?php echo constant('URL') ?>public/escuela/' + fullnameImagen;
-                        return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
+                        return '<center><img src="' + img + '" class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                     }
                 },
                 {

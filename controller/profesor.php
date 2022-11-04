@@ -66,7 +66,8 @@ class Profesor extends Controller
                     'colonia_profesor' => $colonia_profesor,
                     'telefono_profesor' => $telefono_profesor,
                     'email_profesor' => $email_profesor,
-                    'fechanacimiento_profesor' => $fechanacimiento_profesor
+                    'fechanacimiento_profesor' => $fechanacimiento_profesor,
+                    'nombreImagen'  => $nombreImagen
                 );
 
                 require 'model/profesorDAO.php';
@@ -97,7 +98,6 @@ class Profesor extends Controller
         $telefono_profesor = $_POST['telefono_profesorActualizar'];
         $email_profesor = $_POST['email_profesorActualizar'];
         $fechanacimiento_profesor = $_POST['fechanacimiento_profesorActualizar'];
-
         $nombreImagen = "";
         $arrayActualizar = array(
             'id_profesor' => $id_profesor,

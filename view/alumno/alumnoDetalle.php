@@ -42,9 +42,8 @@ $menu->header('profesor_alumno_consulta');
                   <table id="dataTableAlumno" name="dataTableAlumno" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                      <thead>
                         <tr>
-                           <th style="width: 15px;">Foto </th>
+                           <th class="img-fluid"style="width: 50px; height:50px">Foto </th>
                            <th>Nombre</th>
-
                            <th>Email</th>
                            <th>Opciones</th>
                         </tr>
@@ -216,22 +215,26 @@ $menu->footer();
 
    function mostrarAlumnos() {
       var tableAlumno = $('#dataTableAlumno').DataTable({
-         "processing": true,
-         "serverSide": false,
-         "ajax": {
-            "url": "<?php echo constant('URL'); ?>alumno/readTableAlumnoProfesor"
 
+         "ajax": {
+            "processing": true,
+            "serverSide": false,
+            "type": "POST",
+            "url":"<?php echo constant('URL'); ?>alumno/readAlumnoByIdProfesor",
+            "data": {id_profesor: '<?php echo $_SESSION['id']; ?>'},
          },
          "columns": [{
                defaultContent: "",
                "render": function(data, type, full, row) {
-
                   var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
+                  var urlImg = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
+                if (full['foto_alumno'] == null || full['foto_alumno'] == '') {
+                    var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
+                } else {
+                    var urlImg = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
+                }
 
-
-                  var img = '<?php echo constant('URL') ?>public/alumno/' + fullnameImagen;
-
-                  return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
+                  return '<center><img src="' + urlImg + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                }
             },
             {

@@ -26,7 +26,7 @@ $menu->header('tutor');
                         <table id="dataTableTutor" name="dataTableTutor" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 15px;">Foto</th>
+                                    <th class="img-fluid"style="width: 50px; height:50px">Foto</th>
                                     <th>Nombre</th>
                                     <th>Alumno Asignado</th>
                                     <th>Escuela</th>
@@ -888,7 +888,7 @@ $menu->footer();
 
                         var img = '<?php echo constant('URL'); ?>public/Tutor/' + fullnameImagen;
 
-                        return '<center><img src="' + img + '" class="img-circle"  class="cell-border compact stripe" height="50px" width="50px"/></center>';
+                        return '<center><img src="' + img + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                     }
 
                 },
