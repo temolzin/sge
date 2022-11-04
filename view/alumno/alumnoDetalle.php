@@ -215,16 +215,17 @@ $menu->footer();
 
    function mostrarAlumnos() {
       var tableAlumno = $('#dataTableAlumno').DataTable({
-         "processing": true,
-         "serverSide": false,
-         "ajax": {
-            "url": "<?php echo constant('URL'); ?>alumno/readTableAlumnoProfesor"
 
+         "ajax": {
+            "processing": true,
+            "serverSide": false,
+            "type": "POST",
+            "url":"<?php echo constant('URL'); ?>alumno/readAlumnoByIdProfesor",
+            "data": {id_profesor: '<?php echo $_SESSION['id']; ?>'},
          },
          "columns": [{
                defaultContent: "",
                "render": function(data, type, full, row) {
-
                   var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
                   var urlImg = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
                 if (full['foto_alumno'] == null || full['foto_alumno'] == '') {
