@@ -108,13 +108,16 @@ class CalificacionDAO extends Model implements CRUD
     {
         require_once 'calificacionDTO.php';
         $query = "SELECT calificacion.*, profesor.*, alumno.*, parcial.*, materia.*, grupo.nombre_grupo 
-        FROM calificacion, profesor, alumno, parcial, materia, grupo 
-        WHERE calificacion.id_profesor = profesor.id_profesor 
-        AND calificacion.id_alumno = alumno.id_alumno 
-        AND calificacion.id_parcial = parcial.id_parcial 
-        AND calificacion.id_materia = materia.id_materia 
-        AND grupo.id_grupo = alumno.id_grupo 
-        AND profesor.id_escuela = '" . $id_escuela . "'";
+        from calificacion calificacion, profesor profesor, alumno alumno, parcial parcial, materia materia, 
+        grupo grupo, director director, escuela escuela 
+        where calificacion.id_profesor = profesor.id_profesor 
+        and calificacion.id_alumno=alumno.id_alumno 
+        and calificacion.id_parcial=parcial.id_parcial 
+        and calificacion.id_materia=materia.id_materia 
+        and grupo.id_grupo = alumno.id_grupo 
+        and director.id_escuela = escuela.id_escuela 
+        and profesor.id_escuela = escuela.id_escuela 
+        and director.id_escuela = '" . $id_escuela . "'";
         $objCalificaciones = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
             foreach ($this->db->consultar($query) as $key => $value) {
