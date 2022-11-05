@@ -125,7 +125,7 @@ $menu->footer();
                 "processing": true,
                 "serverSide": false,
                 "type": "POST",
-                "url":"<?php echo constant('URL'); ?>tarea/readTareaByIdTutor",
+                "url":"<?php echo constant('URL'); ?>tarea/readTareaTutorByIdGrupo",
                 "data": {id_grupo: '<?php echo $_SESSION['id_grupo']; ?>'},
             },
             "columns": [{

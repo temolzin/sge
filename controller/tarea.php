@@ -181,13 +181,13 @@ class Tarea extends Controller
 
     //**************************************************** TAREA MOSTRAR TUTOR **********************************************
 
-    function readTareaByIdTutor()
+    function readTareaTutorByIdGrupo()
     {
         $id_grupo = $_POST['id_grupo'];
         require 'model/tareaDAO.php';
         $this->loadModel('TareaDAO');
         $tareaalumno_consultaDAO = new TareaDAO();
-        $tareaalumno_consultaDAO = $tareaalumno_consultaDAO->readTareaByIdTutor($id_grupo);
+        $tareaalumno_consultaDAO = $tareaalumno_consultaDAO->readTareaTutorByIdGrupo($id_grupo);
 
         $obj = null;
         if (is_array($tareaalumno_consultaDAO) || is_object($tareaalumno_consultaDAO)) {
@@ -239,13 +239,13 @@ class Tarea extends Controller
         }
     }
 
-    function readTareaByIdAlumno()
+    function readTareaAlumnoByIdGrupo()
     {
         $id_grupo = $_POST['id_grupo'];
         require 'model/tareaDAO.php';
         $this->loadModel('TareaDAO');
         $tareaalumnoDAO = new TareaDAO();
-        $tareaalumnoDAO = $tareaalumnoDAO->readTareaByIdAlumno($id_grupo);
+        $tareaalumnoDAO = $tareaalumnoDAO->readTareaAlumnoByIdGrupo($id_grupo);
         $obj = null;
         if (is_array($tareaalumnoDAO) || is_object($tareaalumnoDAO)) {
             foreach ($tareaalumnoDAO as $key => $value) {

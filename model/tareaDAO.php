@@ -58,14 +58,7 @@
     public function read()
     {
       require_once 'tareaDTO.php';
-      $query = "SELECT tarea_alumno.*,  materia.*, grupo.*, profesor.*, escuela.*, materia_profesor.*
-      FROM tarea_alumno  tarea_alumno,  materia materia, grupo grupo, profesor profesor, escuela escuela, materia_profesor materia_profesor 
-      where  escuela.id_escuela = materia.id_escuela 
-      and tarea_alumno.id_materia=materia.id_materia
-      and  tarea_alumno.id_grupo=grupo.id_grupo
-      and materia.id_materia = materia_profesor.id_materia
-      and profesor.id_escuela = escuela.id_escuela 
-      and profesor.id_profesor =   '" . $id_profesor . "'";
+      $query = "SELECT * from tarea";
 
       $objTareas = array();
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
@@ -192,7 +185,7 @@
 
     //********************************************************************************* TAREA CONSULTA TUTOR ****************************************
 
-    public function readTareaByIdTutor($id_grupo)
+    public function readTareaTutorByIdGrupo($id_grupo)
     {
       require_once 'tareaDTO.php';
       $query = "
@@ -247,7 +240,7 @@
       echo 'ok';
     }
 
-    public function readTareaByIdAlumno($id_grupo)
+    public function readTareaAlumnoByIdGrupo($id_grupo)
     {
       require_once 'tareaDTO.php';
       $query = "SELECT t.id_tarea_alumno,g.nombre_grupo,m.nombre_materia,t.nombre_tarea,t.descripcion_tarea,t.archivo_tarea,t.fecha_entrega 
