@@ -114,18 +114,13 @@ class TutorDAO extends Model implements CRUD
         $id_escuela = $_SESSION['id_escuela'];
 
         require_once 'tutorDTO.php';
-        $query = "SELECT tutor.*, usuario.*, alumno.nombre_alumno, 
-        alumno.appaterno_alumno, alumno.apmaterno_alumno, escuela.nombre_escuela 
-        FROM escuela escuela, alumno alumno,tutor tutor, usuario usuario, director director 
+        $query = "SELECT tutor.*, usuario.*, alumno.nombre_alumno, alumno.appaterno_alumno, alumno.apmaterno_alumno, escuela.nombre_escuela
+        FROM escuela, alumno, tutor, usuario
         WHERE usuario.id_usuario = tutor.id_usuario 
         AND tutor.id_alumno = alumno.id_alumno 
-        AND tutor.id_escuela = escuela.id_escuela 
-        AND director.id_escuela = escuela.id_escuela 
-        AND director.id_escuela = tutor.id_escuela 
+        AND tutor.id_escuela = escuela.id_escuela
         AND alumno.id_escuela = tutor.id_escuela 
-        AND alumno.id_escuela= escuela.id_escuela 
-        AND director.id_escuela = alumno.id_escuela 
-        AND director.id_escuela = '" . $id_escuela . "'";
+        AND alumno.id_escuela = '" . $id_escuela . "'";
         $objTutores = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
             foreach ($this->db->consultar($query) as $key => $value) {
