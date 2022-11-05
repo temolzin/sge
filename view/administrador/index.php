@@ -470,13 +470,15 @@ session_start();
        "columns": [{
            defaultContent: "",
            "render": function(data, type, full, row) {
-
-             var fullnameImagen = full['appaterno_administrador'] + '_' + full['apmaterno_administrador'] + '_' + full['nombre_administrador'] + '/' + full['foto_administrador'];
-
-
-             var img = '<?php echo constant('URL'); ?>public/administrador/' + fullnameImagen;
-
-             return '<center><img src="' + img + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
+             var fullnameImagen = full['appaterno_administrador'] + '_' + full['apmaterno_administrador'] + '_' 
+             + full['nombre_administrador'] + '/' + full['foto_administrador'];
+             var urlImg = '<?php echo constant('URL'); ?>public/administrador/' + fullnameImagen;
+                if (full['foto_administrador'] == null || full['foto_administrador'] == '') {
+                    var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
+                } else {
+                    var urlImg = '<?php echo constant('URL'); ?>public/administrador/' + fullnameImagen;
+                }
+             return '<center><img src="' + urlImg + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
            }
 
          },
