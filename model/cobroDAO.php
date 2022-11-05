@@ -55,10 +55,13 @@ class CobroDAO extends Model implements CRUD {
         $id_escuela = $_SESSION['id_escuela'];
         require_once 'cobroDTO.php';
         $query = "SELECT * FROM cobro 
-        INNER JOIN alumno on cobro.id_alumno=alumno.id_alumno
-        INNER JOIN escuela on alumno.id_escuela=escuela.id_escuela
-        INNER JOIN director on escuela.id_escuela=director.id_escuela 
-        WHERE cobro.id_alumno=alumno.id_alumno and alumno.id_escuela = escuela.id_escuela and director.id_escuela = escuela.id_escuela and director.id_escuela and director.id_escuela = '".$id_escuela."'";
+        INNER JOIN alumno 
+        ON cobro.id_alumno=alumno.id_alumno 
+        INNER JOIN escuela 
+        ON alumno.id_escuela=escuela.id_escuela 
+        WHERE cobro.id_alumno=alumno.id_alumno 
+        AND alumno.id_escuela = escuela.id_escuela 
+        AND escuela.id_escuela = '".$id_escuela."'";
         $objCobros = array();
 
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {

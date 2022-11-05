@@ -143,11 +143,10 @@
     {
       require_once 'alumnoDTO.php';
       $query = "SELECT alumno.*, usuario.* 
-      from alumno alumno, escuela escuela, usuario usuario, director director 
+      FROM alumno, escuela, usuario
       WHERE usuario.id_usuario = alumno.id_usuario 
-      and alumno.id_escuela = escuela.id_escuela 
-      and director.id_escuela = alumno.id_escuela 
-      and director.id_escuela = '" . $id_escuela . "'";
+      AND alumno.id_escuela = escuela.id_escuela 
+      AND escuela.id_escuela = '" . $id_escuela . "'";
       $objAlumnos = array();
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
         foreach ($this->db->consultar($query) as $key => $value) {
