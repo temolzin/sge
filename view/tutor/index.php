@@ -975,8 +975,8 @@ var mostrarTutores = function() {
         "columns": [{
                 defaultContent: "",
                 'render': function(data, type, JsonResultRow, meta) {
-                    var fullnameImagen = JsonResultRow.appaterno_tutor + '_' + JsonResultRow.apmaterno_tutor + '_' 
-                    + JsonResultRow.nombre_tutor + '/' + JsonResultRow.foto_tutor;
+                    var fullnameImagen = JsonResultRow.appaterno_tutor + '_' 
+                    + JsonResultRow.apmaterno_tutor + '_' + JsonResultRow.nombre_tutor + '/' + JsonResultRow.foto_tutor;
                     var urlImg = '<?php echo constant('URL'); ?>public/tutor/' + fullnameImagen;
                 if (JsonResultRow.foto_tutor == null || JsonResultRow.foto_tutor == '') {
                     var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
