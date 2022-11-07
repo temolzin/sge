@@ -127,7 +127,13 @@ class MateriaDAO extends Model implements CRUD
 
         $id_alumno = $_SESSION['id'];
         require_once 'materiaDTO.php';
-        $query = "SELECT materia.*, horario_materia.*, escuela.* FROM materia materia, horario_materia horario_materia, alumno alumno , escuela escuela WHERE materia.id_escuela = alumno.id_escuela AND materia.id_horario = horario_materia.id_horario AND escuela.id_escuela = alumno.id_escuela AND escuela.id_escuela = materia.id_escuela AND alumno.id_alumno = '" . $id_alumno . "'   ";
+        $query = "SELECT materia.*, horario_materia.*, escuela.* 
+        FROM materia materia, horario_materia horario_materia, alumno alumno , escuela escuela 
+        WHERE materia.id_escuela = alumno.id_escuela 
+        AND materia.id_horario = horario_materia.id_horario 
+        AND escuela.id_escuela = alumno.id_escuela 
+        AND escuela.id_escuela = materia.id_escuela 
+        AND alumno.id_alumno = '" . $id_alumno . "'   ";
         $objAlumnoMaterias = array();
 
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
@@ -140,6 +146,7 @@ class MateriaDAO extends Model implements CRUD
                 $alumnomateria->nombre_escuela = $value['nombre_escuela'];
                 $alumnomateria->materia_fecha_horario = $value['materia_fecha_horario'];
                 $alumnomateria->materia_horainicio_horario = $value['materia_horainicio_horario'];
+                $alumnomateria->materia_horafin_horario = $value['materia_horafin_horario'];
                 array_push($objAlumnoMaterias, $alumnomateria);
             }
         } else {

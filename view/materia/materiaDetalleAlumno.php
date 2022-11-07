@@ -25,7 +25,8 @@ $menu->header('alumno_materia');
                                 <tr>
                                     <th>Nombre materia</th>
                                     <th>Fecha</th>
-                                    <th>Opciones</th>
+                                    <th>Hora Inicio</th>
+                                    <th>Hora Fin</th>
                                 </tr>
                             </thead>
                         </table>
@@ -166,6 +167,7 @@ $menu->footer();
                     var id = registro.id_horario;
                     var fecha = registro.materia_fecha_horario;
                     var horario = registro.materia_horainicio_horario;
+                    var horario = registro.materia_horafin_horario;
                     $(".id_horario").append('<option value=' + id + '>' + fecha + ' --> ' + horario + '</option>');
                 });
             },
@@ -178,10 +180,10 @@ $menu->footer();
 
     var mostrarMaterias = function() {
         var tableMateria = $('#dataTableAlumnoMateria').DataTable({
-            "processing": true,
-            "serverSide": false,
             "ajax": {
-                "url": "<?php echo constant('URL'); ?>materia/readTableMateriaAlumno"
+                "processing": true,
+                "serverSide": false,
+                "url": "<?php echo constant('URL'); ?>materia/readTableMateriaAlumno",
             },
             "columns": [
 
@@ -192,9 +194,11 @@ $menu->footer();
                     "data": "materia_fecha_horario"
                 },
                 {
-                    data: null,
-                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleMateria' title="Ver Detalles"><i class="fa fa-eye"></i></button>`
-                }
+                    "data": "materia_horainicio_horario"
+                },
+                {
+                    "data": "materia_horafin_horario"
+                },
             ],
             "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
                 if (aiDisplay.length > 0) {

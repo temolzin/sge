@@ -153,15 +153,6 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="horario" name="horario" href="' . constant('URL') . 'horario/showHorarioConsulta" class="nav-link">
-      <i class="nav-icon fas fa-calendar-alt"></i>
-      <p>
-      Horarios
-      </p>
-      </a>
-      </li>
-
-      <li class="nav-item">
       <a id="parcial" name="parcial" href="' . constant('URL') . 'parcial/parcialDetalle" class="nav-link">
       <i class="nav-icon fas fa-chalkboard"></i>
       <p>
