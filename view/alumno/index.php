@@ -772,12 +772,13 @@
           "columns": [{
                 defaultContent: "",
                 "render": function(data, type, full, row) {
-                   var fullnameImagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' + full['nombre_alumno'] + '/' + full['foto_alumno'];
-                   var urlImg = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
+                   var Imagen = full['appaterno_alumno'] + '_' + full['apmaterno_alumno'] + '_' 
+                   + full['nombre_alumno'] + '/' + full['foto_alumno'];
+                   var urlImg = '<?php echo constant('URL'); ?>public/alumno/' + Imagen;
                 if (full['foto_alumno'] == null || full['foto_alumno'] == '') {
                     var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
                 } else {
-                    var urlImg = '<?php echo constant('URL'); ?>public/alumno/' + fullnameImagen;
+                    var urlImg = '<?php echo constant('URL'); ?>public/alumno/' + Imagen;
                 }
                    return '<center><img src="' + urlImg + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                   }

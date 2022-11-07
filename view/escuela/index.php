@@ -686,8 +686,6 @@ $menu->footer();
                         var fullnameImagen = JsonResultRow.cct_escuela + '_' + JsonResultRow.rfc_escuela + '_' 
                         + JsonResultRow.nombre_escuela + '/' + JsonResultRow.foto_escuela;
                         var urlImg = '<?php echo constant('URL'); ?>public/escuela/' + fullnameImagen;
-                        var img = new Image();
-                        img.src = urlImg;
 
                     if (JsonResultRow.foto_escuela == null || JsonResultRow.foto_escuela == '') {
                         var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';

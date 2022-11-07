@@ -1012,16 +1012,13 @@ var mostrarDirectivos = function() {
         "columns": [{
                 defaultContent: "",
                 'render': function(data, type, JsonResultRow, meta) {
-                    var fullnameImagen = JsonResultRow.appaterno_director + '_' 
+                    var Imagen = JsonResultRow.appaterno_director + '_' 
                     + JsonResultRow.apmaterno_director +'_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
-                    var urlImg = '<?php echo constant('URL'); ?>public/director/' + fullnameImagen;
-                    var img = new Image();
-                    img.src = urlImg;
-
+                    var urlImg = '<?php echo constant('URL'); ?>public/director/' + Imagen;
                     if (JsonResultRow.foto_director == null || JsonResultRow.foto_director == '') {
                         var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
                     } else {
-                        var urlImg = '<?php echo constant('URL'); ?>public/director/' + fullnameImagen;
+                        var urlImg = '<?php echo constant('URL'); ?>public/director/' + Imagen;
                     }
                     return '<center><img src="' + urlImg + '" class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                 }
