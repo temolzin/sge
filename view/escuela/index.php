@@ -683,14 +683,13 @@ $menu->footer();
             "columns": [{
                     defaultContent: "",
                     'render': function(data, type, JsonResultRow, meta) {
-                        var fullnameImagen = JsonResultRow.cct_escuela + '_' + JsonResultRow.rfc_escuela + '_' 
+                        var image = JsonResultRow.cct_escuela + '_' + JsonResultRow.rfc_escuela + '_' 
                         + JsonResultRow.nombre_escuela + '/' + JsonResultRow.foto_escuela;
-                        var urlImg = '<?php echo constant('URL'); ?>public/escuela/' + fullnameImagen;
-
+                        var urlImg = '<?php echo constant('URL'); ?>public/escuela/' + image;
                     if (JsonResultRow.foto_escuela == null || JsonResultRow.foto_escuela == '') {
                         var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
                     } else {
-                        var urlImg = '<?php echo constant('URL'); ?>public/escuela/' + fullnameImagen;
+                        var urlImg = '<?php echo constant('URL'); ?>public/escuela/' + image;
                     }
                         return '<center><img src="' + urlImg + '" class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                     }

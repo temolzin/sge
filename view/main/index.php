@@ -1007,7 +1007,7 @@ $menu->footer();
             
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  urlImg = (elem.foto_director != '' ) ? '<?php echo constant('URL') ?>'+'public/director/' 
+                  urlImg = (elem.foto_director != '' ) ? 'public/director/' 
                   + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' 
                   + elem.foto_director : "public/img/default.jpg";
                   var htmlTags = '<li>' +
@@ -1031,7 +1031,7 @@ $menu->footer();
             
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  urlImg = (elem.foto_administrador != '' ) ? '<?php echo constant('URL') ?>'+'public/administrador/' 
+                  urlImg = (elem.foto_administrador != '' ) ? 'public/administrador/' 
                   + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' 
                   + elem.foto_administrador : "public/img/default.jpg";
                   var htmlTags = '<li>' +
@@ -1056,7 +1056,7 @@ $menu->footer();
          success: function(data) {
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  urlImg = (elem.foto_profesor != '' ) ? '<?php echo constant('URL') ?>'+'public/profesor/' 
+                  urlImg = (elem.foto_profesor != '' ) ? 'public/profesor/' 
                   + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' 
                   + elem.foto_profesor : "public/img/default.jpg";             
                   var htmlTags = '<tr>' +
@@ -1079,7 +1079,7 @@ $menu->footer();
          success: function(data) {
             $.each(data, function(ind, elem) {
                if (ind <= 4) {
-                  urlImg = (elem.foto_alumno != '' ) ? '<?php echo constant('URL') ?>'+'public/alumno/' 
+                  urlImg = (elem.foto_alumno != '' ) ? 'public/alumno/' 
                   + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' 
                   + elem.foto_alumno : "public/img/default.jpg";    
                   var htmlTags = '<tr>' +

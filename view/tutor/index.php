@@ -975,13 +975,13 @@ var mostrarTutores = function() {
         "columns": [{
                 defaultContent: "",
                 'render': function(data, type, JsonResultRow, meta) {
-                    var Imagen = JsonResultRow.appaterno_tutor + '_' 
+                    var image = JsonResultRow.appaterno_tutor + '_' 
                     + JsonResultRow.apmaterno_tutor + '_' + JsonResultRow.nombre_tutor + '/' + JsonResultRow.foto_tutor;
-                    var urlImg = '<?php echo constant('URL'); ?>public/tutor/' + Imagen;
+                    var urlImg = '<?php echo constant('URL'); ?>public/tutor/' + image;
                 if (JsonResultRow.foto_tutor == null || JsonResultRow.foto_tutor == '') {
                     var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
                 } else {
-                    var urlImg = '<?php echo constant('URL'); ?>public/tutor/' + Imagen;
+                    var urlImg = '<?php echo constant('URL'); ?>public/tutor/' + image;
                 }
                     return '<center><img src="' + urlImg + '"class="rounded-circle img-fluid " style="width: 50px; height: 50px;"/></center>';
                 }
