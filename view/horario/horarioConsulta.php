@@ -39,9 +39,6 @@ $menu->footer();
 <script>
     $(document).ready(function() {
         mostrarHorarios();
-        enviarFormularioRegistrar();
-        enviarFormularioActualizar();
-        eliminarRegistro();
     });
 
 
