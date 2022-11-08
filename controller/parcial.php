@@ -11,6 +11,11 @@ class Parcial extends Controller
         $this->view->render('parcial/index');
     }
 
+    function parcialDetalle()
+    {
+        $this->view->render('parcial/parcialDetalle');
+    }
+
     function insert()
     {
         $id_parcial  = $_POST['id_parcial'];

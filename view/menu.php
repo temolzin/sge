@@ -151,6 +151,15 @@ class Menu
       </p>
       </a>
       </li>
+
+      <li class="nav-item">
+      <a id="parcial" name="parcial" href="' . constant('URL') . 'parcial/parcialDetalle" class="nav-link">
+      <i class="nav-icon fas fa-chalkboard"></i>
+      <p>
+      Parcial
+      </p>
+      </a>
+      </li>
      ';
             } else if ($tipo == 'director') {
 
