@@ -165,7 +165,7 @@ class Menu
       </li>
 
       <li class="nav-item">
-      <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo/directivo" class="nav-link">
+      <a id="directivo" name="directivo" href="' . constant('URL') . 'directivo" class="nav-link">
       <i class="nav-icon fas fa-users-cog"></i>
       <p>
       Directivo (s)
