@@ -1007,9 +1007,11 @@ $menu->footer();
             
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  urlImg = (elem.foto_director != '' ) ? 'public/director/' 
-                  + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' 
-                  + elem.foto_director : "public/img/default.jpg";
+                  urlImg = (elem.foto_director != '' ) 
+                  ? 'public/director/' 
+                  + elem.appaterno_director + '_' + elem.apmaterno_director + '_' 
+                  + elem.nombre_director + '/' + elem.foto_director 
+                  : "public/img/default.jpg";
                   var htmlTags = '<li>' +
                      '<img class="rounded-circle img-fluid" style="width:50%" src="'+urlImg+'"</img>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_director + '</a>' +
@@ -1031,9 +1033,11 @@ $menu->footer();
             
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  urlImg = (elem.foto_administrador != '' ) ? 'public/administrador/' 
-                  + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' 
-                  + elem.foto_administrador : "public/img/default.jpg";
+                  urlImg = (elem.foto_administrador != '' ) 
+                  ? 'public/administrador/' 
+                  + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' 
+                  + elem.nombre_administrador + '/' + elem.foto_administrador 
+                  : "public/img/default.jpg";
                   var htmlTags = '<li>' +
                      '<img class="rounded-circle img-fluid" style="width:50%" src="'+urlImg+'"</img>' +
                      '<br><br>' +
@@ -1056,9 +1060,11 @@ $menu->footer();
          success: function(data) {
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  urlImg = (elem.foto_profesor != '' ) ? 'public/profesor/' 
-                  + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' 
-                  + elem.foto_profesor : "public/img/default.jpg";             
+                  urlImg = (elem.foto_profesor != '' ) 
+                  ? 'public/profesor/' 
+                  + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' 
+                  + elem.nombre_profesor + '/' + elem.foto_profesor 
+                  : "public/img/default.jpg";             
                   var htmlTags = '<tr>' +
                      '<td><img class="rounded-circle img-fluid" src="'+urlImg+'"</img><td>' +
                      '<td>' + elem.nombre_profesor + '<td>' +
@@ -1079,9 +1085,11 @@ $menu->footer();
          success: function(data) {
             $.each(data, function(ind, elem) {
                if (ind <= 4) {
-                  urlImg = (elem.foto_alumno != '' ) ? 'public/alumno/' 
-                  + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' 
-                  + elem.foto_alumno : "public/img/default.jpg";    
+                  urlImg = (elem.foto_alumno != '' ) 
+                  ? 'public/alumno/' 
+                  + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' 
+                  + elem.nombre_alumno + '/' + elem.foto_alumno 
+                  : "public/img/default.jpg";    
                   var htmlTags = '<tr>' +
                      '<td><img class="rounded-circle img-fluid" src="'+urlImg+'"</img><td>' +
                      '<td>' + elem.nombre_alumno + '<td>' +
