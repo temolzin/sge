@@ -126,10 +126,6 @@
           $alumno->colonia_alumno  = $value['colonia_alumno'];
           $alumno->telefono_alumno = $value['telefono_alumno'];
           $alumno->email_alumno = $value['email_alumno'];
-          $alumno->id_tipo_usuario = $value['id_tipo_usuario'];
-          $alumno->fechanacimiento_alumno = $value['fechanacimiento_alumno'];
-          $alumno->username_usuario = $value['username_usuario'];
-          $alumno->password_usuario = $value['password_usuario'];
           array_push($objAlumnos, $alumno);
         }
       } else {
