@@ -85,6 +85,15 @@ class Menu
       </p>
       </a>
       </li>
+
+      <li class="nav-item">
+      <a id="pago" name="pago" href="' . constant('URL') . 'pago" class="nav-link">
+      <i class="nav-icon fas fa-money-check-alt"></i>
+      <p>
+      Pagos
+      </p>
+      </a>
+      </li>
    ';
             } else if ($tipo == 'alumno') {
 

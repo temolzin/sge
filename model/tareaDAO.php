@@ -189,18 +189,19 @@
     {
       require_once 'tareaDTO.php';
       $query = "
-       SELECT tarea_alumno.*,grupo.*,materia.*, tutor.* 
-            FROM grupo grupo, materia materia, tarea_alumno tarea_alumno, tutor tutor, escuela escuela, alumno alumno 
-            WHERE tarea_alumno.id_grupo = grupo.id_grupo AND 
-            materia.id_materia = tarea_alumno.id_materia AND 
-            escuela.id_escuela= alumno.id_escuela AND 
-            materia.id_escuela = alumno.id_escuela AND 
-            escuela.id_escuela = materia.id_escuela AND 
-            tutor.id_escuela = escuela.id_escuela AND 
-            tutor.id_alumno = alumno.id_alumno AND 
-            grupo.id_grupo = alumno.id_grupo AND 
-            tarea_alumno.id_grupo = alumno.id_grupo AND  
-            tarea_alumno.id_grupo  =  '" . $id_grupo . "' ";
+       SELECT tarea_alumno.*,grupo.*,materia.*, tutor.*, tarea_entregada.* 
+            FROM grupo grupo, materia materia, tarea_alumno tarea_alumno, tutor tutor, escuela escuela, alumno alumno,tarea_entregada tarea_entregada
+            WHERE tarea_alumno.id_grupo = grupo.id_grupo 
+            AND materia.id_materia = tarea_alumno.id_materia 
+            AND escuela.id_escuela= alumno.id_escuela 
+            AND materia.id_escuela = alumno.id_escuela 
+            AND escuela.id_escuela = materia.id_escuela 
+            AND tutor.id_escuela = escuela.id_escuela 
+            AND tutor.id_alumno = alumno.id_alumno 
+            AND grupo.id_grupo = alumno.id_grupo 
+            AND tarea_alumno.id_grupo = alumno.id_grupo 
+            AND tarea_entregada.id_tarea_alumno = tarea_alumno.id_tarea_alumno 
+            AND tarea_alumno.id_grupo  =  '" . $id_grupo . "' ";
       $objTareaAlumno = array();
 
       if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
@@ -213,6 +214,7 @@
           $tareaalumno->descripcion_tarea = $value['descripcion_tarea'];
           $tareaalumno->archivo_tarea = $value['archivo_tarea'];
           $tareaalumno->fecha_entrega = $value['fecha_entrega'];
+          $tareaalumno->calificacion_tarea = $value['calificacion_tarea'];
           array_push($objTareaAlumno, $tareaalumno);
         }
       } else {
