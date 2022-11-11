@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
 }
+$tipo = $_SESSION['tipo'];
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('director');
@@ -10,12 +11,14 @@ $menu->header('director');
 
 <section class="content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 text-right">
-                <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarDirectivo'> <i
-                        class="fas fa-plus-circle"></i> Registrar Directivo </button>
+        <?php if ($tipo == 'administrador') { ?>
+            <div class="row">
+                <div class="col-lg-12 text-right">
+                    <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarDirectivo'> <i
+                            class="fas fa-plus-circle"></i> Registrar Directivo </button>
+                </div>
             </div>
-        </div>
+        <?php } ?>
         <br>
         <div class="row">
             <div class="col-12">
@@ -1040,9 +1043,13 @@ var mostrarDirectivos = function() {
             },
             {
                 data: null,
-                "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleDirectivo' title="Ver Detalles"><i class="fa fa-eye"></i></button>
-            <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarDirectivo' title="Editar Datos"><i class="fa fa-edit"></i></button>
-            <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarDirectivo' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
+                <?php if ($tipo == 'administrador') { ?>
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleDirectivo' title="Ver Detalles"><i class="fa fa-eye"></i></button>
+                    <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarDirectivo' title="Editar Datos"><i class="fa fa-edit"></i></button>
+                    <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarDirectivo' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
+                <?php } else { ?>
+                        defaultContent: `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleDirectivo' title="Ver Detalles"><i class="fa fa-eye"></i></button>`
+                <?php } ?>
             }
         ],
         "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
