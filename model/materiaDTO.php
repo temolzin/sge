@@ -7,6 +7,8 @@ class MateriaDTO implements JsonSerializable
     private $nombre_materia;
     private $nombre_escuela;
     private $materia_fecha_horario;
+    private $materia_horainicio_horario;
+    private $materia_horafin_horario;
 
     private $id_materia_profesor;
     private $id_profesor;

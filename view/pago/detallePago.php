@@ -158,10 +158,12 @@ $menu->footer();
 
     var mostrarPagos = function() {
         var tablePago = $('#dataTablePago').DataTable({
+            "ajax": {
             "processing": true,
             "serverSide": false,
-            "ajax": {
-                "url": "<?php echo constant('URL'); ?>pago/readTable"
+            "type": "POST",
+            "url":"<?php echo constant('URL'); ?>pago/readByIdEscuela",
+            "data": {id_escuela: '<?php echo $_SESSION['id_escuela']; ?>'},
             },
             "columns": [{
                     "data": "descripcion_pago"

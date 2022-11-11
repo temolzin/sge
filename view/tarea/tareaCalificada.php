@@ -107,7 +107,11 @@ $menu->footer();
       "processing": true,
       "serverSide": false,
       "ajax": {
-        "url": "<?php echo constant('URL'); ?>tarea/readTableTareaCalificada"
+        "processing": true,
+        "serverSide": false,
+        "type": "POST",
+        "url":"<?php echo constant('URL'); ?>tarea/readTareaCalificadaByIdGrupo",
+        "data": {id_grupo: '<?php echo $_SESSION['id_grupo']; ?>'},
       },
       "columns": [{
           "data": "nombre_tarea"
