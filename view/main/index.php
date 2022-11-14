@@ -796,7 +796,7 @@ $menu->header('Tablero');
                   <table id="tableProfesores" class="table m-0">
                      <thead>
                         <tr>
-                           <th>Foto</th>
+                           <th style="width:10%">Foto</th>
                            <th></th>
                            <th>Nombre</th>
                            <th></th>
@@ -835,7 +835,7 @@ $menu->header('Tablero');
                   <table id="tableAlumnos" class="table m-0">
                      <thead>
                         <tr>
-                           <th>Foto</th>
+                        <th style="width:70%">Foto</th>
                            <th></th>
                            <th>Nombre</th>
                            <th></th>
@@ -1002,15 +1002,18 @@ $menu->footer();
          type: "POST",
          async: false,
          url: "<?php echo constant('URL'); ?>directivo/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
+         dataType: 'json', 
          success: function(data) {
-            //console.log('CALI ', data);
+            
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  //console.log(elem.nombre_parcial);
+                  urlImg = (elem.foto_director != '' ) 
+                  ? 'public/director/' 
+                  + elem.appaterno_director + '_' + elem.apmaterno_director + '_' 
+                  + elem.nombre_director + '/' + elem.foto_director 
+                  : "public/img/default.jpg";
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' 
-                     + elem.nombre_director + '/' + elem.foto_director + '" style="width: 50px; height: 50px;>' + '<br>' +
+                     '<img class="rounded-circle img-fluid" style="width:50%" src="'+urlImg+'"</img>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
@@ -1025,15 +1028,18 @@ $menu->footer();
          type: "POST",
          async: false,
          url: "<?php echo constant('URL'); ?>administrador/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
+         dataType: 'json',
          success: function(data) {
-            //console.log('CALI ', data);
+            
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  //console.log(elem.nombre_parcial);
+                  urlImg = (elem.foto_administrador != '' ) 
+                  ? 'public/administrador/' 
+                  + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' 
+                  + elem.nombre_administrador + '/' + elem.foto_administrador 
+                  : "public/img/default.jpg";
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' 
-                     + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 50px; height: 50px;>' +
+                     '<img class="rounded-circle img-fluid" style="width:50%" src="'+urlImg+'"</img>' +
                      '<br><br>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
@@ -1050,14 +1056,17 @@ $menu->footer();
          type: "POST",
          async: false,
          url: "<?php echo constant('URL'); ?>profesor/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
+         dataType: 'json', 
          success: function(data) {
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  //console.log(elem.nombre_parcial);          
+                  urlImg = (elem.foto_profesor != '' ) 
+                  ? 'public/profesor/' 
+                  + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' 
+                  + elem.nombre_profesor + '/' + elem.foto_profesor 
+                  : "public/img/default.jpg";             
                   var htmlTags = '<tr>' +
-                     '<td><img class="rounded-circle img-fluid" style="max-width: 90px; max-height: 90px" src="<?php echo constant('URL') ?>public/profesor/' 
-                     + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '"</img><td>' +
+                     '<td><img class="rounded-circle img-fluid" src="'+urlImg+'"</img><td>' +
                      '<td>' + elem.nombre_profesor + '<td>' +
                      '<td>' + elem.email_profesor + '<td>' +
                      '</tr>';
@@ -1072,15 +1081,17 @@ $menu->footer();
          type: "POST",
          async: false,
          url: "<?php echo constant('URL'); ?>alumno/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
+         dataType: 'json', 
          success: function(data) {
-            //console.log('CALI ', data);
             $.each(data, function(ind, elem) {
                if (ind <= 4) {
-                  //console.log(elem.nombre_parcial);
+                  urlImg = (elem.foto_alumno != '' ) 
+                  ? 'public/alumno/' 
+                  + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' 
+                  + elem.nombre_alumno + '/' + elem.foto_alumno 
+                  : "public/img/default.jpg";    
                   var htmlTags = '<tr>' +
-                     '<td><img class="rounded-circle img-fluid" style="max-width: 90px; max-height: 90px" src="<?php echo constant('URL') ?>public/alumno/' 
-                     + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '"</img><td>' +
+                     '<td><img class="rounded-circle img-fluid" src="'+urlImg+'"</img><td>' +
                      '<td>' + elem.nombre_alumno + '<td>' +
                      '<td>' + elem.email_alumno + '<td>' +
                      '</tr>';

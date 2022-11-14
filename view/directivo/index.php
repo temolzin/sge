@@ -1015,9 +1015,6 @@ var mostrarDirectivos = function() {
                     var fullnameImagen = JsonResultRow.appaterno_director + '_' 
                     + JsonResultRow.apmaterno_director +'_' + JsonResultRow.nombre_director + '/' + JsonResultRow.foto_director;
                     var urlImg = '<?php echo constant('URL'); ?>public/director/' + fullnameImagen;
-                    var img = new Image();
-                    img.src = urlImg;
-
                     if (JsonResultRow.foto_director == null || JsonResultRow.foto_director == '') {
                         var urlImg = '<?php echo constant('URL'); ?>public/img/default.jpg';
                     } else {
