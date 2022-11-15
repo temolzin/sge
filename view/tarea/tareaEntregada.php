@@ -112,10 +112,12 @@ $menu->footer();
   });
   var mostrarTareasEntregada = function() {
     var tableTareaEntregada = $('#dataTableTareaEntregada').DataTable({
-      "processing": true,
-      "serverSide": false,
       "ajax": {
-        "url": "<?php echo constant('URL'); ?>tarea/readTableTareaEntregada"
+        "processing": true,
+        "serverSide": false,
+        "type": "POST",
+        "url":"<?php echo constant('URL'); ?>tarea/readTareaEntregadaByIdProfesor",
+        "data": {id_profesor: '<?php echo $_SESSION['id']; ?>'},
       },
       "columns": [
 

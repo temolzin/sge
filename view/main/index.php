@@ -84,6 +84,9 @@ $menu->header('Tablero');
          <?php if ($tipo == 'alumno') {
             $nombre_grupo = isset($_SESSION['nombre_grupo']) ? $_SESSION['nombre_grupo'] : 0;
             $turno_grupo = isset($_SESSION['turno_grupo']) ? $_SESSION['turno_grupo'] : 0;
+            $nombre_parcial = isset ($_SESSION['nombre_parcial']) ? $_SESSION['nombre_parcial'] : 0;
+            $nombre_materia = isset($_SESSION['nombre_materia']) ? $_SESSION['nombre_materia']  : 0;
+            $calificacion = isset($_SESSION['calificacion']) ? $_SESSION['calificacion']  : 0;                     
          ?>
             <div class="col-lg-3">
                <div class="small-box bg-warning">
@@ -149,13 +152,15 @@ $menu->header('Tablero');
                      <table id="tableCalificacionAlumno" class="table m-0">
                         <thead>
                            <tr>
-                              <th>Parcial</th>
+                              <th>Parcial</th>                                                    
                               <th>Materia</th>
                               <th>Calificación</th>
                            </tr>
                         </thead>
-                        <tbody>
+                        <tbody>                      
                         </tbody>
+                        <thead>                           
+                        </thead>
                      </table>
                   </div>
                   <!-- /.table-responsive -->
@@ -195,7 +200,7 @@ $menu->header('Tablero');
       $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
       $cedula = isset($_SESSION['cedula']) ? $_SESSION['cedula'] : 0;
    ?>
-      <div class="col-lg-4 col-4">
+      <div class="col-lg-3">
          <!-- small box -->
          <div class="small-box bg-info">
             <div class="inner">
@@ -209,7 +214,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-4 col-4">
+      <div class="col-lg-3">
          <!-- small box -->
          <div class="small-box bg-success">
             <div class="inner">
@@ -223,7 +228,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-4 col-5">
+      <div class="col-lg-3">
          <!-- small box -->
          <div class="small-box bg-warning">
             <div class="inner">
@@ -237,7 +242,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-7">
+      <div class="col-md-4">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Escolar</h3>
@@ -251,7 +256,7 @@ $menu->header('Tablero');
                </div>
             </div>
             <br>
-            <div class="col-md-12">
+            <div class="col-md-5">
                <div class="card-body">
                   <div class="callout callout-info">
                      <p>Nombre Escuela: <?php echo  $nombre_escuela ?> </p>
@@ -297,7 +302,7 @@ $menu->header('Tablero');
             </div>
          </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-4">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Calendario</h3>
@@ -629,7 +634,7 @@ $menu->header('Tablero');
       $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
       // $curp = $_SESSION['curp'];
    ?>
-      <div class="col-lg-3 col-3">
+      <div class="col-md-4">
          <!-- small box -->
          <div class="small-box bg-info">
             <div class="inner">
@@ -643,7 +648,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-3">
+      <div class="col-md-4">
          <!-- small box -->
          <div class="small-box bg-success">
             <div class="inner">
@@ -657,7 +662,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-3">
+      <div class="col-md-4">
          <!-- small box -->
          <div class="small-box bg-warning">
             <div class="inner">
@@ -670,7 +675,7 @@ $menu->header('Tablero');
             <a href="<?php echo constant('URL'); ?>directivo/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
-      <div class="col-lg-3 col-3">
+      <div class="col-md-4">
          <!-- small box -->
          <div class="small-box bg-danger">
             <div class="inner">
@@ -698,7 +703,7 @@ $menu->header('Tablero');
                </div>
             </div>
             <br>
-            <div class="col-md-12">
+            <div class="col-md-5">
                <div class="card-body">
                   <div class="callout callout-info">
                      <p>Nombre Escuela: <?php echo  $nombre_escuela ?> </p>
@@ -711,7 +716,7 @@ $menu->header('Tablero');
             <br>
          </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Tus Datos Generales </h3>
@@ -742,7 +747,7 @@ $menu->header('Tablero');
             <br><br>
          </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Cobro Y Pago</h3>
@@ -756,7 +761,7 @@ $menu->header('Tablero');
                </div>
             </div>
             <br><br>
-            <div class="row" style="margin-left: 25px;">
+            <div class="row" style="margin-left: 100px;">
                <div class="col-lg-6">
                   <a class="btn btn-app" href="<?php echo constant('URL'); ?>cobro">
                      <i class="fas fa-hand-holding-usd"></i> Cobro
@@ -771,14 +776,12 @@ $menu->header('Tablero');
             <br><br>
          </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
          <!-- USERS LIST -->
          <div class="card">
             <div class="card-header" style="background-color:#f52c41; color:white">
                <h3 class="card-title">Profesores</h3>
-
                <div class="card-tools">
-
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                      <i class="fas fa-minus"></i>
                   </button>
@@ -788,21 +791,33 @@ $menu->header('Tablero');
                </div>
             </div>
 
-            <div class="card-body p-0">
-               <ul id="listProfesores" class="users-list clearfix">
-
-               </ul>
-               <!-- /.users-list -->
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table id="tableProfesores" class="table m-0">
+                     <thead>
+                        <tr>
+                           <th style="width:10%">Foto</th>
+                           <th></th>
+                           <th>Nombre</th>
+                           <th></th>
+                           <th>Contacto</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                     </tbody>
+                  </table>
+               </div>
+               <!-- /.table-responsive -->
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL'); ?>profesor">Ver Todos</a>
+            <a href="<?php echo constant('URL'); ?>profesor/index" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
          <!--/.card -->
       </div>
-      <div class="col-md-6">
+      <div class="col-md-3">
          <div class="card card-primary">
             <div class="card-header">
                <h3 class="card-title">Alumnos</h3>
@@ -820,23 +835,25 @@ $menu->header('Tablero');
                   <table id="tableAlumnos" class="table m-0">
                      <thead>
                         <tr>
+                        <th style="width:70%">Foto</th>
+                           <th></th>
                            <th>Nombre</th>
-                           <th>Apellido</th>
+                           <th></th>
                            <th>Contacto</th>
                         </tr>
                      </thead>
-                     <tbody>
+                     <tbody>          
                      </tbody>
                   </table>
                </div>
                <!-- /.table-responsive -->
             </div>
-            <div class="card-footer clearfix">
+            <div class="card-footer text-center">
                <a href="<?php echo constant('URL'); ?>alumno/index" class="btn btn-sm btn-secondary float-right">Ver Todos</a>
             </div>
          </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Calendario</h3>
@@ -860,7 +877,9 @@ $menu->header('Tablero');
       </div>
    <?php } ?>
 </section>
-
+<?php
+$menu->footer();
+?>
 <script type="text/javascript">
    $(document).ready(function() {
       mostrarCalificaciones();
@@ -884,32 +903,24 @@ $menu->header('Tablero');
       });
    });
 
-   var mostrarCalificaciones = function() {
+   var mostrarCalificaciones = function(){
       $.ajax({
          type: "POST",
-
          async: false,
-         url: "<?php echo constant('URL'); ?>calificacionDetalleAlumno/read",
+         url: "<?php echo constant('URL'); ?>calificacion/readCalificacionAlumno",
          dataType: 'json', // what to expect back from the PHP script, if anything
-         success: function(data) {
-            $.each(data, function(ind, elem) {
-               if (ind <= 9) {
+         success: function(data){
+            $.each(data, function(ind, elem){
+               if(ind <= 9){
                   var colorCalificacion = "";
-                  if (elem.calificacion > 6) {
+                  if(elem.calificacion > 6){
                      colorCalificacion = "success";
-                  } else {
+                  }else{
                      colorCalificacion = "danger";
                   }
-                  var htmlTags = '<tr>' +
-                     '<td>' + elem.id_calificacion + '</td>' +
-                     '<td>' + elem.id_profesor + '</td>' +
-                     '<td>' + elem.id_alumno + '</td>' +
-                     '<td>' + elem.nombre_alumno + '</td>' +
-                     '<td>' + elem.id_parcial + '</td>' +
+                  var htmlTags = '<tr>' +                 
                      '<td>' + elem.nombre_parcial + '</td>' +
-                     '<td>' + elem.id_materia + '</td>' +
                      '<td>' + elem.nombre_materia + '</td>' +
-                     '<td>' + elem.calificacion + '</td>' +
                      '<td> <span class="badge badge-' + colorCalificacion + '">' + elem.calificacion + '</span></td>' +
                      '</tr>';
                   $('#tableCalificacionAlumno tbody').append(htmlTags);
@@ -991,14 +1002,18 @@ $menu->header('Tablero');
          type: "POST",
          async: false,
          url: "<?php echo constant('URL'); ?>directivo/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
+         dataType: 'json', 
          success: function(data) {
-            //console.log('CALI ', data);
+            
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  //console.log(elem.nombre_parcial);
+                  urlImg = (elem.foto_director != '' ) 
+                  ? 'public/director/' 
+                  + elem.appaterno_director + '_' + elem.apmaterno_director + '_' 
+                  + elem.nombre_director + '/' + elem.foto_director 
+                  : "public/img/default.jpg";
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/director/' + elem.appaterno_director + '_' + elem.apmaterno_director + '_' + elem.nombre_director + '/' + elem.foto_director + '" style="width: 50px; height: 50px;>' + '<br>' +
+                     '<img class="rounded-circle img-fluid" style="width:50%" src="'+urlImg+'"</img>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
@@ -1013,14 +1028,18 @@ $menu->header('Tablero');
          type: "POST",
          async: false,
          url: "<?php echo constant('URL'); ?>administrador/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
+         dataType: 'json',
          success: function(data) {
-            //console.log('CALI ', data);
+            
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  //console.log(elem.nombre_parcial);
+                  urlImg = (elem.foto_administrador != '' ) 
+                  ? 'public/administrador/' 
+                  + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' 
+                  + elem.nombre_administrador + '/' + elem.foto_administrador 
+                  : "public/img/default.jpg";
                   var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/administrador/' + elem.appaterno_administrador + '_' + elem.apmaterno_administrador + '_' + elem.nombre_administrador + '/' + elem.foto_administrador + '" style="width: 50px; height: 50px;>' +
+                     '<img class="rounded-circle img-fluid" style="width:50%" src="'+urlImg+'"</img>' +
                      '<br><br>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
@@ -1037,18 +1056,21 @@ $menu->header('Tablero');
          type: "POST",
          async: false,
          url: "<?php echo constant('URL'); ?>profesor/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
+         dataType: 'json', 
          success: function(data) {
-            //console.log('CALI ', data);
             $.each(data, function(ind, elem) {
                if (ind <= 7) {
-                  //console.log(elem.nombre_parcial);
-                  var htmlTags = '<li>' +
-                     '<img src="<?php echo constant('URL') ?>public/profesor/' + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' + elem.nombre_profesor + '/' + elem.foto_profesor + '" style="max-width: 110px; max-height: 110px;>' +
-                     '<a class="users-list-name">' + elem.nombre_profesor + '<a>' +
-                     '<span class="users-list-date">' + elem.email_profesor + '</span>' +
-                     '</li>';
-                  $('#listProfesores').append(htmlTags);
+                  urlImg = (elem.foto_profesor != '' ) 
+                  ? 'public/profesor/' 
+                  + elem.appaterno_profesor + '_' + elem.apmaterno_profesor + '_' 
+                  + elem.nombre_profesor + '/' + elem.foto_profesor 
+                  : "public/img/default.jpg";             
+                  var htmlTags = '<tr>' +
+                     '<td><img class="rounded-circle img-fluid" src="'+urlImg+'"</img><td>' +
+                     '<td>' + elem.nombre_profesor + '<td>' +
+                     '<td>' + elem.email_profesor + '<td>' +
+                     '</tr>';
+                  $('#tableProfesores').append(htmlTags);
                }
             });
          },
@@ -1057,20 +1079,22 @@ $menu->header('Tablero');
    var mostrarAlumnos = function() {
       $.ajax({
          type: "POST",
-
          async: false,
          url: "<?php echo constant('URL'); ?>alumno/read",
-         dataType: 'json', // what to expect back from the PHP script, if anything
+         dataType: 'json', 
          success: function(data) {
-            //console.log('CALI ', data);
             $.each(data, function(ind, elem) {
                if (ind <= 4) {
-                  //console.log(elem.nombre_parcial);
-                  var htmlTags = '<li>' +
-                     '<img src="<? echo constant('URL') ?>public/alumno/' + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' + elem.nombre_alumno + '/' + elem.foto_alumno + '" style="max-width: 110px; max-height: 110px;>' +
-                     '<a class="users-list-name">' + elem.nombre_alumno + '<a>' +
-                     '<span class="users-list-date">' + elem.email_alumno + '</span>' +
-                     '</li>';
+                  urlImg = (elem.foto_alumno != '' ) 
+                  ? 'public/alumno/' 
+                  + elem.appaterno_alumno + '_' + elem.apmaterno_alumno + '_' 
+                  + elem.nombre_alumno + '/' + elem.foto_alumno 
+                  : "public/img/default.jpg";    
+                  var htmlTags = '<tr>' +
+                     '<td><img class="rounded-circle img-fluid" src="'+urlImg+'"</img><td>' +
+                     '<td>' + elem.nombre_alumno + '<td>' +
+                     '<td>' + elem.email_alumno + '<td>' +
+                     '</tr>';
                   $('#tableAlumnos').append(htmlTags);
                }
             });
@@ -1198,8 +1222,3 @@ $menu->header('Tablero');
       });
    }
 </script>
-
-
-<?php
-$menu->footer();
-?>

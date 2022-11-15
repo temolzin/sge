@@ -72,8 +72,8 @@ $menu->header('Tarea');
                     <span><label>Subir Archivo (*)</label></span>
                     <div class="form-group input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="archivo_tarea" id="archivo_tarea" lang="es">
-                        <label class="custom-file-label" for="archivo">Seleccione Archivo</label>
+                        <input type="file" class="custom-file-input" name="archivo_tarea" id="archivo_tarea" multiple>
+                        <label class="custom-file-label" for="file">Seleccione Archivo</label>
                       </div>
                     </div>
                   </div>
@@ -377,10 +377,12 @@ $menu->footer();
 
   var mostrarTareas = function() {
     var tableTarea = $('#dataTableTarea').DataTable({
-      "processing": true,
-      "serverSide": false,
       "ajax": {
-        "url": "<?php echo constant('URL'); ?>tarea/readTable"
+        "processing": true,
+        "serverSide": false,
+        "type": "POST",
+        "url":"<?php echo constant('URL'); ?>tarea/readByIdProfesor",
+        "data": {id_profesor: '<?php echo $_SESSION['id']; ?>'},
       },
       "columns": [{
           "data": "id_grupo"
