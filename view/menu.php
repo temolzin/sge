@@ -320,7 +320,15 @@ class Menu
       </a>
       </li>
 
-
+      <li class="nav-item">
+      <a id="tutor" name="tutor" href="' . constant('URL') . 'tutor" class="nav-link">
+      <i class="nav-icon fas fa-user-tie"></i>
+      <p>
+      Tutores
+      </p>
+      </a>
+      </li>
+              
       <li class="nav-item">
       <a id="showTareaEntregada" name="showTareaEntregada" href="' . constant('URL') . 'tarea/showTareaEntregada" class="nav-link">
       <i class="nav-icon fas fa-book-reader"></i>
