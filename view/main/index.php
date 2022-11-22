@@ -390,6 +390,7 @@ $menu->header('Tablero');
             <div class="card-header" style="background-color:#f52c41; color:white">
                <h3 class="card-title">Administradores</h3>
                <div class="card-tools">
+                  <span class="badge badge-dark">Últimos registros</span>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                      <i class="fas fa-minus"></i>
                   </button>
@@ -405,7 +406,7 @@ $menu->header('Tablero');
             </div>
             <!-- /.card-body -->
             <div class="card-footer text-center">
-               <a href="<?php echo constant('URL') ?>administrador">Ver Todos</a>
+            <a href="<?php echo constant('URL') ?>administrador">Ver Todos</a>
             </div>
             <!-- /.card-footer -->
          </div>
@@ -417,7 +418,7 @@ $menu->header('Tablero');
             <div class="card-header" style="background-color:purple; color:white">
                <h3 class="card-title">Nuevos directivos</h3>
                <div class="card-tools">
-                  <span class="badge badge-dark">Ultimos registros</span>
+                  <span class="badge badge-dark">Últimos registros</span>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                      <i class="fas fa-minus"></i>
                   </button>
@@ -1013,7 +1014,7 @@ $menu->footer();
                   + elem.nombre_director + '/' + elem.foto_director 
                   : "public/img/default.jpg";
                   var htmlTags = '<li>' +
-                     '<img class="rounded-circle img-fluid" style="width:50%" src="'+urlImg+'"</img>' +
+                     '<img class="rounded-circle img-fluid" style="width:50%;" src="'+urlImg+'"</img>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
@@ -1039,8 +1040,7 @@ $menu->footer();
                   + elem.nombre_administrador + '/' + elem.foto_administrador 
                   : "public/img/default.jpg";
                   var htmlTags = '<li>' +
-                     '<img class="rounded-circle img-fluid" style="width:50%" src="'+urlImg+'"</img>' +
-                     '<br><br>' +
+                     '<img class="rounded-circle img-fluid" style="width:50%;" src="'+urlImg+'"</img>' +
                      '<a class="users-list-name">' + '<br>' + elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
                      '</li>';
