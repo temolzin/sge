@@ -24,6 +24,7 @@ $menu->header('tareaalumno_consulta');
                                     <th>Grupo</th>
                                     <th>Descripción</th>
                                     <th>Fecha Entrega</th>
+                                    <th>Calificación</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -140,6 +141,9 @@ $menu->footer();
                 },
                 {
                     "data": "fecha_entrega"
+                },
+                {
+                    "data": "calificacion_tarea"
                 },
 
                 {

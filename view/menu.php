@@ -85,6 +85,7 @@ class Menu
       </p>
       </a>
       </li>
+
    ';
             } else if ($tipo == 'alumno') {
 

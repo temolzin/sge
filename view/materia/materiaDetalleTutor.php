@@ -18,14 +18,14 @@ $menu->header('alumno_materia_consulta');
                     <div class="card-header">
                         <h3 class="card-header">Materias Del Alumno</h3>
                     </div>
-                    <!-- /.card-header -->
                     <div class="card-body">
                         <table id="dataTableAlumnoMateriaTutor" name="dataTableAlumnoMateriaTutor" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
-
                                     <th>Nombre materia</th>
                                     <th>Fecha</th>
+                                    <th>Hora de Inicio</th>
+                                    <th>Hora Fin</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -49,23 +49,16 @@ $menu->header('alumno_materia_consulta');
                         <h4 class="card-title">Materia <small> &nbsp;</small></h4>
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
-                    <!---->
                 </div>
-                <!-- /.card-header -->
-                <!-- form start -->
                 <form role="form" id="formConsulta" name="formConsulta">
                     <div class="card-body">
-
-
                         <div class="card border-red">
                             <div class="card-header py-1 bg-secondary ">
                                 <h3 class="card-title">Información Materia</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
-                                <!-- /.card-tools -->
                             </div>
-                            <!-- /.card-header -->
                             <div class="card-body border-primary">
                                 <div class="row">
                                     <div class="col-lg-4">
@@ -97,9 +90,7 @@ $menu->header('alumno_materia_consulta');
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div>
-                                <!-- /.card-tools -->
                             </div>
-                            <!-- /.card-header -->
                             <div class="card-body border-primary">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -112,7 +103,6 @@ $menu->header('alumno_materia_consulta');
                                 </div>
                             </div>
                         </div>
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         </div>
@@ -206,6 +196,12 @@ $menu->footer();
                 },
                 {
                     "data": "materia_fecha_horario"
+                },
+                {
+                    "data": "materia_horainicio_horario"
+                },
+                {
+                    "data": "materia_horafin_horario"
                 },
                 {
                     data: null,
