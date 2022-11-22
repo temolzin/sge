@@ -3,18 +3,21 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
 }
+$tipo = $_SESSION['tipo'];
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('tutor');
 ?>
 <section class="content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 text-right">
-                <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarTutor'> <i
-                        class="fas fa-plus-circle"></i> Registrar Tutor </button>
+        <?php if ($tipo == 'director') { ?>
+            <div class="row">
+                <div class="col-lg-12 text-right">
+                    <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarTutor'> <i
+                            class="fas fa-plus-circle"></i> Registrar Tutor </button>
+                </div>
             </div>
-        </div>
+        <?php } ?>
         <br>
         <div class="row">
             <div class="col-12">
@@ -22,7 +25,6 @@ $menu->header('tutor');
                     <div class="card-header">
                         <h3 class="card-header">Tutores</h3>
                     </div>
-                    <!-- /.card-header -->
                     <div class="card-body">
                         <table id="dataTableTutor" name="dataTableTutor"
                             class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
@@ -31,6 +33,8 @@ $menu->header('tutor');
                                     <th class="img-fluid" style="width: 50px; height:50px">Foto</th>
                                     <th>Nombre</th>
                                     <th>Alumno Asignado</th>
+                                    <th>Teléfono</th>
+                                    <th>E-Mail</th>
                                     <th>Escuela</th>
                                     <th>Opciones</th>
                                 </tr>
@@ -56,15 +60,9 @@ $menu->header('tutor');
                         <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal"
                             aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
-                    <!---->
-
                 </div>
-                <!-- /.card-header -->
-                <!-- form start -->
                 <form role="form" id="formRegistrarTutor" name="formRegistrarTutor" method="post">
                     <div class="card-body">
-
-
                         <div class="card border-red">
                             <div class="card-header py-1 bg-secondary ">
                                 <h3 class="card-title">Información tutor</h3>
@@ -72,9 +70,7 @@ $menu->header('tutor');
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                             class="fas fa-minus"></i></button>
                                 </div>
-                                <!-- /.card-tools -->
                             </div>
-                            <!-- /.card-header -->
                             <div class="card-body border-primary">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -105,7 +101,6 @@ $menu->header('tutor');
                                     </div>
 
                                 </div>
-
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
@@ -993,7 +988,6 @@ var mostrarTutores = function() {
                     + JsonResultRow.apmaterno_tutor;
                 }
             },
-             { "data": "nombre_alumno" },
             {
                 defaultContent: "",
                 "render": function(data, type, JsonResultRow, meta) {
@@ -1002,16 +996,28 @@ var mostrarTutores = function() {
                 }
             },
             {
+                "data": "telefono_tutor"
+            },
+            {
+                "data": "email_tutor"
+            },
+            {
                 "data": "nombre_escuela"
             },
             {
                 data: null,
-                "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleTutor' title="Ver Detalles">
-            <i class="fa fa-eye"></i></button>
-            <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarTutor' title="Editar Datos">
-            <i class="fa fa-edit"></i></button>
-            <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarTutor' title="Eliminar Registro">
-            <i class="far fa-trash-alt"></i></button>`
+                <?php if ($tipo == 'director') { ?>
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleTutor' title="Ver Detalles">
+                    <i class="fa fa-eye"></i></button>
+                    <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarTutor' title="Editar Datos">
+                    <i class="fa fa-edit"></i></button>
+                    <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarTutor' title="Eliminar Registro">
+                    <i class="far fa-trash-alt"></i></button>`
+                <?php } else { ?>
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleTutor' title="Ver Detalles">
+                    <i class="fa fa-eye"></i></button>`
+                <?php } ?>
+                
             }
         ],
         "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
