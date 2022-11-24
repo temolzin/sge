@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
 }
+$tipo = $_SESSION['tipo'];
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('director');
@@ -10,12 +11,14 @@ $menu->header('director');
 
 <section class="content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 text-right">
-                <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarDirectivo'> <i
-                        class="fas fa-plus-circle"></i> Registrar Directivo </button>
+        <?php if ($tipo == 'administrador') { ?>
+            <div class="row">
+                <div class="col-lg-12 text-right">
+                    <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarDirectivo'> <i
+                            class="fas fa-plus-circle"></i> Registrar Directivo </button>
+                </div>
             </div>
-        </div>
+        <?php } ?>
         <br>
         <div class="row">
             <div class="col-12">
@@ -74,9 +77,9 @@ $menu->header('director');
                                         <span><label>Fotografía director (*)</label></span>
                                         <div class="form-group input-group">
                                             <div class="custom-file">
-                                                <input type="file" accept="image/*" class="custom-file-input"
-                                                    name="foto_director" id="foto_director" lang="es">
-                                                <label class="custom-file-label" for="imagen">Seleccione
+                                                <input type="file" accept="image/*" class="custom-file-input form-control"
+                                                    name="foto_director" id="foto_director" lang="es" />
+                                                <label class="custom-file-label" for="foto_director">Seleccione
                                                     Fotografía</label>
                                             </div>
                                         </div>
@@ -156,7 +159,7 @@ $menu->header('director');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Correo electrónico (*)</label>
+                                            <label>Correo electrónico</label>
                                             <div class="input-group-prepend">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i
@@ -171,14 +174,14 @@ $menu->header('director');
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>RFC (*)</label>
+                                            <label>RFC</label>
                                             <input type="text" class="form-control" id="rfc_director"
                                                 name="rfc_director" placeholder="RFC" />
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>CURP (*)</label>
+                                            <label>CURP</label>
                                             <input type="text" class="form-control" id="curp_director"
                                                 name="curp_director" placeholder="CURP" />
                                         </div>
@@ -213,7 +216,7 @@ $menu->header('director');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label> Número interior (*)</label>
+                                            <label> Número interior</label>
                                             <input type="text" class="form-control" id="numinterior_director"
                                                 name="numinterior_director" placeholder="Número interior" />
                                         </div>
@@ -431,7 +434,7 @@ $menu->header('director');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Correo electrónico (*)</label>
+                                            <label>Correo electrónico</label>
                                             <div class="input-group-prepend">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i
@@ -447,14 +450,14 @@ $menu->header('director');
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>RFC (*)</label>
+                                            <label>RFC</label>
                                             <input type="text" class="form-control" id="rfc_directorActualizar"
                                                 name="rfc_directorActualizar" placeholder="RFC" />
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>CURP (*)</label>
+                                            <label>CURP</label>
                                             <input type="text" class="form-control" id="curp_directorActualizar"
                                                 name="curp_directorActualizar" placeholder="CURP" />
                                         </div>
@@ -490,7 +493,7 @@ $menu->header('director');
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label> Número interior (*)</label>
+                                                <label> Número interior</label>
                                                 <input type="text" class="form-control"
                                                     id="numinterior_directorActualizar"
                                                     name="numinterior_directorActualizar"
@@ -1037,9 +1040,13 @@ var mostrarDirectivos = function() {
             },
             {
                 data: null,
-                "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleDirectivo' title="Ver Detalles"><i class="fa fa-eye"></i></button>
-            <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarDirectivo' title="Editar Datos"><i class="fa fa-edit"></i></button>
-            <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarDirectivo' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
+                <?php if ($tipo == 'administrador') { ?>
+                    "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleDirectivo' title="Ver Detalles"><i class="fa fa-eye"></i></button>
+                    <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarDirectivo' title="Editar Datos"><i class="fa fa-edit"></i></button>
+                    <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarDirectivo' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
+                <?php } else { ?>
+                        defaultContent: `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetalleDirectivo' title="Ver Detalles"><i class="fa fa-eye"></i></button>`
+                <?php } ?>
             }
         ],
         "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {
@@ -1159,7 +1166,7 @@ var enviarFormularioRegistrar = function() {
                     var idUsuario = id_usuario;
                     var form_data = new FormData();
                     var imagen = '<?php echo constant('URL'); ?>public/img/default.jpg';
-                    if (('#foto_director').val() != null) {
+                    if ($('#foto_director').val() != null) {
                         imagen = $('#foto_director').prop('files')[0];
                     }
                     form_data.append('id_usuario', idUsuario);
@@ -1254,6 +1261,15 @@ var enviarFormularioRegistrar = function() {
     });
     $('#formRegistrarDirectivo').validate({
         rules: {
+            foto_director: {
+                required: true
+            },
+            username_usuario: {
+                required: true
+            },
+            password_usuario: {
+                required: true
+            },
             nombre_director: {
                 required: true
             },
@@ -1279,17 +1295,10 @@ var enviarFormularioRegistrar = function() {
                 required: true,
                 number: true
             },
-            email_director: {
-                required: true,
-                email: true
-            },
             calle_director: {
                 required: true
             },
             numexterior_director: {
-                required: true
-            },
-            numinterior_director: {
                 required: true
             },
             codigoPostal: {
@@ -1297,25 +1306,28 @@ var enviarFormularioRegistrar = function() {
                 number: true
             },
             selectEstado: {
-                selectRequired: true
+                selectRequired: "default"
             },
             selectMunicipio: {
-                selectRequired: true
+                selectRequired: "default"
             },
             selectColonia: {
-                selectRequired: true
+                selectRequired: "default"
             },
             cedulaprofesional_director: {
                 required: true
             },
-            rfc_director: {
-                required: true
-            },
-            curp_director: {
-                required: true
-            }
         },
         messages: {
+            foto_director: {
+                required: "Ingrese su fotografía"
+            },
+            username_usuario: {
+                required: "Ingrese su usuario"
+            },
+            password_usuario: {
+                required: "Ingrese su contraseña"
+            },
             nombre_director: {
                 required: "Ingrese su nombre"
             },
@@ -1341,18 +1353,11 @@ var enviarFormularioRegistrar = function() {
                 required: "Ingrese su teléfono",
                 number: "Sólo números"
             },
-            email_director: {
-                required: "Ingrese su email",
-                email: "Debe llevar el formato de correo electrónico"
-            },
             calle_director: {
                 required: "Ingrese su calle"
             },
             numexterior_director: {
                 required: "Ingrese su no. exterior"
-            },
-            numinterior_director: {
-                required: "Ingrese su no. interior"
             },
             codigoPostal: {
                 required: "Ingrese su código postal",
@@ -1370,12 +1375,6 @@ var enviarFormularioRegistrar = function() {
             cedulaprofesional_director: {
                 required: "Ingrese su cédula profesional"
             },
-            rfc_director: {
-                required: "Ingrese su RFC"
-            },
-            curp_director: {
-                required: "Ingrese su CURP"
-            }
         },
         errorElement: 'span',
         errorPlacement: function(error, element) {

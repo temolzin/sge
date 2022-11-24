@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['tipo'])) {
     header("Location:usuario");
 }
+$tipo = $_SESSION['tipo'];
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Pago');
@@ -362,8 +363,8 @@ $menu->footer();
                 {
                     data: null,
                     "defaultContent": `<button class='consulta btn btn-primary' data-toggle='modal' data-target='#modalDetallePago' title="Ver Detalles"><i class="fa fa-eye"></i></button>
-                         <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarPago' title="Editar Datos"><i class="fa fa-edit"></i></button>
-                         <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarPago' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
+                    <button class='editar btn btn-warning' data-toggle='modal' data-target='#modalActualizarPago' title="Editar Datos"><i class="fa fa-edit"></i></button>
+                    <button class='eliminar btn btn-danger' data-toggle='modal' data-target='#modalEliminarPago' title="Eliminar Registro"><i class="far fa-trash-alt"></i></button>`
                 }
             ],
             "fnFooterCallback": function(nRow, aaData, iStart, iEnd, aiDisplay) {

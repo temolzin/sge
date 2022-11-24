@@ -257,6 +257,14 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
+      <a id="pago" name="pago" href="' . constant('URL') . 'pago" class="nav-link">
+      <i class="nav-icon fas fa-money-check-alt"></i>
+      <p>
+      Pagos
+      </p>
+      </a>
+      </li>
+      <li class="nav-item">
       <a id="grupo" name="grupo" href="' . constant('URL') . 'grupo/index" class="nav-link">
       <i class="nav-icon fas fa-chalkboard-teacher"></i>
       <p>
@@ -269,14 +277,6 @@ class Menu
       <i class="nav-icon fas fa-calendar-alt"></i>
       <p>
       Horarios
-      </p>
-      </a>
-      </li>
-      <li class="nav-item">
-      <a id="pago" name="pago" href="' . constant('URL') . 'pago" class="nav-link">
-      <i class="nav-icon fas fa-money-check-alt"></i>
-      <p>
-      Pagos
       </p>
       </a>
       </li>
