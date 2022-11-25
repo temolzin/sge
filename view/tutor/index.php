@@ -158,7 +158,7 @@ $menu->header('tutor');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Correo electrónico (*)</label>
+                                            <label>Correo electrónico</label>
                                             <div class="input-group-prepend">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i
@@ -203,7 +203,7 @@ $menu->header('tutor');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label> Número interior (*)</label>
+                                            <label> Número interior</label>
                                             <input type="text" class="form-control" id="nointerior_tutor"
                                                 name="nointerior_tutor" placeholder="Número interior" />
                                         </div>
@@ -418,7 +418,7 @@ $menu->header('tutor');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Correo electrónico (*)</label>
+                                            <label>Correo electrónico</label>
                                             <div class="input-group-prepend">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i
@@ -463,7 +463,7 @@ $menu->header('tutor');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label> Número interior (*)</label>
+                                            <label> Número interior</label>
                                             <input type="text" class="form-control" id="nointerior_tutorActualizar"
                                                 name="nointerior_tutorActualizar" placeholder="Número interior" />
                                         </div>
@@ -1204,6 +1204,15 @@ var enviarFormularioRegistrar = function() {
     });
     $('#formRegistrarTutor').validate({
         rules: {
+            foto_tutor: {
+                required: true
+            },
+            username_usuario: {
+                required: true
+            },
+            password_usuario: {
+                required: true
+            },
             nombre_tutor: {
                 required: true
             },
@@ -1229,17 +1238,10 @@ var enviarFormularioRegistrar = function() {
                 required: true,
                 number: true
             },
-            email_tutor: {
-                required: true,
-                email: true
-            },
             calle_tutor: {
                 required: true
             },
             noexterior_tutor: {
-                required: true
-            },
-            nointerior_tutor: {
                 required: true
             },
             codigoPostal: {
@@ -1247,16 +1249,25 @@ var enviarFormularioRegistrar = function() {
                 number: true
             },
             selectEstado: {
-                selectRequired: true
+                selectRequired: "default"
             },
             selectMunicipio: {
-                selectRequired: true
+                selectRequired: "default"
             },
             selectColonia: {
-                selectRequired: true
+                selectRequired: "default"
             }
         },
         messages: {
+            foto_tutor: {
+                required: "Ingrese su fotografía"
+            },
+            username_usuario: {
+                required: "Ingrese su usuario"
+            },
+            password_usuario: {
+                required: "Ingrese su contraseña"
+            },
             nombre_tutor: {
                 required: "Ingrese su nombre"
             },
@@ -1282,18 +1293,11 @@ var enviarFormularioRegistrar = function() {
                 required: "Ingrese su teléfono",
                 number: "Sólo números"
             },
-            email_tutor: {
-                required: "Ingrese su email",
-                email: "Debe llevar el formato de correo electrónico"
-            },
             calle_tutor: {
                 required: "Ingrese su calle"
             },
             noexterior_tutor: {
                 required: "Ingrese su no. exterior"
-            },
-            nointerior_tutor: {
-                required: "Ingrese su no. interior"
             },
             codigoPostal: {
                 required: "Ingrese su código postal",
@@ -1412,6 +1416,15 @@ var enviarFormularioActualizar = function() {
 
     $('#formActualizarTutor').validate({
         rules: {
+            foto_tutorActualizar: {
+                required: true
+            },
+            username_usuarioActualizar: {
+                required: true
+            },
+            password_usuarioActualizar: {
+                required: true
+            },
             nombre_tutorActualizar: {
                 required: true
             },
@@ -1437,17 +1450,10 @@ var enviarFormularioActualizar = function() {
                 required: true,
                 number: true
             },
-            email_tutorActualizar: {
-                required: true,
-                email: true
-            },
             calle_tutorActualizar: {
                 required: true
             },
             noexterior_tutorActualizar: {
-                required: true
-            },
-            nointerior_tutorActualizar: {
                 required: true
             },
             codigoPostalActualizar: {
@@ -1465,6 +1471,15 @@ var enviarFormularioActualizar = function() {
             }
         },
         messages: {
+            foto_tutorActualizar: {
+                required: "Ingrese su fotografía"
+            },
+            username_usuarioActualizar: {
+                required: "Ingrese su usuario"
+            },
+            password_usuarioActualizar: {
+                required: "Ingrese su contraseña"
+            },
             nombre_tutorActualizar: {
                 required: "Ingrese su nombre"
             },
@@ -1490,18 +1505,11 @@ var enviarFormularioActualizar = function() {
                 required: "Ingrese su teléfono",
                 number: "Sólo números"
             },
-            email_tutorActualizar: {
-                required: "Ingrese su email",
-                email: "Debe llevar el formato de correo electrónico"
-            },
             calle_tutorActualizar: {
                 required: "Ingrese su calle"
             },
             noexterior_tutorActualizar: {
                 required: "Ingrese su no. exterior"
-            },
-            nointerior_tutorActualizar: {
-                required: "Ingrese su no. interior"
             },
             codigoPostalActualizar: {
                 required: "Ingrese su código postal",

@@ -78,7 +78,7 @@ $menu->header('escuela');
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Nombre Escuela</label>
+                                            <label>Nombre Escuela(*)</label>
                                             <input type="text" class="form-control" id="nombre_escuela" name="nombre_escuela" placeholder="Nombre Escuela" />
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@ $menu->header('escuela');
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>CCT</label>
+                                            <label>CCT(*)</label>
                                             <input type="text" class="form-control" id="cct_escuela" name="cct_escuela" placeholder="CCT" />
                                         </div>
                                     </div>
@@ -138,14 +138,14 @@ $menu->header('escuela');
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Calle Escuela</label>
+                                            <label>Calle Escuela(*)</label>
                                             <input class="form-control" name="calle_escuela" id="calle_escuela" placeholder="Calle Escuela" />
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Numero Exterior</label>
+                                            <label>Numero Exterior(*)</label>
                                             <input type="text" class="form-control" id="numxterior_escuela" name="numxterior_escuela" placeholder="Numero Exterior" />
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@ $menu->header('escuela');
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Nombre Escuela</label>
+                                            <label>Nombre Escuela(*)</label>
                                             <input type="text" class="form-control" id="nombre_escuelaActualizar" name="nombre_escuelaActualizar" placeholder="Nombre Escuela" />
                                         </div>
                                     </div>
@@ -267,13 +267,13 @@ $menu->header('escuela');
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>CCT</label>
+                                            <label>CCT(*)</label>
                                             <input type="text" class="form-control" id="cct_escuelaActualizar" name="cct_escuelaActualizar" placeholder="CCT" />
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Telefono</label>
+                                            <label>Telefono(*)</label>
                                             <div class="input-group-prepend">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -323,7 +323,7 @@ $menu->header('escuela');
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Calle Escuela</label>
+                                            <label>Calle Escuela(*)</label>
                                             <input class="form-control" name="calle_escuelaActualizar" id="calle_escuelaActualizar" placeholder="Calle Escuela" />
 
                                         </div>
@@ -332,7 +332,7 @@ $menu->header('escuela');
 
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Numero Exterior</label>
+                                            <label>Numero Exterior(*)</label>
                                             <input type="text" class="form-control" id="numxterior_escuelaActualizar" name="numxterior_escuelaActualizar" placeholder="Numero Exterior" />
                                         </div>
                                     </div>
@@ -352,7 +352,7 @@ $menu->header('escuela');
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Estado</label>
+                                            <label>Estado(*)</label>
                                             <select class="form-control estado" id="selectEstadoActualizar" name="selectEstadoActualizar" placeholder="Estado">
                                                 <option value="default">Selecciona el Estado</option>
                                             </select>
@@ -360,7 +360,7 @@ $menu->header('escuela');
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Municipio</label>
+                                            <label>Municipio(*)</label>
                                             <select class="form-control municipio" id="selectMunicipioActualizar" name="selectMunicipioActualizar" placeholder="Municipio">
                                                 <option value="default">Selecciona el Municipio</option>
                                             </select>
@@ -368,7 +368,7 @@ $menu->header('escuela');
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Colonia</label>
+                                            <label>Colonia(*)</label>
                                             <select class="form-control colonia" id="selectColoniaActualizar" name="selectColoniaActualizar" placeholder="Municipio">
                                                 <option value="default">Selecciona la Colonia</option>
                                             </select>
@@ -784,6 +784,9 @@ $menu->footer();
     $('#formRegistrarEscuela').on('submit', function(e) {
        datosInsertar = new FormData(this);
     });
+    $.validator.addMethod("selectRequired", function(value, element, arg) {
+      return arg !== value;
+    }, "Selecciona un valor");
     var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
             submitHandler: function(e) {
@@ -827,10 +830,10 @@ $menu->footer();
                     required: true,
                     number: true
                 },
-                nombre_escuela: {
+                foto_escuela: {
                     required: true
                 },
-                rfc_escuela: {
+                nombre_escuela: {
                     required: true
                 },
                 cct_escuela: {
@@ -842,8 +845,18 @@ $menu->footer();
                 numxterior_escuela: {
                     required: true
                 },
-                numinterior_escuela: {
-                    required: true
+                codigoPostal: {
+                    required: true,
+                    number: true
+                },
+                selectEstado: {
+                    selectRequired: "default"
+                },
+                selectMunicipio: {
+                    selectRequired: "default"
+                },
+                selectColonia: {
+                    selectRequired: "default"
                 },
                 telefono_escuela: {
 
@@ -853,20 +866,17 @@ $menu->footer();
                 email_escuela: {
                     required: true
                 },
-                observacion_escuela: {
-                    required: true
-                }
             },
             messages: {
                 id_escuela: {
                     required: "Ingresa una matrícula",
                     number: "Sólo números"
                 },
+                foto_escuela: {
+                    required: "Ingresa Fotografía"
+                },
                 nombre_escuela: {
                     required: "Ingresa un nombre"
-                },
-                rfc_escuela: {
-                    required: "Ingresa un apellido paterno"
                 },
                 cct_escuela: {
                     required: "Ingresa un apellido materno"
@@ -874,8 +884,18 @@ $menu->footer();
                 numxterior_escuela: {
                     required: "Ingresa el numero Exterior"
                 },
-                numinterior_escuela: {
-                    required: "Ingresa el numero Interior"
+                codigoPostal: {
+                    required: "Ingrese su código postal",
+                    number: "Sólo números"
+                },
+                selectEstado: {
+                    selectRequired: "Ingrese su estado"
+                },
+                selectMunicipio: {
+                    selectRequired: "Ingrese su municipio"
+                },
+                selectColonia: {
+                    selectRequired: "Ingrese su colonia"
                 },
                 telefono_escuela: {
                     required: "Ingresa el numero Telefono"
@@ -883,9 +903,6 @@ $menu->footer();
                 email_escuela: {
                     required: "Ingresa un email"
                 },
-                observacion_escuela: {
-                    required: "Ingrese una observacion"
-                }
             },
             errorElement: 'span',
             errorPlacement: function(error, element) {
@@ -948,10 +965,10 @@ $menu->footer();
                     required: true,
                     number: true
                 },
-                nombre_escuela: {
+                foto_escuela: {
                     required: true
                 },
-                rfc_escuela: {
+                nombre_escuela: {
                     required: true
                 },
                 cct_escuela: {
@@ -963,7 +980,16 @@ $menu->footer();
                 numxterior_escuela: {
                     required: true
                 },
-                numinterior_escuela: {
+                codigoPostal: {
+                    required: true 
+                },
+                selectEstado: {
+                    required: true
+                },
+                selectMunicipio: {
+                    required: true
+                },
+                selectColonia: {
                     required: true
                 },
                 telefono_escuela: {
@@ -973,20 +999,17 @@ $menu->footer();
                 email_escuela: {
                     required: true
                 },
-                observacion_escuela: {
-                    required: true
-                }
             },
             messages: {
                 id_escuela: {
                     required: "Ingresa una matrícula",
                     number: "Sólo números"
                 },
+                foto_escuela: {
+                    required: "Ingresa Fotografía"
+                },
                 nombre_escuela: {
                     required: "Ingresa un nombre"
-                },
-                rfc_escuela: {
-                    required: "Ingresa un apellido paterno"
                 },
                 cct_escuela: {
                     required: "Ingresa un apellido materno"
@@ -994,8 +1017,18 @@ $menu->footer();
                 numxterior_escuela: {
                     required: "Ingresa el numero Exterior"
                 },
-                numinterior_escuela: {
-                    required: "Ingresa el numero Interior"
+                codigoPostal: {
+                    required: "Ingrese Codigo Postal",
+                    number: "Sólo números" 
+                },
+                selectEstado: {
+                    required: "Seleccione Estado"
+                },
+                selectMunicipio: {
+                    required: "Seleccione Municipio"
+                },
+                selectColonia: {
+                    required: "Seleccione Colonia"
                 },
                 telefono_escuela: {
                     required: "Ingresa el numero Telefono"
@@ -1003,9 +1036,6 @@ $menu->footer();
                 email_escuela: {
                     required: "Ingresa un email"
                 },
-                observacion_escuela: {
-                    required: "Ingrese una observacion"
-                }
             },
             errorElement: 'span',
             errorPlacement: function(error, element) {

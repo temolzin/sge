@@ -377,7 +377,9 @@
           var turno_grupo = $("#turno_grupoConsultar").val(data.turno_grupo);
         });
       }
-
+      $.validator.addMethod("selectRequired", function(value, element, arg) {
+        return arg !== value;
+      }, "Selecciona un valor");
       var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
           submitHandler: function() {
@@ -408,36 +410,25 @@
         });
         $('#formRegistrarGrupo').validate({
           rules: {
-            id_grupo: {
-              required: true,
-              number: true
-            },
-
             id_escuela: {
-              required: true
+              selectRequired: "default"
             },
-
             nombre_grupo: {
               required: true
             },
-
             turno_grupo: {
-              required: true
+              selectRequired: "default"
             }
           },
           messages: {
-            id_grupo: {
-              required: "Ingresa una matrícula",
-              number: "Sólo números"
-            },
             id_escuela: {
-              required: "Ingresa un id escuela"
+              selectRequired: "Ingresa una escuela"
             },
             nombre_grupo: {
               required: "Ingresa un nombre "
             },
             turno_grupo: {
-              required: "Ingresa turno"
+              selectRequired: "Ingresa turno"
             }
 
 
@@ -486,46 +477,25 @@
         });
         $('#formActualizarGrupo').validate({
           rules: {
-            id_grupoActualizar: {
-              required: true,
-              number: true
-            },
-
-
             id_escuelaActualizar: {
-              required: true
+              selectRequired: "default"
             },
-
-
             nombre_grupoActualizar: {
               required: true
             },
-
-
             turno_grupoActualizar: {
-              required: true
+              selectRequired: "default"
             }
-
           },
           messages: {
-            id_grupoActualizar: {
-              required: "Ingresa una id",
-              number: "Sólo números"
-            },
-
-
             id_escuelaActualizar: {
-              required: "Ingresa un id escuela"
+              selectRequired: "Ingresa una escuela"
             },
-
-
             nombre_grupoActualizar: {
-              required: "Ingresa un nombre"
+              required: "Ingresa un nombre "
             },
-
-
             turno_grupoActualizar: {
-              required: "Ingresa turno"
+              selectRequired: "Ingresa turno"
             }
           },
           errorElement: 'span',
