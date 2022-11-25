@@ -638,7 +638,15 @@ session_start();
            required: true,
            number: true
          },
-
+         foto_administrador: {
+          required: true
+         },
+         username_usuario:{
+          required: true
+         },
+         password_usuario:{
+          required: true
+         },
          nombre_administrador: {
            required: true
          },
@@ -681,7 +689,15 @@ session_start();
          id_usuario: {
            required: "Ingresa un id_usuario"
          },
-
+         foto_administrador: {
+           required: "Ingresa tu Fotografía"
+         },
+         username_usuario:{
+          required: "Ingresa tu Usuario"
+         },
+         password_usuario:{
+          required: "Ingresa tu Contraseña"
+         },
          nombre_administrador: {
            required: "Ingresa tu Nombre"
          },

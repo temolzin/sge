@@ -538,7 +538,9 @@
           var descripcion_incidenciaConsulta = $("#descripcion_incidenciaConsultar").val(data.descripcion_incidencia);
         });
       }
-
+      $.validator.addMethod("selectRequired", function(value, element, arg) {
+        return arg !== value;
+      }, "Selecciona un valor");
       var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
           submitHandler: function() {
@@ -569,14 +571,19 @@
         });
         $('#formRegistrarIncidencias').validate({
           rules: {
-            id_incidencia: {
-              required: true,
-              number: true
-            },
-            id_incidencia: {
-              required: true
+            id_alumno: {
+              selectRequired: "default"
             },
             id_profesor: {
+              selectRequired: "default"
+            },
+            id_grupo:{
+              selectRequired: "default"
+            },
+            fechaincidencia_incidencia: {
+              required: true
+            },
+            horaincidencia_incidencia:{
               required: true
             },
             descripcion_incidencia: {
@@ -584,15 +591,20 @@
             }
           },
           messages: {
-            id_incidencia: {
-              required: "Ingresa una matrícula",
-              number: "Sólo números"
-            },
-            id_incidencia: {
-              required: "Ingresa un id_incidencia"
+            id_alumno: {
+              selectRequired: "Ingresa alumno"
             },
             id_profesor: {
-              required: "Ingresa un id_profesor"
+              selectRequired: "Ingresa profesor"
+            },
+            id_grupo:{
+              selectRequired: "Ingresa grupo"
+            },
+            fechaincidencia_incidencia: {
+              required: "Ingresa fecha"
+            },
+            horaincidencia_incidencia:{
+              required: "Ingresa hora"
             },
             descripcion_incidencia: {
               required: "Ingresa un descripcion_incidencia"
@@ -642,13 +654,19 @@
         });
         $('#formActualizarIncidencia').validate({
           rules: {
-            id_incidenciaActualizar: {
-              required: true,
-              number: true
+            id_alumnoActualizar: {
+              selectRequired: "default"
             },
-
-
             id_profesorActualizar: {
+              selectRequired: "default"
+            },
+            id_grupoActualizar:{
+              selectRequired: "default"
+            },
+            fechaincidencia_incidenciaActualizar: {
+              required: true
+            },
+            horaincidencia_incidenciaActualizar:{
               required: true
             },
             descripcion_incidenciaActualizar: {
@@ -657,14 +675,20 @@
 
           },
           messages: {
-            id_incidenciaActualizar: {
-              required: "Ingresa una matrícula",
-              number: "Sólo números"
+            id_alumnoActualizar: {
+              selectRequired: "Ingresa alumno"
             },
-
-
             id_profesorActualizar: {
-              required: "Ingresa un id_profesor"
+              selectRequired: "Ingresa profesor"
+            },
+            id_grupoActualizar:{
+              selectRequired: "Ingresa grupo"
+            },
+            fechaincidencia_incidenciaActualizar: {
+              required: "Ingresa fecha"
+            },
+            horaincidencia_incidenciaActualizar:{
+              required: "Ingresa hora"
             },
             descripcion_incidenciaActualizar: {
               required: "Ingresa un descripcion_incidencia"

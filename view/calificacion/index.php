@@ -525,6 +525,9 @@
           var fecha_calificacionConsulta = $("#fecha_calificacionConsultar").val(data.fecha_calificacion);
         });
       }
+      $.validator.addMethod("selectRequired", function(value, element, arg) {
+        return arg !== value;
+      }, "Selecciona un valor");
       var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
           submitHandler: function() {
@@ -555,14 +558,22 @@
         });
         $('#formRegistrarCalificacion').validate({
           rules: {
-            id_calificacion: {
-              required: true,
-              number: true
+            id_profesor: {
+              selectRequired: "default"
             },
-            id_calificacion: {
+            id_alumno: {
+              selectRequired: "default"
+            },
+            id_parcial: {
+              selectRequired: "default"
+            },
+            id_materia: {
+              selectRequired: "default"
+            },
+            calificacion: {
               required: true
             },
-            id_profesor: {
+            fecha_calificacion: {
               required: true
             },
             observacion_calificacion: {
@@ -570,18 +581,23 @@
             }
           },
           messages: {
-            id_calificacion: {
-              required: "Ingresa una matrícula",
-              number: "Sólo números"
-            },
-            id_calificacion: {
-              required: "Ingresa un id_calificacion"
-            },
             id_profesor: {
-              required: "Ingresa un id_profesor"
+              selectrequired: "Ingresa un profesor"
+            },
+            id_alumno: {
+              selectRequired: "Ingresa un alumno"
+            },
+            id_parcial: {
+              selectRequired: "Ingresa un parcial"
+            },
+            id_materia: {
+              selectRequired: "Ingresa una materia"
+            },
+            calificacion: {
+              required: "Ingresa la calificación"
             },
             observacion_calificacion: {
-              required: "Ingresa un observacion_calificacion"
+              required: "Ingresa observación"
             }
           },
           errorElement: 'span',
@@ -633,16 +649,16 @@
               number: true
             },
             id_profesorActualizar: {
-              required: true
+              selectRequired: "default"
             },
             id_alumnoActualizar: {
-              required: true
+              selectRequired: "default"
             },
             id_parcialActualizar: {
-              required: true
+              selectRequired: "default"
             },
             id_materiaActualizar: {
-              required: true
+              selectRequired: "default"
             },
             calificacionActualizar: {
               required: true

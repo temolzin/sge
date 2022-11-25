@@ -121,7 +121,7 @@
                                </div>
                             </div>
                             <div class="col-lg-4">
-                               <label>Email (*)</label>
+                               <label>Email</label>
                                <div class="input-group-prepend">
                                   <div class="input-group-prepend">
                                      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -192,7 +192,7 @@
                             </div>
                             <div class="col-lg-3">
                                <div class="form-group">
-                                  <label>No. interior (*)</label>
+                                  <label>No. interior</label>
                                   <input type="text" class="form-control" id="nointerior_alumno" name="nointerior_alumno" placeholder="No. interior " />
                                </div>
                             </div>
@@ -271,7 +271,7 @@
                             <input type="text" hidden class="form-control" id="id_alumnoActualizar" name="id_alumnoActualizar" />
                             <input type="text" hidden class="form-control" id="id_usuarioActualizar" name="id_usuarioActualizar" placeholder="Introduce idusuario" />
                             <div class="col-lg-12">
-                               <span><label>Foto</label></span>
+                               <span><label>Foto(*)</label></span>
                                <br>
                                <div class="form-group input-group">
                                   <div class="custom-file">
@@ -282,19 +282,19 @@
                             </div>
                             <div class="col-lg-6">
                                <div class="form-group">
-                                  <label>Usuario</label>
+                                  <label>Usuario(*)</label>
                                   <input type="text" class="form-control" id="username_usuarioActualizar" name="username_usuarioActualizar" placeholder="Usuario" />
                                </div>
                             </div>
                             <div class="col-lg-6">
                                <div class="form-group">
-                                  <label>Contraseña</label>
+                                  <label>Contraseña(*)</label>
                                   <input type="password" class="form-control" id="password_usuarioActualizar" name="password_usuarioActualizar" placeholder="Contraseña" />
                                </div>
                             </div>
 
                             <div class="col-lg-4">
-                               <label>Nombre(s)</label>
+                               <label>Nombre(s)(*)</label>
                                <div class="input-group mb-3">
                                   <div class="input-group-prepend">
                                      <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -304,18 +304,18 @@
                             </div>
                             <div class="col-lg-4">
                                <div class="form-group">
-                                  <label>Apellido Paterno</label>
+                                  <label>Apellido Paterno(*)</label>
                                   <input onkeypress="return soloLetras(event)" type="text" class="form-control" id="appaterno_alumnoActualizar" name="appaterno_alumnoActualizar" placeholder="Introduce el Apellido paterno" />
                                </div>
                             </div>
                             <div class="col-lg-4">
                                <div class="form-group">
-                                  <label>Apellido Materno</label>
+                                  <label>Apellido Materno(*)</label>
                                   <input onkeypress="return soloLetras(event)" type="text" class="form-control" id="apmaterno_alumnoActualizar" name="apmaterno_alumnoActualizar" placeholder="Introduce el Apellido materno" />
                                </div>
                             </div>
                             <div class="col-lg-4">
-                               <label>Teléfono</label>
+                               <label>Teléfono(*)</label>
                                <div class="input-group-prepend">
                                   <div class="input-group-prepend">
                                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -334,7 +334,7 @@
                             </div>
                             <div class="col-lg-4">
                                <div class="form-group">
-                                  <label>Fecha Nacimiento</label>
+                                  <label>Fecha Nacimiento(*)</label>
                                   <input type="date" class="form-control" id="fechanacimiento_alumnoActualizar" name="fechanacimiento_alumnoActualizar" placeholder="Introduce la fecha de nacimiento" />
                                </div>
                             </div>
@@ -354,7 +354,7 @@
                          <div class="row">
                             <div class="col-lg-6">
                                <div class="form-group">
-                                  <label>Grupo </label>
+                                  <label>Grupo (*)</label>
                                   <select name="id_grupoActualizar" id="id_grupoActualizar" class="form-control id_grupo">
                                      <option value="default">Seleccione un grupo</option>
                                   </select>
@@ -362,7 +362,7 @@
                             </div>
                             <div class="col-lg-6">
                                <div class="form-group">
-                                  <label>Escuela </label>
+                                  <label>Escuela (*)</label>
                                   <select name="id_escuelaActualizar" id="id_escuelaActualizar" class="form-control id_escuela">
                                      <option value="default">Seleccione su escuela</option>
                                   </select>
@@ -384,13 +384,13 @@
                          <div class="row">
                             <div class="col-12 col-md-6">
                                <div class="form-group">
-                                  <label>Calle </label>
+                                  <label>Calle(*) </label>
                                   <input type="text" class="form-control" id="calle_alumnoActualizar" name="calle_alumnoActualizar" placeholder="Calle" />
                                </div>
                             </div>
                             <div class="col-lg-3">
                                <div class="form-group">
-                                  <label>No. exterior </label>
+                                  <label>No. exterior (*)</label>
                                   <input type="text" class="form-control" id="noexterior_alumnoActualizar" name="noexterior_alumnoActualizar" placeholder="No. exterior" />
                                </div>
                             </div>
@@ -402,13 +402,13 @@
                             </div>
                             <div class="col-lg-3">
                                <div class="form-group">
-                                  <label>Código Postal </label>
+                                  <label>Código Postal (*)</label>
                                   <input onfocusout="findCpActualizar(this);" type="text" class="form-control" id="codigoPostalActualizar" name="codigoPostalActualizar" placeholder="Codigo Postal" />
                                </div>
                             </div>
                             <div class="col-lg-3">
                                <div class="form-group">
-                                  <label>Estado </label>
+                                  <label>Estado (*)</label>
                                   <select name="selectEstadoActualizar" id="selectEstadoActualizar" class="form-control selectEstadoActualizar">
                                      <option value="default">Estado</option>
                                   </select>
@@ -416,7 +416,7 @@
                             </div>
                             <div class="col-lg-3">
                                <div class="form-group">
-                                  <label>Municipio </label>
+                                  <label>Municipio (*)</label>
                                   <select name="selectMunicipioActualizar" id="selectMunicipioActualizar" class="form-control selectMunicipioActualizar">
                                      <option value="default">Municipio</option>
                                   </select>
@@ -424,7 +424,7 @@
                             </div>
                             <div class="col-lg-3">
                                <div class="form-group">
-                                  <label>Colonia </label>
+                                  <label>Colonia (*)</label>
                                   <select name="selectColoniaActualizar" id="selectColoniaActualizar" class="form-control selectColoniaActualizar">
                                      <option value="default">Colonia</option>
                                   </select>
@@ -869,6 +869,9 @@
           var colonia_alumnoConsulta = $("#selectColoniaConsultar").val(data.colonia_alumno);
        });
     }
+   $.validator.addMethod("selectRequired", function(value, element, arg) {
+      return arg !== value;
+   }, "Selecciona un valor");
     var enviarFormularioRegistrar = function() {
        $.validator.setDefaults({
           submitHandler: function() {
@@ -958,6 +961,15 @@
                required: true,
                number: true
             },
+            foto_alumno: {
+                required: true
+            },
+            username_usuario: {
+                required: true
+            },
+            password_usuario: {
+                required: true
+            },
             nombre_alumno: {
                required: true
             },
@@ -973,18 +985,25 @@
             noexterior_alumno: {
                required: true
             },
-            nointerior_alumno: {
-               required: true
-            },
             telefono_alumno: {
-               required: true
-            },
-            email_alumno: {
                required: true
             },
             fechanacimiento_alumno: {
                required: true
-            }
+            },
+            codigoPostal: {
+               required: true,
+               number: true
+            },
+            selectEstado: {
+               selectRequired: "default"
+            },
+            selectMunicipio: {
+               selectRequired: "default"
+            },
+            selectColonia: {
+               selectRequired: "default"
+            },
          },
             messages: {
             id_alumno: {
@@ -999,6 +1018,15 @@
             },
             id_usuario: {
                required: "Ingresa un id_usuario"
+            },
+            foto_alumno: {
+                required: "Ingrese su fotografía"
+            },
+            username_usuario: {
+                required: "Ingrese su usuario"
+            },
+            password_usuario: {
+                required: "Ingrese su contraseña"
             },
             nombre_alumno: {
                required: "Ingresa tu Nombre"
@@ -1015,14 +1043,21 @@
             noexterior_alumno: {
                required: "Ingresa tu Nº Exterior"
             },
-            nointerior_alumno: {
-               required: "Ingresa tu Nº Interior"
-            },
             telefono_alumno: {
                required: "Ingresa un telefono"
             },
-            email_alumno: {
-               required: "Ingresa tu correo electronico"
+            codigoPostal: {
+               required: "Ingrese su código postal",
+               number: "Sólo números"
+            },
+            selectEstado: {
+                selectRequired: "Ingrese su estado"
+            },
+            selectMunicipio: {
+                selectRequired: "Ingrese su municipio"
+            },
+            selectColonia: {
+                selectRequired: "Ingrese su colonia"
             },
             fechanacimiento_alumno: {
                required: "Ingresa tu  fecha de nacimiento"
@@ -1127,9 +1162,15 @@
              id_usuarioActualizar: {
                 required: true
              },
-             // foto_alumnoActualizar: {
-             //        required: true
-             //      },
+             foto_alumnoActualizar: {
+                required: true
+             },
+             username_usuarioActualizar: {
+                required: true
+             },
+             password_usuarioActualizar: {
+                required: true
+             },
              nombre_alumnoActualizar: {
                 required: true
              },
@@ -1145,10 +1186,6 @@
              noexterior_alumnoActualizar: {
                 required: true
              },
-             nointerior_alumnoActualizar: {
-                required: true
-             },
-
              selectEstadoActualizar: {
                 required: true
              },
@@ -1160,9 +1197,6 @@
              },
 
              telefono_alumnoActualizar: {
-                required: true
-             },
-             email_alumnoActualizar: {
                 required: true
              },
              fechanacimiento_alumnoActualizar: {
@@ -1183,9 +1217,15 @@
              id_usuarioActualizar: {
                 required: "Falta registrar usuario"
              },
-             // foto_alumnoActualizar: {
-             //        required: "falta foto"
-             //      },
+             foto_alumno: {
+                required: "Falta ingresar foto"
+             },
+             username_usuario: {
+                required: "Falta nombre de usuario"
+             },
+             password_usuario: {
+                required: "Falta registrar contraseña"
+             },
              nombre_alumnoActualizar: {
                 required: "Falta registrar  tu nombre "
              },
@@ -1201,9 +1241,6 @@
              noexterior_alumnoActualizar: {
                 required: "Falta registrar tu No exterior"
              },
-             nointerior_alumnoActualizar: {
-                required: "Falta registrar tu No Interior"
-             },
              selectEstadoActualizar: {
                 required: "Falta registrar tu Codigo Postal"
              },
@@ -1215,9 +1252,6 @@
              },
              telefono_alumnoActualizar: {
                 required: "Falta registrar tu numero telefonico"
-             },
-             email_alumnoActualizar: {
-                required: "Falta registrar tu email"
              },
              fechanacimiento_alumnoActualizar: {
                 required: "Falta registrar tu fecha de  nacimiento"

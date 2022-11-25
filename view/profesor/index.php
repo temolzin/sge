@@ -148,7 +148,7 @@ $menu->header('profesor');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Correo electrónico (*)</label>
+                                            <label>Correo electrónico </label>
                                             <div class="input-group-prepend">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i
@@ -236,7 +236,7 @@ $menu->header('profesor');
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>No. interior (*)</label>
+                                            <label>No. interior</label>
                                             <input type="text" class="form-control" id="numinterior_profesor"
                                                 name="numinterior_profesor" placeholder="No. interior " />
                                         </div>
@@ -336,7 +336,7 @@ $menu->header('profesor');
                                         name="id_usuarioActualizar" placeholder="Introduce id usuario" />
                                     
                                         <div class="col-lg-12">
-                                        <span><label>Foto </label></span>
+                                        <span><label>Foto (*)</label></span>
                                         <br>
                                         <div class="form-group input-group">
                                             <div class="custom-file">
@@ -351,7 +351,7 @@ $menu->header('profesor');
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Usuario</label>
+                                            <label>Usuario (*)</label>
                                             <input type="text" class="form-control" id="username_usuarioActualizar"
                                                 name="username_usuarioActualizar" placeholder="Usuario" />
                                         </div>
@@ -368,7 +368,7 @@ $menu->header('profesor');
 
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Nombre(s)</label>
+                                            <label>Nombre(s) (*)</label>
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -381,7 +381,7 @@ $menu->header('profesor');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Apellido Paterno</label>
+                                            <label>Apellido Paterno (*)</label>
                                             <input onkeypress="return soloLetras(event)" type="family-name"
                                                 class="form-control" id="appaterno_profesorActualizar"
                                                 name="appaterno_profesorActualizar"
@@ -391,7 +391,7 @@ $menu->header('profesor');
 
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Apellido Materno</label>
+                                            <label>Apellido Materno (*)</label>
                                             <input onkeypress="return soloLetras(event)" type="family-name"
                                                 class="form-control" id="apmaterno_profesorActualizar"
                                                 name="apmaterno_profesorActualizar"
@@ -401,7 +401,7 @@ $menu->header('profesor');
 
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Teléfono</label>
+                                            <label>Teléfono(*)</label>
                                             <div class="input-group-prepend">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -431,7 +431,7 @@ $menu->header('profesor');
 
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Fecha Nacimiento</label>
+                                            <label>Fecha Nacimiento(*)</label>
                                             <input type="date" class="form-control"
                                                 id="fechanacimiento_profesorActualizar"
                                                 name="fechanacimiento_profesorActualizar"
@@ -455,7 +455,7 @@ $menu->header('profesor');
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Grado académico </label>
+                                            <label>Grado académico(*) </label>
                                             <select name="id_grado_academicoActualizar"
                                                 id="id_grado_academicoActualizar"
                                                 class="form-control id_grado_academico">
@@ -465,7 +465,7 @@ $menu->header('profesor');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Escuela </label>
+                                            <label>Escuela (*)</label>
                                             <select name="id_escuelaActualizar" id="id_escuelaActualizar"
                                                 class="form-control id_escuela">
                                                 <option value="default">Seleccione su escuela</option>
@@ -474,7 +474,7 @@ $menu->header('profesor');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Cédula </label>
+                                            <label>Cédula (*)</label>
                                             <input type="text" class="form-control" id="cedula_profesorActualizar"
                                                 name="cedula_profesorActualizar" placeholder="Cedula profesional" />
                                         </div>
@@ -498,14 +498,14 @@ $menu->header('profesor');
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label>Calle </label>
+                                            <label>Calle (*)</label>
                                             <input type="text" class="form-control" id="calle_profesorActualizar"
                                                 name="calle_profesorActualizar" placeholder="Calle" />
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>No. exterior </label>
+                                            <label>No. exterior (*)</label>
                                             <input type="text" class="form-control" id="numexterior_profesorActualizar"
                                                 name="numexterior_profesorActualizar" placeholder="No. exterior" />
                                         </div>
@@ -519,7 +519,7 @@ $menu->header('profesor');
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Código Postal </label>
+                                            <label>Código Postal (*)</label>
                                             <input onfocusout="findCpActualizar(this);" type="text" class="form-control"
                                                 id="codigoPostalActualizar" name="codigoPostalActualizar"
                                                 placeholder="Codigo Postal" />
@@ -527,7 +527,7 @@ $menu->header('profesor');
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Estado </label>
+                                            <label>Estado (*)</label>
                                             <select name="selectEstadoActualizar" id="selectEstadoActualizar"
                                                 class="form-control selectEstadoActualizar">
                                                 <option value="default">Estado</option>
@@ -537,7 +537,7 @@ $menu->header('profesor');
 
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Municipio </label>
+                                            <label>Municipio (*)</label>
                                             <select name="selectMunicipioActualizar" id="selectMunicipioActualizar"
                                                 class="form-control selectMunicipioActualizar">
                                                 <option value="default">Municipio</option>
@@ -547,7 +547,7 @@ $menu->header('profesor');
 
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <label>Colonia </label>
+                                            <label>Colonia (*)</label>
                                             <select name="selectColoniaActualizar" id="selectColoniaActualizar"
                                                 class="form-control selectColoniaActualizar">
                                                 <option value="default">Colonia</option>
@@ -1199,6 +1199,15 @@ var enviarFormularioRegistrar = function() {
                 required: true,
                 number: true
             },
+            foto_profesor: {
+                required: true
+            },
+            username_usuario: {
+                required: true
+            },
+            password_usuario: {
+                required: true
+            },
             nombre_profesor: {
                 required: true
             },
@@ -1217,15 +1226,22 @@ var enviarFormularioRegistrar = function() {
             numexterior_profesor: {
                 required: true
             },
-            numinterior_profesor: {
-                required: true
+            codigoPostal: {
+                required: true,
+                number: true
+            },
+            selectEstado: {
+                selectRequired: "default"
+            },
+            selectMunicipio: {
+                selectRequired: "default"
+            },
+            selectColonia: {
+                selectRequired: "default"
             },
             telefono_profesor: {
                 required: true,
                 number: true
-            },
-            email_profesor: {
-                required: true
             },
             fechanacimiento_profesor: {
                 required: true
@@ -1245,7 +1261,15 @@ var enviarFormularioRegistrar = function() {
             id_usuario: {
                 required: "Ingresa un id_usuario"
             },
-
+            foto_profesor: {
+                required: "Ingrese su fotografía"
+            },
+            username_usuario: {
+                required: "Ingrese su usuario"
+            },
+            password_usuario: {
+                required: "Ingrese su contraseña"
+            },
             nombre_profesor: {
                 required: "Ingresa tu nombre_profesor paterno"
             },
@@ -1264,15 +1288,22 @@ var enviarFormularioRegistrar = function() {
             numexterior_profesor: {
                 required: "Ingresa tu Nº Exterior"
             },
-            numinterior_profesor: {
-                required: "Ingresa tu Nº Interior"
+            codigoPostal: {
+                required: "Ingrese su código postal",
+                number: "Sólo números"
+            },
+            selectEstado: {
+                selectRequired: "Ingrese su estado"
+            },
+            selectMunicipio: {
+                selectRequired: "Ingrese su municipio"
+            },
+            selectColonia: {
+                selectRequired: "Ingrese su colonia"
             },
             telefono_profesor: {
                 required: "Ingresa un telefono",
                 number: "Sólo números"
-            },
-            email_profesor: {
-                required: "Ingresa un email"
             },
             fechanacimiento_profesor: {
                 required: "Ingresa una fecha de nacimiento"
@@ -1400,9 +1431,15 @@ var enviarFormularioActualizar = function() {
             id_usuarioActualizar: {
                 required: true
             },
-            // foto_alumnoActualizar: {
-            //        required: true
-            //      },
+            foto_profesorActualizar: {
+                required: true
+            },
+            username_usuarioActualizar: {
+                required: true
+            },
+            password_usuarioActualizar: {
+                required: true
+            },
             nombre_profesorActualizar: {
                 required: true
             },
@@ -1421,9 +1458,6 @@ var enviarFormularioActualizar = function() {
             numexterior_profesorActualizar: {
                 required: true
             },
-            numinterior_profesorActualizar: {
-                required: true
-            },
             selectEstadoActualizar: {
                 required: true
             },
@@ -1436,9 +1470,6 @@ var enviarFormularioActualizar = function() {
             telefono_profesorActualizar: {
                 required: true,
                 number: true
-            },
-            email_profesorActualizar: {
-                required: true
             },
             fechanacimiento_profesorActualizar: {
                 required: true
@@ -1458,9 +1489,15 @@ var enviarFormularioActualizar = function() {
             id_usuarioActualizar: {
                 required: "Falta registrar usuario"
             },
-            // foto_alumnoActualizar: {
-            //        required: "falta foto"
-            //      },
+            foto_profesorActualizar: {
+                required: "Ingrese su fotografía"
+            },
+            username_usuarioActualizar: {
+                required: "Ingrese su usuario"
+            },
+            password_usuarioActualizar: {
+                required: "Ingrese su contraseña"
+            },
             nombre_profesorActualizar: {
                 required: "Falta registrar  tu nombre "
             },
@@ -1479,9 +1516,6 @@ var enviarFormularioActualizar = function() {
             numexterior_profesorActualizar: {
                 required: "Falta registrar tu No exterior"
             },
-            numinterior_profesorActualizar: {
-                required: "Falta registrar tu No Interior"
-            },
             selectEstadoActualizar: {
                 required: "Falta registrar tu Codigo Postal"
             },
@@ -1494,9 +1528,6 @@ var enviarFormularioActualizar = function() {
             telefono_profesorActualizar: {
                 required: "Falta registrar tu telefono",
                 number: "Sólo números"
-            },
-            email_profesorActualizar: {
-                required: "Falta registrar tu email"
             },
             fechanacimiento_profesorActualizar: {
                 required: "Falta registrar tu fecha de nacimiento"
