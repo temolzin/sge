@@ -83,15 +83,12 @@ $menu->header('Tablero');
          <!-- /.DASHBOARD ALUMNO -->
          <?php if ($tipo == 'alumno') {
             $nombre_grupo = isset($_SESSION['nombre_grupo']) ? $_SESSION['nombre_grupo'] : 0;
-            $turno_grupo = isset($_SESSION['turno_grupo']) ? $_SESSION['turno_grupo'] : 0;
-            $nombre_parcial = isset ($_SESSION['nombre_parcial']) ? $_SESSION['nombre_parcial'] : 0;
-            $nombre_materia = isset($_SESSION['nombre_materia']) ? $_SESSION['nombre_materia']  : 0;
-            $calificacion = isset($_SESSION['calificacion']) ? $_SESSION['calificacion']  : 0;                     
+            $turno_grupo = isset($_SESSION['turno_grupo']) ? $_SESSION['turno_grupo'] : 0;                     
          ?>
             <div class="col-lg-3">
                <div class="small-box bg-warning">
                   <div class="inner">
-                     <h3>Turno y Grupo </h3>
+                     <h3>Turno y Grupo</h3>
                      <p style="font-size: 20px"> <?php echo $nombre_grupo; ?> - <?php echo $turno_grupo; ?></p>
                   </div>
                   <div class="icon">
@@ -110,26 +107,28 @@ $menu->header('Tablero');
                   </div>
                </div>
             </div>
-            <div class="col-lg-3">
-               <div class="small-box bg-success">
+            <div class="col-lg-3 col-12">
+               <div class="small-box bg-success" style="height: 115px;">
                   <div class="inner">
-                     <h3>Ver tareas<sup style="font-size: 20px"></sup></h3>
+                     <h3>Ver tareas</h3>
+                     <p style="font-size: 20px"></p>
                   </div>
                   <div class="icon">
-                     <i class=" fa fa-folder-open-o"></i>
+                     <i class="fas fa-book"></i>
                   </div>
-                  <a href="<?php echo constant('URL') ?>tarea/showTareaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL') ?>tarea/showTareaAlumno" class="small-box-footer">Click Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
             <div class="col-lg-3">
-               <div class="small-box bg-success">
+               <div class="small-box bg-success" style="height: 115px;">
                   <div class="inner">
-                     <h3>Ver Incidencias<sup style="font-size: 20px"></sup></h3>
+                     <h3>Ver Incidencias</h3>
+                     <p style="font-size: 20px"></p>
                   </div>
                   <div class="icon">
-                     <i class=" fa fa-folder-open-o"></i>
+                     <i class="ion ion-person-stalker"></i>
                   </div>
-                  <a href="<?php echo constant('URL') ?>incidencia/showIncidenciaAlumno" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="<?php echo constant('URL') ?>incidencia/showIncidenciaAlumno" class="small-box-footer">Click Aqui <i class="fas fa-arrow-circle-right"></i></a>
                </div>
             </div>
       </div>
@@ -200,7 +199,7 @@ $menu->header('Tablero');
       $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
       $cedula = isset($_SESSION['cedula']) ? $_SESSION['cedula'] : 0;
    ?>
-      <div class="col-lg-3">
+      <div class="col-lg-4">
          <!-- small box -->
          <div class="small-box bg-info">
             <div class="inner">
@@ -214,7 +213,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3">
+      <div class="col-lg-4">
          <!-- small box -->
          <div class="small-box bg-success">
             <div class="inner">
@@ -228,7 +227,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3">
+      <div class="col-lg-4">
          <!-- small box -->
          <div class="small-box bg-warning">
             <div class="inner">
@@ -242,7 +241,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-4">
+      <div class="col-lg-6 col-md-6">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Escolar</h3>
@@ -255,21 +254,27 @@ $menu->header('Tablero');
                   </button>
                </div>
             </div>
-            <br>
-            <div class="col-md-5">
-               <div class="card-body">
-                  <div class="callout callout-info">
-                     <p>Nombre Escuela: <?php echo  $nombre_escuela ?> </p>
-                     <p>RFC: <?php echo  $rfc_escuela ?> </p>
-                     <p>CCT: <?php echo  $cct_escuela ?></p>
-                  </div>
-               </div>
-               <!-- /.card -->
+            <div class="card-body">
+               <table class="table table-hover">
+                  <tbody>
+                     <tr>
+                        <td>Nombre Escuela: </td>
+                        <td><?php echo  $nombre_escuela ?></td>
+                     </tr>
+                     <tr>
+                        <td>RFC: </td>
+                        <td><?php echo  $rfc_escuela ?></td>
+                     </tr>
+                     <tr>
+                        <td>CCT: </td>
+                        <td><?php echo  $cct_escuela ?></td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
-            <br>
          </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-6">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Tus Datos Generales </h3>
@@ -302,7 +307,7 @@ $menu->header('Tablero');
             </div>
          </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-12">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Calendario</h3>
@@ -542,7 +547,7 @@ $menu->header('Tablero');
       </div>
    </div>
    <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Del Alumno </h3>
@@ -556,38 +561,27 @@ $menu->header('Tablero');
                </div>
             </div>
             <div class="card-body">
-               <div class="page-content page-container" id="page-content">
-                  <div class="padding">
-                     <div class="card user-card-full">
-                        <div class="row m-l-0 m-r-0">
-                           <div class="card-block text-center text-white" style="background: rgb(35,197,204);">
-                              <p class="text-info">..</p>
-                           </div>
-                           <div class="col-sm-8">
-                              <div class="card-block">
-                                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Datos Generales</h6>
-                                 <div class="row">
-                                    <div class="col-sm-12">
-                                       <p class="m-b-10 f-w-600">Nombre: <?php echo  $nombre_completo_al ?></p>
-                                    </div>
-                                    <div class="col-sm-12">
-                                       <p class="m-b-10 f-w-600">Celular: <?php echo $telefono_alumno ?></p>
-                                    </div>
-                                    <div class="col-sm-12">
-                                       <p class="m-b-10 f-w-600">Email: <?php echo $email_alumno  ?></p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <a href="<?php echo constant('URL'); ?>escuela/showEscuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
+               <table class="table table-hover">
+                  <tbody>
+                     <tr>
+                        <td>Nombre Completo: </td>
+                        <td><?php echo  $nombre_completo_al ?></td>
+                     </tr>
+                     <tr>
+                        <td>Celular: </td>
+                        <td><?php echo  $telefono_alumno ?></td>
+                     </tr>
+                     <tr>
+                        <td>Email: </td>
+                        <td><?php echo  $email_alumno ?></td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
          </div>
+         <a href="<?php echo constant('URL'); ?>escuela/showEscuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-6">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Escolar</h3>
@@ -635,7 +629,7 @@ $menu->header('Tablero');
       $cct_escuela = isset($_SESSION['cct_escuela']) ? $_SESSION['cct_escuela'] : 0;
       // $curp = $_SESSION['curp'];
    ?>
-      <div class="col-md-4">
+      <div class="col-lg-3 col-12">
          <!-- small box -->
          <div class="small-box bg-info">
             <div class="inner">
@@ -649,7 +643,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-4">
+      <div class="col-lg-3 col-12">
          <!-- small box -->
          <div class="small-box bg-success">
             <div class="inner">
@@ -663,7 +657,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-4">
+      <div class="col-lg-3 col-12">
          <!-- small box -->
          <div class="small-box bg-warning">
             <div class="inner">
@@ -676,7 +670,7 @@ $menu->header('Tablero');
             <a href="<?php echo constant('URL'); ?>directivo/index" class="small-box-footer">Clic Aqui <i class="fas fa-arrow-circle-right"></i></a>
          </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-lg-3 col-12">
          <!-- small box -->
          <div class="small-box bg-danger">
             <div class="inner">
@@ -690,7 +684,7 @@ $menu->header('Tablero');
          </div>
       </div>
       <!-- ./col -->
-      <div class="col-md-5">
+      <div class="col-lg-6 col-md-6">
          <div class="card card-info">
             <div class="card-header">
                <h3 class="card-title">Informacion Escolar</h3>
@@ -703,21 +697,23 @@ $menu->header('Tablero');
                   </button>
                </div>
             </div>
-            <br>
-            <div class="col-md-5">
-               <div class="card-body">
-                  <div class="callout callout-info">
-                     <p>Nombre Escuela: <?php echo  $nombre_escuela ?> </p>
-                     <p>RFC: <?php echo  $rfc_escuela ?> </p>
-                     <p>CCT: <?php echo  $cct_escuela ?></p>
-                  </div>
-               </div>
-               <!-- /.card -->
+            <div class="card-body">
+               <table class="table table-hover">
+                  <tbody>
+                     <tr>
+                        <td>Nombre Escuela: </td>
+                        <td><?php echo  $nombre_escuela ?></td>
+                     </tr>
+                     <tr>
+                        <td>RFC: </td>
+                        <td><?php echo  $rfc_escuela ?></td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
-            <br>
          </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-6">
          <div class="card card-success">
             <div class="card-header">
                <h3 class="card-title">Tus Datos Generales </h3>
@@ -733,7 +729,6 @@ $menu->header('Tablero');
             <div class="card-body">
                <table class="table table-hover">
                   <tbody>
-                     <br><br>
                      <tr>
                         <td>Nombre Completo: </td>
                         <td><?php echo  $nombre_completo ?></td>
@@ -745,39 +740,9 @@ $menu->header('Tablero');
                   </tbody>
                </table>
             </div>
-            <br><br>
          </div>
       </div>
       <div class="col-md-4">
-         <div class="card card-success">
-            <div class="card-header">
-               <h3 class="card-title">Cobro Y Pago</h3>
-               <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                     <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                     <i class="fas fa-times"></i>
-                  </button>
-               </div>
-            </div>
-            <br><br>
-            <div class="row" style="margin-left: 100px;">
-               <div class="col-lg-6">
-                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>cobro">
-                     <i class="fas fa-hand-holding-usd"></i> Cobro
-                  </a>
-               </div>
-               <div class="col-lg-6">
-                  <a class="btn btn-app" href="<?php echo constant('URL'); ?>pago">
-                     <i class="fas fa-money-check-alt"></i> Pago
-                  </a>
-               </div>
-            </div>
-            <br><br>
-         </div>
-      </div>
-      <div class="col-md-5">
          <!-- USERS LIST -->
          <div class="card">
             <div class="card-header" style="background-color:#f52c41; color:white">
@@ -818,7 +783,7 @@ $menu->header('Tablero');
          </div>
          <!--/.card -->
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
          <div class="card card-primary">
             <div class="card-header">
                <h3 class="card-title">Alumnos</h3>
@@ -836,7 +801,7 @@ $menu->header('Tablero');
                   <table id="tableAlumnos" class="table m-0">
                      <thead>
                         <tr>
-                        <th style="width:70%">Foto</th>
+                           <th style="width:10%">Foto</th>
                            <th></th>
                            <th>Nombre</th>
                            <th></th>
@@ -908,7 +873,7 @@ $menu->footer();
       $.ajax({
          type: "POST",
          async: false,
-         url: "<?php echo constant('URL'); ?>calificacion/readCalificacionAlumno",
+         url: "<?php echo constant('URL'); ?>calificacion/read",
          dataType: 'json', // what to expect back from the PHP script, if anything
          success: function(data){
             $.each(data, function(ind, elem){
