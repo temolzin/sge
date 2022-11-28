@@ -422,18 +422,19 @@ $menu->footer();
                     success: function(data) {
                         if (data == 'ok') {
                             Swal.fire(
-                                "¡Error!",
-                                "Ha ocurrido un error al registrar el pago. " + data,
-                                "error"
-                            );
-                        } else {
-                            Swal.fire(
                                 "¡Éxito!",
                                 "El pago ha sido registrado de manera correcta",
                                 "success"
                             ).then(function() {
                                 window.location = "<?php echo constant('URL'); ?>pago";
                             })
+                            
+                        } else {
+                            Swal.fire(
+                                "¡Error!",
+                                "Ha ocurrido un error al registrar el pago. " + data,
+                                "error"
+                            );
                         }
                     },
                 });
