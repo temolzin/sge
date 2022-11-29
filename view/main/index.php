@@ -479,9 +479,9 @@ $menu->header('Tablero');
          </div>
       </div>
       <div class="col-md-6">
-         <div class="card card-danger">
+         <div class="card card-success">
             <div class="card-header">
-               <h3 class="card-title">Usuarios Bloqueados</h3>
+               <h3 class="card-title">Calendario</h3>
                <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                      <i class="fas fa-minus"></i>
@@ -492,20 +492,11 @@ $menu->header('Tablero');
                </div>
             </div>
             <div class="card-body">
-               <div class="table-responsive">
-                  <table id="tableNuevosUsuariosBloqueados" class="table m-0">
-                     <thead>
-                        <tr>
-                           <th>Usuario</th>
-                           <th>Tipo</th>
-                           <th>Status</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                     </tbody>
-                  </table>
+               <div style="overflow:hidden;">
+                  <div class="form-group">
+                     <div id="datetimepicker12"></div>
+                  </div>
                </div>
-               <!-- /.table-responsive -->
             </div>
          </div>
       </div>
