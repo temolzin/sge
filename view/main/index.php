@@ -970,8 +970,8 @@ $menu->footer();
                   + elem.nombre_director + '/' + elem.foto_director 
                   : "public/img/default.jpg";
                   var htmlTags = '<li>' +
-                     '<img class="rounded-circle img-fluid" style="width:50%;" src="'+urlImg+'"</img>' +
-                     '<a class="users-list-name">' + '<br>' + elem.nombre_director + '</a>' +
+                     '<img class="rounded-circle img-fluid" style="width: 45px; height: 45px;" src="'+urlImg+'"</img>' +
+                     '<a class="users-list-name">' + elem.nombre_director + '</a>' +
                      '<span class="users-list-date">' + elem.email_director + '</span>' +
                      '</li>';
                   $('#listNuevosDirectivos').append(htmlTags);
@@ -996,8 +996,8 @@ $menu->footer();
                   + elem.nombre_administrador + '/' + elem.foto_administrador 
                   : "public/img/default.jpg";
                   var htmlTags = '<li>' +
-                     '<img class="rounded-circle img-fluid" style="width:50%;" src="'+urlImg+'"</img>' +
-                     '<a class="users-list-name">' + '<br>' + elem.nombre_administrador + '</a>' +
+                     '<img class="rounded-circle img-fluid" style="width: 45px; height: 45px;" src="'+urlImg+'"</img>' +
+                     '<a class="users-list-name">' + elem.nombre_administrador + '</a>' +
                      '<span class="users-list-date">' + elem.email_administrador + '</span>' +
                      '</li>';
                   $('#listAdministradores').append(htmlTags);
@@ -1022,7 +1022,7 @@ $menu->footer();
                   + elem.nombre_profesor + '/' + elem.foto_profesor 
                   : "public/img/default.jpg";             
                   var htmlTags = '<tr>' +
-                     '<td><img class="rounded-circle img-fluid" src="'+urlImg+'"</img><td>' +
+                     '<td><img class="rounded-circle img-fluid" style="width: 45px; height: 45px;" src="'+urlImg+'"</img><td>' +
                      '<td>' + elem.nombre_profesor + '<td>' +
                      '<td>' + elem.email_profesor + '<td>' +
                      '</tr>';
@@ -1047,7 +1047,7 @@ $menu->footer();
                   + elem.nombre_alumno + '/' + elem.foto_alumno 
                   : "public/img/default.jpg";    
                   var htmlTags = '<tr>' +
-                     '<td><img class="rounded-circle img-fluid" src="'+urlImg+'"</img><td>' +
+                     '<td><img class="rounded-circle img-fluid" style="width: 50px; height: 50px;" src="'+urlImg+'"</img><td>' +
                      '<td>' + elem.nombre_alumno + '<td>' +
                      '<td>' + elem.email_alumno + '<td>' +
                      '</tr>';
