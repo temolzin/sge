@@ -780,50 +780,101 @@ $menu->footer();
         });
     }
 
-    var datosInsertar = null;
-    $('#formRegistrarEscuela').on('submit', function(e) {
-       datosInsertar = new FormData(this);
-    });
     $.validator.addMethod("selectRequired", function(value, element, arg) {
       return arg !== value;
     }, "Selecciona un valor");
     var enviarFormularioRegistrar = function() {
         $.validator.setDefaults({
-            submitHandler: function(e) {
-                // var datos = $('#formRegistrarEscuela').serialize();
-                e.preventDefault();
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo constant('URL'); ?>escuela/insert",
-                    data: datosInsertar,
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    beforeSend: function() {
-                        $('.submit').attr("disabled", "disabled");
-                        $('#formRegistrarEscuela').css("opacity", ".5");
-                    },
-                    success: function(data) {
-                        console.log("data ", data)
-                        if (data == 'ok') {
-                            Swal.fire(
-                                "¡Éxito!",
-                                "La escuela ha sido registrado de manera correcta",
-                                "success"
-                            ).then(function() {
-                                window.location = "<?php echo constant('URL'); ?>escuela";
-                            })
-                        } else {
-                            Swal.fire(
-                                "¡Error!",
-                                "Ha ocurrido un error al registrar la escuela. " + data,
-                                "error"
-                            );
-                        }
-                    },
-                });
-            }
-        });
+        submitHandler: function() {
+            var datos = $('#formRegistrarEscuela').serialize();
+            $.ajax({
+                type: "POST",
+                url: "<?php echo constant('URL'); ?>escuela/insert",
+                async: false,
+                data: datos,
+
+                success: function(data) {
+                console.log("data", data)
+                var id_escuela = data;
+                var idEscuela = id_escuela;
+                var form_data = new FormData();
+                imagen = $('#foto_escuela').prop('files')[0]; // Aqui obtienes la imagen del usuario de BBDD
+                $urlImagenBasica = '<?php echo constant('URL'); ?>public/img/default.jpg';
+                if ($('#foto_escuela').val() == null) {
+                    imagen = $urlImagenBasica // Esta la tienes que obtener anteriormente y guardarla en la variable $urlImagenBasica
+             }
+                var imagen = '<?php echo constant('URL'); ?>public/img/default.jpg';
+                if ($('#foto_escuela').val() != null) {
+                    imagen = $('#foto_escuela').prop('files')[0];
+             } else {
+               imagen = "images/default-profile.jpg";
+             }
+                form_data.append('foto_escuela', imagen);
+                form_data.append('nombre_escuela', document.getElementById(
+                    'nombre_escuela').value);
+                form_data.append('rfc_escuela', document.getElementById(
+                    'rfc_escuela').value);
+                form_data.append('cct_escuela', document.getElementById(
+                    'cct_escuela').value);
+                form_data.append('calle_escuela', document.getElementById(
+                    'calle_escuela').value);
+                form_data.append('numxterior_escuela', document.getElementById(
+                    'numxterior_escuela').value);
+                form_data.append('numinterior_escuela', document.getElementById(
+                    'numinterior_escuela').value);
+                form_data.append('telefono_escuela', document.getElementById(
+                    'telefono_escuela').value);
+                form_data.append('email_escuela', document.getElementById('email_escuela')
+                .value);
+                form_data.append('observacion_escuela', document.getElementById('observacion_escuela')
+                .value);  
+
+                form_data.append('codigoPostal', document.getElementById('codigoPostal')
+                    .value);
+                form_data.append('selectEstado', document.getElementById('selectEstado')
+                    .value);
+                form_data.append('selectMunicipio', document.getElementById(
+                    'selectMunicipio').value);
+                form_data.append('selectColonia', document.getElementById(
+                    'selectColonia').value);                   
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo constant('URL'); ?>escuela/insert",
+                        async: false,
+                        dataType: 'text', // what to expect back from the PHP script, if anything
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: form_data,
+                        // data: datos +"&id_usuario="+id_usuario,
+
+                        success: function(data) {
+
+                            if (data == 'ok') {
+                                Swal.fire(
+                                    "¡Éxito!",
+                                    "La escuela ha sido registrado de manera correcta",
+                                    "success"
+                                ).then(function() {
+                                    window.location =
+                                        "<?php echo constant('URL'); ?>escuela";
+                                })
+                            } else {
+                                Swal.fire(
+                                    "¡Error!",
+                                    "Ha ocurrido un error al registrar la escuela. " +
+                                    data,
+                                    "error"
+                                );
+                            }
+                        },
+                    });
+
+                },
+            });
+        }
+    });
         $('#formRegistrarEscuela').validate({
             rules: {
                 id_escuela: {
