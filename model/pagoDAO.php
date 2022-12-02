@@ -8,11 +8,13 @@ class PagoDAO extends Model implements CRUD
 
     public function insert($data)
     {
-        $query = $this->db->conectar()->prepare('INSERT INTO pago (`id_pago`, `id_cobro`, `cantidad_pago`, `descripcion_pago`, `monto_cobro_pago`, `restante_pago`) 
+        $query = $this->db->conectar()->prepare('INSERT INTO pago (`id_pago`, `id_cobro`, `cantidad_pago`, `descripcion_pago`,`fecha_pago`,`hora_pago`, `monto_cobro_pago`, `restante_pago`) 
            values (null, 
            :id_cobro, 
            :cantidad_pago, 
            :descripcion_pago, 
+           :fecha_pago,
+           :hora_pago,
            :monto_cobro_pago,
            :restante_pago
        )');
@@ -20,6 +22,8 @@ class PagoDAO extends Model implements CRUD
             ':id_cobro' => $data['id_cobro'],
             ':cantidad_pago' => $data['cantidad_pago'],
             ':descripcion_pago' => $data['descripcion_pago'],
+            ':fecha_pago' => $data['fecha_pago'],
+            ':hora_pago' => $data['hora_pago'],
             ':monto_cobro_pago' => $data['monto_cobro_pago'],
             ':restante_pago' => $data['restante_pago']
         ]);

@@ -16,6 +16,8 @@ class Pago extends Controller
         $id_cobro = $_POST['id_cobro'];
         $cantidad_pago = $_POST['cantidad_pago'];
         $descripcion_pago = $_POST['descripcion_pago'];
+        $fecha_pago = $_POST['fecha_pago'];
+        $hora_pago = $_POST['hora_pago'];
         $monto_cobro_pago = $_POST['monto_cobro_pago'];
         $restante_pago = $monto_cobro_pago - $cantidad_pago;
 
@@ -23,6 +25,8 @@ class Pago extends Controller
             'id_cobro' => $id_cobro,
             'cantidad_pago' => $cantidad_pago,
             'descripcion_pago' => $descripcion_pago,
+            'fecha_pago' => $fecha_pago,
+            'hora_pago' => $hora_pago,
             'monto_cobro_pago' => $monto_cobro_pago,
             'restante_pago' => $restante_pago
         );
