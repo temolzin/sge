@@ -72,7 +72,7 @@ class CalificacionDAO extends Model implements CRUD
         and grupo.id_grupo = alumno.id_grupo 
         and director.id_escuela = escuela.id_escuela 
         and profesor.id_escuela = escuela.id_escuela 
-        and director.id_escuela = '" . $id_escuela . "'";
+        and director.id_escuela ORDER BY calificacion DESC";
         $objCalificaciones = array();
         if (is_array($this->db->consultar($query)) || is_object($this->db->consultar($query))) {
             foreach ($this->db->consultar($query) as $key => $value) {

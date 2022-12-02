@@ -355,7 +355,7 @@ $menu->footer();
                     "data": "concepto_cobro"
                 },
                 {
-                    "data": "fecha_cobro"
+                    "data": "fechalimite_cobro"
                 },
                 {
                     data: null,

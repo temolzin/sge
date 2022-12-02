@@ -16,8 +16,7 @@ class Escuela extends Controller
         $this->view->render('escuela/escuelaDetalle');
     }
 
-    function insert()
-    {
+    function insert(){
         $nombre_escuela = $_POST['nombre_escuela'];
         $rfc_escuela = $_POST['rfc_escuela'];
         $cct_escuela = $_POST['cct_escuela'];
@@ -32,49 +31,46 @@ class Escuela extends Controller
         $email_escuela = $_POST['email_escuela'];
         $observacion_escuela = $_POST['observacion_escuela'];
         $nombreImagen = "";
-        if($_FILES["foto_escuela"]["name"] != null) {
+        if ($_FILES["foto_escuela"]["name"] != null) {
             $imagen = $_FILES["foto_escuela"];
             $nombreImagen = $imagen["name"];
             $tipoImagen = $imagen["type"];
             $ruta_provisional = $imagen["tmp_name"];
-
-        $fullname = $cct_escuela ."_" . $rfc_escuela . "_" . $nombre_escuela;
-            $carpeta ="public/escuela/" .$fullname. "/";
-
-            if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif')       {
+            $fullname = $cct_escuela . "_" . $rfc_escuela . "_" . $nombre_escuela;
+            $carpeta ="public/escuela/" . $fullname . "/";
+            if ($tipoImagen != 'image/jpg' && $tipoImagen != 'image/jpeg' && $tipoImagen != 'image/png' && $tipoImagen != 'image/gif'){
                 echo 'errorimagen';
             } else {
-                if (!file_exists($carpeta)) {
+                if (!file_exists($carpeta)){
                     mkdir($carpeta, 0777, true);
                 }
                 copy($ruta_provisional, $carpeta . $nombreImagen);
 
-        $data = array(
-            'nombre_escuela' => $nombre_escuela,
-            'rfc_escuela' => $rfc_escuela,
-            'cct_escuela' => $cct_escuela,
-            'calle_escuela' => $calle_escuela,
-            'numxterior_escuela' => $numxterior_escuela,
-            'numinterior_escuela' => $numinterior_escuela,
-            'cp_escuela' => $cp_escuela,
-            'estado_escuela' => $estado_escuela,
-            'municipio_escuela' => $municipio_escuela,
-            'colonia_escuela' => $colonia_escuela,
-            'telefono_escuela' => $telefono_escuela,
-            'email_escuela' => $email_escuela,
-            'observacion_escuela' => $observacion_escuela,
-            'foto_escuela' => $nombreImagen,
-            'nombreImagen'  => $nombreImagen
-
-        );
-
-        require 'model/escuelaDAO.php';
-        $this->loadModel('EscuelaDAO');
-        $escuelaDAO = new EscuelaDAO();
-        $escuelaDAO->insert($data);
+                $data = array(
+                    'foto_escuela' => $nombreImagen,
+                    'nombre_escuela' => $nombre_escuela,
+                    'rfc_escuela' => $rfc_escuela,
+                    'cct_escuela' => $cct_escuela,
+                    'calle_escuela' => $calle_escuela,
+                    'numxterior_escuela' => $numxterior_escuela,
+                    'numinterior_escuela' => $numinterior_escuela,
+                    'cp_escuela' => $cp_escuela,
+                    'estado_escuela' => $estado_escuela,
+                    'municipio_escuela' => $municipio_escuela,
+                    'colonia_escuela' => $colonia_escuela,
+                    'telefono_escuela' => $telefono_escuela,
+                    'email_escuela' => $email_escuela,
+                    'observacion_escuela' => $observacion_escuela,
+                    'nombreImagen'  => $nombreImagen
+        
+                );
+                require 'model/escuelaDAO.php';
+                $this->loadModel('EscuelaDAO');
+                $escuelaDAO = new EscuelaDAO();
+                $escuelaDAO->insert($data);
+            }
         }
     }
-}
 
     function update()
     {

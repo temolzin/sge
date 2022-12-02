@@ -446,6 +446,7 @@ $menu->footer();
                             ).then(function() {
                                 window.location = "<?php echo constant('URL'); ?>pago";
                             })
+                            
                         } else {
                             Swal.fire(
                                 "¡Error!",
