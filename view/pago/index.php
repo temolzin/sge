@@ -61,7 +61,7 @@ $menu->header('Pago');
                 <form role="form" id="formRegistrarPago" name="formRegistrarPago" method="post">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Cobro (*)</label>
                                     <select name="id_cobro" id="id_cobro" class="form-control id_cobro">
@@ -69,7 +69,7 @@ $menu->header('Pago');
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-6">
                                 <label>Cantidad (*)</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -101,6 +101,24 @@ $menu->header('Pago');
                                         <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                     </div>
                                     <input type="number" class="form-control" id="monto_cobro_pago" name="monto_cobro_pago" placeholder="Monto cobro" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Fecha (*)</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="date" class="form-control" id="fecha_pago" name="fecha_pago" placeholder="Fecha" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Hora(*)</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                    </div>
+                                    <input type="time" class="form-control" id="hora_pago" name="hora_pago" placeholder="Hora" />
                                 </div>
                             </div>
                         </div>
@@ -434,7 +452,7 @@ $menu->footer();
                                 "¡Error!",
                                 "Ha ocurrido un error al registrar el pago. " + data,
                                 "error"
-                            );
+                            ); 
                         }
                     },
                 });
