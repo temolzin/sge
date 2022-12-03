@@ -510,6 +510,7 @@ $menu->header('Tablero');
       $apmaterno_alumno = $_SESSION['apmaterno_alumno'];
       $email_alumno = $_SESSION['email_alumno'];
       $telefono_alumno = $_SESSION['telefono_alumno'];
+      $calle_alumno = $_SESSION['calle_alumno'];
       $nombre_completo_al = $nombre_alumno . " " . $appaterno_alumno . " " . $apmaterno_alumno;
       //Profesor
    ?>
@@ -551,7 +552,7 @@ $menu->header('Tablero');
                   </button>
                </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="height: 240px;">
                <table class="table table-hover">
                   <tbody>
                      <tr>
@@ -566,11 +567,14 @@ $menu->header('Tablero');
                         <td>Email: </td>
                         <td><?php echo  $email_alumno ?></td>
                      </tr>
+                     <tr>
+                        <td>Calle: </td>
+                        <td><?php echo  $calle_alumno ?></td>
+                     </tr>
                   </tbody>
                </table>
             </div>
          </div>
-         <a href="<?php echo constant('URL'); ?>escuela/showEscuela" class="btn btn-primary btn-block"><b>Informacion de la escuela</b></a>
       </div>
       <div class="col-md-6">
          <div class="card card-info">
@@ -1022,7 +1026,7 @@ $menu->footer();
                   + elem.nombre_profesor + '/' + elem.foto_profesor 
                   : "public/img/default.jpg";             
                   var htmlTags = '<tr>' +
-                     '<td><img class="rounded-circle img-fluid" style="width: 45px; height: 45px;" src="'+urlImg+'"</img><td>' +
+                     '<td><img class="rounded-circle img-fluid" style="width: 70px; height: 30px;" src="'+urlImg+'"</img><td>' +
                      '<td>' + elem.nombre_profesor + '<td>' +
                      '<td>' + elem.email_profesor + '<td>' +
                      '</tr>';
@@ -1047,7 +1051,7 @@ $menu->footer();
                   + elem.nombre_alumno + '/' + elem.foto_alumno 
                   : "public/img/default.jpg";    
                   var htmlTags = '<tr>' +
-                     '<td><img class="rounded-circle img-fluid" style="width: 50px; height: 50px;" src="'+urlImg+'"</img><td>' +
+                     '<td><img class="rounded-circle img-fluid" style="width: 70px; height: 30px;" src="'+urlImg+'"</img><td>' +
                      '<td>' + elem.nombre_alumno + '<td>' +
                      '<td>' + elem.email_alumno + '<td>' +
                      '</tr>';
