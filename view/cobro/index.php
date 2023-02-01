@@ -9,7 +9,7 @@ $menu->header('Cobro');
 ?>
 
 <link rel="stylesheet" href="public/css/select.css"/>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="public/js/select2.js"></script>
 
 <section class="content">
     <div class="container-fluid">
