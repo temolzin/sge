@@ -142,9 +142,11 @@ $menu->header('Pago');
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label>Cobro (*)</label>
-                                    <select name="id_cobroActualizar" id="id_cobroActualizar" class="form-control id_cobro">
-                                        <option value="default">Seleccione el cobro</option>
-                                    </select>
+                                    <div class="form-group">
+                                        <select name="id_cobroActualizar" id="id_cobroActualizar" class="form-control id_cobro" style="width: 100%;">
+                                            <option value="default">Seleccione el cobro</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-5">
@@ -234,8 +236,10 @@ $menu->header('Pago');
                             <div class="col-lg-8">
                                 <div class="form-group">
                                     <label>Cobro</label>
-                                    <select name="id_cobroConsultar" id="id_cobroConsultar" disabled class="form-control id_cobro">
-                                    </select>
+                                    <div class="form-group">
+                                        <select name="id_cobroConsultar" id="id_cobroConsultar" disabled class="form-control id_cobro" style="width:100%;">
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-4">
