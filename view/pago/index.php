@@ -8,6 +8,10 @@ require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Pago');
 ?>
+
+<link rel="stylesheet" href="public/css/select.css"/>
+<script src="public/js/select2.js"></script>
+
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -24,7 +28,7 @@ $menu->header('Pago');
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="dataTablePago" name="dataTablePago" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
+                        <table id="dataTablePago" name="dataTablePago" class="table table-bordered table-hover dt-responsive nowrap">
                             <thead>
                                 <tr>
                                     <th>Concepto</th>
@@ -64,9 +68,11 @@ $menu->header('Pago');
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label>Cobro (*)</label>
-                                    <select name="id_cobro" id="id_cobro" class="form-control id_cobro">
-                                        <option value="default">Seleccione el cobro</option>
-                                    </select>
+                                    <div class="form-group">
+                                        <select name="id_cobro" id="id_cobro" class="form-control id_cobro" style="width: 100%;">
+                                            <option value="default">Seleccione el cobro</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-5">
@@ -307,6 +313,10 @@ $menu->footer();
 
 <script>
     $(document).ready(function() {
+    $('.id_cobro').select2();
+});
+
+    $(document).ready(function() {
         mostrarPagos();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
@@ -329,7 +339,7 @@ $menu->footer();
                     var apmat = registro.apmaterno_alumno;
                     var cantidad = registro.cantidad_cobro;
                     var concepto = registro.concepto_cobro;
-                    $(".id_cobro").append('<option value=' + id + '>' + nombre + ' ' + appat + ' ' + apmat + ' --> ' + cantidad + ' --> ' + concepto + '</option>');
+                    $('.id_cobro').append(new Option(nombre + ' ' + appat + ' ' + apmat + ' --> ' + cantidad + ' --> ' + concepto, id, false, false));
                 });
             },
             error: function(data) {
