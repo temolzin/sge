@@ -8,10 +8,8 @@ require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Pago');
 ?>
-
 <link rel="stylesheet" href="public/css/select.css"/>
-<script src="public/js/select2.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -28,13 +26,12 @@ $menu->header('Pago');
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="dataTablePago" name="dataTablePago" class="table table-bordered table-hover dt-responsive nowrap">
+                        <table id="dataTablePago" name="dataTablePago" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Concepto</th>
                                     <th>Cantidad</th>
-                                    <th>Fecha</th>
-                                    <th>Hora</th>
+                                    <th>Fecha y Hora</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -65,12 +62,12 @@ $menu->header('Pago');
                 <form role="form" id="formRegistrarPago" name="formRegistrarPago" method="post">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Cobro (*)</label>
-                                    <div class="form-group">
-                                        <select name="id_cobro" id="id_cobro" class="form-control id_cobro" style="width: 100%;">
-                                            <option value="default">Seleccione el cobro</option>
+                                    <label>Pago (*)</label>
+                                    <div>
+                                        <select name="id_cobro" id="id_cobro" class="form-control buscar-pago">
+                                            <option value="default">Seleccione el pago</option>
                                         </select>
                                     </div>
                                 </div>
@@ -142,11 +139,9 @@ $menu->header('Pago');
                             <div class="col-lg-7">
                                 <div class="form-group">
                                     <label>Cobro (*)</label>
-                                    <div class="form-group">
-                                        <select name="id_cobroActualizar" id="id_cobroActualizar" class="form-control id_cobro" style="width: 100%;">
-                                            <option value="default">Seleccione el cobro</option>
-                                        </select>
-                                    </div>
+                                    <select name="id_cobroActualizar" id="id_cobroActualizar" class="form-control id_cobro">
+                                        <option value="default">Seleccione el cobro</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-5">
@@ -236,10 +231,8 @@ $menu->header('Pago');
                             <div class="col-lg-8">
                                 <div class="form-group">
                                     <label>Cobro</label>
-                                    <div class="form-group">
-                                        <select name="id_cobroConsultar" id="id_cobroConsultar" disabled class="form-control id_cobro" style="width:100%;">
-                                        </select>
-                                    </div>
+                                    <select name="id_cobroConsultar" id="id_cobroConsultar" disabled class="form-control id_cobro">
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-4">
@@ -317,10 +310,12 @@ $menu->footer();
 
 <script>
     $(document).ready(function() {
-    $('.id_cobro').select2();
+        $(document).ready(function() {
+            $('.buscar-pago').select2({
+        minimumInputLength: 2
+    });
+    
 });
-
-    $(document).ready(function() {
         mostrarPagos();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
@@ -343,7 +338,7 @@ $menu->footer();
                     var apmat = registro.apmaterno_alumno;
                     var cantidad = registro.cantidad_cobro;
                     var concepto = registro.concepto_cobro;
-                    $('.id_cobro').append(new Option(nombre + ' ' + appat + ' ' + apmat + ' --> ' + cantidad + ' --> ' + concepto, id, false, false));
+                    $('.buscar-pago').append(new Option(nombre + ' ' + appat + ' ' + apmat + cantidad + ' ' + concepto, id, false, false));
                 });
             },
             error: function(data) {
@@ -367,9 +362,6 @@ $menu->footer();
                 },
                 {
                     "data": "cantidad_pago"
-                },
-                {
-                    "data": "fecha_pago"
                 },
                 {
                     "data": "hora_pago"
@@ -418,7 +410,6 @@ $menu->footer();
             var id_cobroConsulta = $("#id_cobroConsultar option[value=" + data.id_cobro + "]").attr("selected", true);
             var cantidad_pagoConsulta = $("#cantidad_pagoConsultar").val(data.cantidad_pago);
             var descripcion_pagoConsulta = $("#descripcion_pagoConsultar").val(data.descripcion_pago);
-            var fecha_pagoConsulta = $("#fecha_pagoConsultar").val(data.fecha_pago);
             var hora_pagoConsulta = $("#hora_pagoConsultar").val(data.hora_pago);
             var monto_cobro_pagoConsulta = $("#monto_cobro_pagoConsultar").val(data.monto_cobro_pago);
             var restante_pagoConsulta = $("#restante_pagoConsultar").val(data.restante_pago);
