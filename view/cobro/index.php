@@ -147,9 +147,11 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Alumno (*)</label>
-                                    <select name="id_alumnoActualizar" id="id_alumnoActualizar" class="form-control id_alumno">
-                                        <option value="default">Seleccione el alumno</option>
-                                    </select>
+                                    <div class="form-group">
+                                        <select name="id_alumnoActualizar" id="id_alumnoActualizar" class="form-control id_alumno" style="width:100%;">
+                                            <option value="default">Seleccione el alumno</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-3">
