@@ -230,7 +230,7 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Alumno</label>
-                                    <div>
+                                    <div class="form-group">
                                         <select name="id_alumnoConsultar" id="id_alumnoConsultar" disabled class="form-control id_alumno" style="width:100%;">
                                         </select>
                                     </div>
