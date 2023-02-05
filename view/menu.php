@@ -252,7 +252,7 @@ class Menu
       <a id="concepto" name="concepto" href="' . constant('URL') . 'concepto/index" class="nav-link">
       <i class="nav-icon fas fa-file"></i>
       <p>
-      Conceptos
+      Conceptos de pago
       </p>
       </a>
       </li>
