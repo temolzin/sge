@@ -3,9 +3,7 @@
     {
         private $id_concepto;
         private $nombre_concepto;
-        private $cantidad_concepto;
         private $descripcion_concepto;
-        private $tipo_concepto;
 
         public function __get($property){
             if(property_exists($this, $property)) {
