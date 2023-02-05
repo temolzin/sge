@@ -14,17 +14,11 @@ class Concepto extends Controller
     function insert()
     {
         $nombre_concepto = $_POST['nombre_concepto'];
-        $cantidad_concepto = $_POST['cantidad_concepto'];
         $descripcion_concepto = $_POST['descripcion_concepto'];
-        $tipo_concepto = $_POST['tipo_concepto'];
-
-
 
         $data = array(
             'nombre_concepto' => $nombre_concepto,
-            'cantidad_concepto' => $cantidad_concepto,
             'descripcion_concepto' => $descripcion_concepto,
-            'tipo_concepto' => $tipo_concepto
         );
 
         require 'model/conceptoDAO.php';
@@ -37,16 +31,12 @@ class Concepto extends Controller
     {
         $id_concepto = $_POST['id_conceptoActualizar'];
         $nombre_concepto = $_POST['nombre_conceptoActualizar'];
-        $cantidad_concepto = $_POST['cantidad_conceptoActualizar'];
         $descripcion_concepto = $_POST['descripcion_conceptoActualizar'];
-        $tipo_concepto = $_POST['tipo_conceptoActualizar'];
 
         $data = array(
             'id_concepto' => $id_concepto,
             'nombre_concepto' => $nombre_concepto,
-            'cantidad_concepto' => $cantidad_concepto,
             'descripcion_concepto' => $descripcion_concepto,
-            'tipo_concepto' => $tipo_concepto
         );
 
         require 'model/conceptoDAO.php';

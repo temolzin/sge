@@ -29,9 +29,7 @@ $menu->header('concepto');
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Cantidad</th>
                                 <th>Descripción</th>
-                                <th>Tipo</th>
                                 <th>Opciones</th>
                             </tr>
                         </thead>
@@ -66,20 +64,8 @@ $menu->header('concepto');
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Cantidad (*)</label>
-                                    <input type="numer" class="form-control" id="cantidad_concepto" name="cantidad_concepto" placeholder="Cantidad" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
                                     <label>Descripción (*)</label>
                                     <input type="text" class="form-control" id="descripcion_concepto" name="descripcion_concepto" placeholder="Descripción" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Tipo (*)</label>
-                                    <input type="text" class="form-control" id="tipo_concepto" name="tipo_concepto" placeholder="Tipo" />
                                 </div>
                             </div>
                         </div>
@@ -123,20 +109,8 @@ $menu->header('concepto');
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Cantidad (*)</label>
-                                            <input type="number" class="form-control" id="cantidad_conceptoActualizar" name="cantidad_conceptoActualizar" placeholder="Cantidad" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
                                             <label>Descripción (*)</label>
                                             <input type="text" class="form-control" id="descripcion_conceptoActualizar" name="descripcion_conceptoActualizar" placeholder="Descripción" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Tipo (*)</label>
-                                            <input type="text" class="form-control" id="tipo_conceptoActualizar" name="tipo_conceptoActualizar" placeholder="Tipo" />
                                         </div>
                                     </div>
                                 </div>
@@ -182,22 +156,8 @@ $menu->header('concepto');
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Cantidad (*) </label>
-                                            <input disabled name="cantidad_conceptoConsultar" id="cantidad_conceptoConsultar" class="form-control cantidad_conceptoConsultar">
-                                            </input>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
                                             <label>Descripción </label>
                                             <input disabled name="descripcion_conceptoConsultar" id="descripcion_conceptoConsultar" class="form-control descripcion_conceptoConsultar">
-                                            </input>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Tipo </label>
-                                            <input disabled name="tipo_conceptoConsultar" id="tipo_conceptoConsultar" class="form-control tipo_conceptoConsultar">
                                             </input>
                                         </div>
                                     </div>
@@ -257,15 +217,8 @@ $menu->footer();
       "columns": [{
           "data": "nombre_concepto"
         },
-
-        {
-          "data": "cantidad_concepto"
-        },
         {
           "data": "descripcion_concepto"
-        },
-        {
-          "data": "tipo_concepto"
         },
         {
           data: null,
@@ -292,15 +245,11 @@ $menu->footer();
 
       var id_concepto = $("#id_conceptoActualizar").val(data.id_concepto);
       var nombre_concepto = $("#nombre_conceptoActualizar").val(data.nombre_concepto);
-      var cantidad_concepto = $("#cantidad_conceptoActualizar").val(data.cantidad_concepto);
       var descripcion_concepto = $("#descripcion_conceptoActualizar").val(data.descripcion_concepto);
-      var tipo_concepto = $("#tipo_conceptoActualizar").val(data.tipo_concepto);
 
       var idConsulta = $("#id_conceptoConsultar").val(data.id_concepto);
       var nombre_concepto = $("#nombre_conceptoConsultar").val(data.nombre_concepto);
-      var cantidad_concepto = $("#cantidad_conceptoConsultar").val(data.cantidad_concepto);
       var descripcion_concepto = $("#descripcion_conceptoConsultar").val(data.descripcion_concepto);
-      var tipo_concepto = $("#tipo_conceptoConsultar").val(data.tipo_concepto);
     });
   }
 
@@ -341,15 +290,9 @@ $menu->footer();
         nombre_concepto: {
           required: true
         },
-        cantidad_concepto: {
-          required: true
-        },
         descripcion_concepto: {
           required: true
         },
-        tipo_concepto: {
-          required: true
-        }
       },
       messages: {
         id_concepto: {
@@ -359,15 +302,9 @@ $menu->footer();
         nombre_concepto: {
           required: "Ingresa el nombre del concepto"
         },
-        cantidad_concepto: {
-          required: "Ingresa la cantidad"
-        },
         descripcion_concepto: {
           required: "Ingresa la descripción"
         },
-        tipo_concepto: {
-          required: "Ingresa el tipo de concepto"
-        }
       },
       errorElement: 'span',
       errorPlacement: function(error, element) {
@@ -416,34 +353,18 @@ $menu->footer();
           required: true
         },
 
-        cantidad_conceptoActualizar: {
-          required: true
-        },
-
         descripcion_conceptoActualizar: {
           required: true
         },
-
-        tipo_conceptoActualizar: {
-          required: true
-        }
       },
       messages: {
         nombre_conceptoActualizar: {
           required: "Ingresa el concepto"
         },
 
-        cantidad_conceptoActualizar: {
-          required: "Ingresa la cantidad"
-        },
-
         descripcion_conceptoActualizar: {
           required: "Ingresa una descripción"
         },
-
-        tipo_conceptoActualizar: {
-          required: "Ingresa el tipo"
-        }
       },
       errorElement: 'span',
       errorPlacement: function(error, element) {
