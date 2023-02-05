@@ -10,19 +10,13 @@ class ConceptoDAO extends Model implements CRUD
     {
         $query = $this->db->conectar()->prepare('INSERT INTO concepto (
             nombre_concepto,
-            cantidad_concepto,
-            descripcion_concepto,
-            tipo_concepto) VALUES (
+            descripcion_concepto) VALUES (
             :nombre_concepto,
-            :cantidad_concepto,
-            :descripcion_concepto,
-            :tipo_concepto)');
+            :descripcion_concepto)');
 $query->execute([
 
         ':nombre_concepto' => $data['nombre_concepto'],
-        ':cantidad_concepto' => $data['cantidad_concepto'],
-        ':descripcion_concepto' => $data['descripcion_concepto'],
-        ':tipo_concepto' => $data['tipo_concepto']
+        ':descripcion_concepto' => $data['descripcion_concepto']
     ]);
 
         echo 'ok';
@@ -31,17 +25,13 @@ $query->execute([
     public function update($data)
     {
         $query = $this->db->conectar()->prepare('UPDATE concepto SET   
-        nombre_concepto = :nombre_concepto, 
-        cantidad_concepto = :cantidad_concepto, 
-        descripcion_concepto = :descripcion_concepto, 
-        tipo_concepto = :tipo_concepto WHERE 
+        nombre_concepto = :nombre_concepto,  
+        descripcion_concepto = :descripcion_concepto WHERE 
         id_concepto = :id_concepto');
         $query->execute([
             ':id_concepto' => $data['id_concepto'],
             ':nombre_concepto' => $data['nombre_concepto'],
-            ':cantidad_concepto' => $data['cantidad_concepto'],
-            ':descripcion_concepto' => $data['descripcion_concepto'],
-            ':tipo_concepto' => $data['tipo_concepto']
+            ':descripcion_concepto' => $data['descripcion_concepto']
         ]);
 
         echo 'ok';
@@ -64,9 +54,7 @@ $query->execute([
                 $concepto = new ConceptoDTO();
                 $concepto->id_concepto = $value['id_concepto'];
                 $concepto->nombre_concepto = $value['nombre_concepto'];
-                $concepto->cantidad_concepto = $value['cantidad_concepto'];
                 $concepto->descripcion_concepto = $value['descripcion_concepto'];
-                $concepto->tipo_concepto = $value['tipo_concepto'];
                 array_push($objConcepto, $concepto);
             }   
         }else{
