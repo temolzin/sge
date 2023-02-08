@@ -13,8 +13,7 @@ class CobroDAO extends Model implements CRUD {
             :id_alumno,
             :id_concepto, 
             :cantidad_cobro, 
-            :iva_cobro , 
-            :concepto_cobro , 
+            :iva_cobro ,  
             :fechalimite_cobro, 
             :activo_cobro)');
         $query->execute([':id_alumno' => $data['id_alumno'],

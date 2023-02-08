@@ -92,13 +92,8 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Concepto (*)</label>
-                                    <select name="concepto_cobro" id="concepto_cobro" class="form-control concepto_cobro">
+                                    <select name="id_concepto" id="id_concepto" class="form-control id_concepto">
                                         <option value="default">Seleccione el concepto de pago</option>
-                                        <option>Inscripción</option>
-                                        <option>Reinscripción</option>
-                                        <option>Constancia de estudios</option>
-                                        <option>Mantenimiento</option>
-                                        <option>Titulación</option>
                                     </select>
                                 </div>
                             </div>
@@ -170,13 +165,8 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Concepto (*)</label>
-                                    <select name="concepto_cobroActualizar" id="concepto_cobroActualizar" class="form-control concepto_cobro">
+                                    <select name="id_conceptoActualizar" id="id_conceptoActualizar" class="form-control id_concepto">
                                         <option value="default">Seleccione el concepto de pago</option>
-                                        <option>Inscripción</option>
-                                        <option>Reinscripción</option>
-                                        <option>Constancia de estudios</option>
-                                        <option>Mantenimiento</option>
-                                        <option>Titulación</option>
                                     </select>
                                 </div>
                             </div>
@@ -252,7 +242,8 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Concepto</label>
-                                    <input type="text" disabled class="form-control" id="concepto_cobroConsultar" name="concepto_cobroConsultar" />
+                                    <select name="id_conceptoConsultar" id="id_conceptoConsultar" disabled class="form-control id_concepto">
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -311,6 +302,7 @@ $menu->footer();
         enviarFormularioActualizar();
         eliminarRegistro();
         llenarAlumno();
+        llenarConcepto();
     });
 
     const llenarAlumno = () => {
@@ -327,6 +319,26 @@ $menu->footer();
                     var appat = registro.appaterno_alumno;
                     var apmat = registro.apmaterno_alumno;
                     $(".id_alumno").append('<option value=' + id + '>' + nombre + ' ' + appat + ' ' + apmat + '</option>');
+                });
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    }
+
+    const llenarConcepto = () => {
+        $.ajax({
+            type: "GET",
+            url: "<?php echo constant('URL'); ?>concepto/read",
+            async: false,
+            dataType: "json",
+            success: function(data) {
+                 //console.log('generos: ',data)
+                 $.each(data, function(key, registro) {
+                    var id = registro.id_concepto;
+                    var nombre = registro.nombre_concepto;
+                    $(".id_concepto").append('<option value=' + id + '>' + nombre + '</option>');
                 });
             },
             error: function(data) {
@@ -352,7 +364,7 @@ $menu->footer();
                     "data": "cantidad_cobro"
                 },
                 {
-                    "data": "concepto_cobro"
+                    "data": "nombre_concepto"
                 },
                 {
                     "data": "fechalimite_cobro"
@@ -392,16 +404,16 @@ $menu->footer();
 
             var id_cobro = $("#id_cobroActualizar").val(data.id_cobro);
             var id_alumno = $("#id_alumnoActualizar option[value=" + data.id_alumno + "]").attr("selected", true);
+            var id_concepto = $("#id_conceptoActualizar option[value=" + data.id_concepto + "]").attr("selected", true);
             var cantidad_cobro = $("#cantidad_cobroActualizar").val(data.cantidad_cobro);
             var iva_cobro = $("#iva_cobroActualizar").val(data.iva_cobro);
-            var concepto_cobro = $("#concepto_cobroActualizar").val(data.concepto_cobro);
             var fechalimite_cobro = $("#fechalimite_cobroActualizar").val(data.fechalimite_cobro);
 
             var idConsulta = $("#id_cobroConsultar").val(data.id_cobro);
             var id_alumnoConsulta = $("#id_alumnoConsultar option[value=" + data.id_alumno + "]").attr("selected", true);
+            var id_conceptoConsulta = $("#id_conceptoConsultar option[value=" + data.id_alumno + "]").attr("selected", true);
             var cantidad_cobroConsulta = $("#cantidad_cobroConsultar").val(data.cantidad_cobro);
             var iva_cobroConsulta = $("#iva_cobroConsultar").val(data.iva_cobro);
-            var concepto_cobroConsulta = $("#concepto_cobroConsultar").val(data.concepto_cobro);
             var fecha_cobroConsulta = $("#fecha_cobroConsultar").val(data.fecha_cobro);
             var fechalimite_cobroConsulta = $("#fechalimite_cobroConsultar").val(data.fechalimite_cobro);
         });
@@ -440,6 +452,9 @@ $menu->footer();
                 id_alumno: {
                     selectRequired: "default"
                 },
+                id_concepto: {
+                    selectRequired: "default"
+                },
                 cantidad_cobro: {
                     required: true,
                     number: true
@@ -447,9 +462,6 @@ $menu->footer();
                 iva_cobro: {
                     required: true,
                     number: true
-                },
-                concepto_cobro: {
-                    selectRequired: "default"
                 },
                 fechalimite_cobro: {
                     required: true
@@ -459,6 +471,9 @@ $menu->footer();
                 id_alumno: {
                     selectRequired: "Seleccione un alumno"
                 },
+                id_concepto: {
+                    selectRequired: "Selecciona un concepto de pago"
+                },
                 cantidad_cobro: {
                     required: "Ingrese cantidad de cobro",
                     number: "Sólo números"
@@ -466,9 +481,6 @@ $menu->footer();
                 iva_cobro: {
                     required: "Ingrese el iva del cobro",
                     number: "Sólo números"
-                },
-                concepto_cobro: {
-                    selectRequired: "Seleccione el motivo de cobro"
                 },
                 fechalimite_cobro: {
                     required: "Ingrese la fecha límite de cobro"
@@ -521,6 +533,9 @@ $menu->footer();
                 id_alumnoActualizar: {
                     selectRequired: "default"
                 },
+                id_conceptoActualizar: {
+                    selectRequired: "default"
+                },
                 cantidad_cobroActualizar: {
                     required: true,
                     number: true
@@ -528,9 +543,6 @@ $menu->footer();
                 iva_cobroActualizar: {
                     required: true,
                     number: true
-                },
-                concepto_cobroActualizar: {
-                    selectRequired: "default"
                 },
                 fechalimite_cobroActualizar: {
                     required: true
@@ -540,6 +552,9 @@ $menu->footer();
                 id_alumnoActualizar: {
                     selectRequired: "Seleccione un alumno"
                 },
+                id_conceptoActualizar: {
+                    selectRequired: "Selecciona un concepto de pago"
+                },
                 cantidad_cobroActualizar: {
                     required: "Ingrese cantidad de cobro",
                     number: "Sólo números"
@@ -547,9 +562,6 @@ $menu->footer();
                 iva_cobroActualizar: {
                     required: "Ingrese el iva del cobro",
                     number: "Sólo números"
-                },
-                concepto_cobroActualizar: {
-                    selectRequired: "Seleccione el motivo de cobro"
                 },
                 fechalimite_cobroActualizar: {
                     required: "Ingrese la fecha límite de cobro"
