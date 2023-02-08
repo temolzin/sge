@@ -412,6 +412,7 @@ $menu->footer();
             var idConsulta = $("#id_cobroConsultar").val(data.id_cobro);
             var id_alumnoConsulta = $("#id_alumnoConsultar option[value=" + data.id_alumno + "]").attr("selected", true);
             var id_conceptoConsulta = $("#id_conceptoConsultar option[value=" + data.id_alumno + "]").attr("selected", true);
+            var nombre_concepto = $("#nombre_conceptoConsultar").val(data.nombre_concepto);
             var cantidad_cobroConsulta = $("#cantidad_cobroConsultar").val(data.cantidad_cobro);
             var iva_cobroConsulta = $("#iva_cobroConsultar").val(data.iva_cobro);
             var fecha_cobroConsulta = $("#fecha_cobroConsultar").val(data.fecha_cobro);

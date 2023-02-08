@@ -60,7 +60,7 @@ class CobroDAO extends Model implements CRUD {
         INNER JOIN escuela 
         ON alumno.id_escuela=escuela.id_escuela
         INNER JOIN concepto 
-        ON concepto.id_concepto=concepto.id_concepto 
+        ON cobro.id_concepto=concepto.id_concepto 
         WHERE cobro.id_alumno=alumno.id_alumno 
         AND alumno.id_escuela = escuela.id_escuela 
         AND escuela.id_escuela = '".$id_escuela."'";
@@ -73,6 +73,7 @@ class CobroDAO extends Model implements CRUD {
                 $cobro->id_alumno = $value['id_alumno'];
                 $cobro->id_concepto = $value['id_concepto'];
                 $cobro->cantidad_cobro = $value['cantidad_cobro'];
+                $cobro->nombre_concepto = $value['nombre_concepto'];
                 $cobro->iva_cobro = $value['iva_cobro'];
                 $cobro->fecha_cobro = $value['fecha_cobro'];
                 $cobro->fechalimite_cobro = $value['fechalimite_cobro'];

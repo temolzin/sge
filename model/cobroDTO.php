@@ -6,7 +6,6 @@ class CobroDTO implements JsonSerializable
     private $id_concepto;
     private $cantidad_cobro;
     private $iva_cobro;
-    private $concepto_cobro;
     private $fecha_cobro;
     private $fechalimite_cobro;
     private $activo_cobro;
@@ -14,6 +13,7 @@ class CobroDTO implements JsonSerializable
     private $nombre_alumno;
     private $appaterno_alumno;
     private $apmaterno_alumno;
+    private $nombre_concepto;
 
     public function __get($property)
     {

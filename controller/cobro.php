@@ -84,6 +84,10 @@ class Cobro extends Controller
         $cobroDAO = new CobroDAO();
         $cobroDAO = $cobroDAO->read();
 
+        require 'model/conceptoDAO.php';
+        $conceptoDAO = new ConceptoDAO();
+        $conceptos = $conceptoDAO->read();
+
         $obj = null;
         if (is_array($cobroDAO) || is_object($cobroDAO)) {
             foreach ($cobroDAO as $key => $value) {
