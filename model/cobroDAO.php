@@ -72,7 +72,7 @@ class CobroDAO extends Model implements CRUD {
                 $cobro->id_cobro = $value['id_cobro'];
                 $cobro->id_alumno = $value['id_alumno'];
                 $cobro->id_concepto = $value['id_concepto'];
-                $cobro->cantidad_cobro = $value['cantidad_cobro'];
+                $cobro->cantidad_cobro = '$' . number_format($value['cantidad_cobro'], 2, '.', ',');
                 $cobro->nombre_concepto = $value['nombre_concepto'];
                 $cobro->iva_cobro = $value['iva_cobro'];
                 $cobro->fecha_cobro = $value['fecha_cobro'];

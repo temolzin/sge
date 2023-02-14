@@ -147,7 +147,7 @@ $menu->header('Cobro');
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                     </div>
-                                    <input type="number" class="form-control" id="cantidad_cobroActualizar" name="cantidad_cobroActualizar" placeholder="Cantidad cobro" />
+                                    <input class="form-control" id="cantidad_cobroActualizar" name="cantidad_cobroActualizar" placeholder="Cantidad cobro" />
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -224,7 +224,7 @@ $menu->header('Cobro');
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                     </div>
-                                    <input type="number" disabled class="form-control" id="cantidad_cobroConsultar" name="cantidad_cobroConsultar" />
+                                    <input disabled class="form-control" id="cantidad_cobroConsultar" name="cantidad_cobroConsultar" />
                                 </div>
                             </div>
                             <div class="col-sm-3">
