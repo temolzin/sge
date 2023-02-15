@@ -10,190 +10,186 @@ $menu->header('concepto');
 ?>
 
 <section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 text-right">
-                <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarConcepto'> <i class="fas fa-plus-circle"></i> Registrar Concepto</button>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Concepto</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table id="dataTableConcepto" name="dataTableConcepto" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Opciones</th>
-                            </tr>
-                        </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 text-right">
+        <button class="btn btn-success" data-toggle='modal' data-target='#modalRegistrarConcepto'> <i class="fas fa-plus-circle"></i> Registrar Concepto</button>
+      </div>
     </div>
+    <br>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3>Concepto</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="dataTableConcepto" name="dataTableConcepto" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Opciones</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!--*****************************************MODALS****************************************-->
 <!--------------------------------------------------------- Modal Registrar Concepto----------------------------------------------->
 <div class="modal fade" id="modalRegistrarConcepto" tabindex="-1" role="dialog" aria-labelledby="modalRegistrarConcepto" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="card-success">
-                <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between ">
-                        <h4 class="card-title">Concepto <small> &nbsp;(*) Campos requeridos</small></h4>
-                        <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                </div>
-                <form id="formRegistrarConcepto" name="formRegistrarConcepto">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Nombre Concepto (*)</label>
-                                    <input type="text" class="form-control" id="nombre_concepto" name="nombre_concepto" placeholder="Nombre" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Descripción (*)</label>
-                                    <input type="text" class="form-control" id="descripcion_concepto" name="descripcion_concepto" placeholder="Descripción" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-success">Registrar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="card-success">
+        <div class="card-header">
+          <div class="d-sm-flex align-items-center justify-content-between ">
+            <h4 class="card-title">Concepto <small> &nbsp;(*) Campos requeridos</small></h4>
+            <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
         </div>
+        <form id="formRegistrarConcepto" name="formRegistrarConcepto">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label>Nombre Concepto (*)</label>
+                  <input type="text" class="form-control" id="nombre_concepto" name="nombre_concepto" placeholder="Nombre" />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label>Descripción (*)</label>
+                  <input type="text" class="form-control" id="descripcion_concepto" name="descripcion_concepto" placeholder="Descripción" />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Registrar</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 
 <!--------------------------------------------------------- Modal Actualizar----------------------------------------------->
 <div class="modal fade" id="modalActualizarConcepto" tabindex="-1" role="dialog" aria-labelledby="modalActualizarConcepto" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="card-warning">
-                <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between ">
-                        <h4 class="card-title">Concepto <small> &nbsp;(*) Campos requeridos</small></h4>
-                        <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <!---->
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form role="form" id="formActualizarConcepto" name="formActualizarConcepto">
-                    <div class="card-body">
-                        <div class="card">
-                            <!-- /.card-header -->
-                            <div class="card-body border-primary">
-                                <div class="row">
-                                    <input type="text" hidden class="form-control" id="id_conceptoActualizar" name="id_conceptoActualizar" />
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Nombre (*)</label>
-                                            <input type="text" class="form-control" id="nombre_conceptoActualizar" name="nombre_conceptoActualizar" placeholder="Nombre concepto" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>Descripción (*)</label>
-                                            <input type="text" class="form-control" id="descripcion_conceptoActualizar" name="descripcion_conceptoActualizar" placeholder="Descripción" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                  <button type="submit" class="btn btn-warning">Actualizar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                </div>
-            </div>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="card-warning">
+        <div class="card-header">
+          <div class="d-sm-flex align-items-center justify-content-between ">
+            <h4 class="card-title">Concepto <small> &nbsp;(*) Campos requeridos</small></h4>
+            <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <!---->
         </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form" id="formActualizarConcepto" name="formActualizarConcepto">
+          <div class="card-body">
+            <!-- /.card-header -->
+            <div class="card-body border-primary">
+              <div class="row">
+                <input type="text" hidden class="form-control" id="id_conceptoActualizar" name="id_conceptoActualizar" />
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Nombre (*)</label>
+                    <input type="text" class="form-control" id="nombre_conceptoActualizar" name="nombre_conceptoActualizar" placeholder="Nombre concepto" />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Descripción (*)</label>
+                    <input type="text" class="form-control" id="descripcion_conceptoActualizar" name="descripcion_conceptoActualizar" placeholder="Descripción" />
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-warning">Actualizar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+</div>
 </div>
 
 
 <!--------------------------------------------------------- Modal Detalle Concepto----------------------------------------------->
 <div class="modal fade" id="modalDetalleConcepto" tabindex="-1" role="dialog" aria-labelledby="modalDetalleConcepto" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="card-primary">
-                <div class="card-header">
-                    <div class="d-sm-flex align-items-center justify-content-between ">
-                        <h4 class="card-title">Concepto <small> &nbsp;(*) Campos requeridos</small></h4>
-                        <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                </div>
-                <form role="form" id="formConsulta" name="formConsulta">
-                    <div class="card-body">
-                        <div class="card">
-                            <!-- /.card-header -->
-                            <div class="card-body border-primary">
-                                <div class="row">
-                                    <input type="text" hidden class="form-control" id="id_conceptoConsultar" name="id_conceptoConsultar" />
-
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Nombre (*)</label>
-                                            <input disabled name="nombre_conceptoConsultar" id="nombre_conceptoConsultar" class="form-control nombre_concepto">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label>Descripción </label>
-                                            <input disabled name="descripcion_conceptoConsultar" id="descripcion_conceptoConsultar" class="form-control descripcion_conceptoConsultar">
-                                            </input>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="card-primary">
+        <div class="card-header">
+          <div class="d-sm-flex align-items-center justify-content-between ">
+            <h4 class="card-title">Concepto <small> &nbsp;(*) Campos requeridos</small></h4>
+            <button type="button" class="close  d-sm-inline-block text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
         </div>
+        <form role="form" id="formConsulta" name="formConsulta">
+          <div class="card-body">
+            <!-- /.card-header -->
+            <div class="card-body border-primary">
+              <div class="row">
+                <input type="text" hidden class="form-control" id="id_conceptoConsultar" name="id_conceptoConsultar" />
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Nombre (*)</label>
+                    <input disabled name="nombre_conceptoConsultar" id="nombre_conceptoConsultar" class="form-control nombre_concepto">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Descripción </label>
+                    <input disabled name="descripcion_conceptoConsultar" id="descripcion_conceptoConsultar" class="form-control descripcion_conceptoConsultar">
+                    </input>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 
 <!--------------------------------------------------------- Modal Eliminar Concepto----------------------------------------------->
 <div class="modal fade" id="modalEliminarConcepto" tabindex="-1" role="dialog" aria-labelledby="modalEliminarConcepto" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-danger">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar Registro</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <form role="form" id="formEliminarConcepto" name="formEliminarConcepto">
-                <input type="text" hidden id="idEliminarConcepto" name="idEliminarConcepto">
-                <div class="modal-body text-center text-danger">¿Realmente deseas eliminar el registro?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-danger" type="submit">Eliminar</button>
-                </div>
-            </form>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-danger">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar Registro</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <form role="form" id="formEliminarConcepto" name="formEliminarConcepto">
+        <input type="text" hidden id="idEliminarConcepto" name="idEliminarConcepto">
+        <div class="modal-body text-center text-danger">¿Realmente deseas eliminar el registro?</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <button class="btn btn-danger" type="submit">Eliminar</button>
         </div>
+      </form>
     </div>
+  </div>
 </div>
 
 <?php
