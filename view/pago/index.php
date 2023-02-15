@@ -66,7 +66,7 @@ $menu->header('Pago');
                                 <div class="form-group">
                                     <label>Pago (*)</label>
                                     <div>
-                                        <select name="id_cobro" id="id_cobro" class="form-control buscar-pago">
+                                        <select name="id_cobro" id="id_cobro" class="form-control buscar-pago" style="width: 100%;">
                                             <option value="default">Seleccione el pago</option>
                                         </select>
                                     </div>
@@ -311,11 +311,8 @@ $menu->footer();
 <script>
     $(document).ready(function() {
         $(document).ready(function() {
-            $('.buscar-pago').select2({
-        minimumInputLength: 2
-    });
-    
-});
+            $('.buscar-pago').select2();
+        });
         mostrarPagos();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
