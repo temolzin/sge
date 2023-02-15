@@ -204,13 +204,13 @@ $menu->header('Cobro');
                 <!-- form start -->
                 <form role="form" id="formConsulta" name="formConsulta">
                     <div class="card-body">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label>Clave Cobro</label>
-                                <input type="number" disabled class="form-control" id="id_cobroConsultar" name="id_cobroConsultar" />
-                            </div>
-                        </div>
                         <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Clave Cobro</label>
+                                    <input type="number" disabled class="form-control" id="id_cobroConsultar" name="id_cobroConsultar" />
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Alumno</label>
@@ -218,6 +218,8 @@ $menu->header('Cobro');
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-sm-3">
                                 <label>Cantidad</label>
                                 <div class="input-group mb-3">
@@ -236,9 +238,6 @@ $menu->header('Cobro');
                                     <input type="number" disabled class="form-control" id="iva_cobroConsultar" name="iva_cobroConsultar" />
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Concepto</label>
@@ -246,6 +245,8 @@ $menu->header('Cobro');
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Fecha cobro</label>
@@ -255,7 +256,7 @@ $menu->header('Cobro');
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Fecha límite</label>
-                                    <input type="date" disabled class="form-control" id="fechalimite_cobroConsultar" name="fechalimite_cobroConsultar" />
+                                    <input type="date" disabled class="form-control" id="fecha_limiteConsultar" name="fceha_limiteConsultar" />
                                 </div>
                             </div>
                         </div>
@@ -334,8 +335,8 @@ $menu->footer();
             async: false,
             dataType: "json",
             success: function(data) {
-                 //console.log('generos: ',data)
-                 $.each(data, function(key, registro) {
+                //console.log('generos: ',data)
+                $.each(data, function(key, registro) {
                     var id = registro.id_concepto;
                     var nombre = registro.nombre_concepto;
                     $(".id_concepto").append('<option value=' + id + '>' + nombre + '</option>');
