@@ -29,7 +29,7 @@ $menu->header('Cobro');
                                     <th>Alumno</th>
                                     <th>Cantidad</th>
                                     <th>Concepto</th>
-                                    <th>Fecha</th>
+                                    <th>Fecha Límite</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -249,14 +249,14 @@ $menu->header('Cobro');
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>Fecha cobro</label>
-                                    <input type="date" disabled class="form-control" id="fecha_cobroConsultar" name="fecha_cobroConsultar" />
+                                    <label>Fecha y hora de cobro</label>
+                                    <input disabled class="form-control" id="fecha_cobroConsultar" name="fecha_cobroConsultar" />
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label>Fecha límite</label>
-                                    <input type="date" disabled class="form-control" id="fecha_limiteConsultar" name="fceha_limiteConsultar" />
+                                    <input type="date" disabled class="form-control" id="fechalimite_cobroConsultar" name="fechalimite_cobroConsultar" />
                                 </div>
                             </div>
                         </div>
