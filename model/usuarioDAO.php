@@ -35,6 +35,14 @@ class UsuarioDAO extends Model implements CRUD
         echo 'ok';
     }
 
+    public function updatePassword($data)
+    {
+        $query = $this->db->conectar()->prepare('UPDATE usuario SET password_usuario = :nueva_password WHERE id_usuario = :id_usuario');
+        $query->execute([':id_usuario' => $data['id_usuario'], ':nueva_password' => $data['nueva_password']]);
+        var_dump($data);
+    }
+    
+
     public function delete($id)
     {
         $query = $this->db->conectar()->prepare('DELETE FROM usuario where id_usuario = :id_usuario');
@@ -73,6 +81,7 @@ class UsuarioDAO extends Model implements CRUD
 
                         //Info alumno
                         $_SESSION['id'] = $value['id_alumno'];
+                        $_SESSION['id_usuario'] = $value['id_usuario'];
                         $_SESSION['id_grupo'] = $value['id_grupo'];
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['foto'] = $value['foto_alumno'];
@@ -123,6 +132,7 @@ class UsuarioDAO extends Model implements CRUD
                     foreach (($query) as $key => $value) {
 
                         $_SESSION['id'] = $value['id_administrador'];
+                        $_SESSION['id_usuario'] = $value['id_usuario'];
                         $_SESSION['foto'] = $value['foto_administrador'];
                         $_SESSION['nombre'] = $value['nombre_administrador'];
                         $_SESSION['appaterno'] = $value['appaterno_administrador'];
@@ -175,6 +185,7 @@ class UsuarioDAO extends Model implements CRUD
 
                         //Info Alumno
                         $_SESSION['id_alumno'] = $value['id_alumno'];
+                        $_SESSION['id_usuario'] = $value['id_usuario'];
                         $_SESSION['id_grupo'] = $value['id_grupo'];
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['foto_alumno'] = $value['foto_alumno'];
@@ -193,6 +204,7 @@ class UsuarioDAO extends Model implements CRUD
                         $_SESSION['fecha_nacimiento_alumno'] = $value['fechanacimiento_alumno'];
                         //Info tutor
                         $_SESSION['id'] = $value['id_tutor'];
+                        $_SESSION['id_usuario'] = $value['id_usuario'];
                         $_SESSION['id_alumno'] = $value['id_alumno'];
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['foto'] = $value['foto_tutor'];
@@ -225,9 +237,10 @@ class UsuarioDAO extends Model implements CRUD
                     foreach (($query) as $key => $value) {
 
                         $_SESSION['id'] = $value['id_profesor'];
+                        $_SESSION['id_usuario'] = $value['id_usuario'];
                         $_SESSION['id_grado_academico'] = $value['id_grado_academico'];
                         $_SESSION['id_escuela'] = $value['id_escuela'];
-                        //$_SESSION['id_usuario'] = $value['id_usuario'];
+                        $_SESSION['id_usuario'] = $value['id_usuario'];
                         $_SESSION['foto'] = $value['foto_profesor'];
                         $_SESSION['nombre'] = $value['nombre_profesor'];
                         $_SESSION['appaterno'] = $value['appaterno_profesor'];
@@ -270,6 +283,7 @@ class UsuarioDAO extends Model implements CRUD
                     foreach (($query) as $key => $value) {
 
                         $_SESSION['id'] = $value['id_director'];
+                        $_SESSION['id_usuario'] = $value['id_usuario'];
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['id_grado_academico'] = $value['id_grado_academico'];
                         $_SESSION['foto'] = $value['foto_director'];
