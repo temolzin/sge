@@ -101,7 +101,7 @@ $menu->header('Tablero');
         <!-- /.card-header -->
         <!-- form start -->
         <form role="form" id="formCambiarPassword" name="formCambiarPassword" method="post">
-          <input type="hidden" name="id_usuario" id="id_usuario" value="<?php $_SESSION['id_usuario']; ?>">
+          <input type="hidden" name="id_usuario" value="<?php echo $_SESSION['id']; ?>">
           <div class="card-body">
 
             <!-- /.card-tools -->
@@ -175,12 +175,12 @@ $menu->footer();
 
     $('#formCambiarPassword').validate({
       rules: {
-        id_usuario: {
+        id: {
           required: true
         },
         nueva_password: {
           required: true,
-          minlength: 6
+          minlength: 8
         },
         repite_password: {
           required: true,
@@ -190,7 +190,7 @@ $menu->footer();
       messages: {
         nueva_password: {
           required: "Ingrese la nueva contraseña",
-          minlength: "La contraseña debe tener al menos 6 caracteres"
+          minlength: "La contraseña debe tener al menos 8 caracteres"
         },
         repetir_password: {
           required: "Repita la nueva contraseña",
