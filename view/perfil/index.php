@@ -50,17 +50,14 @@ $menu->header('Tablero');
 
             <a class="btn btn-primary btn-block" data-toggle='modal' data-target='#modalCambiarPassword'><b>Cambiar Contraseña</b></a>
           </div>
-          <!-- /.card-body -->
         </div>
-        <!-- /.card -->
       </div>
-      <!-- /.col -->
+
       <!-- About Me Box -->
       <div class="card card-primary col-lg-9 col-md-11">
         <div class="card-header">
           <h3 class="card-title">Sobre Mí</h3>
         </div>
-        <!-- /.card-header -->
         <div class="card-body">
           <strong><i class="fas fa-phone mr-1"></i> Contacto</strong>
 
@@ -75,12 +72,9 @@ $menu->header('Tablero');
 
           <p class="text-muted"><?php echo $fecha_nacimiento ?></p>
         </div>
-        <!-- /.card-body -->
       </div>
-      <!-- /.card -->
     </div>
-    <!-- /.row -->
-  </div><!-- /.container-fluid -->
+  </div>
 </section>
 
 
@@ -112,23 +106,35 @@ $menu->header('Tablero');
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>Nueva contraseña (*)</label>
-                    <input type="password" class="form-control" id="nueva_password" name="nueva_password" placeholder="Nueva Contraseña" />
+                    <div class="input-group">
+                      <input type="password" class="form-control" id="nueva_password" name="nueva_password" placeholder="Nueva Contraseña" />
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="toggle_password">
+                          <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>Repite contraseña (*)</label>
-                    <input type="password" class="form-control" id="repite_password" name="repite_password" placeholder="Repite Contraseña" />
+                    <div class="input-group">
+                      <input type="password" class="form-control" id="repite_password" name="repite_password" placeholder="Repite Contraseña" />
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="toggle_password">
+                          <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+              </div>
             </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-primary">Actualizar</button>
-            </div>
-          </div>
         </form>
       </div>
     </div>
@@ -210,4 +216,16 @@ $menu->footer();
       }
     });
   }
+
+  $(document).on('click', '#toggle_password', function() {
+    $(this).toggleClass('btn-outline-secondary btn-outline-primary');
+    var input = $(this).parent().prev('input');
+    if (input.attr('type') === 'password') {
+      input.attr('type', 'text');
+      $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
+    } else {
+      input.attr('type', 'password');
+      $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
+    }
+  });
 </script>
