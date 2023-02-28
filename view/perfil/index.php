@@ -26,8 +26,6 @@ if ($foto != null) {
   $fotoruta = constant('URL') . 'public/img/default.jpg';
 }
 
-?>
-<?php
 require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Tablero');
@@ -135,6 +133,7 @@ $menu->header('Tablero');
                 <button type="submit" class="btn btn-primary">Actualizar</button>
               </div>
             </div>
+          </div>
         </form>
       </div>
     </div>
