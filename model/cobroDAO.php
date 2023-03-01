@@ -8,18 +8,16 @@ class CobroDAO extends Model implements CRUD {
 
     public function insert($data)
     {
-        $query = $this->db->conectar()->prepare('INSERT INTO cobro (`id_cobro`, `id_alumno`, `id_concepto`, `cantidad_cobro`, `iva_cobro`, `fechalimite_cobro`, `activo_cobro`) 
+        $query = $this->db->conectar()->prepare('INSERT INTO cobro (`id_cobro`, `id_alumno`, `id_concepto`, `cantidad_cobro`, `fechalimite_cobro`, `activo_cobro`) 
             values (null, 
             :id_alumno,
             :id_concepto, 
-            :cantidad_cobro, 
-            :iva_cobro ,  
+            :cantidad_cobro,  
             :fechalimite_cobro, 
             :activo_cobro)');
         $query->execute([':id_alumno' => $data['id_alumno'],
             ':id_concepto' => $data['id_concepto'],
             ':cantidad_cobro' => $data['cantidad_cobro'], 
-            ':iva_cobro' => $data['iva_cobro'],  
             ':fechalimite_cobro' => $data['fechalimite_cobro'], 
             ':activo_cobro' => 1]); 
         echo 'ok'; 
@@ -31,14 +29,12 @@ class CobroDAO extends Model implements CRUD {
             id_alumno = :id_alumno,
             id_concepto = :id_concepto, 
             cantidad_cobro = :cantidad_cobro, 
-            iva_cobro = :iva_cobro, 
             fechalimite_cobro = :fechalimite_cobro 
             WHERE id_cobro = :id_cobro');
         $query->execute([':id_cobro' => $data['id_cobro'], 
             ':id_alumno' => $data['id_alumno'],
             ':id_concepto' => $data['id_concepto'], 
-            ':cantidad_cobro' => $data['cantidad_cobro'], 
-            ':iva_cobro' => $data['iva_cobro'], 
+            ':cantidad_cobro' => $data['cantidad_cobro'],  
             ':fechalimite_cobro' => $data['fechalimite_cobro']]); 
         echo 'ok'; 
     }
@@ -74,7 +70,6 @@ class CobroDAO extends Model implements CRUD {
                 $cobro->id_concepto = $value['id_concepto'];
                 $cobro->cantidad_cobro = '$' . number_format($value['cantidad_cobro'], 2, '.', ',');
                 $cobro->nombre_concepto = $value['nombre_concepto'];
-                $cobro->iva_cobro = $value['iva_cobro'];
                 $cobro->fecha_cobro = $value['fecha_cobro'];
                 $cobro->fechalimite_cobro = $value['fechalimite_cobro'];
                 $cobro->activo_cobro = $value['activo_cobro']; 

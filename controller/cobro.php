@@ -16,14 +16,12 @@ class Cobro extends Controller
         $id_alumno = $_POST['id_alumno'];
         $id_concepto = $_POST['id_concepto'];
         $cantidad_cobro = $_POST['cantidad_cobro'];
-        $iva_cobro =  $_POST['iva_cobro'];
         $fechalimite_cobro = $_POST['fechalimite_cobro'];
 
         $data = array(
             'id_alumno' => $id_alumno,
             'id_concepto' => $id_concepto,
             'cantidad_cobro' => $cantidad_cobro,
-            'iva_cobro' => $iva_cobro,
             'fechalimite_cobro' => $fechalimite_cobro
         );
 
@@ -40,7 +38,6 @@ class Cobro extends Controller
         $id_alumno = $_POST['id_alumnoActualizar'];
         $id_concepto = $_POST['id_conceptoActualizar'];
         $cantidad_cobro = $_POST['cantidad_cobroActualizar'];
-        $iva_cobro =  $_POST['iva_cobroActualizar'];
         $fechalimite_cobro = $_POST['fechalimite_cobroActualizar'];
 
         $data = array(
@@ -48,7 +45,6 @@ class Cobro extends Controller
             'id_alumno' => $id_alumno,
             'id_concepto' => $id_concepto,
             'cantidad_cobro' => $cantidad_cobro,
-            'iva_cobro' => $iva_cobro,
             'fechalimite_cobro' => $fechalimite_cobro
         );
 

@@ -68,22 +68,13 @@ $menu->header('Cobro');
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-lg-6">
                                 <label>Cantidad (*)</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                     </div>
                                     <input type="number" class="form-control" id="cantidad_cobro" name="cantidad_cobro" placeholder="Cantidad cobro" />
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <label>IVA (*)</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-percentage"></i></span>
-                                    </div>
-                                    <input type="number" class="form-control" id="iva_cobro" name="iva_cobro" placeholder="IVA cobro" />
                                 </div>
                             </div>
 
@@ -141,22 +132,13 @@ $menu->header('Cobro');
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-lg-6">
                                 <label>Cantidad (*)</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                     </div>
                                     <input class="form-control" id="cantidad_cobroActualizar" name="cantidad_cobroActualizar" placeholder="Cantidad cobro" />
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <label>IVA (*)</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-percentage"></i></span>
-                                    </div>
-                                    <input type="number" class="form-control" id="iva_cobroActualizar" name="iva_cobroActualizar" placeholder="IVA cobro" />
                                 </div>
                             </div>
 
@@ -203,68 +185,46 @@ $menu->header('Cobro');
                 <!-- /.card-header -->
                 <!-- form start -->
                 <form role="form" id="formConsulta" name="formConsulta">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Clave Cobro</label>
-                                    <input type="number" disabled class="form-control" id="id_cobroConsultar" name="id_cobroConsultar" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Alumno</label>
-                                    <select name="id_alumnoConsultar" id="id_alumnoConsultar" disabled class="form-control id_alumno">
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label>Cantidad</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                                    </div>
-                                    <input disabled class="form-control" id="cantidad_cobroConsultar" name="cantidad_cobroConsultar" />
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <label>IVA</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-percentage"></i></span>
-                                    </div>
-                                    <input type="number" disabled class="form-control" id="iva_cobroConsultar" name="iva_cobroConsultar" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>Concepto</label>
-                                    <select name="id_conceptoConsultar" id="id_conceptoConsultar" disabled class="form-control id_concepto">
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Fecha y hora de cobro</label>
-                                    <input disabled class="form-control" id="fecha_cobroConsultar" name="fecha_cobroConsultar" />
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group">
-                                    <label>Fecha límite</label>
-                                    <input type="date" disabled class="form-control" id="fechalimite_cobroConsultar" name="fechalimite_cobroConsultar" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Alumno</label>
+                    <select name="id_alumnoConsultar" id="id_alumnoConsultar" disabled class="form-control id_alumno"></select>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Concepto</label>
+                    <select name="id_conceptoConsultar" id="id_conceptoConsultar" disabled class="form-control id_concepto"></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label>Cantidad</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                     </div>
-                </form>
+                    <input disabled class="form-control" id="cantidad_cobroConsultar" name="cantidad_cobroConsultar" />
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <label>Fecha y hora de cobro</label>
+                <input disabled class="form-control" id="fecha_cobroConsultar" name="fecha_cobroConsultar" />
+            </div>
+            <div class="col-sm-3">
+                <label>Fecha límite</label>
+                <input type="date" disabled class="form-control" id="fechalimite_cobroConsultar" name="fechalimite_cobroConsultar" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</form>
+
             </div>
         </div>
     </div>

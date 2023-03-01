@@ -61,7 +61,7 @@ $menu->header('Pago');
                 <form role="form" id="formRegistrarPago" name="formRegistrarPago" method="post">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-7">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Cobro (*)</label>
                                     <select name="id_cobro" id="id_cobro" class="form-control id_cobro">
@@ -69,7 +69,7 @@ $menu->header('Pago');
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-6">
                                 <label>Cantidad (*)</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
