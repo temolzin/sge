@@ -8,8 +8,7 @@ require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Pago');
 ?>
-<link rel="stylesheet" href="public/css/select.css"/>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -66,13 +65,13 @@ $menu->header('Pago');
                                 <div class="form-group">
                                     <label>Pago (*)</label>
                                     <div>
-                                        <select name="id_cobro" id="id_cobro" class="form-control buscar-pago" style="width: 100%;">
+                                        <select name="id_cobro" id="id_cobro" class="form-control select_cobro" style="width: 100%;">
                                             <option value="default">Seleccione el pago</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-6">
                                 <label>Cantidad (*)</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -311,7 +310,7 @@ $menu->footer();
 <script>
     $(document).ready(function() {
         $(document).ready(function() {
-            $('.buscar-pago').select2();
+            $('.select_cobro').select2();
         });
         mostrarPagos();
         enviarFormularioRegistrar();
@@ -335,7 +334,7 @@ $menu->footer();
                     var apmat = registro.apmaterno_alumno;
                     var cantidad = registro.cantidad_cobro;
                     var concepto = registro.concepto_cobro;
-                    $('.buscar-pago').append(new Option(nombre + ' ' + appat + ' ' + apmat + cantidad + ' ' + concepto, id, false, false));
+                    $('.select_cobro').append(new Option(nombre + ' ' + appat + ' ' + apmat +  ' ---> ' + concepto, id, false, false));
                 });
             },
             error: function(data) {

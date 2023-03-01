@@ -8,9 +8,6 @@ $menu = new Menu();
 $menu->header('Cobro');
 ?>
 
-<link rel="stylesheet" href="public/css/select.css"/>
-<script src="public/js/select2.js"></script>
-
 <section class="content">
     <div class="container-fluid">
         <div class="row">

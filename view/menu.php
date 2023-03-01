@@ -165,6 +165,8 @@ class Menu
             } else if ($tipo == 'director') {
 
                   $menu = ' 
+      <link rel="stylesheet" href="public/plugins/select2/css/select.css"/>
+      <script src="public/plugins/select2/js/select2.js"></script>
      <li class="nav-item">
       <a id="main" name="main" href="' . constant('URL') . 'main" class="nav-link">
       <i class="nav-icon fa fa-home"></i> 
