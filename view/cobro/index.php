@@ -24,7 +24,7 @@ $menu->header('Cobro');
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="dataTableCobro" name="dataTableCobro" class="table table-bordered table-hover dt-responsive nowrap">
+                        <table id="dataTableCobro" name="dataTableCobro" class="table table-bordered table-hover dt-responsive nowrap" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Alumno</th>
