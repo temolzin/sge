@@ -138,7 +138,7 @@ $menu->header('Cobro');
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                     </div>
-                                    <input class="form-control" id="cantidad_cobroActualizar" name="cantidad_cobroActualizar" placeholder="Cantidad cobro" />
+                                    <input type="number" class="form-control" id="cantidad_cobroActualizar" name="cantidad_cobroActualizar" placeholder="Cantidad cobro" />
                                 </div>
                             </div>
 
@@ -207,12 +207,12 @@ $menu->header('Cobro');
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                     </div>
-                    <input disabled class="form-control" id="cantidad_cobroConsultar" name="cantidad_cobroConsultar" />
+                    <input type="text" disabled class="form-control" id="cantidad_cobroConsultar" name="cantidad_cobroConsultar" />
                 </div>
             </div>
             <div class="col-sm-3">
                 <label>Fecha y hora de cobro</label>
-                <input disabled class="form-control" id="fecha_cobroConsultar" name="fecha_cobroConsultar" />
+                <input type="text" disabled class="form-control" id="fecha_cobroConsultar" name="fecha_cobroConsultar" />
             </div>
             <div class="col-sm-3">
                 <label>Fecha límite</label>
@@ -295,7 +295,6 @@ $menu->footer();
             async: false,
             dataType: "json",
             success: function(data) {
-                //console.log('generos: ',data)
                 $.each(data, function(key, registro) {
                     var id = registro.id_concepto;
                     var nombre = registro.nombre_concepto;
