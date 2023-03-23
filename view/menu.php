@@ -127,6 +127,15 @@ class Menu
       </li>
 
       <li class="nav-item">
+      <a id="showPagoRealizado" name="showPagoRealizado" href="' . constant('URL') . 'pago/showPagoRealizado" class="nav-link">
+      <i class="nav-icon fas fa-money-check-alt"></i>
+      <p>
+      Pagos Realizados
+      </p>
+      </a>
+      </li>
+
+      <li class="nav-item">
       <a id="showMateriaAlumno" name="showMateriaAlumno" href="' . constant('URL') . 'materia/showMateriaAlumno" class="nav-link">
       <i class="nav-icon fas fa-book-open"></i>
       <p>
