@@ -122,4 +122,23 @@ class Pago extends Controller
         }
         echo json_encode($obj);
     }
+
+    function readPagosRealizadosByIdAlumno()
+    {
+        $id_alumno = $_POST['id_alumno'];
+        require 'model/pagoDAO.php';
+        $this->loadModel('PagoDAO');
+        $pago_consultaDAO = new PagoDAO();
+        $pago_consultaDAO = $pago_consultaDAO->readPagosRealizadosByIdAlumno($id_alumno);
+
+        $obj = null;
+        if (is_array($pago_consultaDAO) || is_object($pago_consultaDAO)) {
+            foreach ($pago_consultaDAO as $key => $value) {
+                $obj["data"][] = $value;
+            }
+        } else {
+            $obj = array();
+        }
+        echo json_encode($obj);
+    }
 }
