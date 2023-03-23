@@ -11,9 +11,15 @@ class Pago extends Controller
         $this->view->render('pago/index');
     }
 
+    function showPagoRealizado()
+    {
+        $this->view->render('pago/pagoRealizado');
+    }
+
     function insert()
     {
         $id_cobro = $_POST['id_cobro'];
+        $id_alumno = $_POST['id_alumno'];
         $cantidad_pago = $_POST['cantidad_pago'];
         $descripcion_pago = $_POST['descripcion_pago'];
         $monto_cobro_pago = $_POST['monto_cobro_pago'];
@@ -21,6 +27,7 @@ class Pago extends Controller
 
         $data = array(
             'id_cobro' => $id_cobro,
+            'id_alumno' => $id_alumno,
             'cantidad_pago' => $cantidad_pago,
             'descripcion_pago' => $descripcion_pago,
             'monto_cobro_pago' => $monto_cobro_pago,
@@ -38,6 +45,7 @@ class Pago extends Controller
     {
         $id_pago = $_POST['id_pagoActualizar'];
         $id_cobro = $_POST['id_cobroActualizar'];
+        $id_alumno = $_POST['id_alumnoActualizar'];
         $cantidad_pago = $_POST['cantidad_pagoActualizar'];
         $descripcion_pago = $_POST['descripcion_pagoActualizar'];
         $monto_cobro_pago = $_POST['monto_cobro_pagoActualizar'];
@@ -46,6 +54,7 @@ class Pago extends Controller
         $data = array(
             'id_pago' => $id_pago,
             'id_cobro' => $id_cobro,
+            'id_alumno' => $id_alumno,
             'cantidad_pago' => $cantidad_pago,
             'descripcion_pago' => $descripcion_pago,
             'monto_cobro_pago' => $monto_cobro_pago,
