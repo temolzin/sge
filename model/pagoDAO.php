@@ -80,12 +80,12 @@ class PagoDAO extends Model implements CRUD
                 $pago->id_pago = $value['id_pago'];
                 $pago->id_cobro = $value['id_cobro'];
                 $pago->id_alumno = $value['id_alumno'];
-                $pago->cantidad_pago = $value['cantidad_pago'];
+                $pago->cantidad_pago = '$' . number_format($value['cantidad_pago'], 2, '.', ',');
                 $pago->descripcion_pago = $value['descripcion_pago'];
                 $pago->fecha_pago = $value['fecha_pago'];
                 $pago->hora_pago = $value['hora_pago'];
                 $pago->monto_cobro_pago = $value['monto_cobro_pago'];
-                $pago->restante_pago = $value['restante_pago'];
+                $pago->restante_pago = '$' . number_format($value['restante_pago'], 2, '.', ',');
 
                 $pago->nombre_alumno = $value['nombre_alumno'];
                 $pago->appaterno_alumno = $value['appaterno_alumno'];
@@ -121,12 +121,12 @@ class PagoDAO extends Model implements CRUD
                 $pago = new PagoDTO();
                 $pago->id_pago = $value['id_pago'];
                 $pago->id_cobro = $value['id_cobro'];
-                $pago->cantidad_pago = $value['cantidad_pago'];
+                $pago->cantidad_pago = '$' . number_format($value['cantidad_pago'], 2, '.', ',');
                 $pago->descripcion_pago = $value['descripcion_pago'];
                 $pago->fecha_pago = $value['fecha_pago'];
                 $pago->hora_pago = $value['hora_pago'];
                 $pago->monto_cobro_pago = $value['monto_cobro_pago'];
-                $pago->restante_pago = $value['restante_pago'];
+                $pago->restante_pago = '$' . number_format($value['restante_pago'], 2, '.', ',');
                 $pago->nombre_alumno = $value['nombre_alumno'];
                 $pago->appaterno_alumno = $value['appaterno_alumno'];
                 $pago->apmaterno_alumno = $value['apmaterno_alumno'];
@@ -157,11 +157,11 @@ class PagoDAO extends Model implements CRUD
                 $pago->id_pago = $value['id_pago'];
                 $pago->id_cobro = $value['id_cobro'];
                 $pago->id_alumno = $value['id_alumno'];
-                $pago->cantidad_pago = $value['cantidad_pago'];
+                $pago->cantidad_pago = '$' . number_format($value['cantidad_pago'], 2, '.', ',');
                 $pago->descripcion_pago = $value['descripcion_pago'];
                 $pago->hora_pago = $value['hora_pago'];
                 $pago->monto_cobro_pago = $value['monto_cobro_pago'];
-                $pago->restante_pago = $value['restante_pago'];
+                $pago->restante_pago = '$' . number_format($value['restante_pago'], 2, '.', ',');
                 $pago->nombre_alumno = $value['nombre_alumno'];
                 $pago->appaterno_alumno = $value['appaterno_alumno'];
                 $pago->apmaterno_alumno = $value['apmaterno_alumno'];
