@@ -84,7 +84,7 @@ class PagoDAO extends Model implements CRUD
                 $pago->descripcion_pago = $value['descripcion_pago'];
                 $pago->fecha_pago = $value['fecha_pago'];
                 $pago->hora_pago = $value['hora_pago'];
-                $pago->monto_cobro_pago = $value['monto_cobro_pago'];
+                $pago->monto_cobro_pago = '$' . number_format($value['monto_cobro_pago'], 2, '.', ',');
                 $pago->restante_pago = '$' . number_format($value['restante_pago'], 2, '.', ',');
 
                 $pago->nombre_alumno = $value['nombre_alumno'];
@@ -125,7 +125,7 @@ class PagoDAO extends Model implements CRUD
                 $pago->descripcion_pago = $value['descripcion_pago'];
                 $pago->fecha_pago = $value['fecha_pago'];
                 $pago->hora_pago = $value['hora_pago'];
-                $pago->monto_cobro_pago = $value['monto_cobro_pago'];
+                $pago->monto_cobro_pago = '$' . number_format($value['monto_cobro_pago'], 2, '.', ',');
                 $pago->restante_pago = '$' . number_format($value['restante_pago'], 2, '.', ',');
                 $pago->nombre_alumno = $value['nombre_alumno'];
                 $pago->appaterno_alumno = $value['appaterno_alumno'];
@@ -160,7 +160,7 @@ class PagoDAO extends Model implements CRUD
                 $pago->cantidad_pago = '$' . number_format($value['cantidad_pago'], 2, '.', ',');
                 $pago->descripcion_pago = $value['descripcion_pago'];
                 $pago->hora_pago = $value['hora_pago'];
-                $pago->monto_cobro_pago = $value['monto_cobro_pago'];
+                $pago->monto_cobro_pago = '$' . number_format($value['monto_cobro_pago'], 2, '.', ',');
                 $pago->restante_pago = '$' . number_format($value['restante_pago'], 2, '.', ',');
                 $pago->nombre_alumno = $value['nombre_alumno'];
                 $pago->appaterno_alumno = $value['appaterno_alumno'];

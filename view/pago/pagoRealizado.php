@@ -22,7 +22,8 @@ $menu->header('pago_consulta');
                      <thead>
                         <tr>
                            <th>Concepto</th>
-                           <th>Cantidad</th>
+                           <th>Cobro total</th>
+                           <th>Cantidad pago</th>
                            <th>Restante pago</th>
                            <th>Fecha de pago</th>
                            <th>Opciones</th>
@@ -55,32 +56,38 @@ $menu->header('pago_consulta');
                      <div class="card-body border-primary">
                         <div class="row">
                            <input type="text" hidden class="form-control" id="id_pagoConsultar" name="id_pagoConsultar" />
-                           <div class="col-sm-6">
+                           <div class="col-sm-4">
                               <div class="form-group">
                                  <label>Alumno</label>
                                  <select disabled name="id_alumnoConsultar" id="id_alumnoConsultar" class="form-control id_alumno">
                                  </select>
                               </div>
                            </div>
-                           <div class="col-lg-5">
+                           <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Fecha de pago</label>
                                  <input type="text" disabled name="fecha_pagoConsultar" id="fecha_pagoConsultar" class="form-control fecha_pago">
                               </div>
                            </div>
-                           <div class="col-lg-5">
+                           <div class="col-lg-4">
                               <div class="form-group">
-                                 <label>Descripción</label>
+                                 <label>Concepto</label>
                                  <input type="text" disabled name="descripcion_pagoConsultar" id="descripcion_pagoConsultar" class="form-control descripcion_pago">
                               </div>
                            </div>
-                           <div class="col-lg-3">
+                           <div class="col-lg-4">
+                              <div class="form-group">
+                                 <label>Cobro total</label>
+                                 <input type="text" disabled name="monto_cobro_pagoConsultar" id="monto_cobro_pagoConsultar" class="form-control monto_cobro_pago">
+                              </div>
+                           </div>
+                           <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Cantidad pagada</label>
                                  <input type="text" disabled name="cantidad_pagoConsultar" id="cantidad_pagoConsultar" class="form-control cantidad_pago">
                               </div>
                            </div>
-                           <div class="col-lg-3">
+                           <div class="col-lg-4">
                               <div class="form-group">
                                  <label>Cantidad Restante</label>
                                  <input type="text" disabled name="restante_pagoConsultar" id="restante_pagoConsultar" class="form-control restante_pago">
@@ -144,6 +151,9 @@ $menu->footer();
                "data": "descripcion_pago"
             },
             {
+               "data": "monto_cobro_pago"
+            },
+            {
                "data": "cantidad_pago"
             },
             {
@@ -181,6 +191,7 @@ $menu->footer();
 
          var idConsulta = $("#id_pagoConsultar").val(data.id_pago);
          var id_alumnoConsulta = $("#id_alumnoConsultar").val(data.id_alumno);
+         var cobro_total = $("#monto_cobro_pagoConsultar").val(data.monto_cobro_pago);
          var cantidadConsulta = $("#cantidad_pagoConsultar").val(data.cantidad_pago);
          var fecha_pagoConsulta = $("#fecha_pagoConsultar").val(data.hora_pago);
          var descripcionConsulta = $("#descripcion_pagoConsultar").val(data.descripcion_pago);
