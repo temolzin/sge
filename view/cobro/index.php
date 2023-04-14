@@ -7,6 +7,7 @@ require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Cobro');
 ?>
+
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -63,9 +64,11 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Alumno (*)</label>
-                                    <select name="id_alumno" id="id_alumno" class="form-control id_alumno">
-                                        <option value="default">Seleccione el alumno</option>
-                                    </select>
+                                    <div class="form-group">
+                                        <select name="id_alumno" id="id_alumno" class="form-control id_alumno" style="width:100%;">
+                                            <option value="default">Seleccione el alumno</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -127,9 +130,11 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Alumno (*)</label>
-                                    <select name="id_alumnoActualizar" id="id_alumnoActualizar" class="form-control id_alumno">
-                                        <option value="default">Seleccione el alumno</option>
-                                    </select>
+                                    <div class="form-group">
+                                        <select name="id_alumnoActualizar" id="id_alumnoActualizar" class="form-control id_alumno" style="width:100%;">
+                                            <option value="default">Seleccione el alumno</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -185,46 +190,45 @@ $menu->header('Cobro');
                 <!-- /.card-header -->
                 <!-- form start -->
                 <form role="form" id="formConsulta" name="formConsulta">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label>Alumno</label>
-                    <select name="id_alumnoConsultar" id="id_alumnoConsultar" disabled class="form-control id_alumno"></select>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label>Concepto</label>
-                    <select name="id_conceptoConsultar" id="id_conceptoConsultar" disabled class="form-control id_concepto"></select>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <label>Cantidad</label>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                    </div>
-                    <input type="text" disabled class="form-control" id="cantidad_cobroConsultar" name="cantidad_cobroConsultar" />
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <label>Fecha y hora de cobro</label>
-                <input type="text" disabled class="form-control" id="fecha_cobroConsultar" name="fecha_cobroConsultar" />
-            </div>
-            <div class="col-sm-3">
-                <label>Fecha límite</label>
-                <input type="date" disabled class="form-control" id="fechalimite_cobroConsultar" name="fechalimite_cobroConsultar" />
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div>
-    </div>
-</form>
-
+                  <div class="card-body">
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                  <label>Alumno</label>
+                                  <select name="id_alumnoConsultar" id="id_alumnoConsultar" disabled class="form-control id_alumno"></select>
+                              </div>
+                          </div>
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                  <label>Concepto</label>
+                                  <select name="id_conceptoConsultar" id="id_conceptoConsultar" disabled class="form-control id_concepto"></select>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <label>Cantidad</label>
+                              <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                      <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                  </div>
+                                  <input type="text" disabled class="form-control" id="cantidad_cobroConsultar" name="cantidad_cobroConsultar" />
+                              </div>
+                          </div>
+                          <div class="col-sm-3">
+                              <label>Fecha y hora de cobro</label>
+                              <input type="text" disabled class="form-control" id="fecha_cobroConsultar" name="fecha_cobroConsultar" />
+                          </div>
+                          <div class="col-sm-3">
+                              <label>Fecha límite</label>
+                              <input type="date" disabled class="form-control" id="fechalimite_cobroConsultar" name="fechalimite_cobroConsultar" />
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      </div>
+                  </div>
+              </form>
             </div>
         </div>
     </div>
@@ -258,6 +262,10 @@ $menu->footer();
 
 <script>
     $(document).ready(function() {
+    $('.id_alumno').select2();
+});
+
+    $(document).ready(function() {
         mostrarCobros();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
@@ -279,7 +287,7 @@ $menu->footer();
                     var nombre = registro.nombre_alumno;
                     var appat = registro.appaterno_alumno;
                     var apmat = registro.apmaterno_alumno;
-                    $(".id_alumno").append('<option value=' + id + '>' + nombre + ' ' + appat + ' ' + apmat + '</option>');
+                    $('.id_alumno').append(new Option(nombre + ' ' + appat + ' ' + apmat, id, false, false));
                 });
             },
             error: function(data) {
