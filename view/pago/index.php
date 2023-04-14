@@ -8,6 +8,7 @@ require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Pago');
 ?>
+
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -29,8 +30,7 @@ $menu->header('Pago');
                                 <tr>
                                     <th>Concepto</th>
                                     <th>Cantidad</th>
-                                    <th>Fecha</th>
-                                    <th>Hora</th>
+                                    <th>Fecha y Hora</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -72,10 +72,12 @@ $menu->header('Pago');
                             </div>
                             <div class="col-lg-5">
                                 <div class="form-group">
-                                    <label>Cobro (*)</label>
-                                    <select name="id_cobro" id="id_cobro" class="form-control id_cobro">
-                                        <option value="default">Seleccione el cobro</option>
-                                    </select>
+                                    <label>Pago (*)</label>
+                                    <div>
+                                        <select name="id_cobro" id="id_cobro" class="form-control select_cobro" style="width: 100%;">
+                                            <option value="default">Seleccione el pago</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -316,6 +318,9 @@ $menu->footer();
 
 <script>
     $(document).ready(function() {
+        $(document).ready(function() {
+            $('.select_cobro').select2();
+        });
         mostrarPagos();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
@@ -360,7 +365,7 @@ $menu->footer();
                     var apmat = registro.apmaterno_alumno;
                     var cantidad = registro.cantidad_cobro;
                     var concepto = registro.concepto_cobro;
-                    $(".id_cobro").append('<option value=' + id + '>' + nombre + ' ' + appat + ' ' + apmat + ' --> ' + cantidad + ' --> ' + concepto + '</option>');
+                    $('.select_cobro').append(new Option(nombre + ' ' + appat + ' ' + apmat +  ' ---> ' + concepto, id, false, false));
                 });
             },
             error: function(data) {
@@ -386,9 +391,6 @@ $menu->footer();
                 },
                 {
                     "data": "cantidad_pago"
-                },
-                {
-                    "data": "fecha_pago"
                 },
                 {
                     "data": "hora_pago"
@@ -437,7 +439,6 @@ $menu->footer();
             var id_cobroConsulta = $("#id_cobroConsultar option[value=" + data.id_cobro + "]").attr("selected", true);
             var cantidad_pagoConsulta = $("#cantidad_pagoConsultar").val(data.cantidad_pago);
             var descripcion_pagoConsulta = $("#descripcion_pagoConsultar").val(data.descripcion_pago);
-            var fecha_pagoConsulta = $("#fecha_pagoConsultar").val(data.fecha_pago);
             var hora_pagoConsulta = $("#hora_pagoConsultar").val(data.hora_pago);
             var monto_cobro_pagoConsulta = $("#monto_cobro_pagoConsultar").val(data.monto_cobro_pago);
             var restante_pagoConsulta = $("#restante_pagoConsultar").val(data.restante_pago);
