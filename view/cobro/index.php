@@ -7,6 +7,7 @@ require 'view/menu.php';
 $menu = new Menu();
 $menu->header('Cobro');
 ?>
+
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -63,9 +64,11 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Alumno (*)</label>
-                                    <select name="id_alumno" id="id_alumno" class="form-control id_alumno">
-                                        <option value="default">Seleccione el alumno</option>
-                                    </select>
+                                    <div class="form-group">
+                                        <select name="id_alumno" id="id_alumno" class="form-control id_alumno" style="width:100%;">
+                                            <option value="default">Seleccione el alumno</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -141,9 +144,11 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Alumno (*)</label>
-                                    <select name="id_alumnoActualizar" id="id_alumnoActualizar" class="form-control id_alumno">
-                                        <option value="default">Seleccione el alumno</option>
-                                    </select>
+                                    <div class="form-group">
+                                        <select name="id_alumnoActualizar" id="id_alumnoActualizar" class="form-control id_alumno" style="width:100%;">
+                                            <option value="default">Seleccione el alumno</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -224,8 +229,10 @@ $menu->header('Cobro');
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Alumno</label>
-                                    <select name="id_alumnoConsultar" id="id_alumnoConsultar" disabled class="form-control id_alumno">
-                                    </select>
+                                    <div class="form-group">
+                                        <select name="id_alumnoConsultar" id="id_alumnoConsultar" disabled class="form-control id_alumno" style="width:100%;">
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-3">
@@ -306,6 +313,10 @@ $menu->footer();
 
 <script>
     $(document).ready(function() {
+    $('.id_alumno').select2();
+});
+
+    $(document).ready(function() {
         mostrarCobros();
         enviarFormularioRegistrar();
         enviarFormularioActualizar();
@@ -326,7 +337,7 @@ $menu->footer();
                     var nombre = registro.nombre_alumno;
                     var appat = registro.appaterno_alumno;
                     var apmat = registro.apmaterno_alumno;
-                    $(".id_alumno").append('<option value=' + id + '>' + nombre + ' ' + appat + ' ' + apmat + '</option>');
+                    $('.id_alumno').append(new Option(nombre + ' ' + appat + ' ' + apmat, id, false, false));
                 });
             },
             error: function(data) {
