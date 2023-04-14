@@ -197,7 +197,7 @@ $menu->footer();
           required: "Ingrese la nueva contraseña",
           minlength: "La contraseña debe tener al menos 8 caracteres"
         },
-        repetir_password: {
+        repite_password: {
           required: "Repita la nueva contraseña",
           equalTo: "Las contraseñas no coinciden"
         }
