@@ -51,53 +51,47 @@ $menu->header('pago_consulta');
             </div>
             <form role="form" id="formConsulta" name="formConsulta">
                <div class="card-body">
-                  <div class="card">
-                     <!-- /.card-header -->
-                     <div class="card-body border-primary">
-                        <div class="row">
-                           <input type="text" hidden class="form-control" id="id_pagoConsultar" name="id_pagoConsultar" />
-                           <div class="col-sm-4">
-                              <div class="form-group">
-                                 <label>Alumno</label>
-                                 <select disabled name="id_alumnoConsultar" id="id_alumnoConsultar" class="form-control id_alumno">
-                                 </select>
-                              </div>
-                           </div>
-                           <div class="col-lg-4">
-                              <div class="form-group">
-                                 <label>Fecha de pago</label>
-                                 <input type="text" disabled name="fecha_pagoConsultar" id="fecha_pagoConsultar" class="form-control fecha_pago">
-                              </div>
-                           </div>
-                           <div class="col-lg-4">
-                              <div class="form-group">
-                                 <label>Concepto</label>
-                                 <input type="text" disabled name="descripcion_pagoConsultar" id="descripcion_pagoConsultar" class="form-control descripcion_pago">
-                              </div>
-                           </div>
-                           <div class="col-lg-4">
-                              <div class="form-group">
-                                 <label>Cobro total</label>
-                                 <input type="text" disabled name="monto_cobro_pagoConsultar" id="monto_cobro_pagoConsultar" class="form-control monto_cobro_pago">
-                              </div>
-                           </div>
-                           <div class="col-lg-4">
-                              <div class="form-group">
-                                 <label>Cantidad pagada</label>
-                                 <input type="text" disabled name="cantidad_pagoConsultar" id="cantidad_pagoConsultar" class="form-control cantidad_pago">
-                              </div>
-                           </div>
-                           <div class="col-lg-4">
-                              <div class="form-group">
-                                 <label>Cantidad Restante</label>
-                                 <input type="text" disabled name="restante_pagoConsultar" id="restante_pagoConsultar" class="form-control restante_pago">
-                              </div>
-                           </div>
+                  <div class="row">
+                     <input type="text" hidden class="form-control" id="id_pagoConsultar" name="id_pagoConsultar" />
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label>Alumno</label>
+                           <input disabled name="nombre_alumnoConsultar" id="nombre_alumnoConsultar" class="form-control nombre_alumno" />
                         </div>
                      </div>
-                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                     <div class="col-lg-4">
+                        <div class="form-group">
+                           <label>Fecha de pago</label>
+                           <input type="text" disabled name="fecha_pagoConsultar" id="fecha_pagoConsultar" class="form-control fecha_pago">
+                        </div>
                      </div>
+                     <div class="col-lg-4">
+                        <div class="form-group">
+                           <label>Concepto</label>
+                           <input type="text" disabled name="descripcion_pagoConsultar" id="descripcion_pagoConsultar" class="form-control descripcion_pago">
+                        </div>
+                     </div>
+                     <div class="col-lg-4">
+                        <div class="form-group">
+                           <label>Cobro total</label>
+                           <input type="text" disabled name="monto_cobro_pagoConsultar" id="monto_cobro_pagoConsultar" class="form-control monto_cobro_pago">
+                        </div>
+                     </div>
+                     <div class="col-lg-4">
+                        <div class="form-group">
+                           <label>Cantidad pagada</label>
+                           <input type="text" disabled name="cantidad_pagoConsultar" id="cantidad_pagoConsultar" class="form-control cantidad_pago">
+                        </div>
+                     </div>
+                     <div class="col-lg-4">
+                        <div class="form-group">
+                           <label>Cantidad Restante</label>
+                           <input type="text" disabled name="restante_pagoConsultar" id="restante_pagoConsultar" class="form-control restante_pago">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                   </div>
                </div>
             </form>
@@ -113,30 +107,7 @@ $menu->footer();
 <script>
    $(document).ready(function() {
       mostrarPagosRealizados();
-      llenarAlumno();
    });
-
-   const llenarAlumno = () => {
-      $.ajax({
-         type: "GET",
-         url: "<?php echo constant('URL'); ?>alumno/read",
-         async: false,
-         dataType: "json",
-         success: function(data) {
-            $.each(data, function(key, registro) {
-               var id = registro.id_alumno;
-               var nombre = registro.nombre_alumno;
-               var appat = registro.appaterno_alumno;
-               var apmat = registro.apmaterno_alumno;
-               $(".id_alumno").append('<option value=' + id + '>' + nombre + ' ' + appat + ' ' + apmat + '</option>');
-
-            });
-         },
-         error: function(data) {
-            console.log(data);
-         }
-      });
-   }
 
    var mostrarPagosRealizados = function() {
       var tablePagoRealizado = $('#dataTablePagoRealizado').DataTable({
@@ -145,7 +116,9 @@ $menu->footer();
             "serverSide": false,
             "type": "POST",
             "url": "<?php echo constant('URL'); ?>pago/readPagosRealizadosByIdAlumno",
-            "data": {id_alumno: '<?php echo $_SESSION['id']; ?>'},
+            "data": {
+               id_alumno: '<?php echo $_SESSION['id']; ?>'
+            },
          },
          "columns": [{
                "data": "descripcion_pago"
@@ -190,7 +163,7 @@ $menu->footer();
          var data = table.row(this).data();
 
          var idConsulta = $("#id_pagoConsultar").val(data.id_pago);
-         var id_alumnoConsulta = $("#id_alumnoConsultar").val(data.id_alumno);
+         var nombre_alumnoConsulta = $("#nombre_alumnoConsultar").val(data.nombre_alumno + ' ' + data.appaterno_alumno + ' ' + data.apmaterno_alumno);
          var cobro_total = $("#monto_cobro_pagoConsultar").val(data.monto_cobro_pago);
          var cantidadConsulta = $("#cantidad_pagoConsultar").val(data.cantidad_pago);
          var fecha_pagoConsulta = $("#fecha_pagoConsultar").val(data.hora_pago);
