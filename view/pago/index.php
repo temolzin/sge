@@ -35,6 +35,7 @@ $menu->header('Pago');
                                 </tr>
                             </thead>
                         </table>
+                        <a href="<?php echo constant('URL'); ?>pago/generarReporte" id="export_pdf" class="btn btn-primary">Generar Reporte</a>
                     </div>
                 </div>
             </div>
@@ -61,6 +62,7 @@ $menu->header('Pago');
                 <form role="form" id="formRegistrarPago" name="formRegistrarPago" method="post">
                     <div class="card-body">
                         <div class="row">
+                            
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Pago (*)</label>

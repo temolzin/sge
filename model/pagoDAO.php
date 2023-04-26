@@ -130,4 +130,15 @@ class PagoDAO extends Model implements CRUD
 
         return $objPagos;
     }
+
+    public function obtenerDatos(&$pagos)
+    {
+        $query = $this->db->conectar()->prepare("SELECT pago.*, escuela.foto_escuela, escuela.nombre_escuela, 
+        escuela.telefono_escuela, escuela.email_escuela, escuela.cct_escuela, 
+        escuela.rfc_escuela FROM pago INNER JOIN escuela ON pago.id_escuela = escuela.id_escuela");
+        $query->execute();
+        $resultados = $query->fetchAll(PDO::FETCH_ASSOC);
+        
+        $pagos = $resultados;
+    }
 }

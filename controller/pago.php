@@ -113,4 +113,33 @@ class Pago extends Controller
         }
         echo json_encode($obj);
     }
+
+    function generarReporte()
+    {
+        require_once __DIR__ . '/../vendor/autoload.php';
+        require_once __DIR__ . '/../view/pago/reportePago/plantillaReporte.php';
+
+        $pagos = array();
+        require 'model/pagoDAO.php';
+        $this->loadModel('PagoDAO');
+        $pagoDAO = new PagoDAO();
+        $pagoDAO->obtenerDatos($pagos);
+
+        $fullname = $cct_escuela . "_" . $rfc_escuela . "_" . $nombre_escuela;
+        $carpeta ="public/escuela/" . $fullname;
+        $ruta_imagen = constant('URL') . $carpeta . "/";
+
+
+        $css = file_get_contents(__DIR__ . '/../view/pago/reportePago/styles.css');
+
+        $mpdf = new \Mpdf\Mpdf([]);
+
+        $plantilla = getPlantilla($pagos, $ruta_imagen);
+
+        $mpdf->writeHTML($css, \Mpdf\HTMLParserMode::HEADER_CSS);
+        $mpdf->writeHTML($plantilla, \Mpdf\HTMLParserMode::HTML_BODY);
+
+        header('Content-Type: application/pdf');
+        $mpdf->Output("reportePago", "I");
+    }
 }
