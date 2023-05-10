@@ -81,6 +81,7 @@ class UsuarioDAO extends Model implements CRUD
 
                         //Info alumno
                         $_SESSION['id'] = $value['id_usuario'];
+                        $_SESSION['id'] = $value['id_alumno'];
                         $_SESSION['id_grupo'] = $value['id_grupo'];
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['foto'] = $value['foto_alumno'];
@@ -131,6 +132,7 @@ class UsuarioDAO extends Model implements CRUD
                     foreach (($query) as $key => $value) {
 
                         $_SESSION['id'] = $value['id_usuario'];
+                        $_SESSION['id'] = $value['id_administrador'];
                         $_SESSION['foto'] = $value['foto_administrador'];
                         $_SESSION['nombre'] = $value['nombre_administrador'];
                         $_SESSION['appaterno'] = $value['appaterno_administrador'];
@@ -183,6 +185,7 @@ class UsuarioDAO extends Model implements CRUD
 
                         //Info Alumno
                         $_SESSION['id'] = $value['id_usuario'];
+                        $_SESSION['id'] = $value['id_alumno'];
                         $_SESSION['id_alumno'] = $value['id_alumno'];
                         $_SESSION['id_grupo'] = $value['id_grupo'];
                         $_SESSION['id_escuela'] = $value['id_escuela'];
@@ -234,6 +237,7 @@ class UsuarioDAO extends Model implements CRUD
                     foreach (($query) as $key => $value) {
 
                         $_SESSION['id'] = $value['id_usuario'];
+                        $_SESSION['id'] = $value['id_profesor'];
                         $_SESSION['id_grado_academico'] = $value['id_grado_academico'];
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['id_usuario'] = $value['id_usuario'];
@@ -279,6 +283,7 @@ class UsuarioDAO extends Model implements CRUD
                     foreach (($query) as $key => $value) {
 
                         $_SESSION['id'] = $value['id_usuario'];
+                        $_SESSION['id'] = $value['id_director'];
                         $_SESSION['id_escuela'] = $value['id_escuela'];
                         $_SESSION['id_grado_academico'] = $value['id_grado_academico'];
                         $_SESSION['foto'] = $value['foto_director'];

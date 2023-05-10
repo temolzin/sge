@@ -93,7 +93,7 @@ $menu->header('Tablero');
         <!-- /.card-header -->
         <!-- form start -->
         <form role="form" id="formCambiarPassword" name="formCambiarPassword" method="post">
-          <input type="hidden" name="id_usuario" value="<?php echo $_SESSION['id']; ?>">
+          <input type="hidden" name="id_cambio_password" value="<?php echo $_SESSION['id']; ?>">
           <div class="card-body">
 
             <!-- /.card-tools -->
@@ -180,7 +180,7 @@ $menu->footer();
 
     $('#formCambiarPassword').validate({
       rules: {
-        id: {
+        id_cambio_password: {
           required: true
         },
         nueva_password: {

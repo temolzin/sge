@@ -44,7 +44,7 @@ class Usuario extends Controller
 
   function updatePassword()
   {
-    $id_usuario = $_POST['id_usuario'];
+    $id_usuario = $_POST['id_cambio_password'];
     $password = $_POST['nueva_password'];
     $confirm_password = $_POST['repite_password'];
   
