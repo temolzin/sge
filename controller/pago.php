@@ -129,7 +129,6 @@ class Pago extends Controller
         $carpeta ="public/escuela/" . $fullname;
         $ruta_imagen = constant('URL') . $carpeta . "/";
 
-
         $css = file_get_contents(__DIR__ . '/../view/pago/reportePago/styles.css');
 
         $mpdf = new \Mpdf\Mpdf([]);

@@ -15,7 +15,7 @@ $plantilla= '
   </div>
   <div id="company">
   <div id="logo">
-    <img src="" width="100" height="100">
+    <img src="favicon.png" width="100" height="100">
   </div>
     <h2 class="name">' . $pagos[0]['nombre_escuela'] . '</h2>
     <div>' . $pagos[0]['telefono_escuela'] . '</div>
