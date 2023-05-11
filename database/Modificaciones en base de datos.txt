@@ -1,0 +1,37 @@
+Modificaciones en base
+
+//Creación de tabla concepto (concepto de pago)
+
+CREATE TABLE `concepto` (
+  `id_concepto` int(11) NOT NULL,
+  `nombre_concepto` varchar(30) DEFAULT NULL,
+  `descripcion_concepto` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `concepto`
+  ADD PRIMARY KEY (`id_concepto`);
+  MODIFY `id_concepto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+//Registros
+INSERT INTO `concepto` (`id_concepto`, `nombre_concepto`, `descripcion_concepto`) VALUES
+(1, 'Reinscripción', 'Reinscripción Cuatrimestral'),
+(2, 'Constancia', 'Constancia de estudios'),
+(3, 'Seguro', 'Seguro médico'),
+(14, 'Inscripción', 'Inscripción inicial');
+
+//Modificación de tabla cobro para datos de concepto
+ALTER TABLE `cobro`
+ADD COLUMN `id_concepto` int(11) NOT NULL;
+ADD KEY `id_concepto` (`id_concepto`);
+
+
+//Modificación de formato de fecha de pago en tabla pago
+
+ALTER TABLE `pago`
+MODIFY COLUMN `hora_pago` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp();
+DROP COLUMN `fecha_pago`;
+
+//Modificación de formato de fecha_cobro en tabla cobro
+
+ALTER TABLE `cobro`
+MODIFY COLUMN `fecha_cobro` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp();
