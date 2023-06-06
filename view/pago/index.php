@@ -35,6 +35,7 @@ $menu->header('Pago');
                                 </tr>
                             </thead>
                         </table>
+                        <a href="<?php echo constant('URL'); ?>pago/generarReporte?id_escuela=<?php echo $_SESSION['id_escuela']; ?>" id="export_pdf" class="btn btn-primary">Generar Reporte</a>
                     </div>
                 </div>
             </div>
