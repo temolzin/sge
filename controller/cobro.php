@@ -14,16 +14,14 @@ class Cobro extends Controller
     function insert()
     {
         $id_alumno = $_POST['id_alumno'];
+        $id_concepto = $_POST['id_concepto'];
         $cantidad_cobro = $_POST['cantidad_cobro'];
-        $iva_cobro =  $_POST['iva_cobro'];
-        $concepto_cobro = $_POST['concepto_cobro'];
         $fechalimite_cobro = $_POST['fechalimite_cobro'];
 
         $data = array(
             'id_alumno' => $id_alumno,
+            'id_concepto' => $id_concepto,
             'cantidad_cobro' => $cantidad_cobro,
-            'iva_cobro' => $iva_cobro,
-            'concepto_cobro' => $concepto_cobro,
             'fechalimite_cobro' => $fechalimite_cobro
         );
 
@@ -38,17 +36,15 @@ class Cobro extends Controller
     {
         $id_cobro = $_POST['id_cobroActualizar'];
         $id_alumno = $_POST['id_alumnoActualizar'];
+        $id_concepto = $_POST['id_conceptoActualizar'];
         $cantidad_cobro = $_POST['cantidad_cobroActualizar'];
-        $iva_cobro =  $_POST['iva_cobroActualizar'];
-        $concepto_cobro = $_POST['concepto_cobroActualizar'];
         $fechalimite_cobro = $_POST['fechalimite_cobroActualizar'];
 
         $data = array(
             'id_cobro' => $id_cobro,
             'id_alumno' => $id_alumno,
+            'id_concepto' => $id_concepto,
             'cantidad_cobro' => $cantidad_cobro,
-            'iva_cobro' => $iva_cobro,
-            'concepto_cobro' => $concepto_cobro,
             'fechalimite_cobro' => $fechalimite_cobro
         );
 
@@ -83,6 +79,10 @@ class Cobro extends Controller
         $this->loadModel('CobroDAO');
         $cobroDAO = new CobroDAO();
         $cobroDAO = $cobroDAO->read();
+
+        require 'model/conceptoDAO.php';
+        $conceptoDAO = new ConceptoDAO();
+        $conceptos = $conceptoDAO->read();
 
         $obj = null;
         if (is_array($cobroDAO) || is_object($cobroDAO)) {

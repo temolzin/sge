@@ -251,6 +251,14 @@ class Menu
       </a>
       </li>
       <li class="nav-item">
+      <a id="concepto" name="concepto" href="' . constant('URL') . 'concepto/index" class="nav-link">
+      <i class="nav-icon fas fa-file"></i>
+      <p>
+      Conceptos de pago
+      </p>
+      </a>
+      </li>
+      <li class="nav-item">
       <a id="cobro" name="cobro" href="' . constant('URL') . 'cobro" class="nav-link">
       <i class="nav-icon fas fa-hand-holding-usd"></i>
       <p>

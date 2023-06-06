@@ -8,18 +8,16 @@ class CobroDAO extends Model implements CRUD {
 
     public function insert($data)
     {
-        $query = $this->db->conectar()->prepare('INSERT INTO cobro (`id_cobro`, `id_alumno`, `cantidad_cobro`, `iva_cobro`, `concepto_cobro`, `fechalimite_cobro`, `activo_cobro`) 
+        $query = $this->db->conectar()->prepare('INSERT INTO cobro (`id_cobro`, `id_alumno`, `id_concepto`, `cantidad_cobro`, `fechalimite_cobro`, `activo_cobro`) 
             values (null, 
-            :id_alumno, 
-            :cantidad_cobro, 
-            :iva_cobro , 
-            :concepto_cobro , 
+            :id_alumno,
+            :id_concepto, 
+            :cantidad_cobro,  
             :fechalimite_cobro, 
             :activo_cobro)');
         $query->execute([':id_alumno' => $data['id_alumno'],
+            ':id_concepto' => $data['id_concepto'],
             ':cantidad_cobro' => $data['cantidad_cobro'], 
-            ':iva_cobro' => $data['iva_cobro'], 
-            ':concepto_cobro' => $data['concepto_cobro'], 
             ':fechalimite_cobro' => $data['fechalimite_cobro'], 
             ':activo_cobro' => 1]); 
         echo 'ok'; 
@@ -28,17 +26,15 @@ class CobroDAO extends Model implements CRUD {
     public function update($data)
     {
         $query = $this->db->conectar()->prepare('UPDATE cobro SET  
-            id_alumno = :id_alumno, 
+            id_alumno = :id_alumno,
+            id_concepto = :id_concepto, 
             cantidad_cobro = :cantidad_cobro, 
-            iva_cobro = :iva_cobro, 
-            concepto_cobro = :concepto_cobro, 
             fechalimite_cobro = :fechalimite_cobro 
             WHERE id_cobro = :id_cobro');
         $query->execute([':id_cobro' => $data['id_cobro'], 
-            ':id_alumno' => $data['id_alumno'], 
-            ':cantidad_cobro' => $data['cantidad_cobro'], 
-            ':iva_cobro' => $data['iva_cobro'], 
-            ':concepto_cobro' => $data['concepto_cobro'], 
+            ':id_alumno' => $data['id_alumno'],
+            ':id_concepto' => $data['id_concepto'], 
+            ':cantidad_cobro' => $data['cantidad_cobro'],  
             ':fechalimite_cobro' => $data['fechalimite_cobro']]); 
         echo 'ok'; 
     }
@@ -58,7 +54,9 @@ class CobroDAO extends Model implements CRUD {
         INNER JOIN alumno 
         ON cobro.id_alumno=alumno.id_alumno 
         INNER JOIN escuela 
-        ON alumno.id_escuela=escuela.id_escuela 
+        ON alumno.id_escuela=escuela.id_escuela
+        INNER JOIN concepto 
+        ON cobro.id_concepto=concepto.id_concepto 
         WHERE cobro.id_alumno=alumno.id_alumno 
         AND alumno.id_escuela = escuela.id_escuela 
         AND escuela.id_escuela = '".$id_escuela."'";
@@ -69,9 +67,9 @@ class CobroDAO extends Model implements CRUD {
                 $cobro = new CobroDTO();
                 $cobro->id_cobro = $value['id_cobro'];
                 $cobro->id_alumno = $value['id_alumno'];
-                $cobro->cantidad_cobro = $value['cantidad_cobro'];
-                $cobro->iva_cobro = $value['iva_cobro'];
-                $cobro->concepto_cobro = $value['concepto_cobro'];
+                $cobro->id_concepto = $value['id_concepto'];
+                $cobro->cantidad_cobro = '$' . number_format($value['cantidad_cobro'], 2, '.', ',');
+                $cobro->nombre_concepto = $value['nombre_concepto'];
                 $cobro->fecha_cobro = $value['fecha_cobro'];
                 $cobro->fechalimite_cobro = $value['fechalimite_cobro'];
                 $cobro->activo_cobro = $value['activo_cobro']; 
