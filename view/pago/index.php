@@ -61,7 +61,16 @@ $menu->header('Pago');
                 <form role="form" id="formRegistrarPago" name="formRegistrarPago" method="post">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <input type="text" hidden class="form-control" id="id_pago" name="id_pago" />
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label>Alumno (*)</label>
+                                    <select name="id_alumno" id="id_alumno" class="form-control id_alumno">
+                                        <option value="default">Seleccione el alumno</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
                                 <div class="form-group">
                                     <label>Pago (*)</label>
                                     <div>
@@ -71,7 +80,7 @@ $menu->header('Pago');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <label>Cantidad (*)</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -317,7 +326,29 @@ $menu->footer();
         enviarFormularioActualizar();
         eliminarRegistro();
         llenarCobro();
+        llenarAlumno();
     });
+
+    const llenarAlumno = () => {
+        $.ajax({
+            type: "GET",
+            url: "<?php echo constant('URL'); ?>alumno/read",
+            async: false,
+            dataType: "json",
+            success: function(data) {
+                $.each(data, function(key, registro) {
+                    var id = registro.id_alumno;
+                    var nombre = registro.nombre_alumno;
+                    var appat = registro.appaterno_alumno;
+                    var apmat = registro.apmaterno_alumno;
+                    $(".id_alumno").append('<option value=' + id + '>' + nombre + ' ' + appat + ' ' + apmat + '</option>');
+                });
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    }
 
     const llenarCobro = () => {
         $.ajax({
@@ -345,13 +376,15 @@ $menu->footer();
 
     var mostrarPagos = function() {
         var tablePago = $('#dataTablePago').DataTable({
-            
+
             "ajax": {
-            "processing": true,
-            "serverSide": false,
-            "type": "POST",
-            "url":"<?php echo constant('URL'); ?>pago/readByIdEscuela",
-            "data": {id_escuela: '<?php echo $_SESSION['id_escuela']; ?>'},
+                "processing": true,
+                "serverSide": false,
+                "type": "POST",
+                "url": "<?php echo constant('URL'); ?>pago/readByIdEscuela",
+                "data": {
+                    id_escuela: '<?php echo $_SESSION['id_escuela']; ?>'
+                },
             },
             "columns": [{
                     "data": "descripcion_pago"
@@ -429,7 +462,7 @@ $menu->footer();
                             ).then(function() {
                                 window.location = "<?php echo constant('URL'); ?>pago";
                             })
-                            
+
                         } else {
                             Swal.fire(
                                 "¡Error!",

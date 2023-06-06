@@ -3,6 +3,7 @@ class PagoDTO implements JsonSerializable
 {
     private $id_pago;
     private $id_cobro;
+    private $id_alumno;
     private $cantidad_pago;
     private $descripcion_pago;
     private $fecha_pago;
