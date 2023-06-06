@@ -1,14 +1,13 @@
 <?php
-    class Perfil extends Controller
+class Perfil extends Controller
+{
+    function __construct()
     {
-        function __construct()
-        {
-            parent::__construct();
-        }
-
-        function index(){
-            $this->view->render('perfil/index');
-        }
-
-      
+        parent::__construct();
     }
+
+    function index()
+    {
+        $this->view->render('perfil/index');
+    }
+}
